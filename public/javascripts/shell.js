@@ -14,6 +14,7 @@
 var spa = (function () {
   var initModule = function ( $container ) {
     spa.navbar.initModule( $container );
+    spa.intro.initModule($container);
   };
   return { initModule: initModule };
 }());
@@ -21,22 +22,3 @@ var spa = (function () {
 
 
 
-var stamp = function () {
-	let $navbar = $("#nav-top-bar");
-	let navbarOuterHeight = $navbar.outerHeight();
-	let cssStyle = {
-		height: navbarOuterHeight + "px",
-		marginBottom: "30px"
-	};
-	$("#nav-stamp").css(cssStyle);
-
-
-	let $jumbotron = $("div.jumbotron");
-	cssStyle = {
-		backgroundColor: "rgba(238, 238, 238, 0.2)",
-		backgroundSize: "cover",
-		backgroundRepeat: "no-repeat"
-	};
-	$jumbotron.css(cssStyle);
-
-}

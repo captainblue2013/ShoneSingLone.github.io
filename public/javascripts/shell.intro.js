@@ -181,7 +181,6 @@ spa.navbar = (function() {
         // 根据URL 的 map 有哪些就更新成哪些
         KEYVAL:
             for (key_name in arg_map) {
-                debugger;
                 if (arg_map.hasOwnProperty(key_name)) {
 
                     // skip dependent keys during iteration
@@ -247,7 +246,6 @@ spa.navbar = (function() {
             $.uriAnchor.setAnchor(anchor_map_previous, null, true);
             return false;
         }
-        debugger;
         stateMap.anchor_map = anchor_map_proposed;
 
         // convenience vars
@@ -289,7 +287,6 @@ spa.navbar = (function() {
     //------------------- BEGIN PUBLIC METHODS -------------------
     // Begin Public method /initModule/
     initModule = function($container) {
-        debugger;
         // load HTML and map jQuery collections
         stateMap.$container = $container;
         $container.html(configMap.main_html);

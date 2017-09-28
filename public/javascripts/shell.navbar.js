@@ -1,5 +1,5 @@
 /*
- * spa.navbar.js
+ * shell.navbar.js
  * Shell module for SPA
  */
 
@@ -11,7 +11,7 @@
 */
 /*global $, spa */
 
-spa.navbar = (function() {
+shell.navbar = (function () {
     //---------------- BEGIN MODULE SCOPE VARIABLES --------------
     var
         configMap = {
@@ -19,42 +19,42 @@ spa.navbar = (function() {
                 chat: { open: true, closed: true }
             },
             main_html: String() +
-                '        <nav id="nav-top-bar" class="navbar navbar-default navbar-fixed-top">' +
-                '            <div class="container">' +
-                '                <div class="navbar-header">' +
-                '                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"' +
-                '                        aria-controls="navbar">' +
-                '                        <span class="sr-only">Toggle navigation</span>' +
-                '                        <span class="icon-bar"></span>' +
-                '                        <span class="icon-bar"></span>' +
-                '                        <span class="icon-bar"></span>' +
-                '                    </button>' +
-                '                    <a class="navbar-brand" href="#">ShoneSingLone\'s MicroSite</a>' +
-                '                </div>' +
-                '                <div id="navbar" class="navbar-collapse collapse">' +
-                '                    <ul class="nav navbar-nav">' +
-                '                    </ul>' +
-                '                    <ul class="nav navbar-nav navbar-right">' +
-                '                        <li><a href="">Home</a></li>' +
-                '                        <li><a href="#contact">Contact</a></li>' +
-                '                        <li><a href="#about">关于我</a></li>' +
-                '                        <li class="dropdown" style="display:none;">' +
-                '                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>' +
-                '                            <ul class="dropdown-menu">' +
-                '                                <li><a href="#">Action</a></li>' +
-                '                                <li><a href="#">Another action</a></li>' +
-                '                                <li><a href="#">Something else here</a></li>' +
-                '                                <li role="separator" class="divider"></li>' +
-                '                                <li class="dropdown-header">Nav header</li>' +
-                '                                <li><a href="#">Separated link</a></li>' +
-                '                                <li><a href="#">One more separated link</a></li>' +
-                '                            </ul>' +
-                '                        </li>' +
-                '                    </ul>' +
-                '                </div>' +
-                '            </div>' +
-                '        </nav>' +
-                '        <div id="nav-stamp"></div>',
+            '        <nav id="nav-top-bar" class="navbar navbar-default navbar-fixed-top">' +
+            '            <div class="container">' +
+            '                <div class="navbar-header">' +
+            '                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"' +
+            '                        aria-controls="navbar">' +
+            '                        <span class="sr-only">Toggle navigation</span>' +
+            '                        <span class="icon-bar"></span>' +
+            '                        <span class="icon-bar"></span>' +
+            '                        <span class="icon-bar"></span>' +
+            '                    </button>' +
+            '                    <a class="navbar-brand" href="#">ShoneSingLone\'s MicroSite</a>' +
+            '                </div>' +
+            '                <div id="navbar" class="navbar-collapse collapse">' +
+            '                    <ul class="nav navbar-nav">' +
+            '                    </ul>' +
+            '                    <ul class="nav navbar-nav navbar-right">' +
+            '                        <li><a href="">Home</a></li>' +
+            '                        <li><a href="#contact">Contact</a></li>' +
+            '                        <li><a href="#about">关于我</a></li>' +
+            '                        <li class="dropdown" style="display:none;">' +
+            '                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>' +
+            '                            <ul class="dropdown-menu">' +
+            '                                <li><a href="#">Action</a></li>' +
+            '                                <li><a href="#">Another action</a></li>' +
+            '                                <li><a href="#">Something else here</a></li>' +
+            '                                <li role="separator" class="divider"></li>' +
+            '                                <li class="dropdown-header">Nav header</li>' +
+            '                                <li><a href="#">Separated link</a></li>' +
+            '                                <li><a href="#">One more separated link</a></li>' +
+            '                            </ul>' +
+            '                        </li>' +
+            '                    </ul>' +
+            '                </div>' +
+            '            </div>' +
+            '        </nav>' +
+            '        <div id="nav-stamp"></div>',
             chat_extend_time: 1000,
             chat_retract_time: 300,
             chat_extend_height: 450,
@@ -76,14 +76,14 @@ spa.navbar = (function() {
 
     //------------------- BEGIN UTILITY METHODS ------------------
     // Returns copy of stored anchor map; minimizes overhead
-    copyAnchorMap = function() {
+    copyAnchorMap = function () {
         return $.extend(true, {}, stateMap.anchor_map);
     };
     //-------------------- END UTILITY METHODS -------------------
 
     //--------------------- BEGIN DOM METHODS --------------------
     // Begin DOM method /setJqueryMap/
-    setJqueryMap = function() {
+    setJqueryMap = function () {
         var $container = stateMap.$container;
 
         jqueryMap = {
@@ -108,7 +108,7 @@ spa.navbar = (function() {
     //   * true  - slider is retracted
     //   * false - slider is extended
     //
-    toggleChat = function(do_extend, callback) {
+    toggleChat = function (do_extend, callback) {
         var
             px_chat_ht = jqueryMap.$chat.height(),
             is_open = px_chat_ht === configMap.chat_extend_height,
@@ -124,7 +124,7 @@ spa.navbar = (function() {
         if (do_extend) {
             jqueryMap.$chat.animate({ height: configMap.chat_extend_height },
                 configMap.chat_extend_time,
-                function() {
+                function () {
                     jqueryMap.$chat.attr(
                         'title', configMap.chat_extended_title
                     );
@@ -139,7 +139,7 @@ spa.navbar = (function() {
         // Begin retract chat slider
         jqueryMap.$chat.animate({ height: configMap.chat_retract_height },
             configMap.chat_retract_time,
-            function() {
+            function () {
                 jqueryMap.$chat.attr(
                     'title', configMap.chat_retracted_title
                 );
@@ -171,7 +171,7 @@ spa.navbar = (function() {
     //     * Attempts to change the URI using uriAnchor.
     //     * Returns true on success, and false on failure.
     //
-    changeAnchorPart = function(arg_map) {
+    changeAnchorPart = function (arg_map) {
         var
             anchor_map_revise = copyAnchorMap(),
             bool_return = true,
@@ -180,30 +180,30 @@ spa.navbar = (function() {
         // Begin merge changes into anchor map
         // 根据URL 的 map 有哪些就更新成哪些
         KEYVAL:
-            for (key_name in arg_map) {
-                debugger;
-                if (arg_map.hasOwnProperty(key_name)) {
+        for (key_name in arg_map) {
 
-                    // skip dependent keys during iteration
-                    // 这种属性类似与_proto_
-                    if (key_name.indexOf('_') === 0) {
-                        continue KEYVAL;
-                    }
+            if (arg_map.hasOwnProperty(key_name)) {
 
-                    // update independent key value
-                    anchor_map_revise[key_name] = arg_map[key_name];
+                // skip dependent keys during iteration
+                // 这种属性类似与_proto_
+                if (key_name.indexOf('_') === 0) {
+                    continue KEYVAL;
+                }
 
-                    // update matching dependent key
-                    key_name_dep = '_' + key_name;
-                    if (arg_map[key_name_dep]) {
-                        anchor_map_revise[key_name_dep] = arg_map[key_name_dep];
-                    } else {
-                        delete anchor_map_revise[key_name_dep];
-                        delete anchor_map_revise['_s' + key_name_dep];
-                    }
+                // update independent key value
+                anchor_map_revise[key_name] = arg_map[key_name];
+
+                // update matching dependent key
+                key_name_dep = '_' + key_name;
+                if (arg_map[key_name_dep]) {
+                    anchor_map_revise[key_name_dep] = arg_map[key_name_dep];
+                } else {
+                    delete anchor_map_revise[key_name_dep];
+                    delete anchor_map_revise['_s' + key_name_dep];
                 }
             }
-            // End merge changes into anchor map
+        }
+        // End merge changes into anchor map
 
         // Begin attempt to update URI; revert if not successful
         try {
@@ -233,7 +233,7 @@ spa.navbar = (function() {
     //   * Adjust the application only where proposed state
     //     differs from existing
     //
-    onHashchange = function(event) {
+    onHashchange = function (event) {
         var
             anchor_map_previous = copyAnchorMap(),
             anchor_map_proposed,
@@ -247,7 +247,7 @@ spa.navbar = (function() {
             $.uriAnchor.setAnchor(anchor_map_previous, null, true);
             return false;
         }
-        debugger;
+
         stateMap.anchor_map = anchor_map_proposed;
 
         // convenience vars
@@ -277,7 +277,7 @@ spa.navbar = (function() {
     // End Event handler /onHashchange/
 
     // Begin Event handler /onClickChat/
-    onClickChat = function(event) {
+    onClickChat = function (event) {
         changeAnchorPart({
             chat: (stateMap.is_chat_retracted ? 'open' : 'closed')
         });
@@ -288,12 +288,10 @@ spa.navbar = (function() {
 
     //------------------- BEGIN PUBLIC METHODS -------------------
     // Begin Public method /initModule/
-    initModule = function($container) {
-        debugger;
+    initModule = function ($container) {
         // load HTML and map jQuery collections
         stateMap.$container = $container;
         $container.html(configMap.main_html);
-
 
         let $navbar = $("#nav-top-bar");
         let navbarOuterHeight = $navbar.outerHeight();
@@ -302,17 +300,6 @@ spa.navbar = (function() {
             marginBottom: "30px"
         };
         $("#nav-stamp").css(cssStyle);
-
-
-        let $jumbotron = $("div.jumbotron");
-        cssStyle = {
-            backgroundColor: "rgba(238, 238, 238, 0.2)",
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat"
-        };
-        $jumbotron.css(cssStyle);
-
-
         // setJqueryMap();
 
         // initialize chat slider and bind click handler

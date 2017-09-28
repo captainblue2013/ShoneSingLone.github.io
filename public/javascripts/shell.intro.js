@@ -1,5 +1,5 @@
 /*
- * spa.navbar.js
+ * shell.navbar.js
  * Shell module for SPA
  */
 
@@ -11,7 +11,7 @@
 */
 /*global $, spa */
 
-spa.navbar = (function() {
+shell.navbar = (function() {
     //---------------- BEGIN MODULE SCOPE VARIABLES --------------
     var
         configMap = {

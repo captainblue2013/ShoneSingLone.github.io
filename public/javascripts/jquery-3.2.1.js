@@ -6343,6 +6343,7 @@ function augmentWidthOrHeight( elem, name, extra, isBorderBox, styles ) {
 function getWidthOrHeight( elem, name, extra ) {
 
 	// Start with computed style
+	
 	var valueIsBorderBox,
 		styles = getStyles( elem ),
 		val = curCSS( elem, name, styles ),
@@ -9241,6 +9242,7 @@ jQuery.extend( {
 					statusText = "nocontent";
 
 				// if not modified
+				// 资源未修改，可以从缓存获取
 				} else if ( status === 304 ) {
 					statusText = "notmodified";
 

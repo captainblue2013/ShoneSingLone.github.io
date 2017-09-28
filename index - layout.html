@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>ShoneSingLone's MicroSite</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/png" href="./public/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <script src="./public/javascripts/jquery-3.2.1.js"></script>
     <script src="./public/javascripts/jquery.uriAnchor-1.1.3.js"></script>
     <script src="./public/javascripts/headroom.js"></script>
@@ -13,45 +12,101 @@
     <script src="./public/javascripts/shell.js"></script>
     <script src="./public/javascripts/shell.navbar.js"></script>
     <link href="./public/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
-    <link href="./public/stylesheets/main.css" rel="stylesheet" media="screen">
+    <link id="themeCss" href="./public/stylesheets/main.css" rel="stylesheet" media="screen">
+    <link href="./public/favicon.ico" rel="shortcut icon" type="image/png" />
+    <style>
+        /* * {
+            outline: 1px solid;
+        } */
+    </style>
 </head>
 <script>
     $(function () {
-        $("body").append("<h1>new title</h1>");
-        var htmlString = $(".navbar-header:first").html();
-        for (var i = 100 - 1; i >= 0; i--) {
-            $("body").append(htmlString);
-        }
+        let $navbar = $("#nav-top-bar");
+        let navbarOuterHeight = $navbar.outerHeight();
+        let cssStyle = {
+            height: `${navbarOuterHeight}px`,
+            marginBottom: "1em"
+        };
 
-        $("#nav-top-bar").headroom({
-            "tolerance": 5,
-            "offset": 205,
-            "classes": {
-                "initial": "animated",
-                "pinned": "bounceInDown",
-                "unpinned": "bounceOutUp"
+        $("#nav-stamp").css(cssStyle);
+        $("#buttonTest").on("click", (function () {
+            var isChange = true;
+            return function () {
+                if (isChange) {
+                    $("#themeCss").attr("href", "./public/stylesheets/main2.css");
+                } else {
+                    $("#themeCss").attr("href", "./public/stylesheets/main.css");
+                }
+                isChange = !isChange;
+            };
+        })());
+        getJsonByQuery(3);
+        getJsonByQuery(1);
+        getJsonByQuery(4);
+        getJsonByQuery(2);
+    });
+
+    function getJsonByQuery(url,method="get") {
+        // query = escape(encodeURIComponent(query));
+        let surl = {
+            1: "http://localhost:3000/ajax/all",
+            2: "http://localhost:3000/ajax/one",
+            4: "http://localhost:3000/queryall",
+            3: "https://api.github.com/users/ShoneSingLone"
+        };
+
+        $.ajax({
+            type: method,
+            url: surl[url],
+            data: {},
+            dataType: "text",
+            complete: function (XMLHttpRequest, textStatus) {
+                var status = { success: true };
+                if (status[textStatus]) {
+                    var jsonData = XMLHttpRequest.responseText;
+                    try {
+                        jsonData = JSON.parse(jsonData);
+                        console.log(jsonData);
+                        if (jsonData.avatar_url) {
+                            var $img = $(`<img id="avatar_url" class="img-circle" src="" alt="avatar_url" width="40" height="40">`);
+                            $img.attr("src", jsonData.avatar_url);
+                            $("#site-name").before($img);
+                        }
+                        if (callback) {
+                            callback(jsonData[0]);
+                        }
+                    } catch (e) {
+
+                    }
+                }
             }
         });
-    });
+    }
 
 </script>
 </head>
 
 <body class="container">
-    <div id="spa"></div>
     <nav id="nav-top-bar" class="headroom navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header ">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-                    aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>                <a class="navbar-brand" href="#">ShoneSingLone's MicroSite</a>
+                    aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span> 
+                    <span class="icon-bar"></span> 
+                    <span class="icon-bar"></span> 
+                </button>
+                <a id="site-name" class="navbar-brand" href="#">ShoneSingLone's MicroSite</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav"> </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="">Home</a></li>
+                    <li><a href="#buttonTest">Home</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li><a href="#about">关于我</a></li>
-                    <li class="dropdown" style="display:none;"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                    <li><a href="#about">About</a></li>
+                    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Action</a></li>
                             <li><a href="#">Another action</a></li>
@@ -66,9 +121,11 @@
             </div>
         </div>
     </nav>
+    <div id="nav-stamp">
+    </div>
     <div class="row">
         <div class="col-lg-4">
-            <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image"
+            <img class="img" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image"
                 width="140" height="140">
             <h2>Heading</h2>
             <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula
@@ -98,6 +155,7 @@
         </div>
         <!-- /.col-lg-4 -->
     </div>
+    <button id="buttonTest">click me</button>
 </body>
 
 </html>

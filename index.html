@@ -17,20 +17,31 @@
     <link href="./public/stylesheets/main.css" rel="stylesheet" media="screen">
 </head>
 <style>
-* {
-    outline: 1px solid;
-}
+    iframe {
+        height: 100%;
+        width: 768px;
+    }
 </style>
 <script>
-$(function() {
-    spa.initModule($('body'));
-    $("body").append("<h1>new title</h1>");
-});
+    'use strict';
+    var isStrict = function () {
+        console.log(this);
+        return !this
+    };
+    console.log(isStrict());
+    $(function () {
+        shell.initModule($('body'));
+        $('body').append(
+            // '<form action= method="post">' +
+            // '<button type="submit">submit</button>' +
+            // '</form>'+
+        );
+    });
+
 </script>
 </head>
 
 <body>
-    
 </body>
 
 </html>

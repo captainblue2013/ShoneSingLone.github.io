@@ -14,12 +14,14 @@ var features = {
 /**
  * new JavaScript file
  * Debouncer.js
+ * 函数去抖
  */
 
 window.requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame;
 
 /**
  * Handles debouncing of events via requestAnimationFrame
+ * 通过requestAnimationFrame 来处理函数去抖事件
  * @see http://www.html5rocks.com/en/tutorials/speed/animations/
  * @param {Function} callback The callback to handle whichever event
  */
@@ -27,6 +29,7 @@ function Debouncer(callback) {
     this.callback = callback;
     this.ticking = false;
 }
+
 Debouncer.prototype = {
     constructor: Debouncer,
 
@@ -199,6 +202,7 @@ Headroom.prototype = {
     },
 
     /**
+     * toggle
      * Pins the header if it's currently unpinned
      */
     pin: function () {

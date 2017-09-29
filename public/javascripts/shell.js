@@ -11,15 +11,15 @@
 */
 /*global $, spa */
 const NODE_TYPE = {
-    type_1: "ELEMENT_NODE", 
-    type_3: "TEXT_NODE", 
-    type_7: "PROCESSING_INSTRUCTION_NODE", 
-    type_8: "COMMENT_NODE", 
-    type_9: "DOCUMENT_NODE", 
-    type_10: "DOCUMENT_TYPE_NODE", 
-    type_11: "DOCUMENT_FRAGMENT_NODE", 
+    type_1: "ELEMENT_NODE",
+    type_3: "TEXT_NODE",
+    type_7: "PROCESSING_INSTRUCTION_NODE",
+    type_8: "COMMENT_NODE",
+    type_9: "DOCUMENT_NODE",
+    type_10: "DOCUMENT_TYPE_NODE",
+    type_11: "DOCUMENT_FRAGMENT_NODE",
     getName: function (typeNum) {
-        return this["type_"+typeNum];
+        return this["type_" + typeNum];
     }
 };
 
@@ -33,6 +33,34 @@ var shell = (function () {
     return { initModule: initModule };
 }());
 
+function getDataFromAPI(callback = null, url = 3, method = "get") {
+    // query = escape(encodeURIComponent(query));
+    let surl = {
+        1: "https://104.168.102.215:3000/ajax/all",
+        2: "https://104.168.102.215:3000/queryall",
+        3: "https://api.github.com/users/ShoneSingLone"
+    };
+
+    $.ajax({
+        type: method,
+        url: surl[url],
+        data: {},
+        dataType: "text",
+        complete: function (XMLHttpRequest, textStatus) {
+            let status = { success: true };
+            if (status[textStatus] && XMLHttpRequest.responseText) {
+                // console.log(Object.prototype.toString.call(XMLHttpRequest.responseText));//"[object String]"
+                try {
+                    let jsonResObj = JSON.parse(XMLHttpRequest.responseText);
+                    if (jsonResObj.rData) { jsonResObj.rData = JSON.parse(jsonResObj.rData) };
+                    if (callback) { callback(jsonResObj) };
+                } catch (e) {
+                    console.log(e);
+                }
+            }
+        }
+    });
+}
 
 function getJsonByQuery(query, callback) {
     query = escape(encodeURIComponent(query));
@@ -50,7 +78,6 @@ function getJsonByQuery(query, callback) {
                     jsnData = JSON.parse(jsnData);
                     var $img = $(`<img id="avatar_url" class="img-circle" src="" alt="avatar_url" width="40" height="40">`);
                     $img.attr("src", avatar_url);
-
                     if (callback) {
                         callback(jsnData[0]);
                     }

@@ -10,7 +10,7 @@
     <script src="./public/javascripts/headroom.js"></script>
     <script src="./public/bootstrap/js/bootstrap.js"></script>
     <script src="./public/javascripts/shell.js"></script>
-    <script src="./public/javascripts/shell.navbar.js"></script>
+    <!-- <script src="./public/javascripts/shell.navbar.js"></script> -->
     <link href="./public/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
     <link id="themeCss" href="./public/stylesheets/main.css" rel="stylesheet" media="screen">
     <link href="./public/favicon.ico" rel="shortcut icon" type="image/png" />
@@ -19,52 +19,51 @@
             outline: 1px solid;
         } */
     </style>
-</head>
-<script>
-    $(function () {
-        let $navbar = $("#nav-top-bar");
-        let navbarOuterHeight = $navbar.outerHeight();
-        let cssStyle = {
-            height: `${navbarOuterHeight}px`,
-            marginBottom: "1em"
-        };
+    <script>
+        $(function () {
+            let $navbar = $("#nav-top-bar");
+            let navbarOuterHeight = $navbar.outerHeight();
+            let cssStyle = {
+                height: `${navbarOuterHeight}px`,
+                marginBottom: "1em"
+            };
 
-        $("#nav-stamp").css(cssStyle);
-        // $("#buttonTest").on("click", (function () {
-        //     let isChange = true;
-        //     return function () {
-        //         if (isChange) {
-        //             $("#themeCss").attr("href", "./public/stylesheets/main2.css");
-        //         } else {
-        //             $("#themeCss").attr("href", "./public/stylesheets/main.css");
-        //         }
-        //         isChange = !isChange;
-        //     };
-        // })());
-        getDataFromAPI(dealImag, 3, );
-        getDataFromAPI(dealParagraph, 1);
-    });
+            $("#nav-stamp").css(cssStyle);
+            // $("#buttonTest").on("click", (function () {
+            //     let isChange = true;
+            //     return function () {
+            //         if (isChange) {
+            //             $("#themeCss").attr("href", "./public/stylesheets/main2.css");
+            //         } else {
+            //             $("#themeCss").attr("href", "./public/stylesheets/main.css");
+            //         }
+            //         isChange = !isChange;
+            //     };
+            // })());
+            getDataFromAPI(dealImag, 3, );
+            getDataFromAPI(dealParagraph, 1);
+        });
 
-    function dealImag(jsonData) {
-        if (jsonData.avatar_url) {
-            let $img = $(`<img id="avatar_url" class="img-circle" src="" alt="avatar_url" width="40" height="40">`);
-            $img.attr("src", jsonData.avatar_url);
-            $("#site-name").before($img);
+        function dealImag(jsonData) {
+            if (jsonData.avatar_url) {
+                let $img = $(`<img id="avatar_url" class="img-circle" src="" alt="avatar_url" width="40" height="40">`);
+                $img.attr("src", jsonData.avatar_url);
+                $("#site-name").before($img);
+            }
         }
-    }
 
-    function dealParagraph(jsonData) {
-        if (jsonData.rData) {
-            let $paragraph = $(".poem");
-            let poem = jsonData.rData.poem;
-            $paragraph.each((index, ele) => {
-                let key = Math.floor(Math.random() * 100 % (poem.length));
-                $(ele).html(poem[key]);
-            })
+        function dealParagraph(jsonData) {
+            if (jsonData.rData) {
+                let $paragraph = $(".poem");
+                let poem = jsonData.rData.poem;
+                $paragraph.each((index, ele) => {
+                    let key = Math.floor(Math.random() * 100 % (poem.length));
+                    $(ele).html(poem[key]);
+                })
+            }
         }
-    }
 
-</script>
+    </script>
 </head>
 
 <body class="container">

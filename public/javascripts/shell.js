@@ -27,8 +27,8 @@ var shell = (function () {
     var initModule = function ($container) {
         shell.navbar.initModule($container);
         // shell.intro.initModule($container);
-        window.onmessage = (() => console.log(arguments));
-        getJsonByQuery();
+        // window.onmessage = (() => console.log(arguments));
+        // getJsonByQuery();
     };
     return { initModule: initModule };
 }());

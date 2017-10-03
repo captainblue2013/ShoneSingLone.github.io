@@ -15,9 +15,7 @@
     <link id="themeCss" href="./public/stylesheets/main.css" rel="stylesheet" media="screen">
     <link href="./public/favicon.ico" rel="shortcut icon" type="image/png" />
     <style>
-        /* * {
-            outline: 1px solid;
-        } */
+
     </style>
     <script>
         $(function () {
@@ -29,19 +27,7 @@
             };
 
             $("#nav-stamp").css(cssStyle);
-            // $("#buttonTest").on("click", (function () {
-            //     let isChange = true;
-            //     return function () {
-            //         if (isChange) {
-            //             $("#themeCss").attr("href", "./public/stylesheets/main2.css");
-            //         } else {
-            //             $("#themeCss").attr("href", "./public/stylesheets/main.css");
-            //         }
-            //         isChange = !isChange;
-            //     };
-            // })());
             getDataFromAPI(dealImag, 3, );
-            // getDataFromAPI(dealParagraph, 1);
         });
         function dealImag(jsonData) {
             if (jsonData.avatar_url) {
@@ -131,7 +117,6 @@
         </div>
         <!-- /.col-lg-4 -->
     </div>
-    <!-- <button id="buttonTest">click me</button> -->
 </body>
 
 </html>

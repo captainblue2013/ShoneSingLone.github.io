@@ -41,9 +41,8 @@
             //     };
             // })());
             getDataFromAPI(dealImag, 3, );
-            getDataFromAPI(dealParagraph, 1);
+            // getDataFromAPI(dealParagraph, 1);
         });
-
         function dealImag(jsonData) {
             if (jsonData.avatar_url) {
                 let $img = $(`<img id="avatar_url" class="img-circle" src="" alt="avatar_url" width="40" height="40">`);
@@ -51,7 +50,6 @@
                 $("#site-name").before($img);
             }
         }
-
         function dealParagraph(jsonData) {
             if (jsonData.rData) {
                 let $paragraph = $(".poem");
@@ -62,7 +60,6 @@
                 })
             }
         }
-
     </script>
 </head>
 
@@ -83,7 +80,7 @@
                 <ul class="nav navbar-nav"> </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="https://shonesinglone.github.io/">Home</a></li>
-                    <li><a href="mailto:ShoneSingLone@gmail.com">Contact</a></li>
+                    <li><a href="mailto:SingLone@foxmail.com">Contact</a></li>
                     <li><a href="https://github.com/ShoneSingLone">About</a></li>
                     <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                         <ul class="dropdown-menu">

@@ -45,24 +45,7 @@
             let finalcolPosition = $finalcol.position();
         });
 
-        var switchImg = (function () {
-            var removeImg = function ($event) {
-                $($event.currentTarget).animateCss("bounceOutLeft", hideEleByJqueryObj);
-            }, addImg = function ($event) {
-                if (!$event) return;
-                $($event.currentTarget).show().animateCss("bounceOutLeft");
-            }, removeEleByJqueryObj = function ($currentEle) {
-                $currentEle.remove();
-            }, hideEleByJqueryObj = function ($currentEle) {
-                $currentEle.hide();
-            }, showEleByJqueryObj = function ($currentEle) {
-                $currentEle.show();
-            }
-            let counter = 0
-            return function () {
-                return console.log("switchImg: " + (++counter))
-            };
-        })();
+
 
         function dealImag(jsonData) {
             if (jsonData.avatar_url) {
@@ -76,8 +59,28 @@
                     height: 40 + "px",
                     display: "inline-block"
                 });
-                $img.attr("src", jsonData.avatar_url).animateCss("bounceInLeft");
-                $("nav#nav-top-bar a.navbar-brand").before($img);
+                $img.attr("src", jsonData.avatar_url).animateCss("bounceInDown");
+                $("div.navbar-header a.navbar-brand").before($img);
+                var switchImg = (function ($img) {
+                    var counter = 0;
+                    var hideEleByJqueryObj = function () {
+                        $img.animateCss("bounceOutUp", function () {
+                            $img.hide();
+                        });
+                    }, showEleByJqueryObj = function () {
+                        $img.show().animateCss("bounceInDown");
+                    }, switchImg = function () {
+                        console.log($img.css("display"));
+                        if ($img.css("display") === "none") {
+                            showEleByJqueryObj();
+                        } else {
+                            hideEleByJqueryObj();
+                        }
+                    };
+                    return switchImg;
+                })($img);
+
+                $("div.navbar-header").on("click.switchImg", ".navbar-brand", switchImg);
                 $(".row").on("click.switch", "h2", function (e) {
                     /*
                     《JavaScript权威指南》p80：
@@ -89,17 +92,16 @@
                                         - if B = false => C 
                                         }
                     */
-                    var _arr_events = $._data && $._data($("nav#nav-top-bar a.navbar-brand")[0], "events") || $.data($("nav#nav-top-bar a.navbar-brand")[0], "events");
+                    var _arr_events = $._data && $._data($("div.navbar-header")[0], "events") || $.data($("div.navbar-header")[0], "events");
                     if (_arr_events) {
                         for (key in _arr_events) {
                             console.log(key + "事件数量：" + _arr_events[key].length);
                         }
-                        $("nav#nav-top-bar").off("click.switch", "img");
+                        $("div.navbar-header").off("click.switch", "img");
                     } else {
-                        $("nav#nav-top-bar ").on("click.switch", "img", switchImg);
+                        $("div.navbar-header ").on("click.switch", "img", switchImg);
                     }
                 });
-                debugger;
             }
         }
 
@@ -119,7 +121,7 @@
 <body>
     <nav id="nav-top-bar" class="navbar navbar-default navbar-fixed-top">
         <div class="container">
-            <div class="navbar-header ">
+            <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
                     aria-controls="navbar">
                     <span class="sr-only">Toggle navigation</span>

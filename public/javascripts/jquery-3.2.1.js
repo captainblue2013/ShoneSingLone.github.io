@@ -10185,6 +10185,21 @@ jQuery.fn.extend( {
 	}
 } );
 
+// Just-add-water CSS animations
+//https://daneden.github.io/animate.css/
+
+jQuery.fn.extend({
+	animateCss: function (animationName,callback) {
+		var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+		return this.addClass('animated ' + animationName).one(animationEnd, function () { 
+			$(this).removeClass('animated ' + animationName); 
+			if(callback){
+				callback($(this));
+			}
+		});
+	}
+});
+
 jQuery.holdReady = function( hold ) {
 	if ( hold ) {
 		jQuery.readyWait++;

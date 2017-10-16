@@ -36,8 +36,6 @@ var shell = (function () {
 function getDataFromAPI(callback = null, url = 3, method = "get") {
     // query = escape(encodeURIComponent(query));
     let surl = {
-        1: "https://104.168.102.215:3000/ajax/all",
-        2: "https://104.168.102.215:3000/queryall",
         3: "https://api.github.com/users/ShoneSingLone"
     };
 

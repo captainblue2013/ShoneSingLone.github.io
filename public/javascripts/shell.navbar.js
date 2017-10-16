@@ -323,7 +323,6 @@ shell.navbar = (function () {
 
     };
     // End PUBLIC method /initModule/
-
     return { initModule: initModule };
     //------------------- END PUBLIC METHODS ---------------------
 }());

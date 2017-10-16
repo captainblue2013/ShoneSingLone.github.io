@@ -24,3 +24,22 @@
 #error-stamp {
     height: 170px;
 }
+
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    }
+
+    @media (min-width: 768px) {
+    .container { width: 750px; /*小型屏幕时,container样式的宽度*/ }
+    }
+    @media (min-width: 992px) {
+    .container { width: 970px; /*中型屏幕时,container样式的宽度,缩小minwidth
+    范围*/}
+    }
+    @media (min-width: 1200px) {
+    .container { width: 1170px; /*大型屏幕时,container样式的宽度,再次缩小minwidth
+    范围*/}
+    }

@@ -45,8 +45,6 @@
             let finalcolPosition = $finalcol.position();
         });
 
-
-
         var switchImg = (function () {
             var removeImg = function ($event) {
                 $($event.currentTarget).animateCss("bounceOutLeft", hideEleByJqueryObj);
@@ -80,8 +78,27 @@
                 });
                 $img.attr("src", jsonData.avatar_url).animateCss("bounceInLeft");
                 $("nav#nav-top-bar a.navbar-brand").before($img);
-                // $(".row").on("click.switch", "h2",switchImg);
-                $(".row").on("click.switch", "h2", switchImg);
+                $(".row").on("click.switch", "h2", function (e) {
+                    /*
+                    《JavaScript权威指南》p80：
+                        ！！&&短路运算符 和||并不是返回true或者false
+                        A && B 
+                        - if A=false => A, =>C
+                        - if A=true => B,{
+                                        - if B = true => B
+                                        - if B = false => C 
+                                        }
+                    */
+                    var _arr_events = $._data && $._data($("nav#nav-top-bar a.navbar-brand")[0], "events") || $.data($("nav#nav-top-bar a.navbar-brand")[0], "events");
+                    if (_arr_events) {
+                        for (key in _arr_events) {
+                            console.log(key + "事件数量：" + _arr_events[key].length);
+                        }
+                        $("nav#nav-top-bar").off("click.switch", "img");
+                    } else {
+                        $("nav#nav-top-bar ").on("click.switch", "img", switchImg);
+                    }
+                });
                 debugger;
             }
         }
@@ -99,10 +116,9 @@
     </script>
 </head>
 
-<body class="container">
+<body>
     <nav id="nav-top-bar" class="navbar navbar-default navbar-fixed-top">
         <div class="container">
-
             <div class="navbar-header ">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
                     aria-controls="navbar">
@@ -139,38 +155,41 @@
     <div id="nav-stamp">
     </div>
 
-    <div class="row">
-        <div class="col-lg-4">
-            <img class="img" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image"
-                width="140" height="140">
-            <h2>Heading</h2>
-            <p class="poem">Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula
-                ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-            <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <img class="img" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image"
+                    width="140" height="140">
+                <h2>Heading</h2>
+                <p class="poem">Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula
+                    ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+                <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+            </div>
+            <!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image"
+                    width="140" height="140">
+                <h2>Heading</h2>
+                <p class="poem">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis
+                    consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
+                    nibh.
+                </p>
+                <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+            </div>
+            <!-- /.col-lg-4 -->
+            <div class="col-lg-4" id="finalcol">
+                <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image"
+                    width="140" height="140">
+                <h2>Heading</h2>
+                <p class="poem">Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta
+                    felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
+                    massa justo sit amet risus.</p>
+                <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+            </div>
+            <!-- /.col-lg-4 -->
         </div>
-        <!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-            <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image"
-                width="140" height="140">
-            <h2>Heading</h2>
-            <p class="poem">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis
-                consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
-                nibh.
-            </p>
-            <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
-        </div>
-        <!-- /.col-lg-4 -->
-        <div class="col-lg-4" id="finalcol">
-            <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image"
-                width="140" height="140">
-            <h2>Heading</h2>
-            <p class="poem">Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis
-                euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa
-                justo sit amet risus.</p>
-            <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
-        </div>
-        <!-- /.col-lg-4 -->
     </div>
+
 </body>
 
 </html>

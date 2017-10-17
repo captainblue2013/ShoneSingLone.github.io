@@ -57,7 +57,8 @@
                     alt: "avatar_url",
                     width: 40 + "px",
                     height: 40 + "px",
-                    display: "inline-block"
+                    display: "inline-block",
+                    "data-animate-url": "https://daneden.github.io/animate.css/"
                 });
                 $img.attr("src", jsonData.avatar_url).animateCss("bounceInDown");
                 $("div.navbar-header a.navbar-brand").before($img);
@@ -70,7 +71,6 @@
                     }, showEleByJqueryObj = function () {
                         $img.show().animateCss("bounceInDown");
                     }, switchImg = function () {
-                        console.log($img.css("display"));
                         if ($img.css("display") === "none") {
                             showEleByJqueryObj();
                         } else {
@@ -97,24 +97,14 @@
                         for (key in _arr_events) {
                             console.log(key + "事件数量：" + _arr_events[key].length);
                         }
-                        $("div.navbar-header").off("click.switch", "img");
+                        // $("div.navbar-header").off("click.switchImg", ".navbar-brand");
                     } else {
-                        $("div.navbar-header ").on("click.switch", "img", switchImg);
+                        // $("div.navbar-header ").on("click.switchImg", ".navbar-brand", switchImg);
                     }
                 });
             }
         }
 
-        function dealParagraph(jsonData) {
-            if (jsonData.rData) {
-                let $paragraph = $(".poem");
-                let poem = jsonData.rData.poem;
-                $paragraph.each((index, ele) => {
-                    let key = Math.floor(Math.random() * 100 % (poem.length));
-                    $(ele).html(poem[key]);
-                })
-            }
-        }
     </script>
 </head>
 
@@ -160,7 +150,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-4">
-                <img class="img" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image"
+                <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image"
                     width="140" height="140">
                 <h2>Heading</h2>
                 <p class="poem">Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula

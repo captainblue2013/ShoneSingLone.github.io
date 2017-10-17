@@ -18,7 +18,7 @@ var shell = (function ($) {
 
     let initModule = function ($container) {
         shell.navbar.initModule($container);
-        
+        shell.container.initModule($container);
     }, getDataFromAPI = function (callback = null, url = 3, method = "get") {
         const surl = {
             3: "https://api.github.com/users/ShoneSingLone"

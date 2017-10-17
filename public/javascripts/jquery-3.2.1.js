@@ -10186,6 +10186,7 @@ jQuery.fn.extend( {
 } );
 
 // Just-add-water CSS animations
+// 动画
 //https://daneden.github.io/animate.css/
 
 jQuery.fn.extend({

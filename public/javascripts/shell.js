@@ -15,8 +15,10 @@ var shell = (function ($) {
         type_10: "DOCUMENT_TYPE_NODE",
         type_11: "DOCUMENT_FRAGMENT_NODE"
     };
+    
+    let initModule, getDataFromAPI;
 
-    let initModule = function ($container) {
+    initModule = function ($container) {
         shell.navbar.initModule($container);
         shell.container.initModule($container);
     }, getDataFromAPI = function (callback = null, url = 3, method = "get") {

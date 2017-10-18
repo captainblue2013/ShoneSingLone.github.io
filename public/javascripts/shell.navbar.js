@@ -72,26 +72,17 @@ shell.navbar = (function () {
             $("#book").attr("src", jsonData.avatar_url);
             $("div.navbar-header a.navbar-brand").before($img);
             var switchImg = (function ($img) {
-                var counter = 0;
-                var hideEleByJqueryObj = function () {
-                    $img.animateCss("bounceOutUp", function () {
-                        $img.hide();
-                    });
-                },
-                    showEleByJqueryObj = function () {
+                return function () {
+                    if ($img.css("display") === "none") {
                         $img.animateCss("bounceInDown").show();
+                    } else {
                         // $img.show().animateCss("bounceInDown");
-                    },
-                    switchImg = function () {
-                        if ($img.css("display") === "none") {
-                            showEleByJqueryObj();
-                        } else {
-                            hideEleByJqueryObj();
-                        }
-                    };
-                return switchImg;
+                        $img.animateCss("bounceOutUp", function () {
+                            $img.hide();
+                        });
+                    }
+                };
             })($img);
-
             $("div.navbar-header").on("click.switchImg", ".navbar-brand", switchImg);
         }
     }
@@ -118,10 +109,8 @@ shell.navbar = (function () {
             marginBottom: "1em"
         };
         $nav_stamp.css(cssStyle);
-        $container.append($nav_top_bar);
-        $container.append($nav_stamp);
-
-        shell.getDataFromAPI(dealImag, 3, );
+        $container.append($nav_top_bar).append($nav_stamp);
+        shell.getDataFromAPI(dealImag, 3);
     };
     // End PUBLIC method /initModule/
     return { initModule: initModule };

@@ -1,0 +1,2266 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>body {
+  width: 45em;
+  border: 1px solid #ddd;
+  outline: 1300px solid #fff;
+  margin: 16px auto;
+}
+
+body .markdown-body
+{
+  padding: 30px;
+}
+
+@font-face {
+  font-family: fontawesome-mini;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+@font-face {
+  font-family: octicons-anchor;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+.markdown-body {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  color: #333333;
+  overflow: hidden;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.markdown-body a {
+  background: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline: 0;
+}
+
+.markdown-body b,
+.markdown-body strong {
+  font-weight: bold;
+}
+
+.markdown-body mark {
+  background: #ff0;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body sub,
+.markdown-body sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+.markdown-body sup {
+  top: -0.5em;
+}
+.markdown-body sub {
+  bottom: -0.25em;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.markdown-body img {
+  border: 0;
+}
+
+.markdown-body hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+.markdown-body pre {
+  overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.markdown-body input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body html input[disabled] {
+  cursor: default;
+}
+
+.markdown-body input {
+  line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body .codehilitetable {
+  border: 0;
+  border-spacing: 0;
+}
+
+.markdown-body .codehilitetable tr {
+  border: 0;
+}
+
+.markdown-body .codehilitetable pre,
+.markdown-body .codehilitetable div.codehilite {
+  margin: 0;
+}
+
+.markdown-body .linenos,
+.markdown-body .code,
+.markdown-body .codehilitetable td {
+  border: 0;
+  padding: 0;
+}
+
+.markdown-body td:not(.linenos) .linenodiv {
+  padding: 0 !important;
+}
+
+.markdown-body .code {
+  width: 100%;
+}
+
+.markdown-body .linenos div pre,
+.markdown-body .linenodiv pre,
+.markdown-body .linenodiv {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.markdown-body .code div pre,
+.markdown-body .code div {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -moz-border-radius-topright: 3px;
+  -moz-border-radius-bottomright: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.markdown-body * {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font: 13px Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+  line-height: 1.4;
+}
+
+.markdown-body a {
+  color: #4183c4;
+  text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:focus,
+.markdown-body a:active {
+  text-decoration: underline;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before,
+.markdown-body hr:after {
+  display: table;
+  content: " ";
+}
+
+.markdown-body hr:after {
+  clear: both;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.markdown-body h1 {
+  font-size: 30px;
+}
+
+.markdown-body h2 {
+  font-size: 21px;
+}
+
+.markdown-body h3 {
+  font-size: 16px;
+}
+
+.markdown-body h4 {
+  font-size: 14px;
+}
+
+.markdown-body h5 {
+  font-size: 12px;
+}
+
+.markdown-body h6 {
+  font-size: 11px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body kbd {
+  background-color: #e7e7e7;
+  background-image: -moz-linear-gradient(#fefefe, #e7e7e7);
+  background-image: -webkit-linear-gradient(#fefefe, #e7e7e7);
+  background-image: linear-gradient(#fefefe, #e7e7e7);
+  background-repeat: repeat-x;
+  border-radius: 2px;
+  border: 1px solid #cfcfcf;
+  color: #000;
+  padding: 3px 5px;
+  line-height: 10px;
+  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  display: inline-block;
+}
+
+.markdown-body>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body .headeranchor-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  padding-right: 6px;
+  padding-left: 30px;
+  margin-left: -30px;
+}
+
+.markdown-body .headeranchor-link:focus {
+  outline: none;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  position: relative;
+  margin-top: 1em;
+  margin-bottom: 16px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.markdown-body h1 .headeranchor,
+.markdown-body h2 .headeranchor,
+.markdown-body h3 .headeranchor,
+.markdown-body h4 .headeranchor,
+.markdown-body h5 .headeranchor,
+.markdown-body h6 .headeranchor {
+  display: none;
+  color: #000;
+  vertical-align: middle;
+}
+
+.markdown-body h1:hover .headeranchor-link,
+.markdown-body h2:hover .headeranchor-link,
+.markdown-body h3:hover .headeranchor-link,
+.markdown-body h4:hover .headeranchor-link,
+.markdown-body h5:hover .headeranchor-link,
+.markdown-body h6:hover .headeranchor-link {
+  height: 1em;
+  padding-left: 8px;
+  margin-left: -30px;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .headeranchor-link .headeranchor,
+.markdown-body h2:hover .headeranchor-link .headeranchor,
+.markdown-body h3:hover .headeranchor-link .headeranchor,
+.markdown-body h4:hover .headeranchor-link .headeranchor,
+.markdown-body h5:hover .headeranchor-link .headeranchor,
+.markdown-body h6:hover .headeranchor-link .headeranchor {
+  display: inline-block;
+}
+
+.markdown-body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+.markdown-body h4 {
+  font-size: 1.25em;
+}
+
+.markdown-body h5 {
+  font-size: 1em;
+}
+
+.markdown-body h6 {
+  font-size: 1em;
+  color: #777;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre,
+.markdown-body .admonition {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+
+.markdown-body table th {
+  font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body code,
+.markdown-body samp {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .codehilite {
+  margin-bottom: 16px;
+}
+
+.markdown-body .codehilite pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+.markdown-body .codehilite pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+  content: normal;
+}
+
+/* Admonition */
+.markdown-body .admonition {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  position: relative;
+  border-radius: 3px;
+  border: 1px solid #e0e0e0;
+  border-left: 6px solid #333;
+  padding: 10px 10px 10px 30px;
+}
+
+.markdown-body .admonition table {
+  color: #333;
+}
+
+.markdown-body .admonition p {
+  padding: 0;
+}
+
+.markdown-body .admonition-title {
+  font-weight: bold;
+  margin: 0;
+}
+
+.markdown-body .admonition>.admonition-title {
+  color: #333;
+}
+
+.markdown-body .attention>.admonition-title {
+  color: #a6d796;
+}
+
+.markdown-body .caution>.admonition-title {
+  color: #d7a796;
+}
+
+.markdown-body .hint>.admonition-title {
+  color: #96c6d7;
+}
+
+.markdown-body .danger>.admonition-title {
+  color: #c25f77;
+}
+
+.markdown-body .question>.admonition-title {
+  color: #96a6d7;
+}
+
+.markdown-body .note>.admonition-title {
+  color: #d7c896;
+}
+
+.markdown-body .admonition:before,
+.markdown-body .attention:before,
+.markdown-body .caution:before,
+.markdown-body .hint:before,
+.markdown-body .danger:before,
+.markdown-body .question:before,
+.markdown-body .note:before {
+  font: normal normal 16px fontawesome-mini;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  line-height: 1.5;
+  color: #333;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.markdown-body .admonition:before {
+  content: "\f056\00a0";
+  color: 333;
+}
+
+.markdown-body .attention:before {
+  content: "\f058\00a0";
+  color: #a6d796;
+}
+
+.markdown-body .caution:before {
+  content: "\f06a\00a0";
+  color: #d7a796;
+}
+
+.markdown-body .hint:before {
+  content: "\f05a\00a0";
+  color: #96c6d7;
+}
+
+.markdown-body .danger:before {
+  content: "\f057\00a0";
+  color: #c25f77;
+}
+
+.markdown-body .question:before {
+  content: "\f059\00a0";
+  color: #96a6d7;
+}
+
+.markdown-body .note:before {
+  content: "\f040\00a0";
+  color: #d7c896;
+}
+
+.markdown-body .admonition::after {
+  content: normal;
+}
+
+.markdown-body .attention {
+  border-left: 6px solid #a6d796;
+}
+
+.markdown-body .caution {
+  border-left: 6px solid #d7a796;
+}
+
+.markdown-body .hint {
+  border-left: 6px solid #96c6d7;
+}
+
+.markdown-body .danger {
+  border-left: 6px solid #c25f77;
+}
+
+.markdown-body .question {
+  border-left: 6px solid #96a6d7;
+}
+
+.markdown-body .note {
+  border-left: 6px solid #d7c896;
+}
+
+.markdown-body .admonition>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body .admonition>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* progress bar*/
+.markdown-body .progress {
+  display: block;
+  width: 300px;
+  margin: 10px 0;
+  height: 24px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #ededed;
+  position: relative;
+  box-shadow: inset -1px 1px 3px rgba(0, 0, 0, .1);
+}
+
+.markdown-body .progress-label {
+  position: absolute;
+  text-align: center;
+  font-weight: bold;
+  width: 100%; margin: 0;
+  line-height: 24px;
+  color: #333;
+  text-shadow: 1px 1px 0 #fefefe, -1px -1px 0 #fefefe, -1px 1px 0 #fefefe, 1px -1px 0 #fefefe, 0 1px 0 #fefefe, 0 -1px 0 #fefefe, 1px 0 0 #fefefe, -1px 0 0 #fefefe, 1px 1px 2px #000;
+  -webkit-font-smoothing: antialiased !important;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.markdown-body .progress-bar {
+  height: 24px;
+  float: left;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #96c6d7;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5), inset 0 -1px 0 rgba(0, 0, 0, .1);
+  background-size: 30px 30px;
+  background-image: -webkit-linear-gradient(
+    135deg, rgba(255, 255, 255, .4) 27%,
+    transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%,
+    transparent 77%, transparent
+  );
+  background-image: -moz-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -ms-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -o-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+}
+
+.markdown-body .progress-100plus .progress-bar {
+  background-color: #a6d796;
+}
+
+.markdown-body .progress-80plus .progress-bar {
+  background-color: #c6d796;
+}
+
+.markdown-body .progress-60plus .progress-bar {
+  background-color: #d7c896;
+}
+
+.markdown-body .progress-40plus .progress-bar {
+  background-color: #d7a796;
+}
+
+.markdown-body .progress-20plus .progress-bar {
+  background-color: #d796a6;
+}
+
+.markdown-body .progress-0plus .progress-bar {
+  background-color: #c25f77;
+}
+
+.markdown-body .candystripe-animate .progress-bar{
+  -webkit-animation: animate-stripes 3s linear infinite;
+  -moz-animation: animate-stripes 3s linear infinite;
+  animation: animate-stripes 3s linear infinite;
+}
+
+@-webkit-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@-moz-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+.markdown-body .gloss .progress-bar {
+  box-shadow:
+    inset 0 4px 12px rgba(255, 255, 255, .7),
+    inset 0 -12px 0 rgba(0, 0, 0, .05);
+}
+
+/* Multimarkdown Critic Blocks */
+.markdown-body .critic_mark {
+  background: #ff0;
+}
+
+.markdown-body .critic_delete {
+  color: #c82829;
+  text-decoration: line-through;
+}
+
+.markdown-body .critic_insert {
+  color: #718c00 ;
+  text-decoration: underline;
+}
+
+.markdown-body .critic_comment {
+  color: #8e908c;
+  font-style: italic;
+}
+
+.markdown-body .headeranchor {
+  font: normal normal 16px octicons-anchor;
+  line-height: 1;
+  display: inline-block;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.headeranchor:before {
+  content: '\f05c';
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 4px 0.25em -20px;
+  vertical-align: middle;
+}
+
+/* Media */
+@media only screen and (min-width: 480px) {
+  .markdown-body {
+    font-size:14px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .markdown-body {
+    font-size:16px;
+  }
+}
+
+@media print {
+  .markdown-body * {
+    background: transparent !important;
+    color: black !important;
+    filter:none !important;
+    -ms-filter: none !important;
+  }
+
+  .markdown-body {
+    font-size:12pt;
+    max-width:100%;
+    outline:none;
+    border: 0;
+  }
+
+  .markdown-body a,
+  .markdown-body a:visited {
+    text-decoration: underline;
+  }
+
+  .markdown-body .headeranchor-link {
+    display: none;
+  }
+
+  .markdown-body a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  .markdown-body abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  .markdown-body .ir a:after,
+  .markdown-body a[href^="javascript:"]:after,
+  .markdown-body a[href^="#"]:after {
+    content: "";
+  }
+
+  .markdown-body pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  .markdown-body pre,
+  .markdown-body blockquote {
+    border: 1px solid #999;
+    padding-right: 1em;
+    page-break-inside: avoid;
+  }
+
+  .markdown-body .progress,
+  .markdown-body .progress-bar {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .markdown-body .progress {
+    border: 1px solid #ddd;
+  }
+
+  .markdown-body .progress-bar {
+    height: 22px;
+    border-right: 1px solid #ddd;
+  }
+
+  .markdown-body tr,
+  .markdown-body img {
+    page-break-inside: avoid;
+  }
+
+  .markdown-body img {
+    max-width: 100% !important;
+  }
+
+  .markdown-body p,
+  .markdown-body h2,
+  .markdown-body h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  .markdown-body h2,
+  .markdown-body h3 {
+    page-break-after: avoid;
+  }
+}
+</style><title>MyPlan</title></head><body><article class="markdown-body"><p>?<br />
+1.  Java EE ：报表；<br />
+2.  Python数据分析：金融、房产价格<br />
+3.  NodeJS小工具：数据填充<br />
+4.  用加入Markdown实现金字塔结构的文章目录。生成Markdown的文档。点击之后成为新的文件，新建<br />
+5.  单点登录<br />
+6.  To Do List（番茄工作时间）<br />
+    1.  有一个类似分配功能的交流群：一个人提一个意见，其他人可以针对这个议题提意见或者是投票操作，单独可以将这个议题形成一个功能讨论区。<br />
+    2.  分配任务：查看任务的进度，如果没有按预期完成，可以提醒，也可以给其他人提示，（提早把任务抛出）大量的记录（是否按照预定时间完成任务，延后的几次，是自己预估错误还是任务过重？）也可以做个人的评估。<br />
+    3.  移动端有相应的应用。可以考虑单页应用。<br />
+    4.  聊天应用类似QQ<br />
+    \&lt;div class=&rdquo;row&rdquo;><br />
+\&lt;div class=&rdquo;col-lg-4&rdquo;><br />
+\&lt;img class=&rdquo;img-circle&rdquo;<br />
+src=&rdquo;data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==&rdquo;<br />
+alt=&rdquo;Generic aceholder image&rdquo;<br />
+width=&rdquo;140&rdquo; height=&rdquo;140&rdquo;><br />
+\&lt;h2>Heading\&lt;/h2><br />
+\&lt;p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam<br />
+dolor id nibh ultricies vehicula ut id<br />
+elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. aesent<br />
+commodo cursus magna.\&lt;/p><br />
+\&lt;p>\&lt;a class=&rdquo;btn btn-default&rdquo; href=&rdquo;#&rdquo; role=&rdquo;button&rdquo;>View details<br />
+»\&lt;/a>\&lt;/p><br />
+\&lt;/div><br />
+\&lt;/div><br />
+Tips<br />
+====<br />
+1.  PhoneGap / Cordova、AppCan、DCloud / APICloud，都是基于 WebKit 扩展的；<br />
+Weex 在 WebKit 与原生上实现了一个抽象层；<br />
+1.  NativeScript、React Native 基于原生实现了自己的统一 API；<br />
+2.  推荐前端入门跨平台 App 开发先学 Cordova，最简单、正规，社区最大<br />
+CSS<br />
+===<br />
+Border的样式很重要。<br />
+如果border：none；则浏览器不会渲染border；如果只有宽度，没有样式，也不会渲染。所以一定要有样式才行。<br />
+行内元素和块级元素</p>
+<hr />
+<p>行内元素：<br />
+盒子模型</p>
+<hr />
+<p>每个元素<br />
+盒子模型：<br />
+目前是矩形<br />
+可选：Margin、border、padding<br />
+各自又有top、right、bottom、left<br />
+两种模式：一种是只有content；border=box是border+ padding+content<br />
+浮动</p>
+<hr />
+<p>标准文档流和浮动流<br />
+在标准文档流中Inline元素和Block元素是两个基本元素。<br />
+从上到下，从左到右，浮动使之脱离标准文档流。<br />
+浮动最开始用来解决文字环绕，后来用来解决<br />
+Inline-block和浮动布局的区别？<br />
+\@font-face<br />
+动画</p>
+<hr />
+<h1 id="javascript"><a name="user-content-javascript" href="#javascript" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>JavaScript</h1>
+<p><em>console</em>.log(a)//[Function: a]<br />
+a();//10<br />
+<em>var</em> a = 3;<br />
+<em>function</em> a() {<br />
+<em>console</em>.log(10)<br />
+}<br />
+<em>console</em>.log(a)//3<br />
+a = 6;<br />
+a();//TypeError: a is not a function<br />
+参考书目</p>
+<hr />
+<table>
+<thead>
+<tr>
+<th>《JavaScript权威指南》目录</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>前言</td>
+</tr>
+<tr>
+<td>第1章 JavaScript概述</td>
+</tr>
+<tr>
+<td>1.1 JavaScript语言核心</td>
+</tr>
+<tr>
+<td>1.2 客户端JavaScript</td>
+</tr>
+<tr>
+<td>第一部分 JavaScript 语言核心</td>
+</tr>
+<tr>
+<td>第2章 词法结构</td>
+</tr>
+<tr>
+<td>2.1 字符集</td>
+</tr>
+<tr>
+<td>2.2 注释</td>
+</tr>
+<tr>
+<td>2.3 直接量</td>
+</tr>
+<tr>
+<td>2.4 标识符和保留字</td>
+</tr>
+<tr>
+<td>2.5 可选的分号</td>
+</tr>
+<tr>
+<td>第3章 类型、值和变量</td>
+</tr>
+<tr>
+<td>3.1 数字</td>
+</tr>
+<tr>
+<td>3.2 文本</td>
+</tr>
+<tr>
+<td>3.3 布尔值</td>
+</tr>
+<tr>
+<td>3.4 null和undefined</td>
+</tr>
+<tr>
+<td>3.5 全局对象</td>
+</tr>
+<tr>
+<td>3.6 包装对象</td>
+</tr>
+<tr>
+<td>3.7 不可变的原始值和可变的对象引用</td>
+</tr>
+<tr>
+<td>3.8 类型转换</td>
+</tr>
+<tr>
+<td>3.9 变量声明</td>
+</tr>
+<tr>
+<td>3.10 变量作用域</td>
+</tr>
+<tr>
+<td>第4章 表达式和运算符</td>
+</tr>
+<tr>
+<td>4.1 原始表达式</td>
+</tr>
+<tr>
+<td>4.2 对象和数组的初始化表达式</td>
+</tr>
+<tr>
+<td>4.3 函数定义表达式</td>
+</tr>
+<tr>
+<td>4.4 属性访问表达式</td>
+</tr>
+<tr>
+<td>4.5 调用表达式</td>
+</tr>
+<tr>
+<td>4.6 对象创建表达式</td>
+</tr>
+<tr>
+<td>4.7 运算符概述</td>
+</tr>
+<tr>
+<td>4.8 算术表达式</td>
+</tr>
+<tr>
+<td>4.9 关系表达式</td>
+</tr>
+<tr>
+<td>4.10 逻辑表达式</td>
+</tr>
+<tr>
+<td>4.11 赋值表达式</td>
+</tr>
+<tr>
+<td>4.12 表达式计算</td>
+</tr>
+<tr>
+<td>4.13 其他运算符</td>
+</tr>
+<tr>
+<td>第5章 语句</td>
+</tr>
+<tr>
+<td>5.1 表达式语句</td>
+</tr>
+<tr>
+<td>5.2 复合语句和空语句</td>
+</tr>
+<tr>
+<td>5.3 声明语句</td>
+</tr>
+<tr>
+<td>5.4 条件语句</td>
+</tr>
+<tr>
+<td>5.5 循环</td>
+</tr>
+<tr>
+<td>5.6 跳转</td>
+</tr>
+<tr>
+<td>5.7 其他语句类型</td>
+</tr>
+<tr>
+<td>5.8 JavaScript语句小结</td>
+</tr>
+<tr>
+<td>第6章 对象</td>
+</tr>
+<tr>
+<td>6.1 创建对象</td>
+</tr>
+<tr>
+<td>6.2 属性的查询和设置</td>
+</tr>
+<tr>
+<td>6.3 删除属性</td>
+</tr>
+<tr>
+<td>6.4 检测属性</td>
+</tr>
+<tr>
+<td>6.5 枚举属性</td>
+</tr>
+<tr>
+<td>6.6 属性getter和setter</td>
+</tr>
+<tr>
+<td>6.7 属性的特性</td>
+</tr>
+<tr>
+<td>6.8 对象的三个属性</td>
+</tr>
+<tr>
+<td>6.9 序列化对象</td>
+</tr>
+<tr>
+<td>6.10 对象方法</td>
+</tr>
+<tr>
+<td>第7章 数组</td>
+</tr>
+<tr>
+<td>7.1 创建数组</td>
+</tr>
+<tr>
+<td>7.2 数组元素的读和写</td>
+</tr>
+<tr>
+<td>7.3 稀疏数组</td>
+</tr>
+<tr>
+<td>7.4 数组长度</td>
+</tr>
+<tr>
+<td>7.5 数组元素的添加和删除</td>
+</tr>
+<tr>
+<td>7.6 数组遍历</td>
+</tr>
+<tr>
+<td>7.7 多维数组</td>
+</tr>
+<tr>
+<td>7.8 数组方法</td>
+</tr>
+<tr>
+<td>7.9 ECMAScript 5中的数组方法</td>
+</tr>
+<tr>
+<td>7.10 数组类型</td>
+</tr>
+<tr>
+<td>7.11 类数组对象</td>
+</tr>
+<tr>
+<td>7.12 作为数组的字符串</td>
+</tr>
+<tr>
+<td>第8章 函数</td>
+</tr>
+<tr>
+<td>8.1 函数定义</td>
+</tr>
+<tr>
+<td>8.2 函数调用</td>
+</tr>
+<tr>
+<td>8.3 函数的实参和形参</td>
+</tr>
+<tr>
+<td>8.4 作为值的函数</td>
+</tr>
+<tr>
+<td>8.5 作为命名空间的函数</td>
+</tr>
+<tr>
+<td>8.6 闭包</td>
+</tr>
+<tr>
+<td>8.7 函数属性、方法和构造函数</td>
+</tr>
+<tr>
+<td>8.8 函数式编程</td>
+</tr>
+<tr>
+<td>第9章 类和模块</td>
+</tr>
+<tr>
+<td>9.1 类和原型</td>
+</tr>
+<tr>
+<td>9.2 类和构造函数</td>
+</tr>
+<tr>
+<td>9.3 JavaScript中Java式的类继承</td>
+</tr>
+<tr>
+<td>9.4 类的扩充</td>
+</tr>
+<tr>
+<td>9.5 类和类型</td>
+</tr>
+<tr>
+<td>9.6 JavaScript中的面向对象技术</td>
+</tr>
+<tr>
+<td>9.7 子类</td>
+</tr>
+<tr>
+<td>9.8 ECMAScript 5 中的类</td>
+</tr>
+<tr>
+<td>9.9 模块</td>
+</tr>
+<tr>
+<td>第10章 正则表达式的模式匹配</td>
+</tr>
+<tr>
+<td>10.1 正则表达式的定义</td>
+</tr>
+<tr>
+<td>10.2 用于模式匹配的String方法</td>
+</tr>
+<tr>
+<td>10.3 RegExp对象</td>
+</tr>
+<tr>
+<td>第11章 JavaScript的子集和扩展</td>
+</tr>
+<tr>
+<td>11.1 JavaScript的子集</td>
+</tr>
+<tr>
+<td>11.2 常量和局部变量</td>
+</tr>
+<tr>
+<td>11.3 解构赋值</td>
+</tr>
+<tr>
+<td>11.4 迭代</td>
+</tr>
+<tr>
+<td>11.5 函数简写</td>
+</tr>
+<tr>
+<td>11.6 多catch 从句</td>
+</tr>
+<tr>
+<td>11.7 E4X: ECMAScript for XML</td>
+</tr>
+<tr>
+<td>第12章 服务器端JavaScript</td>
+</tr>
+<tr>
+<td>12.1 用Rhino脚本化Java</td>
+</tr>
+<tr>
+<td>12.2 用Node实现异步I/O</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+<tr>
+<td>第二部分 客户端JavaScript</td>
+</tr>
+<tr>
+<td>第13章 Web浏览器中的JavaScript</td>
+</tr>
+<tr>
+<td>13.1 客户端JavaScript</td>
+</tr>
+<tr>
+<td>13.2 在HTML里嵌入JavaScript</td>
+</tr>
+<tr>
+<td>13.3 JavaScript程序的执行</td>
+</tr>
+<tr>
+<td>13.4 兼容性和互用性</td>
+</tr>
+<tr>
+<td>13.5 可访问性</td>
+</tr>
+<tr>
+<td>13.6 安全性</td>
+</tr>
+<tr>
+<td>13.7 客户端框架</td>
+</tr>
+<tr>
+<td>第14章 Window对象</td>
+</tr>
+<tr>
+<td>14.1 计时器</td>
+</tr>
+<tr>
+<td>14.2 浏览器定位和导航</td>
+</tr>
+<tr>
+<td>14.3 浏览历史</td>
+</tr>
+<tr>
+<td>14.4 浏览器和屏幕信息</td>
+</tr>
+<tr>
+<td>14.5 对话框</td>
+</tr>
+<tr>
+<td>14.6 错误处理</td>
+</tr>
+<tr>
+<td>14.7 作为Window对象属性的文档元素</td>
+</tr>
+<tr>
+<td>14.8 多窗口和窗体</td>
+</tr>
+<tr>
+<td>第15章 脚本化文档</td>
+</tr>
+<tr>
+<td>15.1 DOM概览</td>
+</tr>
+<tr>
+<td>15.2 选取文档元素</td>
+</tr>
+<tr>
+<td>15.3 文档结构和遍历</td>
+</tr>
+<tr>
+<td>15.4 属性</td>
+</tr>
+<tr>
+<td>15.5 元素的内容</td>
+</tr>
+<tr>
+<td>15.6 创建、插入和删除节点</td>
+</tr>
+<tr>
+<td>15.7 例子：生成目录表</td>
+</tr>
+<tr>
+<td>15.8 文档和元素的几何形状和滚动</td>
+</tr>
+<tr>
+<td>15.9 HTML表单</td>
+</tr>
+<tr>
+<td>15.10 其他文档特性</td>
+</tr>
+<tr>
+<td>第16章 脚本化CSS</td>
+</tr>
+<tr>
+<td>16.1 CSS概览</td>
+</tr>
+<tr>
+<td>16.2 重要的CSS属性</td>
+</tr>
+<tr>
+<td>16.3 脚本化内联样式</td>
+</tr>
+<tr>
+<td>16.4 查询计算出的样式</td>
+</tr>
+<tr>
+<td>16.5 脚本化CSS类</td>
+</tr>
+<tr>
+<td>16.6 脚本化样式表</td>
+</tr>
+<tr>
+<td>第17章 事件处理</td>
+</tr>
+<tr>
+<td>17.1 事件类型</td>
+</tr>
+<tr>
+<td>17.2 注册事件处理程序</td>
+</tr>
+<tr>
+<td>17.3 事件处理程序的调用</td>
+</tr>
+<tr>
+<td>17.4 文档加载事件</td>
+</tr>
+<tr>
+<td>17.5 鼠标事件</td>
+</tr>
+<tr>
+<td>17.6 鼠标滚轮事件</td>
+</tr>
+<tr>
+<td>17.7 拖放事件</td>
+</tr>
+<tr>
+<td>17.8 文本事件</td>
+</tr>
+<tr>
+<td>17.9 键盘事件</td>
+</tr>
+<tr>
+<td>第18章 脚本化HTTP</td>
+</tr>
+<tr>
+<td>18.1 使用XMLHttpRequest</td>
+</tr>
+<tr>
+<td>18.2 借助发送HTTP请求：JSONP</td>
+</tr>
+<tr>
+<td>18.3 基于服务器端推送事件的Comet技术</td>
+</tr>
+<tr>
+<td>第19章 jQuery类库</td>
+</tr>
+<tr>
+<td>19.1 jQuery基础</td>
+</tr>
+<tr>
+<td>19.2 jQuery的getter和setter</td>
+</tr>
+<tr>
+<td>19.3 修改文档结构</td>
+</tr>
+<tr>
+<td>19.4 使用jQuery处理事件</td>
+</tr>
+<tr>
+<td>19.5 动画效果</td>
+</tr>
+<tr>
+<td>19.6 jQuery中的Ajax</td>
+</tr>
+<tr>
+<td>19.7 工具函数</td>
+</tr>
+<tr>
+<td>19.8 jQuery选择器和选取方法</td>
+</tr>
+<tr>
+<td>19.9 jQuery的插件扩展</td>
+</tr>
+<tr>
+<td>19.10 jQuery UI类库</td>
+</tr>
+<tr>
+<td>第20章 客户端存储</td>
+</tr>
+<tr>
+<td>20.1 localStorage和sessionStorage</td>
+</tr>
+<tr>
+<td>20.2 cookie</td>
+</tr>
+<tr>
+<td>20.3 利用IE userData持久化数据</td>
+</tr>
+<tr>
+<td>20.4 应用程序存储和离线Web应用</td>
+</tr>
+<tr>
+<td>第21章 多媒体和图形编程</td>
+</tr>
+<tr>
+<td>21.1 脚本化图片</td>
+</tr>
+<tr>
+<td>21.2 脚本化音频和视频</td>
+</tr>
+<tr>
+<td>21.3 SVG：可伸缩的矢量图形</td>
+</tr>
+<tr>
+<td>21.4 中的图形</td>
+</tr>
+<tr>
+<td>第22章 HTML5 API</td>
+</tr>
+<tr>
+<td>22.1 地理位置</td>
+</tr>
+<tr>
+<td>22.2 历史记录管理</td>
+</tr>
+<tr>
+<td>22.3 跨域消息传递</td>
+</tr>
+<tr>
+<td>22.4 Web Worker</td>
+</tr>
+<tr>
+<td>22.5 类型化数组和ArrayBuffer</td>
+</tr>
+<tr>
+<td>22.6 Blob</td>
+</tr>
+<tr>
+<td>22.7 文件系统API</td>
+</tr>
+<tr>
+<td>22.8 客户端数据库</td>
+</tr>
+<tr>
+<td>22.9 Web套接字</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+<tr>
+<td>第三部分 JavaScript核心参考</td>
+</tr>
+<tr>
+<td>JavaScript核心参考</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+<tr>
+<td>第四部分 客户端JavaScript参考</td>
+</tr>
+<tr>
+<td>客户端JavaScript参考</td>
+</tr>
+<tr>
+<td>数据类型</td>
+</tr>
+<tr>
+<td>--------</td>
+</tr>
+<tr>
+<td><a href="https://juejin.im/post/58116ca467f3560057d58bee">asdf</a></td>
+</tr>
+<tr>
+<td><a href="https://segmentfault.com/a/1190000000638445">变量用var和不用var的区别</a></td>
+</tr>
+<tr>
+<td>[ES6</td>
+</tr>
+<tr>
+<td>变量作用域与提升：变量的生命周期详解](<a href="https://segmentfault.com/a/1190000010640225">https://segmentfault.com/a/1190000010640225</a>)</td>
+</tr>
+<tr>
+<td>1.  不用var是全局变量的属性；可以用delete删除【属性】；不能变量提升</td>
+</tr>
+<tr>
+<td>2.  用var是变量；不可以用delete删除；会变量提升；是局部变量。</td>
+</tr>
+<tr>
+<td>3.  ‘use strict’模式下不使用var会报错。</td>
+</tr>
+<tr>
+<td><em>console</em>.log(a);//[Function: a]</td>
+</tr>
+<tr>
+<td>a();//函数提升</td>
+</tr>
+<tr>
+<td><em>var</em> a = &ldquo;变量已赋值&rdquo;;</td>
+</tr>
+<tr>
+<td><em>console</em>.log(a);//变量已赋值</td>
+</tr>
+<tr>
+<td><em>function</em> a(){</td>
+</tr>
+<tr>
+<td><em>console</em>.log(&ldquo;函数提升&rdquo;);</td>
+</tr>
+<tr>
+<td>}</td>
+</tr>
+<tr>
+<td>a = 3;</td>
+</tr>
+<tr>
+<td><em>console</em>.log(a);//3</td>
+</tr>
+<tr>
+<td>a();//报错：a is not a function</td>
+</tr>
+<tr>
+<td><strong>></strong><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Data_structures">JavaScript数据类型和数据结构</a></td>
+</tr>
+<tr>
+<td><strong>ECMAScript 6定义了7种数据类型</strong></td>
+</tr>
+<tr>
+<td>1.  原始类型（值本身无法被改变）（primitive value）</td>
+</tr>
+<tr>
+<td>1.  Boolean：<strong>0、NaN、undefined、null、””</strong>表示<em>false</em>，否则是<em>true</em></td>
+</tr>
+<tr>
+<td>2.  Null：未初始化的Object</td>
+</tr>
+<tr>
+<td>3.  Undefined：未初始化的原始类型</td>
+</tr>
+<tr>
+<td>4.  Number：<strong>0</strong>八位、<strong>0x</strong>十六位</td>
+</tr>
+<tr>
+<td>5.  String</td>
+</tr>
+<tr>
+<td>6.  Symbol（ECMAScript 6）</td>
+</tr>
+<tr>
+<td>2.  Object</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_1"><a name="user-content-_1" href="#_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>变量作用域</h3>
+<p>一个变量的作用域是程序源代码中定义这个变量的区域。全局变量和局部变量<br />
+<a href="https://segmentfault.com/a/1190000010640225">ES6<br />
+变量作用域与提升：变量的生命周期详解</a><br />
+关于变量提升还有函数提升：使用定义式则是赋值也提升了，如果使用表达式就如同使用var的变量一样，只是声明提升了而没有赋值，是undefined。<br />
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/let">let的用法</a><br />
+新增的块级作用域。之前只有<br />
+<em>function</em> varTest() {<br />
+<em>var</em> x = 1;<br />
+if (true) {<br />
+<em>var</em> x = 2; // 同样的变量!<br />
+<em>console</em>.log(x); // 2<br />
+}<br />
+<em>console</em>.log(x); // 2<br />
+}<br />
+<em>function</em> letTest() {<br />
+<em>let</em> x = 1;<br />
+if (true) {<br />
+<em>let</em> x = 2; // 不同的变量<br />
+<em>console</em>.log(x); // 2<br />
+}<br />
+<em>console</em>.log(x); // 1<br />
+}<br />
+表达式和运算符</p>
+<hr />
+<h3 id="and"><a name="user-content-and" href="#and" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>\$\$ and \|\|</h3>
+<p>\$(&ldquo;#btshow&rdquo;).click(<em>function</em> (<em>e</em>) {<br />
+/*<br />
+《JavaScript权威指南》p80：<br />
+&amp;&amp;短路运算符 和\|\|并不是返回true或者false<br />
+A &amp;&amp; B<br />
+- if A=false => A, =>C<br />
+- if A=true => B,{<br />
+- if B = true => B<br />
+- if B = false => C<br />
+}<br />
+*/<br />
+<em>var</em> isA = !!(\$._data);<br />
+<em>var</em> isB = !!(\$._data(\$(<em>document</em>)[0], &ldquo;events&rdquo;));<br />
+<em>var</em> isC = !!(\$.data(\$(<em>document</em>)[0], &ldquo;events&rdquo;));<br />
+<em>var</em> _arr_events = \$._data &amp;&amp; \$._data(\$(<em>document</em>)[0], &ldquo;events&rdquo;) \|\|<br />
+&lsquo;\$.data(\$(document)[0], &ldquo;events&rdquo;)&rsquo;;<br />
+for (key in _arr_events) {<br />
+show(key + &ldquo;事件数量：&rdquo; + _arr_events[key].length);<br />
+}<br />
+})<br />
+语句</p>
+<hr />
+<p><strong>for in</strong>针对的是普通对象，有一下弊端：<br />
+1.  <strong>key</strong>是字符串而不是数字<br />
+2.  会遍历自有属性，顺着原型链<br />
+3.  可能是随机的而不是按照所谓<strong>Array</strong>的方式<br />
+<strong>for of</strong>针对这些做了极大的优化<br />
+1.  更适合遍历数组<br />
+对象</p>
+<hr />
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/delete">Delete<br />
+属性</a></p>
+<h3 id="_2"><a name="user-content-_2" href="#_2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>原型对象、类和继承</h3>
+<p>原型是一个实例对象。<br />
+对象<br />
+<a href="http://bonsaiden.github.io/JavaScript-Garden/zh">JavaScript密码花园</a><br />
+hasOwnProperty判断自有属性<br />
+<strong>猴子补丁：</strong><br />
+<em>这个叫法起源于Zope框架，大家在修正Zope的Bug的时候经常在程序后面追加更新部分，这些被称作是“杂牌军补丁(guerilla<br />
+patch)”，后来guerilla就渐渐的写成了gorllia((猩猩)，再后来就写了monkey(猴子)，所以猴子补丁的叫法是这么莫名其妙的得来的。</em><br />
+<em>猴子补丁主要有以下几个用处：</em><br />
+1.  在运行时替换方法、属性等<br />
+2.  在不修改第三方代码的情况下增加原来不支持的功能<br />
+3.  在运行时为内存中的对象增加patch而不是在磁盘的源代码中增加<br />
+原型和原型的好处：</p>
+<h3 id="_3"><a name="user-content-_3" href="#_3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>数组</h3>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array#Array_generic_methods">Array</a><br />
+判断是否是数组的方法是看<strong>类属性（是对象的三个属性之一：原型、类、可扩展）</strong><br />
+//对象&amp;&amp;对象类型<br />
+<em>function</em> isArray(<em>obj</em>) {<br />
+return Array.isArray(obj) \|\| <em>function</em> (<em>obj</em>) {<br />
+return typeof obj === &ldquo;object&rdquo; &amp;&amp; <em>Array</em>.prototype.toString.call(obj) ===<br />
+&ldquo;[object Array]&rdquo;;<br />
+};<br />
+}</p>
+<h3 id="_4"><a name="user-content-_4" href="#_4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>函数</h3>
+<p>可以被定义，可以被调用，是一种语法，也是一种值，可以被程序操作，可以作为函数的参数。<br />
+<strong>自执行匿名函数（Self-executing anonymous<br />
+function）</strong>或者<strong>立即调用的函数表达式（Immediately-Invoked Function<br />
+Expression）</strong><br />
+<a href="http://www.jcodecraeer.com/a/jquery_js_ajaxjishu/2012/0628/290.html">JavaScript匿名函数与自执行</a><br />
+：匿名函数的作用创建闭包和减少全局变量（防止污染命名空间）<br />
+<a href="http://www.cnblogs.com/TomXu/archive/2011/12/31/2289423.html">深入理解JavaScript系列（4）：立即调用的函数表达式</a><strong>。</strong>表达式和function声明，表达式是一个引用，没有立即执行。<br />
+(<em>function</em>(){/*code*/})();<br />
+prototype 和__proto__的区别是什么？<br />
+Mozilla’s implementation of JavaScript has (since the early days of Netscape)<br />
+exposed the prototype attribute through the specially named _<em>proto</em>_<br />
+property, and you can use this property to directly query or set the prototype<br />
+of any object. Using _<em>proto</em>_ Core JavaScript is not portable: it has not<br />
+been (and probably never will be) implemented by IE or Opera, although it is<br />
+currently supported by Safari and Chrome. Versions of Firefox that implement<br />
+ECMAScript 5 still support _<em>proto__, but restrict its ability to change the<br />
+prototype of nonextensible objects.<br />
+简单说就是不建议直接使用object的__proto__来修改constructor function的prototype。<br />
+constructor function有prototype，使用<em>new</em> 关键字返回的对象有__proto</em>_<br />
+// 有一堆原材料就是自有变量<br />
+<em>var</em> Calculator = <em>function</em> (<em>decimalDigits</em>, <em>tax</em>) {<br />
+this.decimalDigits = decimalDigits;<br />
+this.tax = tax;<br />
+};<br />
+// 交给谁来处理是可以切换的<br />
+<em>var</em> one = {<br />
+describe: <em>function</em> () {<br />
+return <em>console</em>.log(&ldquo;original describe&rdquo;);<br />
+},<br />
+add: <em>function</em> (<em>x</em>, <em>y</em>) {<br />
+return <em>console</em>.log(x + y);<br />
+},<br />
+subtract: <em>function</em> (<em>x</em>, <em>y</em>) {<br />
+return <em>console</em>.log(x - y);<br />
+}<br />
+};<br />
+<em>var</em> two = {<br />
+describe: <em>function</em> () {<br />
+return <em>console</em>.log(&ldquo;original describe&rdquo;);<br />
+}, multiply: <em>function</em> (<em>x</em>, <em>y</em>) {<br />
+return <em>console</em>.log(x * y);<br />
+},<br />
+divide: <em>function</em> (<em>x</em>, <em>y</em>) {<br />
+return <em>console</em>.log(x / y);<br />
+}<br />
+};<br />
+<em>Calculator</em>.prototype = one;<br />
+<em>var</em> oneCalculator = new Calculator();<br />
+oneCalculator.add(1, 2);<br />
+oneCalculator.subtract(1, 2);<br />
+// or<br />
+<em>Calculator</em>.prototype = two;<br />
+<em>var</em> twoCalculator = new Calculator();<br />
+twoCalculator.multiply(1, 2);<br />
+twoCalculator.divide(1, 2);<br />
+twoCalculator.<strong>proto</strong>.describe = <em>function</em> () {<br />
+return <em>console</em>.log(&ldquo;describe has changed&rdquo;);<br />
+}<br />
+// 实例对象有__proto__属性；<br />
+<em>console</em>.log(<em>Calculator</em>.prototype===twoCalculator.<strong>proto</strong>);<br />
+one.describe();<br />
+two.describe();<br />
+//改变的是原型所以two和three都被改变<br />
+<em>var</em> three = new Calculator();<br />
+three.describe();<br />
+//改变的只是three的describe<br />
+three.describe = <em>function</em> () {<br />
+return <em>console</em>.log(&ldquo;three describe has changed&rdquo;);<br />
+};<br />
+//所以four不变<br />
+<em>var</em> four = new Calculator();<br />
+three.describe();<br />
+four.describe();<br />
+//使用new不会重新生成原型上的实例<br />
+­­­­­­­</p>
+<h4 id="this"><a name="user-content-this" href="#this" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>this</h4>
+<p><strong>使用准则：</strong><br />
+1.  作为函数调用<em>this</em>指代全局对象（\^strict）或者undefined（strict）；</p>
+<blockquote>
+<p>这个特性倒是可以用来区别当前是否是<strong>strict</strong>模式：<br />
+<em>var</em> isStrict = (<em>function</em>(){return !this})();<br />
+1.  作为方法调用指代<strong>调用的对象</strong>本身；<br />
+2.  作为构造函数<em>this</em>指代构造对象本身，跟2的方式不同。即<strong>new<br />
+    object.constructor()</strong>中的<em>this</em>（调用上下文）并不是object而是constructor()<strong>返回的对象</strong>；<br />
+    3.  作为间接调用<strong>call()、apply()，</strong>显示指定<em>this</em>。另外也可以理解成上面的三种是第四种的语法糖，因为都可以用第四种表示出来而且没有异议。<br />
+<em>function</em> f(<em>argument</em>) {<br />
+<em>console</em>.log(this);<br />
+}<br />
+<em>var</em> ar = [f,f];<br />
+ar<a href="">0</a>;<br />
+ar[0].call(ar);<br />
+<em>var</em> obj = {a:&rdquo;obj&rdquo;};<br />
+obj.f = f;<br />
+obj.f();<br />
+obj.f.call(obj);</p>
+</blockquote>
+<h4 id="_5"><a name="user-content-_5" href="#_5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>可变参数和默认值</h4>
+<p>JavaScript没有对参数类型进行检查，TypeScript用于解决这样的问题。而JavaScript通过自身来完成类型的检查是十分繁琐而且看起来不可或缺。我也很无奈啊┓( ´∀` )┏<br />
+<img alt="C:\Users\abbor\AppData\Local\Temp\SGPicFaceTpBq\9828\07081C9D.gif" src="///D://GitHub/ShoneSingLone.github.io/doc/media/b2b62ebee1c72a2c3f66543ba6637cba.gif" /><br />
+动态语言不就是这点爽吗？实参与形参数量上不对付。</p>
+<h4 id="arguments"><a name="user-content-arguments" href="#arguments" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>可变参数arguments</h4>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/arguments">arguments</a><br />
+是<strong>类数组对象</strong>，以数字作为key。通过以下方法转换为<strong>真·数组</strong>：<br />
+主要是使用<br />
+<em>let</em> args = <em>Array</em>.prototype.slice.call(arguments);<br />
+or<br />
+<em>let</em> args = <em>Array</em>.from(arguments);<br />
+<em>let</em> args = [&hellip;arguments];<br />
+<strong>ES6</strong>的新方法<br />
+<em>function</em> containsAll(<em>haystack</em>, &hellip;<em>needles</em>) {<br />
+for (<em>var</em> needle of needles) {<br />
+if (haystack.indexOf(needle) === -1) {<br />
+return false;<br />
+}<br />
+} return true;<br />
+}</p>
+<blockquote>
+<p><strong>以下是不推荐使用的arguments方法：</strong><br />
+-   <strong>arguments.</strong><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/arguments/callee">callee()</a><em>：当前执行的函数。匿名函数指代自身：递归factorial</em><br />
+-   <strong>arguments.</strong>caller()：调用当前函数的函数（栈）This feature is obsolete. </p>
+</blockquote>
+<h4 id="_6"><a name="user-content-_6" href="#_6" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>默认值</h4>
+<p>防止undefined或者null（<em>未初始化</em>）：<br />
+a = a \|\| &ldquo;&rdquo;;<br />
+<strong>ES6</strong>的新方法：<br />
+<em>function</em> animalSentence(<em>animals2</em> = &ldquo;tigers&rdquo;, <em>animals3</em> = &ldquo;bears&rdquo;) {<br />
+return `Lions and \${animals2} and \${animals3}! Oh my!`;<br />
+}</p>
+<h4 id="_7"><a name="user-content-_7" href="#_7" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>将对象作为实参</h4>
+<p>好处是不用记得顺序，坏处是要记得形参的名字</p>
+<h4 id="closure"><a name="user-content-closure" href="#closure" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>闭包Closure</h4>
+<p>闭包是什么？继承？原型？<br />
+<strong>Lexical scoping 词法作用域</strong><br />
+函数定义时就决定了变量作用域，而不是在函数调用时。<br />
+参数和局部变量，嵌套的，全局变量<br />
+<em>var</em> scope = &ldquo;global scope&rdquo;;//全局变量<br />
+<em>function</em> checkscope() {<br />
+<em>var</em> scope = &ldquo;local scope&rdquo;;//局部变量<br />
+<em>function</em> f() { return scope; }//在作用域中返回这个值<br />
+return f;<br />
+}<br />
+checkscope()()//返回值是什么?<br />
+常常出现的错误在于，for循环中保存通过var声明的counter值，因为共享的是同一个counter，所以保存的是循环的最后一个值。<br />
+而使用块级作用域声明let或者使用闭包可以保存每一个counter值：<br />
+<em>function</em> constfunc(<em>v</em>) {return <em>function</em> () {return v; } }<br />
+这里有<strong>两个</strong>function，<strong>两个</strong>return ，ES 6<br />
+中的let尝试的块级作用域用具解决闭包的繁琐：。<br />
+变量作用域<br />
+<strong>作用域链《JavaScript权威指南》3.10.2</strong><br />
+<strong>JavaScript是基于词法作用域的语言：通过阅读包含变量定义在内的数行源码就能知道变量的作用域。全局变量在程序中始终都是有定义的。局部变量在声明它的函数体内以及其所嵌套的函数内始终是有定义的。</strong><br />
+<strong>如果将一个局部变量看做是自定义实现的对象的属性的话，那么可以换个角度来解读变量作用域。每一段JavaScript代码（全局代码或函数）都有一个与之关联的作用域链（scope<br />
+chain）。这个作用域链是一个对象列表或者链表，这组对象定义了这段代码“作用域中”的变量。当JavaScript需要查找变量x的值的时候（这个过程称做“变量解析”（variable<br />
+resolution）），它会从链中的第一个对象开始查找，如果这个对象有一个名为x的属性，则会直接使用这个属性的值，如果第一个对象中不存在名为x的属性，JavaScript会继续查找链上的下一个对象。如果第二个对象依然没有名为x的属性，则会继续查找下一个对象，以此类推。如果作用域链上没有任何一个对象含有属性x，那么就认为这段代码的作用域链上不存在x，并最终抛出一个引用错误（ReferenceError）异常。</strong><br />
+<strong>在JavaScript的最顶层代码中（也就是不包含在任何函数定义内的代码），作用域链由一个全局对象组成。在不包含嵌套的函数体内，作用域链上有两个对象，第一个是定义函数参数和局部变量的对象，第二个是全局对象。在一个嵌套的函数体内，作用域链上至少有三个对象。理解对象链的创建规则是非常重要的。当定义一个函数时，它实际上保存一个作用域链。当调用这个函数时，它创建一个新的对象来存储它的局部变量，并将这个对象添加至保存的那个作用域链上，同时创建一个新的更长的表示函数调用作用域的“链”。对于嵌套函数来讲，事情变得更加有趣，每次调用外部函数时，内部函数又会重新定义一遍。因为每次调用外部函数的时候，作用域链都是不同的。内部函数在每次定义的时候都有微妙的差别——在每次调用外部函数时，内部函数的代码都是相同的，而且关联这段代码的作用域链也不相同。</strong><br />
+<strong>泛函数</strong></p>
+<h4 id="_8"><a name="user-content-_8" href="#_8" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>可调用对象</h4>
+<p>函数都可以被调用，但是被调用的不都是函数，也有可能是可调用对象。例如客户端方法：<br />
+Window.alert() 和 Document.getElementById();是为<strong>可调用的宿主对象。</strong></p>
+<h4 id="function"><a name="user-content-function" href="#function" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Function()构造函数</h4>
+<p>注意new<br />
+Function(arg[,arg[,…]],body)构造函数的函数体代码的编译总是会在顶层函数执行，也就是全局作用域。</p>
+<h4 id="call-apply-bind"><a name="user-content-call-apply-bind" href="#call-apply-bind" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>call() 、apply() 和bind()</h4>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call">call</a>和apply是用来<strong>动态改变this。</strong>（函数运行时的context，也就是上下文即this的指向）而<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind">bind()</a>是利用apply/call来返回一个函数，用来<strong>永久实现</strong>以上功能。（apply/call的使用是一次性的）<br />
+if (!<em>Function</em>.prototype.bind) {<br />
+<em>Function</em>.prototype.bind = <em>function</em> (<em>obj</em>,/*,args*/) {<br />
+<em>var</em> self = this, boundArgs = arguments;<br />
+return <em>function</em> () {<br />
+<em>var</em> args = [], i;<br />
+for (i = 1; i \&lt; boundArgs.length; i++)args.push(boundArgs[i]);<br />
+for (i = 0; i \&lt; arguments.length; i++)args.push(arguments[i]);<br />
+return self.apply(o, args);<br />
+}<br />
+}<br />
+}<br />
+this.x = 9;<br />
+<em>var</em> module = {<br />
+x: 81,<br />
+getX: <em>function</em> () { return this.x; }<br />
+};<br />
+module.getX(); // 返回 81<br />
+<em>var</em> retrieveX = module.getX;<br />
+retrieveX(); // 返回 9, 在这种情况下，&rdquo;this&rdquo;指向全局作用域<br />
+// 创建一个新函数，将&rdquo;this&rdquo;绑定到module对象<br />
+// 新手可能会被全局的x变量和module里的属性x所迷惑<br />
+<em>var</em> boundGetX = retrieveX.bind({ x: 33 });<br />
+p(boundGetX()); // 返回 33<br />
+<em>function</em> p(<em>argument</em>) {<br />
+<em>console</em>.log(argument);<br />
+}<br />
+strict模式中 call() 和<br />
+apply()的第一个值是this，其他的情况null和undefined是全局对象，或者包装对象（wrapper<br />
+object）。<br />
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind">创建绑定函数</a></p>
+<blockquote>
+<p>bind() 最简单的用法是创建一个函数，使这个函数不论怎么调用都有同样的 this<br />
+  值。JavaScript新手经常犯的一个错误是将一个方法从对象中拿出来，然后再调用，希望方法中的<br />
+  this<br />
+  是原来的对象。（比如在回调中传入这个方法。）如果不做特殊处理的话，一般会丢失原来的对象。从原来的函数和原来的对象创建一个绑定函数，则能很漂亮地解决这个问题：<br />
+Promise的实现</p>
+</blockquote>
+<hr />
+<ol>
+<li>Promise是什么？有什么作用？适用于哪些场景？如何使用？原理是什么？<br />
+Web浏览器中的JavaScript</li>
+</ol>
+<hr />
+<p>同一个页面的JavaScript代码引用同一个windows对象，所以是共享的。<br />
+JavaScript的执行顺序分为两个阶段：<br />
+1.  载入文档内容<br />
+2.  事件驱动的异步<br />
+可能涉及到浏览器的渲染过程：<a href="http://note.youdao.com/noteshare?id=96f2ec5cc1ca98721f5041d3849084ac&amp;sub=0E95A3E2019C47F4976FA9F44E12850C">深入理解浏览器渲染原理</a><em>。</em><br />
+HTML解析器遇到\&lt;script>时就会先解析script.\&lt;script>有两个属性 <a href="http://ued.ctrip.com/blog/script-defer-and-async.html">defer<br />
+和async</a><br />
+相同点：<br />
+-   加载文件时不阻塞页面渲染<br />
+-   对于inline的script无效<br />
+-   使用这两个属性的脚本中不能调用document.write方法<br />
+-   有脚本的onload的事件回调<br />
+区别点：<br />
+-   html的版本html4.0中定义了defer；html5.0中定义了async<br />
+-   执行时刻：</p>
+<blockquote>
+<p>每一个async属性的脚本都在它下载结束之后立刻执行，同时会在window的load事件之前执行。所以就有可能出现脚本执行顺序被打乱的情况；<br />
+  每一个defer属性的脚本都是在页面解析完毕之后，按照原本的顺序执行，同时会在document的DOMContentLoaded之前执行。<br />
+/**<br />
+* 异步加载脚本<br />
+* <em>\@param {String}</em> url<br />
+*/<br />
+<em>function</em> loadasyni(<em>url</em>){<br />
+<em>var</em> head = <em>document</em>.getElementsByTagName(&ldquo;head&rdquo;)[0];<br />
+<em>var</em> s = <em>document</em>.createElement(&ldquo;script&rdquo;);<br />
+s.src = url;<br />
+head.appendChild(s);//将script元素插入head标签中<br />
+}</p>
+</blockquote>
+<h3 id="bookmarklet"><a href="https://gitee.com/Tech_Query/iBookmarkLet">BookmarkLet</a> 有空可以来研究一下</h3>
+<h3 id="_9"><a name="user-content-_9" href="#_9" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>跨域的问题</h3>
+<p>CORS跨域资源共享</p>
+<h3 id="window"><a name="user-content-window" href="#window" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Window</h3>
+<h4 id="locationnavigation"><a name="user-content-locationnavigation" href="#locationnavigation" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Location和Navigation</h4>
+<p>window对象和document的location对象引用的都是Location对象<br />
+document.URL是文档首次载入后保存的静态字符串不会随着hash变短改变；而Location会改变。=》URL是一个字符串，而location是一个对象，包含其他的属性。例如：<br />
+<strong>location.toString()===location.href //=>true</strong><br />
+按照普通的资源定位符protocol/host/hostname/port/pathname/search/hash<br />
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/URLSearchParams/URLSearchParams">URLSearchParams()</a><strong>:</strong>未成标准的URLArguments获取函数</p>
+<h3 id="dom"><a name="user-content-dom" href="#dom" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>DOM</h3>
+<h4 id="_10"><a name="user-content-_10" href="#_10" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>整体的思路：</h4>
+<ol>
+<li>选择<ol>
+<li>选择方式<ol>
+<li>几个get和querySelectorAll()、querySelector();</li>
+<li>ParentNode\childNodes\firstChild\lastChild\nextSibling\previousSibling</li>
+<li>上</li>
+<li>中</li>
+<li>下</li>
+<li>改变</li>
+</ol>
+</li>
+<li>Create</li>
+<li>Update</li>
+<li>Delete<br />
+理解树形结构</li>
+</ol>
+</li>
+</ol>
+<h4 id="node"><a name="user-content-node" href="#node" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Node对象</h4>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/nodeType">NodeType</a><br />
+<em>var</em> type = node.nodeType;<br />
+对应的数字编号<br />
+1.  Element<br />
+2.  Attribute<br />
+3.  Text</p>
+<h4 id="_11"><a name="user-content-_11" href="#_11" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>属性</h4>
+<p>有些特殊的，比如在JavaScript中是保留字for——htmlFor；class——className<br />
+jQuery<br />
+======<br />
+Events</p>
+<hr />
+<h3 id="on"><a name="user-content-on" href="#on" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>.on()</h3>
+<p>jQuery()..on( events [, selector ] [, data ], handler )<br />
+事件命名空间<br />
+An event name can be qualified by event namespaces that simplify removing or<br />
+triggering the event.<br />
+.on(&ldquo;click.simple&rdquo;);<br />
+.off(&ldquo;click.simple&rdquo;);<br />
+委托代理的原理是：事件注册在jQuery()对象上，当触发事件时，再通过selector处理。<br />
+涉及<a href="#享元模式">享元模式</a>：只注册到一个对象上，提高了效率和页面性能，解决的动态添加元素导致不能触发的bug。<br />
+正则表达式<br />
+==========<br />
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions">正则表达式</a><br />
+NodeJS<br />
+======<br />
+<strong>I/O 的同步与异步</strong></p>
+<hr />
+<p>结合Promise<br />
+Network<br />
+=======<br />
+状态码</p>
+<hr />
+<p>403：客户端没有访问权限<br />
+404：客户端请求出现错误，请求的资源是不存在的<br />
+304：重定向，资源在某处有缓存，可以直接取用，不需要向原始地址发起请求。<br />
+500：服务器问题<br />
+数据结构<br />
+========<br />
+JavaScript数组</p>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Unshift=》</th>
+<th>《=Push</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>《=Shift</td>
+<td>Pop=》</td>
+</tr>
+<tr>
+<td>后进先出Stack</td>
+<td></td>
+</tr>
+<tr>
+<td>Git</td>
+<td></td>
+</tr>
+<tr>
+<td>===</td>
+<td></td>
+</tr>
+<tr>
+<td>Git工作流是很重要的多人协作方式。主要是应用场景。</td>
+<td></td>
+</tr>
+<tr>
+<td>MicroSite</td>
+<td></td>
+</tr>
+<tr>
+<td>=========</td>
+<td></td>
+</tr>
+<tr>
+<td>OOP</td>
+<td></td>
+</tr>
+<tr>
+<td>&mdash;</td>
+<td></td>
+</tr>
+<tr>
+<td>MixIn混入</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/0014318680104044a55f4a9dbf8452caf71e8dc68b75a18000">多重继承</a></td>
+<td></td>
+</tr>
+<tr>
+<td>使用组合的形式更加灵活，解耦。类似图书馆的分类方式，如果用标签来查找更容易。</td>
+<td></td>
+</tr>
+<tr>
+<td>Design Patterns设计模式</td>
+<td></td>
+</tr>
+<tr>
+<td>-----------------------</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://www.amazon.cn/JavaScript%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B8%8E%E5%BC%80%E5%8F%91%E5%AE%9E%E8%B7%B5-%E6%9B%BE%E6%8E%A2/dp/B01F7IELCW/ref=sr_1_3?s=digital-text&amp;ie=UTF8&amp;qid=1507800630&amp;sr=1-3&amp;keywords=JavaScript%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">《JavaScript设计模式与开发实践》</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_12"><a name="user-content-_12" href="#_12" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>享元模式</h3>
+<p>享元模式用于<strong>减少</strong>应用程序所需要的<strong>对象数量</strong>。jQuery中的<a href="#on">on()委托</a>就是这个模式。<br />
+一个对象，会变化的属性和不会变化的属性分开。享元模式要求将对象的属性划分为内部状态与外部状态（状态在这里通常指属性）。享元模式的目标是尽量减少共享对象的数量，关于如何划分内部状态和外部状态，下面的几条经验提供了一些指引。<br />
+尽量少创建对象，如果只是改动少量的属性就能够完成。例如地图上的ToolTip，在搜索的时候只需要改动坐标和显示信息。<br />
+对象池和时间委托。<br />
+MVC分型</p>
+<hr />
+<p>结构的设计方式<br />
+职责单一<br />
+高内聚低耦合<br />
+Shell作为唯一的入口。<br />
+调用其他模块的接口。<br />
+NodeJS作为后端服务的性能比较</p>
+<hr />
+<p>并不是跟比Java或者C++比性能。主要的优势是“异步”：后端的主要资源不是耗费在Node上而是类似数据库操作之类的，Node负责接收和返回数据。<br />
+MicroSite是什么？</p>
+<hr />
+<p>是我的个人小站。准备做一些可以当作时间胶囊的东西。同时也算是可以记录自己这一些成长的过程吧。<br />
+整体的结构</p>
+<hr />
+<p><a href="http://www.ruanyifeng.com/blog/2008/02/codes_for_language_names.html">zh-cmn-Hans</a><br />
+前端的路由</p>
+<hr />
+<ul>
+<li><strong>uriAnchor</strong> <a href="https://github.com/mmikowski/urianchor">HomePage</a><br />
+用来操作锚，作为页面状态的。同时还有缓存技术就是指indexDB，是Brower端的数据库。可以做类似Photoshop历史记录的功能。（<em>暂时还没有实现redo和undo</em>）。</li>
+<li>HTML5 <strong>history</strong>属性（<em>待研究</em>）<br />
+使用HTT­P和HTTPS的区别</li>
+</ul>
+<hr />
+<h2 id="amdcmd"><a name="user-content-amdcmd" href="#amdcmd" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>AMD和CMD的优劣或者各自的适用场景</h2>
+<h2 id="htmlvalue-innertext-innerhtml"><a name="user-content-htmlvalue-innertext-innerhtml" href="#htmlvalue-innertext-innerhtml" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>HTML中value innerText innerHTML的区别</h2>
+<ul>
+<li>innerHTML：<blockquote>
+<p>浏览器会将inneHTML后面的内容作为html来解析。</p>
+</blockquote>
+</li>
+<li>innerText<blockquote>
+<p>浏览器会将innerText后面的内容作为纯文本来解析。</p>
+</blockquote>
+</li>
+<li>value<blockquote>
+<p>value是元素的属性值，而innerText和innerHTML是元素开始和结束标签之间的值<br />
+Fetch API</p>
+</blockquote>
+</li>
+</ul>
+<hr />
+<p><strong>使用 Fetch:</strong><br />
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch">https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch</a><br />
+函数节流和函数去抖Debouncer</p>
+<hr />
+<h2 id="_13"><a name="user-content-_13" href="#_13" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>使用原生方法实现拖拽</h2></article></body></html>

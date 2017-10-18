@@ -4,7 +4,7 @@
  */
 
 
-shell.navbar = (function () {
+shell.navbar = (function ($) {
     //---------------- BEGIN MODULE SCOPE VARIABLES --------------
     var
         configMap = {
@@ -115,4 +115,4 @@ shell.navbar = (function () {
     // End PUBLIC method /initModule/
     return { initModule: initModule };
     //------------------- END PUBLIC METHODS ---------------------
-}());
+}(jQuery));

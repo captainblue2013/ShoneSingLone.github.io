@@ -79,7 +79,7 @@ shell.navbar = (function () {
                     });
                 },
                     showEleByJqueryObj = function () {
-                        $img.show();
+                        $img.animateCss("bounceInDown").show();
                         // $img.show().animateCss("bounceInDown");
                     },
                     switchImg = function () {
@@ -112,8 +112,6 @@ shell.navbar = (function () {
         stateMap.$container = $container;
         let $nav_top_bar = $(configMap.html_nav_top_bar);
         let $nav_stamp = $(configMap.html_nav_stamp);
-        debugger;
-        // let $navbar = $("#nav-top-bar");
         let navbarOuterHeight = $nav_top_bar.outerHeight();
         let cssStyle = {
             height: `${navbarOuterHeight}px`,

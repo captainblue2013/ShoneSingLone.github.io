@@ -4,61 +4,58 @@
  */
 
 
-shell.navbar = (function() {
+shell.navbar = (function () {
     //---------------- BEGIN MODULE SCOPE VARIABLES --------------
     var
         configMap = {
             html_nav_top_bar: "" +
-                '    <nav id="nav-top-bar" class="navbar navbar-default navbar-fixed-top">' +
-                '        <div class="container">' +
-                '            <div class="navbar-header">' +
-                '                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"' +
-                '                    aria-controls="navbar">' +
-                '                    <span class="sr-only">Toggle navigation</span>' +
-                '                    <span class="icon-bar"></span>' +
-                '                    <span class="icon-bar"></span>' +
-                '                    <span class="icon-bar"></span>' +
-                '                </button>' +
-                '                <a class="navbar-brand" href="#">ShoneSingLone\'s MicroSite</a>' +
-                '            </div>' +
-                '            <div id="navbar" class="navbar-collapse collapse">' +
-                '                <ul class="nav navbar-nav"> </ul>' +
-                '                <ul class="nav navbar-nav navbar-right">' +
-                '                    <li><a href="#home">Home</a></li>' +
-                '                    <li><a target="_blank" href="https://github.com/ShoneSingLone">Github</a></li>' +
-                '                    <li><a href="mailto:SingLone@foxmail.com">Email me!</a></li>' +
-                '                    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>' +
-                '                        <ul class="dropdown-menu">' +
-                '                            <li><a href="#">Action</a></li>' +
-                '                            <li><a href="#">Another action</a></li>' +
-                '                            <li><a href="#">Something else here</a></li>' +
-                '                            <li role="separator" class="divider"></li>' +
-                '                            <li class="dropdown-header">Nav header</li>' +
-                '                            <li><a href="#">Separated link</a></li>' +
-                '                            <li><a href="#">One more separated link</a></li>' +
-                '                        </ul>' +
-                '                    </li>' +
-                '                </ul>' +
-                '            </div>' +
-                '        </div>' +
-                '    </nav>',
+            '    <nav id="nav-top-bar" class="navbar navbar-default navbar-fixed-top">' +
+            '        <div class="container">' +
+            '            <div class="navbar-header">' +
+            '                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"' +
+            '                    aria-controls="navbar">' +
+            '                    <span class="sr-only">Toggle navigation</span>' +
+            '                    <span class="icon-bar"></span>' +
+            '                    <span class="icon-bar"></span>' +
+            '                    <span class="icon-bar"></span>' +
+            '                </button>' +
+            '                <a class="navbar-brand" href="#">ShoneSingLone\'s MicroSite</a>' +
+            '            </div>' +
+            '            <div id="navbar" class="navbar-collapse collapse">' +
+            '                <ul class="nav navbar-nav"> </ul>' +
+            '                <ul class="nav navbar-nav navbar-right">' +
+            '                    <li><a href="#home">Home</a></li>' +
+            '                    <li><a target="_blank" href="https://github.com/ShoneSingLone">Github</a></li>' +
+            '                    <li><a href="mailto:SingLone@foxmail.com">Email me!</a></li>' +
+            '                    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>' +
+            '                        <ul class="dropdown-menu">' +
+            '                            <li><a href="#">Action</a></li>' +
+            '                            <li><a href="#">Another action</a></li>' +
+            '                            <li><a href="#">Something else here</a></li>' +
+            '                            <li role="separator" class="divider"></li>' +
+            '                            <li class="dropdown-header">Nav header</li>' +
+            '                            <li><a href="#">Separated link</a></li>' +
+            '                            <li><a href="#">One more separated link</a></li>' +
+            '                        </ul>' +
+            '                    </li>' +
+            '                </ul>' +
+            '            </div>' +
+            '        </div>' +
+            '    </nav>',
             html_nav_stamp: "" +
-                '    <div id="nav-stamp">' +
-                '    </div>'
+            '    <div id="nav-stamp">' +
+            '    </div>'
         },
         stateMap = {
             $container: null,
             anchor_map: {}
         },
         jqueryMap = {},
-
-        copyAnchorMap, setJqueryMap, toggleChat,
-        changeAnchorPart, onHashchange,
-        onClickChat, initModule, dealImag;
+        dealImag;
     //----------------- END MODULE SCOPE VARIABLES ---------------
 
     //----------------------------------
-    dealImag = function(jsonData) {
+    dealImag = function (jsonData) {
         if (jsonData.avatar_url) {
 
             let $img = $("<img/>", {
@@ -74,18 +71,18 @@ shell.navbar = (function() {
             $img.attr("src", jsonData.avatar_url).animateCss("bounceInDown");
             $("#book").attr("src", jsonData.avatar_url);
             $("div.navbar-header a.navbar-brand").before($img);
-            var switchImg = (function($img) {
+            var switchImg = (function ($img) {
                 var counter = 0;
-                var hideEleByJqueryObj = function() {
-                        $img.animateCss("bounceOutUp", function() {
-                            $img.hide();
-                        });
-                    },
-                    showEleByJqueryObj = function() {
-                        $img.fadeIn();
+                var hideEleByJqueryObj = function () {
+                    $img.animateCss("bounceOutUp", function () {
+                        $img.hide();
+                    });
+                },
+                    showEleByJqueryObj = function () {
+                        $img.show();
                         // $img.show().animateCss("bounceInDown");
                     },
-                    switchImg = function() {
+                    switchImg = function () {
                         if ($img.css("display") === "none") {
                             showEleByJqueryObj();
                         } else {
@@ -110,7 +107,7 @@ shell.navbar = (function() {
 
     //------------------- BEGIN PUBLIC METHODS -------------------
     // Begin Public method /initModule/
-    initModule = function($container) {
+    initModule = function ($container) {
         // load HTML and map jQuery collections
         stateMap.$container = $container;
         let $nav_top_bar = $(configMap.html_nav_top_bar);

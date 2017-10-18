@@ -33,248 +33,54 @@ if `border：none;` 浏览器不会渲染border; 只有宽度，没有样式，�
 
 > 块级元素： address - 地址； blockquote - 块引用； center - 举中对齐块； dir - 目录列表； div - 常用块级容易，也是css layout的主要标签； dl - 定义列表； fieldset - form控制组； form - 交互表单； h1 - 大标题； h2 - 副标题； h3 - 3级标题； h4 - 4级标题； h5 - 5级标题； h6 - 6级标题； hr - 水平分隔线； isindex - input prompt； menu - 菜单列表； noframes - frames可选内容（对于不支持frame的浏览器显示此区块内容）； noscript - 可选脚本内容（对于不支持script的浏览器显示此内容）； ol - 排序列表； p - 段落； pre - 格式化文本； table - 表格； ul - 非排序列表； 
 
+- 转换：float\display\position
 
 ## 浮动
+
 标准文档流和浮动流
 在标准文档流中Inline元素和Block元素是两个基本元素。
 从上到下，从左到右，浮动使之脱离标准文档流。
 浮动用来设置文字环绕，也可以用来布局；**bootstrap栅栏系统**
+
 - [清除浮动](http://nicolasgallagher.com/micro-clearfix-hack/)
-- 浮动float所产生的塌陷
+- fix float所产生的塌陷
     - [利用:after伪类元素清除](http://www.html-js.com/article/2203)
     - [Why does overflow hidden stop floating elements escaping their container?](https://stackoverflow.com/questions/9193214/why-does-overflow-hidden-stop-floating-elements-escaping-their-container)
     - [BFC 块级格式化上下文](http://web.jobbole.com/83149/)+ [CSS之BFC详解](http://www.html-js.com/article/1866)
-        
-        BFD特性：
-        1. 内部的Box会在垂直方向，从顶部开始一个接一个地放置。
-        1. Box垂直方向的距离由margin决定。属于同一个BFC的两个相邻Box的margin会发生叠加
-        1. 每个元素的margin box的左边， 与包含块border box的左边相接触(对于从左往右的格式化，否则相反)。即使存在浮动也是如此。
-        1. BFC的区域不会与float box叠加。
-        1. BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素，反之亦然。
-        1. 计算BFC的高度时，浮动元素也参与计算。
-        
-        作用
+    **BFC特性**
+		1. 内部的Box会在垂直方向，从顶部开始一个接一个地放置。
+		1. Box垂直方向的距离由margin决定。属于同一个BFC的两个相邻Box的margin会发生叠加
+		1. 每个元素的margin box的左边， 与包含块border box的左边相接触(对于从左往右的格式化，否则相反)。即使存在浮动也是如此。
+		1. BFC的区域不会与float box叠加。
+		1. BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素，反之亦然。
+		1. 计算BFC的高度时，浮动元素也参与计算。
+		---
+		**作用**
 
-        1. 解决margin叠加问题 
-        1. 布局[CSS之BFC详解](http://www.html-js.com/article/1866)
-        1. 用于清除浮动，计算BFC高度.
-        
-        `overflow: hidden;`只是创建BFC的方式之一，比较常用。
-        - `display: table` 可能引发响应性问题
-        - `overflow: scroll` 可能产生多余的滚动条
-        - `float: left` 将把元素移至左侧，并被其他元素环绕
-        - `overflow: hidden` 将裁切溢出元素
+		1. 说的
+		1. 解决margin叠加问题 
+		1. 布局[CSS之BFC详解](http://www.html-js.com/article/1866)
+		1. 用于清除浮动，计算BFC高度.
+		---
+
+		`overflow: hidden;`只是创建BFC的方式之一，比较常用。
+
+		- `display: table` 可能引发响应性问题
+		- `overflow: scroll` 可能产生多余的滚动条
+		- `float: left` 将把元素移至左侧，并被其他元素环绕
+		- `overflow: hidden` 将裁切溢出元素
 
 
 Inline-block和浮动布局的区别？
-@font-face
-动画
-JavaScript
-console.log(a)//[Function: a]
-a();//10
-var a = 3;
-function a() {
-    console.log(10)
-}
-console.log(a)//3
-a = 6;
-a();//TypeError: a is not a function
-参考书目
-	
-《JavaScript权威指南》目录
-前言
-第1章 JavaScript概述
-1.1 JavaScript语言核心
-1.2 客户端JavaScript
-第一部分 JavaScript 语言核心
-第2章 词法结构
-2.1 字符集
-2.2 注释
-2.3 直接量
-2.4 标识符和保留字
-2.5 可选的分号
-第3章 类型、值和变量
-3.1 数字
-3.2 文本
-3.3 布尔值
-3.4 null和undefined
-3.5 全局对象
-3.6 包装对象
-3.7 不可变的原始值和可变的对象引用
-3.8 类型转换
-3.9 变量声明
-3.10 变量作用域
-第4章 表达式和运算符
-4.1 原始表达式
-4.2 对象和数组的初始化表达式
-4.3 函数定义表达式
-4.4 属性访问表达式
-4.5 调用表达式
-4.6 对象创建表达式
-4.7 运算符概述
-4.8 算术表达式
-4.9 关系表达式
-4.10 逻辑表达式
-4.11 赋值表达式
-4.12 表达式计算
-4.13 其他运算符
-第5章 语句
-5.1 表达式语句
-5.2 复合语句和空语句
-5.3 声明语句
-5.4 条件语句
-5.5 循环
-5.6 跳转
-5.7 其他语句类型
-5.8 JavaScript语句小结
-第6章 对象
-6.1 创建对象
-6.2 属性的查询和设置
-6.3 删除属性
-6.4 检测属性
-6.5 枚举属性
-6.6 属性getter和setter
-6.7 属性的特性
-6.8 对象的三个属性
-6.9 序列化对象
-6.10 对象方法
-第7章 数组
-7.1 创建数组
-7.2 数组元素的读和写
-7.3 稀疏数组
-7.4 数组长度
-7.5 数组元素的添加和删除
-7.6 数组遍历
-7.7 多维数组
-7.8 数组方法
-7.9 ECMAScript 5中的数组方法
-7.10 数组类型
-7.11 类数组对象
-7.12 作为数组的字符串
-第8章 函数
-8.1 函数定义
-8.2 函数调用
-8.3 函数的实参和形参
-8.4 作为值的函数
-8.5 作为命名空间的函数
-8.6 闭包
-8.7 函数属性、方法和构造函数
-8.8 函数式编程
-第9章 类和模块
-9.1 类和原型
-9.2 类和构造函数
-9.3 JavaScript中Java式的类继承
-9.4 类的扩充
-9.5 类和类型
-9.6 JavaScript中的面向对象技术
-9.7 子类
-9.8 ECMAScript 5 中的类
-9.9 模块
-第10章 正则表达式的模式匹配
-10.1 正则表达式的定义
-10.2 用于模式匹配的String方法
-10.3 RegExp对象
-第11章 JavaScript的子集和扩展
-11.1 JavaScript的子集
-11.2 常量和局部变量
-11.3 解构赋值
-11.4 迭代
-11.5 函数简写
-11.6 多catch 从句
-11.7 E4X: ECMAScript for XML
-第12章 服务器端JavaScript
-12.1 用Rhino脚本化Java
-12.2 用Node实现异步I/O
+## @font-face
+## 动画
 
-第二部分 客户端JavaScript
-第13章 Web浏览器中的JavaScript
-13.1 客户端JavaScript
-13.2 在HTML里嵌入JavaScript
-13.3 JavaScript程序的执行
-13.4 兼容性和互用性
-13.5 可访问性
-13.6 安全性
-13.7 客户端框架
-第14章 Window对象
-14.1 计时器
-14.2 浏览器定位和导航
-14.3 浏览历史
-14.4 浏览器和屏幕信息
-14.5 对话框
-14.6 错误处理
-14.7 作为Window对象属性的文档元素
-14.8 多窗口和窗体
-第15章 脚本化文档
-15.1 DOM概览
-15.2 选取文档元素
-15.3 文档结构和遍历
-15.4 属性
-15.5 元素的内容
-15.6 创建、插入和删除节点
-15.7 例子：生成目录表
-15.8 文档和元素的几何形状和滚动
-15.9 HTML表单
-15.10 其他文档特性
-第16章 脚本化CSS
-16.1 CSS概览
-16.2 重要的CSS属性
-16.3 脚本化内联样式
-16.4 查询计算出的样式
-16.5 脚本化CSS类
-16.6 脚本化样式表
-第17章 事件处理
-17.1 事件类型
-17.2 注册事件处理程序
-17.3 事件处理程序的调用
-17.4 文档加载事件
-17.5 鼠标事件
-17.6 鼠标滚轮事件
-17.7 拖放事件
-17.8 文本事件
-17.9 键盘事件
-第18章 脚本化HTTP
-18.1 使用XMLHttpRequest
-18.2 借助发送HTTP请求：JSONP
-18.3 基于服务器端推送事件的Comet技术
-第19章 jQuery类库
-19.1 jQuery基础
-19.2 jQuery的getter和setter
-19.3 修改文档结构
-19.4 使用jQuery处理事件
-19.5 动画效果
-19.6 jQuery中的Ajax
-19.7 工具函数
-19.8 jQuery选择器和选取方法
-19.9 jQuery的插件扩展
-19.10 jQuery UI类库
-第20章 客户端存储
-20.1 localStorage和sessionStorage
-20.2 cookie
-20.3 利用IE userData持久化数据
-20.4 应用程序存储和离线Web应用
-第21章 多媒体和图形编程
-21.1 脚本化图片
-21.2 脚本化音频和视频
-21.3 SVG：可伸缩的矢量图形
-21.4 中的图形
-第22章 HTML5 API
-22.1 地理位置
-22.2 历史记录管理
-22.3 跨域消息传递
-22.4 Web Worker
-22.5 类型化数组和ArrayBuffer
-22.6 Blob
-22.7 文件系统API
-22.8 客户端数据库
-22.9 Web套接字
+# JavaScript
 
-第三部分 JavaScript核心参考
-JavaScript核心参考
+>参考书目
+《JavaScript权威指南》
 
-第四部分 客户端JavaScript参考
-客户端JavaScript参考
-
-数据类型
+## 数据类型
 
 asdf
 变量用var和不用var的区别
@@ -282,6 +88,7 @@ ES6 变量作用域与提升：变量的生命周期详解
 1.	不用var是全局变量的属性；可以用delete删除【属性】；不能变量提升
 2.	用var是变量；不可以用delete删除；会变量提升；是局部变量。
 3.	‘use strict’模式下不使用var会报错。
+```
     console.log(a);//[Function: a]
     a();//函数提升
     var a = "变量已赋值";
@@ -292,6 +99,7 @@ ES6 变量作用域与提升：变量的生命周期详解
     a = 3;
     console.log(a);//3
     a();//报错：a is not a function
+```
 
 
 

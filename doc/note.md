@@ -1,31 +1,3 @@
-# Plan
-1.	Java EE ：报表；
-2.	Python数据分析：金融、房产价格
-3.	NodeJS小工具：数据填充
-4.	用加入Markdown实现金字塔结构的文章目录。生成Markdown的文档。点击之后成为新的文件，新建
-5.	单点登录
-6.	To Do List（番茄工作时间）
-a)	有一个类似分配功能的交流群：一个人提一个意见，其他人可以针对这个议题提意见或者是投票操作，单独可以将这个议题形成一个功能讨论区。
-b)	分配任务：查看任务的进度，如果没有按预期完成，可以提醒，也可以给其他人提示，（提早把任务抛出）大量的记录（是否按照预定时间完成任务，延后的几次，是自己预估错误还是任务过重？）也可以做个人的评估。
-c)	移动端有相应的应用。可以考虑单页应用。
-d)	聊天应用类似QQ
-
-```html
-<div class="row">
-    <div class="col-lg-4">
-        <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic aceholder image"
-            width="140" height="140">
-        <h2>Heading</h2>
-        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam dolor id nibh ultricies vehicula ut id
-            elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. aesent commodo cursus magna.</p>
-        <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
-    </div>
-</div>
-```
-
----
-
- 
 # Tips
 
 1.	PhoneGap / Cordova、AppCan、DCloud / APICloud，都是基于 WebKit 扩展的；

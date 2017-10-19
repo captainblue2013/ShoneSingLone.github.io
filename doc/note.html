@@ -1025,7 +1025,7 @@ Weex 在 WebKit 与原生上实现了一个抽象层；</li>
 <h1 id="css"><a name="user-content-css" href="#css" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>CSS</h1>
 <p>border的样式很重要<br />
 if <code>border：none;</code> 浏览器不会渲染border; 只有宽度，没有样式，也不会渲染, 所以一定要有样式才有效。 </p>
-<h2 id="_1"><a name="user-content-_1" href="#_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>盒子模型</h2>
+<h2 id="box"><a name="user-content-box" href="#box" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>盒子模型（box）</h2>
 <p>每个元素</p>
 <ul>
 <li><strong>目前</strong>是矩形</li>
@@ -1044,18 +1044,244 @@ if <code>border：none;</code> 浏览器不会渲染border; 只有宽度，没�
 <p><a href="http://www.jianshu.com/p/d69878549d92">说说行内元素和块级元素</a></p>
 </blockquote>
 <ul>
-<li>如果没有其他属性设置，inline是<strong>包裹</strong>里面的文字或图片，尽量收缩，不换行；而block是撑，尽量撑满parent容器，默认宽度是parent容器的宽度，独占一行。</li>
+<li>如果没有其他属性设置，inline是<strong>包裹</strong>里面的文字或图片，尽量收缩，不换行；而block是<strong>撑</strong>，尽量撑满parent容器，默认宽度是parent容器的宽度，独占一行。</li>
 <li>inline只能容纳文本或者其他内联元素；block能容纳其他块元素或者内联元素。</li>
 <li>inline margin padding left 和 right 可以改变；block高度，行高以及顶和底边距都可以控制；</li>
 </ul>
-<blockquote>
-<p>行内元素：a - 锚点； abbr - 缩写； acronym - 首字； b - 粗体（不推荐）； bdo - bidi override； big - 大字体； br - 换行； cite - 引用； code - 计算机代码（在引用源码的时候需要）； dfn - 定义字段； em - 强调； font - 字体设定（不推荐）； i - 斜体； img - 图片； input - 输入框； kbd - 定义键盘文本； label - 表格标签； q - 短引用； s - 中划线（不推荐）； samp - 定义范例计算机代码； select - 项目选择； small - 小字体文本； span - 常用内联容器，定义文本内区块； strike - 中划线； strong - 粗体强调； sub - 下标； sup - 上标； textarea - 多行文本输入框； tt - 电传文本； u - 下划线； var - 定义变量；</p>
-<p>块级元素： address - 地址； blockquote - 块引用； center - 举中对齐块； dir - 目录列表； div - 常用块级容易，也是css layout的主要标签； dl - 定义列表； fieldset - form控制组； form - 交互表单； h1 - 大标题； h2 - 副标题； h3 - 3级标题； h4 - 4级标题； h5 - 5级标题； h6 - 6级标题； hr - 水平分隔线； isindex - input prompt； menu - 菜单列表； noframes - frames可选内容（对于不支持frame的浏览器显示此区块内容）； noscript - 可选脚本内容（对于不支持script的浏览器显示此内容）； ol - 排序列表； p - 段落； pre - 格式化文本； table - 表格； ul - 非排序列表； </p>
-</blockquote>
+<table>
+<thead>
+<tr>
+<th>行内元素</th>
+<th>语义</th>
+<th></th>
+<th>块级元素</th>
+<th>语义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td>锚</td>
+<td></td>
+<td>address</td>
+<td>地址</td>
+</tr>
+<tr>
+<td>abbr</td>
+<td>缩写</td>
+<td></td>
+<td>blockquote</td>
+<td>块引用</td>
+</tr>
+<tr>
+<td>acronym</td>
+<td>首字</td>
+<td></td>
+<td>center</td>
+<td>居中对齐块</td>
+</tr>
+<tr>
+<td>b</td>
+<td>粗体（不推荐）</td>
+<td></td>
+<td>dir</td>
+<td>目录列表</td>
+</tr>
+<tr>
+<td>bdo</td>
+<td>bidi override</td>
+<td></td>
+<td><strong>div</strong></td>
+<td>（无语义的块级元素）</td>
+</tr>
+<tr>
+<td>big</td>
+<td>大字体</td>
+<td></td>
+<td>dl</td>
+<td>定义列表</td>
+</tr>
+<tr>
+<td>br</td>
+<td>换行</td>
+<td></td>
+<td>fieldset</td>
+<td>form表单控制组（group）</td>
+</tr>
+<tr>
+<td>cite</td>
+<td>引用</td>
+<td></td>
+<td>form</td>
+<td>交互表单</td>
+</tr>
+<tr>
+<td>code</td>
+<td>计算机代码（在引用源码的时候需要）</td>
+<td></td>
+<td>h1</td>
+<td>大标题</td>
+</tr>
+<tr>
+<td>dfn</td>
+<td>定义字段</td>
+<td></td>
+<td>h2</td>
+<td>副标题</td>
+</tr>
+<tr>
+<td>em</td>
+<td>强调</td>
+<td></td>
+<td>h3</td>
+<td>3级标题</td>
+</tr>
+<tr>
+<td>font</td>
+<td>字体设定（不推荐）</td>
+<td></td>
+<td>h4</td>
+<td>4级标题</td>
+</tr>
+<tr>
+<td>i</td>
+<td>斜体</td>
+<td></td>
+<td>h5</td>
+<td>5级标题</td>
+</tr>
+<tr>
+<td>img</td>
+<td>图片</td>
+<td></td>
+<td>h6</td>
+<td>6级标题</td>
+</tr>
+<tr>
+<td>input</td>
+<td>输入框</td>
+<td></td>
+<td>hr</td>
+<td>水平分隔线</td>
+</tr>
+<tr>
+<td>kbd</td>
+<td>定义键盘文本</td>
+<td></td>
+<td>isindex</td>
+<td>input prompt</td>
+</tr>
+<tr>
+<td>label</td>
+<td>表格标签</td>
+<td></td>
+<td>menu</td>
+<td>菜单列表</td>
+</tr>
+<tr>
+<td>q</td>
+<td>短引用</td>
+<td></td>
+<td>noframes</td>
+<td>frames可选内容（对于不支持frame的浏览器显示此区块内容）</td>
+</tr>
+<tr>
+<td>s</td>
+<td>中划线（不推荐）</td>
+<td></td>
+<td>noscript</td>
+<td>可选脚本内容（对于不支持script的浏览器显示此内容）</td>
+</tr>
+<tr>
+<td>samp</td>
+<td>定义范例计算机代码</td>
+<td></td>
+<td>ol</td>
+<td>排序列表</td>
+</tr>
+<tr>
+<td>select</td>
+<td>项目选择</td>
+<td></td>
+<td>p</td>
+<td>段落</td>
+</tr>
+<tr>
+<td>small</td>
+<td>小字体文本</td>
+<td></td>
+<td>pre</td>
+<td>格式化文本</td>
+</tr>
+<tr>
+<td><strong>span</strong></td>
+<td>常用内联容器，定义文本内区块</td>
+<td></td>
+<td>table</td>
+<td>表格</td>
+</tr>
+<tr>
+<td>strike</td>
+<td>中划线</td>
+<td></td>
+<td>ul</td>
+<td>非排序列表</td>
+</tr>
+<tr>
+<td>strong</td>
+<td>粗体强调</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>sub</td>
+<td>下标</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>sup</td>
+<td>上标</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>textarea</td>
+<td>多行文本输入框</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>tt</td>
+<td>电传文本</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>u</td>
+<td>下划线</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>var</td>
+<td>定义变</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <ul>
 <li>转换：float\display\position</li>
 </ul>
-<h2 id="_2"><a name="user-content-_2" href="#_2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>浮动</h2>
+<h2 id="_1"><a name="user-content-_1" href="#_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>浮动</h2>
 <p>标准文档流和浮动流<br />
 在标准文档流中Inline元素和Block元素是两个基本元素。<br />
 从上到下，从左到右，浮动使之脱离标准文档流。<br />
@@ -1098,19 +1324,85 @@ if <code>border：none;</code> 浏览器不会渲染border; 只有宽度，没�
 </ul>
 <p>Inline-block和浮动布局的区别？</p>
 <h2 id="font-face"><a name="user-content-font-face" href="#font-face" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>@font-face</h2>
-<h2 id="_3"><a name="user-content-_3" href="#_3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>动画</h2>
+<h2 id="_2"><a name="user-content-_2" href="#_2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>动画</h2>
 <h1 id="javascript"><a name="user-content-javascript" href="#javascript" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>JavaScript</h1>
 <blockquote>
-<p>参考书目<br />
-《JavaScript权威指南》</p>
+<p><strong>参考书目</strong> 《JavaScript权威指南》</p>
 </blockquote>
-<h2 id="_4"><a name="user-content-_4" href="#_4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>数据类型</h2>
-<p>asdf<br />
-变量用var和不用var的区别<br />
-ES6 变量作用域与提升：变量的生命周期详解<br />
-1.  不用var是全局变量的属性；可以用delete删除【属性】；不能变量提升<br />
-2.  用var是变量；不可以用delete删除；会变量提升；是局部变量。<br />
-3.  ‘use strict’模式下不使用var会报错。<br />
+<h2 id="_3"><a name="user-content-_3" href="#_3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>数据类型</h2>
+<h3 id="ecmascript-67"><a name="user-content-ecmascript-67" href="#ecmascript-67" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>ECMAScript 6定义了7种数据类型</h3>
+<blockquote>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Data_structures">JavaScript数据类型和数据结构</a></p>
+</blockquote>
+<ol>
+<li>原始类型（值本身无法被改变）（primitive value）<ul>
+<li>Boolean：0、NaN、undefined、null、””表示false，否则是true</li>
+<li>Null：未初始化的Object</li>
+<li>Undefined：未初始化的原始类型</li>
+<li>Number：0八位、0x十六位</li>
+<li>String：</li>
+<li>Symbol（ECMAScript 6）</li>
+</ul>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>true</th>
+<th>false</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Boolean</td>
+<td>true</td>
+<td>false</td>
+</tr>
+<tr>
+<td>Null</td>
+<td>\</td>
+<td>null</td>
+</tr>
+<tr>
+<td>Undefined</td>
+<td>\</td>
+<td>undefined</td>
+</tr>
+<tr>
+<td>Number</td>
+<td>\</td>
+<td>0、NaN</td>
+</tr>
+<tr>
+<td>String</td>
+<td>\</td>
+<td>&rdquo;&ldquo;</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="js">console.log(Object.prototype.toString.call(true));//[object Boolean]
+console.log(Object.prototype.toString.call(&quot;String&quot;));//[object String]
+console.log(Object.prototype.toString.call(0x0098098));//[object Number]
+console.log(Object.prototype.toString.call(undefined));//[object Undefined]
+console.log(Object.prototype.toString.call(null));//[object Null]
+
+</code></pre>
+
+<ol>
+<li>Object</li>
+</ol>
+<h3 id="_4"><a name="user-content-_4" href="#_4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>变量作用域</h3>
+<p><a href="https://segmentfault.com/a/1190000000638445">变量用var和不用var的区别</a><br />
+<a href="https://segmentfault.com/a/1190000010640225">ES6 变量作用域与提升：变量的生命周期详解</a></p>
+<hr />
+<ol>
+<li>不用var是全局变量的属性；可以用delete删除【属性】；不能变量提升</li>
+<li>用var是变量；不可以用delete删除；会变量提升；是局部变量。</li>
+<li><code>‘use strict’</code>模式下不使用var会报错。</li>
+</ol>
+<p>一个变量的作用域是程序源代码中定义这个变量的区域。全局变量和局部变量<br />
+关于变量提升还有函数提升：使用定义式则是赋值也提升了，如果使用表达式就如同使用var的变量一样，只是声明提升了而没有赋值，是undefined。<br />
 <pre><code>    console.log(a);//[Function: a]
     a();//函数提升
     var a = &quot;变量已赋值&quot;;
@@ -1122,70 +1414,63 @@ ES6 变量作用域与提升：变量的生命周期详解<br />
     console.log(a);//3
     a();//报错：a is not a function
 </code></pre></p>
-<blockquote>
-<p>JavaScript数据类型和数据结构<br />
-ECMAScript 6定义了7种数据类型<br />
-1.  原始类型（值本身无法被改变）（primitive value）<br />
-a)  Boolean：0、NaN、undefined、null、””表示false，否则是true<br />
-b)  Null：未初始化的Object<br />
-c)  Undefined：未初始化的原始类型<br />
-d)  Number：0八位、0x十六位<br />
-e)  String<br />
-f)  Symbol（ECMAScript 6）<br />
-2.  Object<br />
-变量作用域<br />
-一个变量的作用域是程序源代码中定义这个变量的区域。全局变量和局部变量<br />
-ES6 变量作用域与提升：变量的生命周期详解<br />
-关于变量提升还有函数提升：使用定义式则是赋值也提升了，如果使用表达式就如同使用var的变量一样，只是声明提升了而没有赋值，是undefined。</p>
-</blockquote>
-<p>let的用法 新增的块级作用域。之前只有<br />
-function varTest() {<br />
-    var x = 1;<br />
-    if (true) {<br />
-        var x = 2;  // 同样的变量!<br />
-        console.log(x);  // 2<br />
-    }<br />
-    console.log(x);  // 2<br />
-}</p>
-<p>function letTest() {<br />
-    let x = 1;<br />
-    if (true) {<br />
-        let x = 2;  // 不同的变量<br />
-        console.log(x);  // 2<br />
-    }<br />
-    console.log(x);  // 1<br />
-}</p>
-<p>表达式和运算符<br />
-$$ and ||</p>
-<p>$(&ldquo;#btshow&rdquo;).click(function (e) {<br />
-    /<em><br />
-    《JavaScript权威指南》p80：<br />
-        &amp;&amp;短路运算符 和||并不是返回true或者false<br />
-        A &amp;&amp; B <br />
-        - if A=false =&gt; A, =&gt;C<br />
-        - if A=true =&gt; B,{<br />
-                        - if B = true =&gt; B<br />
-                        - if B = false =&gt; C <br />
-                        }<br />
-</em>/<br />
-    var isA = !!($._data);<br />
-    var isB = !!($._data($(document)[0], &ldquo;events&rdquo;));<br />
-    var isC = !!($.data($(document)[0], &ldquo;events&rdquo;));</p>
-<pre><code>var _arr_events = $._data &amp;&amp; $._data($(document)[0], "events") || '$.data($(document)[0], "events")';
-for (key in _arr_events) {
-    show(key + "事件数量：" + _arr_events[key].length);
+<h3 id="let"><a name="user-content-let" href="#let" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>let的<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/let">用法</a></h3>
+<p>新增的块级作用域。</p>
+<pre><code class="js">function varTest() {
+    var x = 1;
+    if (true) {
+        var x = 2;  // 同样的变量!
+        console.log(x);  // 2
+    }
+    console.log(x);  // 2
+}
+
+function letTest() {
+    let x = 1;
+    if (true) {
+        let x = 2;  // 不同的变量
+        console.log(x);  // 2
+    }
+    console.log(x);  // 1
 }
 </code></pre>
-<p>})</p>
-<p>语句<br />
-for in针对的是普通对象，有一下弊端：<br />
-1.  key是字符串而不是数字<br />
-2.  会遍历自有属性，顺着原型链<br />
-3.  可能是随机的而不是按照所谓Array的方式<br />
-for of针对这些做了极大的优化<br />
-1.  更适合遍历数组<br />
-对象<br />
-Delete 属性<br />
+
+<h2 id="_5"><a name="user-content-_5" href="#_5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>表达式和运算符</h2>
+<blockquote>
+<p><a href="https://juejin.im/post/58116ca467f3560057d58bee">表达式和运算符</a></p>
+</blockquote>
+<h3 id="and"><a name="user-content-and" href="#and" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>$$ and ||</h3>
+<pre><code class="js">$(&quot;#btshow&quot;).click(function (e) {
+    /*
+    《JavaScript权威指南》p80：
+        &amp;&amp;短路运算符 和||返回的是变量本身，但是因为JavaScript可以自动转换Boolean值，所以常用来判断真假值。
+        A &amp;&amp; B 
+        - if A=false =&gt; A, =&gt;C
+        - if A=true =&gt; B,{
+                        - if B = true =&gt; B
+                        - if B = false =&gt; C 
+                        }
+    */
+    var isA = !!($._data);
+    var isB = !!($._data($(document)[0], &quot;events&quot;));
+    var isC = !!($.data($(document)[0], &quot;events&quot;));
+
+    var _arr_events = $._data &amp;&amp; $._data($(document)[0], &quot;events.data($(document)[0], &quot;events&quot;)';
+    for (key in _arr_events) {
+        show(key + &quot;事件数量：&quot; + _arr_events[key].length);
+    }
+})
+</code></pre>
+
+<h3 id="_6"><a name="user-content-_6" href="#_6" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>语句</h3>
+<p>for in针对的是普通对象，有一下弊端：<br />
+- key是字符串而不是数字<br />
+- 会遍历自有属性，顺着原型链<br />
+- 可能是随机的而不是按照所谓Array的方式<br />
+for of针对这些做了极大的优化 <br />
+- 更适合遍历数组</p>
+<h2 id="_7"><a name="user-content-_7" href="#_7" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>对象</h2>
+<p>Delete 属性<br />
 原型对象、类和继承<br />
 原型是一个实例对象。<br />
 对象<br />
@@ -1200,125 +1485,136 @@ JavaScript密码花园</p>
 <li>在运行时为内存中的对象增加patch而不是在磁盘的源代码中增加</li>
 </ol>
 <p>原型和原型的好处：</p>
-<p>数组<br />
-Array<br />
-判断是否是数组的方法是看类属性（是对象的三个属性之一：原型、类、可扩展）<br />
-//对象&amp;&amp;对象类型<br />
-function isArray(obj) {<br />
-    return Array.isArray(obj) || function (obj) {<br />
-        return typeof obj === &ldquo;object&rdquo; &amp;&amp; Array.prototype.toString.call(obj) === &ldquo;[object Array]&rdquo;;<br />
-    };<br />
-}<br />
-函数<br />
-可以被定义，可以被调用，是一种语法，也是一种值，可以被程序操作，可以作为函数的参数。<br />
+<h3 id="array"><a name="user-content-array" href="#array" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>数组(Array)</h3>
+<p>判断是否是数组的方法是看类属性（是对象的三个属性之一：原型、类、可扩展）</p>
+<pre><code class="js">//对象&amp;&amp;对象类型
+function isArray(obj) {
+    return Array.isArray(obnction (obj) {
+        return typeof obj === &quot;object&quot; &amp;&amp; Array.prototype.toString.call(obj) === &quot;[object Array]&quot;;
+    };
+}
+</code></pre>
+
+<h3 id="_8"><a name="user-content-_8" href="#_8" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>函数</h3>
+<p>可以被定义，可以被调用，是一种语法，也是一种值，可以被程序操作，可以作为函数的参数。<br />
 自执行匿名函数（Self-executing anonymous function）或者立即调用的函数表达式（Immediately-Invoked Function Expression）<br />
 JavaScript匿名函数与自执行 ：匿名函数的作用创建闭包和减少全局变量（防止污染命名空间）<br />
 深入理解JavaScript系列（4）：立即调用的函数表达式。表达式和function声明，表达式是一个引用，没有立即执行。<br />
 (function(){/<em>code</em>/})();<br />
-prototype 和__proto__的区别是什么？<br />
-Mozilla’s implementation of JavaScript has (since the early days of Netscape) exposed the prototype attribute through the specially named <strong>proto</strong> property, and you can use this property to directly query or set the prototype of any object. Using <strong>proto</strong> Core JavaScript is not portable: it has not been (and probably never will be) implemented by IE or Opera, although it is currently supported by Safari and Chrome. Versions of Firefox that implement ECMAScript 5 still support <strong>proto</strong>, but restrict its ability to change the prototype of nonextensible objects.<br />
+prototype 和__proto__的区别是什么？</p>
+<blockquote>
+<p>Mozilla’s implementation of JavaScript has (since the early days of Netscape) exposed the prototype attribute through the specially named <strong>proto</strong> property, and you can use this property to directly query or set the prototype of any object. Using <strong>proto</strong> Core JavaScript is not portable: it has not been (and probably never will be) implemented by IE or Opera, although it is currently supported by Safari and Chrome. Versions of Firefox that implement ECMAScript 5 still support <strong>proto</strong>, but restrict its ability to change the prototype of nonextensible objects.<br />
 简单说就是不建议直接使用object的__proto__来修改constructor function的prototype。</p>
-<p>constructor function有prototype，使用new 关键字返回的对象有__proto__</p>
-<pre><code>    // 有一堆原材料就是自有变量
-    var Calculator = function (decimalDigits, tax) {
-        this.decimalDigits = decimalDigits;
-        this.tax = tax;
-    };
-    // 交给谁来处理是可以切换的
-    var one = {
-        describe: function () {
-            return console.log("original describe");
-        },
-        add: function (x, y) {
-            return console.log(x + y);
-        },
-        subtract: function (x, y) {
-            return console.log(x - y);
-        }
-    };
-    var two = {
-        describe: function () {
-            return console.log("original describe");
-        }, multiply: function (x, y) {
-            return console.log(x * y);
-        },
-        divide: function (x, y) {
-            return console.log(x / y);
-        }
-    };
-    Calculator.prototype = one;
-    var oneCalculator = new Calculator();
-    oneCalculator.add(1, 2);
-    oneCalculator.subtract(1, 2);
-    // or
-    Calculator.prototype = two;
-    var twoCalculator = new Calculator();
-    twoCalculator.multiply(1, 2);
-    twoCalculator.divide(1, 2);
+</blockquote>
+<p>constructor function有prototype，使用new 关键字返回的实例对象有__proto__<br />
+<pre><code class="js">        // 有一堆原材料就是自有变量
+        var Calculator = function (decimalDigits, tax) {
+            this.decimalDigits = decimalDigits;
+            this.tax = tax;
+        };
+        // 交给谁来处理是可以切换的
+        var one = {
+            describe: function () {
+                return console.log(&quot;original describe&quot;);
+            },
+            add: function (x, y) {
+                return console.log(x + y);
+            },
+            subtract: function (x, y) {
+                return console.log(x - y);
+            }
+        };
+        var two = {
+            describe: function () {
+                return console.log(&quot;original describe&quot;);
+            }, multiply: function (x, y) {
+                return console.log(x * y);
+            },
+            divide: function (x, y) {
+                return console.log(x / y);
+            }
+        };
+        Calculator.prototype = one;
+        var oneCalculator = new Calculator();
+        oneCalculator.add(1, 2);
+        oneCalculator.subtract(1, 2);
+        // or
+        Calculator.prototype = two;
+        var twoCalculator = new Calculator();
+        twoCalculator.multiply(1, 2);
+        twoCalculator.divide(1, 2);
 
-    twoCalculator.__proto__.describe = function () {
-        return console.log("describe has changed");
+        twoCalculator.__proto__.describe = function () {
+            return console.log(&quot;describe has changed&quot;);
+        }
+        // 实例对象有__proto__属性；
+        console.log(Calculator.prototype===twoCalculator.__proto__);
+        one.describe();
+        two.describe();
+        //改变的是原型所以two和three都被改变
+        var three = new Calculator();
+        three.describe();
+        //改变的只是three的describe
+        three.describe = function () {
+            return console.log(&quot;three describe has changed&quot;);
+        };
+        //所以four不变
+        var four = new Calculator();
+        three.describe();
+        four.describe();
+        //使用new不会重新生成原型上的实例
+</code></pre></p>
+<h3 id="this"><a name="user-content-this" href="#this" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>this</h3>
+<p>使用准则： <br />
+1. 作为函数调用this指代全局对象（^strict）或者undefined（strict）；<br />
+这个特性倒是可以用来区别当前是否是strict模式： <code>var isStrict = (function(){return !this})();</code><br />
+1. 作为方法调用指代调用的对象本身；<br />
+1. 作为构造函数this指代构造对象本身，跟2的方式不同。即<code>new object.constructor()</code>中的<code>this</code>（调用上下文）并不是object而是constructor()返回的对象；<br />
+1. 作为间接调用call()、apply()，显示指定this。另外也可以理解成上面的三种是第四种的语法糖，因为都可以用第四种表示出来而且没有异议。</p>
+<blockquote>
+<p>还有更详细的《你不知道的JavaScript（上卷）》待阅读。（挖坑）</p>
+</blockquote>
+<pre><code>    function f(argument) {
+        console.log(this);
     }
-    // 实例对象有__proto__属性；
-    console.log(Calculator.prototype===twoCalculator.__proto__);
-    one.describe();
-    two.describe();
-    //改变的是原型所以two和three都被改变
-    var three = new Calculator();
-    three.describe();
-    //改变的只是three的describe
-    three.describe = function () {
-        return console.log("three describe has changed");
-    };
-    //所以four不变
-    var four = new Calculator();
-    three.describe();
-    four.describe();
-    //使用new不会重新生成原型上的实例
+
+    var ar = [f,f];
+    ar[0]();
+    ar[0].call(ar);
+    var obj = {a:&quot;obj&quot;};
+    obj.f = f;
+    obj.f();
+    obj.f.call(obj);
 </code></pre>
-<p>¬¬¬¬¬¬¬<br />
-this<br />
-使用准则： <br />
-1.  作为函数调用this指代全局对象（^strict）或者undefined（strict）；<br />
-这个特性倒是可以用来区别当前是否是strict模式：<br />
-var isStrict = (function(){return !this})();<br />
-2.  作为方法调用指代调用的对象本身；<br />
-3.  作为构造函数this指代构造对象本身，跟2的方式不同。即new object.constructor()中的this（调用上下文）并不是object而是constructor()返回的对象；<br />
-4.  作为间接调用call()、apply()，显示指定this。另外也可以理解成上面的三种是第四种的语法糖，因为都可以用第四种表示出来而且没有异议。<br />
-    function f(argument) {<br />
-        console.log(this);<br />
-    }</p>
-<pre><code>var ar = [f,f];
-ar[0]();
-ar[0].call(ar);
-var obj = {a:"obj"};
-obj.f = f;
-obj.f();
-obj.f.call(obj);
-</code></pre>
-<p>可变参数和默认值<br />
-JavaScript没有对参数类型进行检查，TypeScript用于解决这样的问题。而JavaScript通过自身来完成类型的检查是十分繁琐而且看起来不可或缺。我也很无奈啊┓( ´∀` )┏ 动态语言不就是这点爽吗？实参与形参数量上不对付。<br />
-可变参数arguments<br />
-arguments 是类数组对象，以数字作为key。通过以下方法转换为真·数组：<br />
+
+<h3 id="_9"><a name="user-content-_9" href="#_9" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>可变参数和默认值</h3>
+<p>JavaScript目前没有对参数类型进行检查，实参与形参可能不相符，TypeScript用于解决这样的问题。</p>
+<blockquote>
+<p>现在,JavaScript已经不仅仅是当年只用来验证表单的玩具，而成为一门真正的适用性广泛的语言来完成复杂度较高的应用。静态语言编译时校验的价值就在工程实践中凸显出来，TypeScript适时而起。&ndash;woshuode</p>
+</blockquote>
+<h3 id="arguments"><a name="user-content-arguments" href="#arguments" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>可变参数<strong>arguments</strong></h3>
+<p>arguments 是类数组对象，以数字作为key。通过以下方法转换为真·数组：<br />
 主要是使用<br />
-let args = Array.prototype.slice.call(arguments); <br />
-or<br />
-let args = Array.from(arguments);<br />
-let args = [&hellip;arguments];<br />
+<pre><code class="js">let args = Array.prototype.slice.call(arguments); 
+or
+let args = Array.from(arguments);
+let args = [...arguments];
+</code></pre><br />
 ES6的新方法<br />
-            function containsAll(haystack, &hellip;needles) {<br />
-                for (var needle of needles) {<br />
-                    if (haystack.indexOf(needle) === -1) {<br />
-                        return false;<br />
-                    }<br />
-                } return true;<br />
-            }<br />
+<pre><code class="js">            function containsAll(haystack, ...needles) {
+                for (var needle of needles) {
+                    if (haystack.indexOf(needle) === -1) {
+                        return false;
+                    }
+                } return true;
+            }
+</code></pre><br />
 以下是不推荐使用的arguments方法：<br />
    arguments.callee()：当前执行的函数。匿名函数指代自身：递归factorial<br />
    arguments.caller()：调用当前函数的函数（栈）This feature is obsolete. </p>
 <p>默认值<br />
 防止undefined或者null（未初始化）：<br />
-a = a || &ldquo;&rdquo;;<br />
+a =;<br />
 ES6的新方法：<br />
 function animalSentence(animals2 = &ldquo;tigers&rdquo;, animals3 = &ldquo;bears&rdquo;) {<br />
                 return <code>Lions and ${animals2} and ${animals3}! Oh my!</code>;<br />
@@ -1391,7 +1687,8 @@ JavaScript的执行顺序分为两个阶段：<br />
 1.  载入文档内容<br />
 2.  事件驱动的异步</p>
 <p>可能涉及到浏览器的渲染过程：深入理解浏览器渲染原理。<br />
-HTML解析器遇到<script>时就会先解析script.<script>有两个属性 defer 和async<br />
+HTML解析器遇到<code>&lt;script&gt;</code>时就会先解析script。<br />
+<code>&lt;script&gt;</code>有两个属性 defer 和async<br />
 相同点：<br />
    加载文件时不阻塞页面渲染<br />
    对于inline的script无效<br />
@@ -1413,10 +1710,10 @@ function loadasyni(url){
     head.appendChild(s);//将script元素插入head标签中
 }
 </code></pre><br />
-BookmarkLet 有空可以来研究一下<br />
-跨域的问题<br />
-CORS跨域资源共享<br />
-Window<br />
+BookmarkLet 有空可以来研究一下</p>
+<h1 id="_10"><a name="user-content-_10" href="#_10" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>跨域的问题</h1>
+<h2 id="cors"><a name="user-content-cors" href="#cors" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>CORS跨域资源共享</h2>
+<p>Window<br />
 Location和Navigation<br />
 window对象和document的location对象引用的都是Location对象<br />
 document.URL是文档首次载入后保存的静态字符串不会随着hash变短改变；而Location会改变。=》URL是一个字符串，而location是一个对象，包含其他的属性。例如：<br />
@@ -1456,47 +1753,70 @@ An event name can be qualified by event namespaces that simplify removing or tri
     .off(&ldquo;click.simple&rdquo;);</p>
 <p>委托代理的原理是：事件注册在jQuery()对象上，当触发事件时，再通过selector处理。<br />
 涉及享元模式：只注册到一个对象上，提高了效率和页面性能，解决的动态添加元素导致不能触发的bug。</p>
-<p>正则表达式<br />
-正则表达式<br />
-NodeJS<br />
-I/O 的同步与异步<br />
-结合Promise</p>
-<p>Network<br />
-状态码<br />
-403：客户端没有访问权限<br />
-404：客户端请求出现错误，请求的资源是不存在的<br />
-304：重定向，资源在某处有缓存，可以直接取用，不需要向原始地址发起请求。<br />
-500：服务器问题</p>
-<p>数据结构<br />
-JavaScript数组<br />
-Unshift=》   《=Push<br />
-《=Shift Pop=》<br />
-后进先出Stack</p>
-<p>Git<br />
-Git工作流是很重要的多人协作方式。主要是应用场景。<br />
-MicroSite<br />
-OOP<br />
-MixIn混入 多重继承<br />
+<h1 id="_11"><a name="user-content-_11" href="#_11" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>正则表达式</h1>
+<p>正则表达式</p>
+<h1 id="nodejs"><a name="user-content-nodejs" href="#nodejs" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>NodeJS</h1>
+<h2 id="io"><a name="user-content-io" href="#io" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>I/O 的同步与异步</h2>
+<h2 id="promise"><a name="user-content-promise" href="#promise" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>结合Promise</h2>
+<h1 id="network"><a name="user-content-network" href="#network" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Network</h1>
+<h2 id="_12"><a name="user-content-_12" href="#_12" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>状态码</h2>
+<ul>
+<li>403：客户端没有访问权限</li>
+<li>404：客户端请求出现错误，请求的资源是不存在的</li>
+<li>304：重定向，资源在某处有缓存，可以直接取用，不需要向原始地址发起请求。</li>
+<li>500：服务器问题</li>
+</ul>
+<h2 id="_13"><a name="user-content-_13" href="#_13" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>数据结构和算法</h2>
+<h3 id="_14"><a name="user-content-_14" href="#_14" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>数组</h3>
+<table>
+<thead>
+<tr>
+<th>其他</th>
+<th>&mdash;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unshift=》</td>
+<td>《=Push</td>
+</tr>
+<tr>
+<td>《=Shift</td>
+<td>Pop=》</td>
+</tr>
+</tbody>
+</table>
+<p>后进先出Stack</p>
+<h1 id="git"><a name="user-content-git" href="#git" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Git</h1>
+<p>Git工作流是很重要的多人协作方式。主要是应用场景。</p>
+<h2 id="licence"><a name="user-content-licence" href="#licence" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>licence</h2>
+<blockquote>
+<p><a href="http://www.ruanyifeng.com/blog/2011/05/how_to_choose_free_software_licenses.html">需要知道的开源许可证</a><br />
+<a href="http://www.open-open.com/solution/view/1319816219625">各种开源协议介绍</a></p>
+</blockquote>
+<p><img alt="free_software_licenses.png" src="///D://GitHub/ShoneSingLone.github.io/doc/media/free_software_licenses.png" /></p>
+<h1 id="oop"><a name="user-content-oop" href="#oop" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>OOP</h1>
+<p>MixIn混入 多重继承<br />
 使用组合的形式更加灵活，解耦。类似图书馆的分类方式，如果用标签来查找更容易。</p>
-<p>Design Patterns设计模式<br />
-《JavaScript设计模式与开发实践》<br />
-享元模式<br />
-享元模式用于减少应用程序所需要的对象数量。jQuery中的on()委托就是这个模式。<br />
+<h1 id="design-patterns"><a name="user-content-design-patterns" href="#design-patterns" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Design Patterns设计模式</h1>
+<p>《JavaScript设计模式与开发实践》</p>
+<h2 id="_15"><a name="user-content-_15" href="#_15" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>享元模式</h2>
+<p>享元模式用于减少应用程序所需要的对象数量。jQuery中的on()委托就是这个模式。<br />
 一个对象，会变化的属性和不会变化的属性分开。享元模式要求将对象的属性划分为内部状态与外部状态（状态在这里通常指属性）。享元模式的目标是尽量减少共享对象的数量，关于如何划分内部状态和外部状态，下面的几条经验提供了一些指引。<br />
 尽量少创建对象，如果只是改动少量的属性就能够完成。例如地图上的ToolTip，在搜索的时候只需要改动坐标和显示信息。<br />
-对象池和时间委托。<br />
-MVC分型<br />
-结构的设计方式<br />
-职责单一<br />
-高内聚低耦合<br />
-Shell作为唯一的入口。<br />
-调用其他模块的接口。<br />
-NodeJS作为后端服务的性能比较<br />
-并不是跟比Java或者C++比性能。主要的优势是“异步”：后端的主要资源不是耗费在Node上而是类似数据库操作之类的，Node负责接收和返回数据。<br />
-MicroSite是什么？<br />
-    是我的个人小站。准备做一些可以当作时间胶囊的东西。同时也算是可以记录自己这一些成长的过程吧。<br />
-整体的结构<br />
-zh-cmn-Hans</p>
+对象池和时间委托。</p>
+<h1 id="mvc"><a name="user-content-mvc" href="#mvc" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>MVC分型</h1>
+<h1 id="_16"><a name="user-content-_16" href="#_16" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>结构的设计方式</h1>
+<ul>
+<li>职责单一</li>
+<li>高内聚低耦合</li>
+<li>Shell作为唯一的入口。</li>
+<li>调用其他模块的接口。</li>
+</ul>
+<h1 id="nodejs_1"><a name="user-content-nodejs_1" href="#nodejs_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>NodeJS</h1>
+<h2 id="_17"><a name="user-content-_17" href="#_17" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>作为后端服务的性能比较</h2>
+<p>并不是跟比Java或者C++比性能。主要的优势是“异步”：后端的主要资源不是耗费在Node上而是类似数据库操作之类的，Node负责接收和返回数据。</p>
+<p>zh-cmn-Hans</p>
 <p>前端的路由<br />
    uriAnchor HomePage<br />
 用来操作锚，作为页面状态的。同时还有缓存技术就是指indexDB，是Brower端的数据库。可以做类似Photoshop历史记录的功能。（暂时还没有实现redo和undo）。<br />
@@ -1513,4 +1833,9 @@ value是元素的属性值，而innerText和innerHTML是元素开始和结束标
 Fetch API<br />
 使用 Fetch: <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch">https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch</a><br />
 函数节流和函数去抖Debouncer</p>
-<p>使用原生方法实现拖拽</p></article></body></html>
+<p>使用原生方法实现拖拽</p>
+<h1 id="microsite"><a name="user-content-microsite" href="#microsite" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>MicroSite</h1>
+<h2 id="microsite_1"><a name="user-content-microsite_1" href="#microsite_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>MicroSite是什么？</h2>
+<pre><code>是我的个人小站。准备做一些可以当作时间胶囊的东西。同时也算是可以记录自己这一些成长的过程吧。
+</code></pre>
+<p>整体的结构</p></article></body></html>

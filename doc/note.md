@@ -11,7 +11,7 @@ Weex 在 WebKit 与原生上实现了一个抽象层；
 border的样式很重要
 if `border：none;` 浏览器不会渲染border; 只有宽度，没有样式，也不会渲染, 所以一定要有样式才有效。 
 
-## 盒子模型
+## 盒子模型（box）
 每个元素
 
 - **目前**是矩形
@@ -25,13 +25,44 @@ if `border：none;` 浏览器不会渲染border; 只有宽度，没有样式，�
 
 > [说说行内元素和块级元素](http://www.jianshu.com/p/d69878549d92)
 
-- 如果没有其他属性设置，inline是**包裹**里面的文字或图片，尽量收缩，不换行；而block是撑，尽量撑满parent容器，默认宽度是parent容器的宽度，独占一行。
+- 如果没有其他属性设置，inline是**包裹**里面的文字或图片，尽量收缩，不换行；而block是**撑**，尽量撑满parent容器，默认宽度是parent容器的宽度，独占一行。
 - inline只能容纳文本或者其他内联元素；block能容纳其他块元素或者内联元素。
 - inline margin padding left 和 right 可以改变；block高度，行高以及顶和底边距都可以控制；
 
-> 行内元素：a - 锚点； abbr - 缩写； acronym - 首字； b - 粗体（不推荐）； bdo - bidi override； big - 大字体； br - 换行； cite - 引用； code - 计算机代码（在引用源码的时候需要）； dfn - 定义字段； em - 强调； font - 字体设定（不推荐）； i - 斜体； img - 图片； input - 输入框； kbd - 定义键盘文本； label - 表格标签； q - 短引用； s - 中划线（不推荐）； samp - 定义范例计算机代码； select - 项目选择； small - 小字体文本； span - 常用内联容器，定义文本内区块； strike - 中划线； strong - 粗体强调； sub - 下标； sup - 上标； textarea - 多行文本输入框； tt - 电传文本； u - 下划线； var - 定义变量；
+行内元素 | 语义                               | | 块级元素   | 语义
+---      | --                                 | | ---        | ---
+a        | 锚                                 | | address    | 地址
+abbr     | 缩写                               | | blockquote | 块引用
+acronym  | 首字                               | | center     | 居中对齐块
+b        | 粗体（不推荐）                     | | dir        | 目录列表
+bdo      | bidi override                      | | **div**    | （无语义的块级元素）
+big      | 大字体                             | | dl         | 定义列表
+br       | 换行                               | | fieldset   | form表单控制组（group）
+cite     | 引用                               | | form       | 交互表单
+code     | 计算机代码（在引用源码的时候需要） | | h1         | 大标题
+dfn      | 定义字段                           | | h2         | 副标题
+em       | 强调                               | | h3         | 3级标题
+font     | 字体设定（不推荐）                 | | h4         | 4级标题
+i        | 斜体                               | | h5         | 5级标题
+img      | 图片                               | | h6         | 6级标题
+input    | 输入框                             | | hr         | 水平分隔线
+kbd      | 定义键盘文本                       | | isindex    | input prompt
+label    | 表格标签                           | | menu       | 菜单列表
+q        | 短引用                             | | noframes   | frames可选内容（对于不支持frame的浏览器显示此区块内容）
+s        | 中划线（不推荐）                   | | noscript   | 可选脚本内容（对于不支持script的浏览器显示此内容）
+samp     | 定义范例计算机代码                 | | ol         | 排序列表
+select   | 项目选择                           | | p          | 段落
+small    | 小字体文本                         | | pre        | 格式化文本
+**span** | 常用内联容器，定义文本内区块       | | table      | 表格
+strike   | 中划线                             | | ul         | 非排序列表
+strong   | 粗体强调                           |
+sub      | 下标                               |
+sup      | 上标                               |
+textarea | 多行文本输入框                     |
+tt       | 电传文本                           |
+u        | 下划线                             |
+var      | 定义变                             |
 
-> 块级元素： address - 地址； blockquote - 块引用； center - 举中对齐块； dir - 目录列表； div - 常用块级容易，也是css layout的主要标签； dl - 定义列表； fieldset - form控制组； form - 交互表单； h1 - 大标题； h2 - 副标题； h3 - 3级标题； h4 - 4级标题； h5 - 5级标题； h6 - 6级标题； hr - 水平分隔线； isindex - input prompt； menu - 菜单列表； noframes - frames可选内容（对于不支持frame的浏览器显示此区块内容）； noscript - 可选脚本内容（对于不支持script的浏览器显示此内容）； ol - 排序列表； p - 段落； pre - 格式化文本； table - 表格； ul - 非排序列表； 
 
 - 转换：float\display\position
 
@@ -77,17 +108,53 @@ Inline-block和浮动布局的区别？
 
 # JavaScript
 
->参考书目
-《JavaScript权威指南》
+>**参考书目** 《JavaScript权威指南》
 
 ## 数据类型
 
-asdf
-变量用var和不用var的区别
-ES6 变量作用域与提升：变量的生命周期详解
-1.	不用var是全局变量的属性；可以用delete删除【属性】；不能变量提升
-2.	用var是变量；不可以用delete删除；会变量提升；是局部变量。
-3.	‘use strict’模式下不使用var会报错。
+### ECMAScript 6定义了7种数据类型
+>[JavaScript数据类型和数据结构](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Data_structures)
+
+1.	原始类型（值本身无法被改变）（primitive value）
+    - Boolean：0、NaN、undefined、null、””表示false，否则是true
+    - Null：未初始化的Object
+    - Undefined：未初始化的原始类型
+    - Number：0八位、0x十六位
+    - String：
+    - Symbol（ECMAScript 6）
+
+类型 | true|false
+---|---|---
+Boolean | true | false
+Null | \ | null
+Undefined | \ | undefined
+Number | \ | 0、NaN
+String |  \| ""
+
+```js
+console.log(Object.prototype.toString.call(true));//[object Boolean]
+console.log(Object.prototype.toString.call("String"));//[object String]
+console.log(Object.prototype.toString.call(0x0098098));//[object Number]
+console.log(Object.prototype.toString.call(undefined));//[object Undefined]
+console.log(Object.prototype.toString.call(null));//[object Null]
+
+```
+
+
+2.	Object
+
+### 变量作用域
+[变量用var和不用var的区别](https://segmentfault.com/a/1190000000638445)
+[ES6 变量作用域与提升：变量的生命周期详解](https://segmentfault.com/a/1190000010640225)
+---
+
+
+1. 不用var是全局变量的属性；可以用delete删除【属性】；不能变量提升
+1. 用var是变量；不可以用delete删除；会变量提升；是局部变量。
+1. `‘use strict’`模式下不使用var会报错。
+
+一个变量的作用域是程序源代码中定义这个变量的区域。全局变量和局部变量
+关于变量提升还有函数提升：使用定义式则是赋值也提升了，如果使用表达式就如同使用var的变量一样，只是声明提升了而没有赋值，是undefined。
 ```
     console.log(a);//[Function: a]
     a();//函数提升
@@ -100,26 +167,11 @@ ES6 变量作用域与提升：变量的生命周期详解
     console.log(a);//3
     a();//报错：a is not a function
 ```
+### let的[用法](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/let)
 
-
-
->JavaScript数据类型和数据结构
-ECMAScript 6定义了7种数据类型
-1.	原始类型（值本身无法被改变）（primitive value）
-a)	Boolean：0、NaN、undefined、null、””表示false，否则是true
-b)	Null：未初始化的Object
-c)	Undefined：未初始化的原始类型
-d)	Number：0八位、0x十六位
-e)	String
-f)	Symbol（ECMAScript 6）
-2.	Object
-变量作用域
-一个变量的作用域是程序源代码中定义这个变量的区域。全局变量和局部变量
-ES6 变量作用域与提升：变量的生命周期详解
-关于变量提升还有函数提升：使用定义式则是赋值也提升了，如果使用表达式就如同使用var的变量一样，只是声明提升了而没有赋值，是undefined。
-
-
-let的用法 新增的块级作用域。之前只有
+ 新增的块级作用域。
+ 
+```js
 function varTest() {
     var x = 1;
     if (true) {
@@ -137,14 +189,17 @@ function letTest() {
     }
     console.log(x);  // 1
 }
+```
 
-表达式和运算符
-$$ and ||
+## 表达式和运算符
+>[表达式和运算符](https://juejin.im/post/58116ca467f3560057d58bee)
 
+### $$ and ||
+```js
 $("#btshow").click(function (e) {
     /*
     《JavaScript权威指南》p80：
-        &&短路运算符 和||并不是返回true或者false
+        &&短路运算符 和||返回的是变量本身，但是因为JavaScript可以自动转换Boolean值，所以常用来判断真假值。
         A && B 
         - if A=false => A, =>C
         - if A=true => B,{
@@ -156,21 +211,22 @@ $("#btshow").click(function (e) {
     var isB = !!($._data($(document)[0], "events"));
     var isC = !!($.data($(document)[0], "events"));
 
-    var _arr_events = $._data && $._data($(document)[0], "events") || '$.data($(document)[0], "events")';
+    var _arr_events = $._data && $._data($(document)[0], "events.data($(document)[0], "events")';
     for (key in _arr_events) {
         show(key + "事件数量：" + _arr_events[key].length);
     }
 })
+```
 
-
-语句
+### 语句
 for in针对的是普通对象，有一下弊端：
-1.	key是字符串而不是数字
-2.	会遍历自有属性，顺着原型链
-3.	可能是随机的而不是按照所谓Array的方式
-for of针对这些做了极大的优化
-1.	更适合遍历数组
-对象
+- key是字符串而不是数字
+- 会遍历自有属性，顺着原型链
+- 可能是随机的而不是按照所谓Array的方式
+for of针对这些做了极大的优化 
+- 更适合遍历数组
+
+## 对象
 Delete 属性
 原型对象、类和继承
 原型是一个实例对象。
@@ -189,27 +245,32 @@ hasOwnProperty判断自有属性
 
 原型和原型的好处：
 
-数组
-Array
+### 数组(Array)
+
 判断是否是数组的方法是看类属性（是对象的三个属性之一：原型、类、可扩展）
+
+```js
 //对象&&对象类型
 function isArray(obj) {
-    return Array.isArray(obj) || function (obj) {
+    return Array.isArray(obnction (obj) {
         return typeof obj === "object" && Array.prototype.toString.call(obj) === "[object Array]";
     };
 }
-函数
+```
+
+###函数
+
 可以被定义，可以被调用，是一种语法，也是一种值，可以被程序操作，可以作为函数的参数。
 自执行匿名函数（Self-executing anonymous function）或者立即调用的函数表达式（Immediately-Invoked Function Expression）
 JavaScript匿名函数与自执行 ：匿名函数的作用创建闭包和减少全局变量（防止污染命名空间）
 深入理解JavaScript系列（4）：立即调用的函数表达式。表达式和function声明，表达式是一个引用，没有立即执行。
 (function(){/*code*/})();
 prototype 和__proto__的区别是什么？
-Mozilla’s implementation of JavaScript has (since the early days of Netscape) exposed the prototype attribute through the specially named __proto__ property, and you can use this property to directly query or set the prototype of any object. Using __proto__ Core JavaScript is not portable: it has not been (and probably never will be) implemented by IE or Opera, although it is currently supported by Safari and Chrome. Versions of Firefox that implement ECMAScript 5 still support __proto__, but restrict its ability to change the prototype of nonextensible objects.
+> Mozilla’s implementation of JavaScript has (since the early days of Netscape) exposed the prototype attribute through the specially named __proto__ property, and you can use this property to directly query or set the prototype of any object. Using __proto__ Core JavaScript is not portable: it has not been (and probably never will be) implemented by IE or Opera, although it is currently supported by Safari and Chrome. Versions of Firefox that implement ECMAScript 5 still support __proto__, but restrict its ability to change the prototype of nonextensible objects.
 简单说就是不建议直接使用object的__proto__来修改constructor function的prototype。
 
-constructor function有prototype，使用new 关键字返回的对象有__proto__
-
+constructor function有prototype，使用new 关键字返回的实例对象有__proto__
+```js
         // 有一堆原材料就是自有变量
         var Calculator = function (decimalDigits, tax) {
             this.decimalDigits = decimalDigits;
@@ -266,15 +327,19 @@ constructor function有prototype，使用new 关键字返回的对象有__proto_
         three.describe();
         four.describe();
         //使用new不会重新生成原型上的实例
-¬¬¬¬¬¬¬
-this
+```
+
+### this
 使用准则： 
-1.	作为函数调用this指代全局对象（^strict）或者undefined（strict）；
-这个特性倒是可以用来区别当前是否是strict模式：
-var isStrict = (function(){return !this})();
-2.	作为方法调用指代调用的对象本身；
-3.	作为构造函数this指代构造对象本身，跟2的方式不同。即new object.constructor()中的this（调用上下文）并不是object而是constructor()返回的对象；
-4.	作为间接调用call()、apply()，显示指定this。另外也可以理解成上面的三种是第四种的语法糖，因为都可以用第四种表示出来而且没有异议。
+1. 作为函数调用this指代全局对象（^strict）或者undefined（strict）；
+这个特性倒是可以用来区别当前是否是strict模式： `var isStrict = (function(){return !this})();`
+1. 作为方法调用指代调用的对象本身；
+1. 作为构造函数this指代构造对象本身，跟2的方式不同。即`new object.constructor()`中的`this`（调用上下文）并不是object而是constructor()返回的对象；
+1. 作为间接调用call()、apply()，显示指定this。另外也可以理解成上面的三种是第四种的语法糖，因为都可以用第四种表示出来而且没有异议。
+
+>还有更详细的《你不知道的JavaScript（上卷）》待阅读。（挖坑）
+
+```
     function f(argument) {
         console.log(this);
     }
@@ -286,16 +351,22 @@ var isStrict = (function(){return !this})();
     obj.f = f;
     obj.f();
     obj.f.call(obj);
-可变参数和默认值
-JavaScript没有对参数类型进行检查，TypeScript用于解决这样的问题。而JavaScript通过自身来完成类型的检查是十分繁琐而且看起来不可或缺。我也很无奈啊┓( ´∀` )┏ 动态语言不就是这点爽吗？实参与形参数量上不对付。
-可变参数arguments
+```
+### 可变参数和默认值
+JavaScript目前没有对参数类型进行检查，实参与形参可能不相符，TypeScript用于解决这样的问题。
+> 现在,JavaScript已经不仅仅是当年只用来验证表单的玩具，而成为一门真正的适用性广泛的语言来完成复杂度较高的应用。静态语言编译时校验的价值就在工程实践中凸显出来，TypeScript适时而起。--woshuode
+
+### 可变参数**arguments**
 arguments 是类数组对象，以数字作为key。通过以下方法转换为真·数组：
 主要是使用
+```js
 let args = Array.prototype.slice.call(arguments); 
 or
 let args = Array.from(arguments);
 let args = [...arguments];
+```
 ES6的新方法
+```js
             function containsAll(haystack, ...needles) {
                 for (var needle of needles) {
                     if (haystack.indexOf(needle) === -1) {
@@ -303,13 +374,14 @@ ES6的新方法
                     }
                 } return true;
             }
+```
 以下是不推荐使用的arguments方法：
 	arguments.callee()：当前执行的函数。匿名函数指代自身：递归factorial
 	arguments.caller()：调用当前函数的函数（栈）This feature is obsolete. 
 
 默认值
 防止undefined或者null（未初始化）：
-a = a || "";
+a =;
 ES6的新方法：
 function animalSentence(animals2 = "tigers", animals3 = "bears") {
                 return `Lions and ${animals2} and ${animals3}! Oh my!`;
@@ -394,7 +466,8 @@ JavaScript的执行顺序分为两个阶段：
 2.	事件驱动的异步
 
 可能涉及到浏览器的渲染过程：深入理解浏览器渲染原理。
-HTML解析器遇到<script>时就会先解析script.<script>有两个属性 defer 和async
+HTML解析器遇到`<script>`时就会先解析script。
+`<script>`有两个属性 defer 和async
 相同点：
 	加载文件时不阻塞页面渲染
 	对于inline的script无效
@@ -420,8 +493,8 @@ function loadasyni(url){
 }
 ```
 BookmarkLet 有空可以来研究一下
-跨域的问题
-CORS跨域资源共享
+# 跨域的问题
+## CORS跨域资源共享
 Window
 Location和Navigation
 window对象和document的location对象引用的都是Location对象
@@ -464,50 +537,60 @@ An event name can be qualified by event namespaces that simplify removing or tri
 委托代理的原理是：事件注册在jQuery()对象上，当触发事件时，再通过selector处理。
 涉及享元模式：只注册到一个对象上，提高了效率和页面性能，解决的动态添加元素导致不能触发的bug。
 
+# 正则表达式
 正则表达式
-正则表达式
-NodeJS
-I/O 的同步与异步
-结合Promise
+# NodeJS
+## I/O 的同步与异步
+## 结合Promise
 
-Network
-状态码
-403：客户端没有访问权限
-404：客户端请求出现错误，请求的资源是不存在的
-304：重定向，资源在某处有缓存，可以直接取用，不需要向原始地址发起请求。
-500：服务器问题
+# Network
+## 状态码
+- 403：客户端没有访问权限
+- 404：客户端请求出现错误，请求的资源是不存在的
+- 304：重定向，资源在某处有缓存，可以直接取用，不需要向原始地址发起请求。
+- 500：服务器问题
 
-数据结构
-JavaScript数组
-Unshift=》	《=Push
-《=Shift	Pop=》
+## 数据结构和算法
+### 数组
+
+其他|---
+---|---
+Unshift=》|《=Push
+《=Shift|Pop=》
+
 后进先出Stack
 
-Git
+
+# Git
 Git工作流是很重要的多人协作方式。主要是应用场景。
-MicroSite
-OOP
+## licence
+
+>[需要知道的开源许可证](http://www.ruanyifeng.com/blog/2011/05/how_to_choose_free_software_licenses.html)
+[各种开源协议介绍](http://www.open-open.com/solution/view/1319816219625)
+
+![free_software_licenses.png](./media/free_software_licenses.png)
+
+# OOP
 MixIn混入 多重继承
 使用组合的形式更加灵活，解耦。类似图书馆的分类方式，如果用标签来查找更容易。
 
-Design Patterns设计模式
+# Design Patterns设计模式
 《JavaScript设计模式与开发实践》
-享元模式
+## 享元模式
 享元模式用于减少应用程序所需要的对象数量。jQuery中的on()委托就是这个模式。
 一个对象，会变化的属性和不会变化的属性分开。享元模式要求将对象的属性划分为内部状态与外部状态（状态在这里通常指属性）。享元模式的目标是尽量减少共享对象的数量，关于如何划分内部状态和外部状态，下面的几条经验提供了一些指引。
 尽量少创建对象，如果只是改动少量的属性就能够完成。例如地图上的ToolTip，在搜索的时候只需要改动坐标和显示信息。
 对象池和时间委托。
-MVC分型
-结构的设计方式
-职责单一
-高内聚低耦合
-Shell作为唯一的入口。
-调用其他模块的接口。
-NodeJS作为后端服务的性能比较
+# MVC分型
+# 结构的设计方式
+- 职责单一
+- 高内聚低耦合
+- Shell作为唯一的入口。
+- 调用其他模块的接口。
+# NodeJS
+## 作为后端服务的性能比较
 并不是跟比Java或者C++比性能。主要的优势是“异步”：后端的主要资源不是耗费在Node上而是类似数据库操作之类的，Node负责接收和返回数据。
-MicroSite是什么？
-	是我的个人小站。准备做一些可以当作时间胶囊的东西。同时也算是可以记录自己这一些成长的过程吧。
-整体的结构
+
 zh-cmn-Hans
 
 前端的路由
@@ -528,4 +611,7 @@ Fetch API
 函数节流和函数去抖Debouncer
 
 使用原生方法实现拖拽
-
+# MicroSite
+## MicroSite是什么？
+	是我的个人小站。准备做一些可以当作时间胶囊的东西。同时也算是可以记录自己这一些成长的过程吧。
+整体的结构

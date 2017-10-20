@@ -696,7 +696,7 @@ package.json文件中的`script`:
 ## I/O 的同步与异步
 [fs.readFile](https://nodejs.org/dist/latest-v8.x/docs/api/fs.html#fs_fs_readfile_path_options_callback)
 [node.js之fs模块](http://www.jianshu.com/p/5683c8a93511)
-
+[node-watch](https://www.npmjs.com/package/node-watch)
 
 ## 作为后端服务的性能比较
 并不是跟比Java或者C++比性能。主要的优势是“异步”：后端的主要资源不是耗费在Node上而是类似数据库操作之类的，Node负责接收和返回数据。

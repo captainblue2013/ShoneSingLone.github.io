@@ -19,21 +19,55 @@
     <link id="themeCss" href="./public/stylesheets/main.css" rel="stylesheet" media="screen">
     <link href="./public/favicon.ico" rel="shortcut icon" type="image/png" />
     <style>
-        /* div {
+    /* div {
         height: 50px;
     }*/
     </style>
 </head>
 
 <body class="container">
+    <button type="button" class="btn btn-primary btnlg
+active">button</button>
+    <a href="#" class="btn btn-primary btn-lg active" role="button">link</a>
+    <script>
+    $(function() {
 
-
-    <div class="row">
-        <div class="col-sm-12 col-md-8">firstGroup</div>
+        // $("#myModal").modal();
+    })
+    </script>
+    <p>Type the following in the Run dialog:
+        <kbd>cmd</kbd>
+        <br />Then click the OK button.</p>
+    <p>Save the document by pressing
+        <kbd>Ctrl</kbd> +
+        <kbd>S</kbd>
+    </p>
+    <textarea id="text-input" class="kbd" oninput="this.editor.update()" rows="6" cols="60">Type **Markdown** here.</textarea>
+    <div id="preview"> </div>
+    <script src="./markdown.js"></script>
+    <script>
+    function Editor(input, preview) {
+        this.update = function() {
+            preview.innerHTML = markdown.toHTML(input.value);
+        };
+        input.editor = this;
+        this.update();
+    }
+    var $ = function(id) {
+        return document.getElementById(id);
+    };
+    new Editor($("text-input"), $("preview"));
+    </script>
+    <div class="row"><img src="http://naotu.baidu.com/file/1aecbf1ac0a61154a6ec8a5a9f62d1c7?token=0771c8b6cc1fc0c4" alt="" class="img-thumbnail"></div>
+    <div class="row alert">
+        <div class="col-sm-12 col-md-8 ">
+            <button type="button" class="btn btn-primary" data-target=".row" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
         <div class="col-sm-6 col-md-4">firstGroup</div>
     </div>
-
-    <div class="row">
+    <div class="row" id="myModal">
         <div class="col-lg-2 col-md-4 col-sm-6">
             secendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroup
         </div>
@@ -65,10 +99,54 @@
         <div class="col-sm-6">thirdGroup</div>
     </div>
     <div class="row">
-        <div class="col-sm-6">lastGroup</div>
-        <div class="col-sm-6">lastGroup</div>
-        <div class="col-sm-6">lastGroup</div>
-        <div class="col-sm-6">lastGroup</div>
+        <ul class="nav nav-tabs" id="myTab">
+            <li class="active"><a data-toggle="tab" href="#home">首页</a>
+            </li>
+            <li class=""><a data-toggle="tab" href="#profile">个人资料</a>
+            </li>
+            <li class="dropdown">
+                <!-- 单击"我的书籍"时,弹出下拉菜单 -->
+                <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+            我的书籍
+            <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a data-toggle="tab" href="#dropdown1">JavaScript编程
+            精解</a></li>
+                    <li><a data-toggle="tab" href="#dropdown2">JavaScript设计
+            模式</a></li>
+                    <li><a data-toggle="tab" href="#dropdown3">JavaScript启示
+            录</a></li>
+                    <li><a data-toggle="tab" href="#dropdown4">深入理解
+            Bootstrap</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div id="home" class="tab-pane fade active in">
+                <p>单击"首页"时显示 该区域
+                </p>
+            </div>
+            <div id="profile" class="tab-pane fade">
+                <p>单击"个人资料"时显示该区域
+                </p>
+            </div>
+            <div id="dropdown1" class="tab-pane fade">
+                <p>单击"JavaScript编程精 解" 时显示该区域
+                </p>
+            </div>
+            <div id="dropdown2" class="tab-pane fade">
+                <p>单击"JavaScript设计模 式" 时显示该区域
+                </p>
+            </div>
+            <div id="dropdown3" class="tab-pane fade">
+                <p>单击"JavaScript启示 录"时 显示该区域
+                </p>
+            </div>
+            <div id="dropdown4" class="tab-pane fade">
+                <p>单击"深入理解 Bootstrap3" 时显示该区域
+                </p>
+            </div>
+        </div>
     </div>
 </body>
 

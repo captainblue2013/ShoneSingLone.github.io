@@ -2,9 +2,9 @@
  * shell.js
  * Root namespace module
  * require jQuery.js
-*/
+ */
 
-var shell = (function ($) {
+var shell = (function($) {
 
     const NODE_TYPE = {
         type_1: "ELEMENT_NODE",
@@ -15,13 +15,14 @@ var shell = (function ($) {
         type_10: "DOCUMENT_TYPE_NODE",
         type_11: "DOCUMENT_FRAGMENT_NODE"
     };
-    
+
     let initModule, getDataFromAPI;
 
-    initModule = function ($container) {
+    initModule = function($container) {
         shell.navbar.initModule($container);
-        shell.container.initModule($container);
-    }, getDataFromAPI = function (callback = null, url = 3, method = "get") {
+        // shell.container.initModule($container);
+    }, getDataFromAPI = function(callback, url, method) {
+        callback = callback || null, url = url || 3, method = method || "get";
         const surl = {
             3: "https://api.github.com/users/ShoneSingLone"
         };
@@ -30,13 +31,13 @@ var shell = (function ($) {
             url: surl[url],
             data: {},
             dataType: "text",
-            complete: function (XMLHttpRequest, textStatus) {
+            complete: function(XMLHttpRequest, textStatus) {
                 let status = { success: true };
                 if (status[textStatus] && XMLHttpRequest.responseText) {
                     // console.log(Object.prototype.toString.call(XMLHttpRequest.responseText));//"[object String]"
                     try {
                         let jsonResObj = JSON.parse(XMLHttpRequest.responseText);
-                        if (jsonResObj.rData) { jsonResObj.rData = JSON.parse(jsonResObj.rData) };//针对自有API
+                        if (jsonResObj.rData) { jsonResObj.rData = JSON.parse(jsonResObj.rData) }; //针对自有API
                         if (callback) { callback(jsonResObj) };
                     } catch (e) {
                         console.log(e);
@@ -44,7 +45,7 @@ var shell = (function ($) {
                 }
             }
         });
-    }, getNodeTypeName = function (typeNum) {
+    }, getNodeTypeName = function(typeNum) {
         return NODE_TYPE["type_" + typeNum];
     };
 

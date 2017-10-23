@@ -261,10 +261,26 @@ function isArray(obj) {
 ### 函数(function)
 
 可以被定义，可以被调用，是一种语法，也是一种值，可以被程序操作，可以作为函数的参数。
-自执行匿名函数（Self-executing anonymous function）或者立即调用的函数表达式（Immediately-Invoked Function Expression）
-JavaScript匿名函数与自执行 ：匿名函数的作用创建闭包和减少全局变量（防止污染命名空间）
-深入理解JavaScript系列（4）：立即调用的函数表达式。表达式和function声明，表达式是一个引用，没有立即执行。
-`(function(){/*code*/})();`
+
+#### 自执行匿名函数（Self-executing anonymous function）/立即调用的函数表达式（Immediately-Invoked Function Expression）
+IFE
+
+[JavaScript匿名函数与自执行] (http://www.jcodecraeer.com/a/jquery_js_ajaxjishu/2012/0628/290.html)
+- 匿名函数的作用创建闭包和减少全局变量（防止污染命名空间）
+
+[深入理解JavaScript系列（4）：立即调用的函数表达式。](http://www.cnblogs.com/TomXu/archive/2011/12/31/2289423.html)
+- 表达式和function声明，表达式是一个引用，没有立即执行。
+
+- 让一个函数声明语句变成了一个表达式。
+- 任何消除函数声明和函数表达式间歧义的方法，都可以被解析器正确识别
+- 一元运算都是有效的
+
+[运算符性能测试](https://jsperf.com/js-funcion-expression-speed)
+```js
+	(function(){/*code*/})();//****推荐，因为性能
+	!function(){/*code*/}();
+	+function(){/*code*/}();
+```
 
 #### prototype 和__proto__的区别是什么？
 > Mozilla’s implementation of JavaScript has (since the early days of Netscape) exposed the prototype attribute through the specially named __proto__ property, and you can use this property to directly query or set the prototype of any object. Using __proto__ Core JavaScript is not portable: it has not been (and probably never will be) implemented by IE or Opera, although it is currently supported by Safari and Chrome. Versions of Firefox that implement ECMAScript 5 still support __proto__, but restrict its ability to change the prototype of nonextensible objects.
@@ -615,6 +631,27 @@ document.URL是文档首次载入后保存的静态字符串不会随着hash变�
 委托代理的原理是：事件注册在jQuery()对象上，当触发事件时，再通过selector处理。
 涉及享元模式：只注册到一个对象上，提高了效率和页面性能，解决的动态添加元素导致不能触发的bug。
 
+### .trigger()
+
+submit\click
+
+### .closest()
+>Description: For each element in the set, get the first element that matches the selector by testing the element itself and traversing up through its ancestors in the DOM tree.
+
+### .detach()
+>Description: Remove the set of matched elements from the DOM.The .detach() method is the same as .remove(), except that .detach() keeps all jQuery data associated with the removed elements. This method is useful when removed elements are to be reinserted into the DOM at a later time.
+
+
+### 自定义事件
+发布-订阅者/观察者模式
+
+
+在事件类型后添加一个感叹号`!`就可以触发没有命名空间的事件处理程序:
+```JS
+$("button").trigger("click!");
+```
+
+
 # 正则表达式
 >[正则表达式](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions)
 
@@ -660,6 +697,10 @@ MixIn混入[多重继承](https://www.liaoxuefeng.com/wiki/0014316089557264a6b34
 一个对象，会变化的属性和不会变化的属性分开。享元模式要求将对象的属性划分为内部状态与外部状态（状态在这里通常指属性）。享元模式的目标是尽量减少共享对象的数量，关于如何划分内部状态和外部状态，下面的几条经验提供了一些指引。
 尽量少创建对象，如果只是改动少量的属性就能够完成。例如地图上的ToolTip，在搜索的时候只需要改动坐标和显示信息。
 对象池和时间委托。(挖坑)
+
+## 发布-订阅者/观察者模式
+
+发布—订阅模式又叫观察者模式，它定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都将得到通知。在JavaScript开发中，我们一般用事件模型来替代传统的发布—订阅模式。（挖坑）
 
 # MVC分型
 # 结构的设计方式
@@ -717,6 +758,8 @@ zh-cmn-Hans
 
 ## AMD和CMD
 优劣或者各自的适用场景
+当我们来说加载的时候来说一下浏览器的渲染机制，当我们输入网址之后到底发生了什么。
+[使用requirejs进行模块化开发](http://w3cboy.com/post/2014/09/%E4%BD%BF%E7%94%A8requirejs%E8%BF%9B%E8%A1%8C%E6%A8%A1%E5%9D%97%E5%8C%96%E5%BC%80%E5%8F%91/)
 
 ## HTML中value innerText innerHTML的区别
 - innerHTML:浏览器会将inneHTML后面的内容作为html来解析。

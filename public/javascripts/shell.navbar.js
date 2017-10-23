@@ -105,7 +105,7 @@ shell.navbar = (function ($) {
         let $nav_stamp = $(configMap.html_nav_stamp);
         let navbarOuterHeight = $nav_top_bar.outerHeight();
         let cssStyle = {
-            height: `${navbarOuterHeight}px`,
+            height: navbarOuterHeight+"px",
             marginBottom: "1em"
         };
         $nav_stamp.css(cssStyle);

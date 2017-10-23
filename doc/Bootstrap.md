@@ -6,9 +6,43 @@
 # 基本用法
 [Bootstrap 中文文档](http://v3.bootcss.com/)
 
+什么是响应式？
+什么是弹性式？
+高度宽度？
+单位？
+justify
+
+[Content_categories](https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/Content_categories)
+
+[cite](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/cite)引用里面的引用:
+
+```html
+<blockquote>
+	<p>
+		滚滚长江东逝水，浪花淘尽英雄。
+		是非成败转头空。
+		青山依旧在，几度夕阳红。
+		白发渔樵江渚上，惯看秋月春风。
+		一壶浊酒喜相逢。
+		古今多少事，都付笑谈中。
+	<cite>临江仙·滚滚长江东逝水杨慎</cite>
+	</p>
+</blockquote> 
+```
+text-overflow:如果超过width就自动隐藏
+textarea 的尺寸控制
+$.proxy();
+
+[kbd](http://devdocs.io/html/element/kbd)
+
+nth-child选择器实现table背景条纹striped
+
+fieldset
+legend
+label
+[white-space: nowrap]()
 
 ## 栅栏系统
-什么是响应式？什么是弹性式？
 
 - 响应式：媒体查询`@media`，根据不同的屏幕大小使用不同的css样式。
 - .container和container-fluid分别是限定宽度（媒体查询）和100%窗口大小。
@@ -28,3 +62,14 @@
 ---
 - 基础样式 border padding margin 大小边距
 - 颜色 一组的颜色搭配统一：同时考虑link 
+
+#### IFE
+- 让一个函数声明语句变成了一个表达式。
+- 任何消除函数声明和函数表达式间歧义的方法，都可以被解析器正确识别
+- 一元运算都是有效的
+
+```js
+	(function(){/**/})();//****推荐，因为性能
+	!function(){/**/}();
+	+function(){/**/}();
+```

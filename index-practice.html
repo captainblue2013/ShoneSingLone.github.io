@@ -19,22 +19,35 @@
     <link id="themeCss" href="./public/stylesheets/main.css" rel="stylesheet" media="screen">
     <link href="./public/favicon.ico" rel="shortcut icon" type="image/png" />
     <style>
-    /* div {
+        /* div {
         height: 50px;
     }*/
     </style>
 </head>
 
 <body class="container">
+    <div class="row">
+        <div class="control-group">
+            <div class="controls">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-envelope"></span>
+                    </span>
+                    <input class="col col-lg-2 form-control" id="inputIcon" type="text">
+                </div>
+            </div>
+        </div>
+    </div>
     <button type="button" class="btn btn-primary btnlg
 active">button</button>
     <a href="#" class="btn btn-primary btn-lg active" role="button">link</a>
     <script>
-    $(function() {
+        $(function () {
 
-        // $("#myModal").modal();
-    })
+            // $("#myModal").modal();
+        })
     </script>
+
     <p>Type the following in the Run dialog:
         <kbd>cmd</kbd>
         <br />Then click the OK button.</p>
@@ -46,47 +59,47 @@ active">button</button>
     <div id="preview"> </div>
     <script src="./markdown.js"></script>
     <script>
-    function Editor(input, preview) {
-        this.update = function() {
-            preview.innerHTML = markdown.toHTML(input.value);
+        function Editor(input, preview) {
+            this.update = function () {
+                preview.innerHTML = markdown.toHTML(input.value);
+            };
+            input.editor = this;
+            this.update();
+        }
+        var $ = function (id) {
+            return document.getElementById(id);
         };
-        input.editor = this;
-        this.update();
-    }
-    var $ = function(id) {
-        return document.getElementById(id);
-    };
-    new Editor($("text-input"), $("preview"));
+        new Editor($("text-input"), $("preview"));
     </script>
     <div class="row"><img src="http://naotu.baidu.com/file/1aecbf1ac0a61154a6ec8a5a9f62d1c7?token=0771c8b6cc1fc0c4" alt="" class="img-thumbnail"></div>
     <div class="row alert">
         <div class="col-sm-12 col-md-8 ">
-            <button type="button" class="btn btn-primary" data-target=".row" data-dismiss="alert" aria-label="Close">
+            <button type="button" class="btn btn-primary" data-target="div" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
         <div class="col-sm-6 col-md-4">firstGroup</div>
     </div>
-    <div class="row" id="myModal">
-        <div class="col-lg-2 col-md-4 col-sm-6">
-            secendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroup
-        </div>
-        <div class="col-lg-2 col-md-4 col-sm-6">
-            secendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroup
-        </div>
-        <div class="col-lg-2 col-md-4 col-sm-6">
-            secendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroup
-        </div>
-        <div class="col-lg-2 col-md-4 col-sm-6">
-            secendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroup
-        </div>
-        <div class="col-lg-2 col-md-4 col-sm-6">
-            secendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroup
-        </div>
-        <div class="col-lg-2 col-md-4 col-sm-6">
-            secendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroupsecendGroup
-        </div>
+
+    <div class="row">
+        <div class="col-md-1">col-md-1</div>
+        <!--由于这12个div都一样,所以这里省略了其他10个-->
+        <div class="col-md-1">col-md-1</div>
     </div>
+    <div class="row">
+        <div class="col-md-8">.col-md-8</div>
+        <div class="col-md-4">.col-md-4</div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">.col-md-4</div>
+        <div class="col-md-4">.col-md-4</div>
+        <div class="col-md-4">.col-md-4</div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">.col-md-6</div>
+        <div class="col-md-6">.col-md-6</div>
+    </div>
+
     <!-- <div class="clearfix visible-sm"></div> -->
     <div class="row">
         <div class="col-lg-2 col-md-7 col-sm-6">secendGroup</div>

@@ -12,6 +12,14 @@
 单位？
 justify
 
+content:" ";
+display:table;
+clear:both;
+等高让float被包裹
+
+display:table
+table-cell的用法
+
 [Content_categories](https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/Content_categories)
 
 [cite](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/cite)引用里面的引用:
@@ -57,7 +65,9 @@ label
 
 # 整体思路
 - Append 
+- 组合的方式
 - Overwrite
+
 
 ---
 - 基础样式 border padding margin 大小边距
@@ -72,4 +82,28 @@ label
 	(function(){/**/})();//****推荐，因为性能
 	!function(){/**/}();
 	+function(){/**/}();
+```
+
+#### dropdown
+需结合pure CSS来处理动态添加的问题。《CSS设计指南》
+
+- `.dropdown`保证`position`为`relative`
+- `.dropdown-menu`使用`absolute`、`top`为`100%`，保证位置。（如果我改成left？是的，类似`.dropup`的功能）
+- `.open`修改`display：block`控制显隐： `.open>.dropdown-menu`即添加在`dropdown` 上
+- `.active`和`.disable`的遗留问题还是需要JavaScript的处理
+
+#### button
+
+vertical-align
+
+
+- default primary 
+- .btn-group
+- .btn-group>btn
+- 圆角的设置 主要考虑第一个和最后一个
+
+#### addon 插件；附加包；附加元件
+通常完成的是
+```
+div.input-group > sapn.input-group-addon + input.from-group + span.input-group-addon
 ```

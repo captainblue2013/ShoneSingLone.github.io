@@ -581,6 +581,11 @@ function loadasyni(url){
 [BookmarkLet](https://gitee.com/Tech_Query/iBookmarkLet) 有空可以来研究一下
 
 # 跨域的问题
+XHR的使用
+B和C如何及解决跨域的问题
+jQuery给出的快鱼解决方案
+jsonp是什么？
+show me the code 
 ## CORS跨域资源共享
 ## Window
 Location和Navigation
@@ -733,6 +738,12 @@ package.json文件中的`script`:
 [npm scripts 用法详解](https://segmentfault.com/a/1190000007684156)
 [npm scripts](https://www.zybuluo.com/yangfch3/note/249328)
 `npm run <自定义命令>`
+
+### Gulp
+[使用npm scripts替代gulp](https://aotu.io/notes/2016/02/26/use-npm-script-instead-of-gulp/index.html)
+[Gulp get start](http://www.gulpjs.com.cn/docs/getting-started/)
+[Gulp入门教程](http://www.jianshu.com/p/fbf9871dc47a)
+[Gulp v4编译Bootstrap-sass v3.3.7](http://www.jianshu.com/p/ac93605e4cf2)
 
 ## Yarn[官网](https://yarnpkg.com/zh-Hans/)
 ## cli对比 [migrating-from-npm](https://yarnpkg.com/zh-Hans/docs/migrating-from-npm)

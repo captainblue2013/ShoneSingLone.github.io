@@ -64,7 +64,6 @@ var Markdown = expose.Markdown = function(dialect) {
  *  Parse `markdown` and return a markdown document as a Markdown.JsonML tree.
  **/
 expose.parse = function( source, dialect ) {
-  debugger;
   // dialect will default if undefined
   var md = new Markdown( dialect );
   return md.toTree( source );

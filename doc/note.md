@@ -776,6 +776,8 @@ app.delete('/user', function (req, res) {
 
 >[npm scripts 使用指南](http://www.ruanyifeng.com/blog/2016/10/npm_scripts.html) package.json文件中的`script`:
 [how-to-use-npm-as-a-build-tool](http://bubkoo.com/2016/03/18/how-to-use-npm-as-a-build-tool/)
+[⚓用npm执行脚本](http://leungwensen.github.io/blog/2016/running-scripts-with-npm.html)
+[Node.js 命令行程序开发教程](http://www.ruanyifeng.com/blog/2015/05/command-line-with-node.html)
 [npm scripts 用法详解](https://segmentfault.com/a/1190000007684156)
 [npm scripts](https://www.zybuluo.com/yangfch3/note/249328)
 `npm run <自定义命令>`

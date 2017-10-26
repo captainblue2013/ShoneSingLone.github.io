@@ -26,6 +26,7 @@ var shell = (function($) {
         const surl = {
             3: "https://api.github.com/users/ShoneSingLone"
         };
+        
         $.ajax({
             type: method,
             url: surl[url],

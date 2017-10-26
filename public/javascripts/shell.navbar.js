@@ -58,7 +58,7 @@ shell.navbar = (function ($) {
     dealImag = function (jsonData) {
         if (jsonData.avatar_url) {
 
-            let $img = $("<img/>", {
+            var $img = $("<img/>", {
                 id: "avatar_url",
                 class: "img-circle",
                 src: jsonData.avatar_url,
@@ -89,11 +89,6 @@ shell.navbar = (function ($) {
 
     //----------------------------------
 
-
-
-    // Begin Event handler /onClickChat/
-    // 
-    // End Event handler /onClickChat/
     //-------------------- END EVENT HANDLERS --------------------
 
     //------------------- BEGIN PUBLIC METHODS -------------------
@@ -101,10 +96,10 @@ shell.navbar = (function ($) {
     initModule = function ($container) {
         // load HTML and map jQuery collections
         stateMap.$container = $container;
-        let $nav_top_bar = $(configMap.html_nav_top_bar);
-        let $nav_stamp = $(configMap.html_nav_stamp);
-        let navbarOuterHeight = $nav_top_bar.outerHeight();
-        let cssStyle = {
+        var $nav_top_bar = $(configMap.html_nav_top_bar);
+        var $nav_stamp = $(configMap.html_nav_stamp);
+        var navbarOuterHeight = $nav_top_bar.outerHeight();
+        var cssStyle = {
             height: navbarOuterHeight+"px",
             marginBottom: "1em"
         };

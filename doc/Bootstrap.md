@@ -20,6 +20,8 @@ clear:both;
 display:table
 table-cell的用法
 
+-lineargradient
+
 [Content_categories](https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/Content_categories)
 
 [cite](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/cite)引用里面的引用:
@@ -106,4 +108,31 @@ vertical-align
 通常完成的是
 ```
 div.input-group > sapn.input-group-addon + input.from-group + span.input-group-addon
+```
+#### 一般需要考虑的几个点
+
+- 整体居中显示。
+- li元素有圆角。
+- 设置鼠标移动上去的效果。
+- 支持a元素和span元素。
+
+padding margin text-align list-style text-decoration
+
+
+## modal 模态弹窗
+
+```html
+    <!-- 触发元素 -->
+    <button data-toggle="modal" data-target="#myModal" class="btn btnprimary">
+        触发元素</button>
+    <!-- 弹窗内容 -->
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">...</div>
+                <div class="modal-body">...</div>
+                <div class="modal-footer">...</div>
+            </div>
+        </div>
+    </div>
 ```

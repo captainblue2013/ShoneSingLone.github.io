@@ -11,6 +11,9 @@ Weex 在 WebKit 与原生上实现了一个抽象层；
 border的样式很重要
 if `border：none;` 浏览器不会渲染border; 只有宽度，没有样式，也不会渲染, 所以一定要有样式才有效。 
 
+## 单位
+[vm rem em](https://zhuanlan.zhihu.com/p/30413803?group_id=906220704115974144)
+
 ## 盒子模型（box）
 每个元素
 
@@ -65,6 +68,8 @@ var      | 定义变                             |
 
 
 - 转换：float\display\position
+
+## 你以为position:fixed只是相对于窗口？呵呵哒
 
 ## 浮动
 
@@ -577,6 +582,16 @@ function loadasyni(url){
 }
 ```
 
+## 事件
+[preventDefault](https://developer.mozilla.org/zh-CN/docs/Web/API/Event/preventDefault)
+如果事件可取消，则取消该事件，而不停止事件的进一步传播。
+[stopPropagation](https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation)
+这个取消是传播，不取消事件
+
+一般是插件需要
+
+
+
 ## BookmarkLet
 [BookmarkLet](https://gitee.com/Tech_Query/iBookmarkLet) 有空可以来研究一下
 
@@ -631,6 +646,7 @@ document.URL是文档首次载入后保存的静态字符串不会随着hash变�
 
 `jQuery().on( events [, selector ] [, data ], handler )`
 > 事件命名空间 An event name can be qualified by event namespaces that simplify removing or triggering the event. 
+
 ```js
     .on("click.simple");
     .off("click.simple");
@@ -729,11 +745,36 @@ MixIn混入[多重继承](https://www.liaoxuefeng.com/wiki/0014316089557264a6b34
 
 
 ## npm
+### Express
+- [Express上手](https://mp.weixin.qq.com/s/Q2AF4t-GMzwErxXp_WDtLw)
+- 安装
+```
+npm install express --save
+```
+- 路由
+```js
+// 对网站首页的访问返回 "Hello World!" 字样
+app.get('/', function (req, res) {
+  res.send('Hello World!');
+});
+// 网站首页接受 POST 请求
+app.post('/', function (req, res) {
+  res.send('Got a POST request');
+});
+// /user 节点接受 PUT 请求
+app.put('/user', function (req, res) {
+  res.send('Got a PUT request at /user');
+});
+// /user 节点接受 DELETE 请求
+app.delete('/user', function (req, res) {
+  res.send('Got a DELETE request at /user');
+});
+```
+
 ### npm scripts
 简单来说，若你手里有一个锤子，你当然希望其他的都是钉子。能用npm scripts解决的事情为什么要用Gulp？长得好看？！
 
->[npm scripts 使用指南](http://www.ruanyifeng.com/blog/2016/10/npm_scripts.html)
-package.json文件中的`script`:
+>[npm scripts 使用指南](http://www.ruanyifeng.com/blog/2016/10/npm_scripts.html) package.json文件中的`script`:
 [how-to-use-npm-as-a-build-tool](http://bubkoo.com/2016/03/18/how-to-use-npm-as-a-build-tool/)
 [npm scripts 用法详解](https://segmentfault.com/a/1190000007684156)
 [npm scripts](https://www.zybuluo.com/yangfch3/note/249328)
@@ -744,6 +785,7 @@ package.json文件中的`script`:
 [Gulp get start](http://www.gulpjs.com.cn/docs/getting-started/)
 [Gulp入门教程](http://www.jianshu.com/p/fbf9871dc47a)
 [Gulp v4编译Bootstrap-sass v3.3.7](http://www.jianshu.com/p/ac93605e4cf2)
+[gulp-and-babel](http://macr.ae/article/gulp-and-babel.html)
 
 ## Yarn[官网](https://yarnpkg.com/zh-Hans/)
 ## cli对比 [migrating-from-npm](https://yarnpkg.com/zh-Hans/docs/migrating-from-npm)
@@ -759,7 +801,7 @@ package.json文件中的`script`:
 
 
 
-zh-cmn-Hans
+# zh-cmn-Hans
 
 前端的路由
 -   **uriAnchor** [HomePage](https://github.com/mmikowski/urianchor)

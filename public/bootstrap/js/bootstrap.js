@@ -150,7 +150,6 @@ if (typeof jQuery === 'undefined') {
   }
 
   var old = $.fn.alert
-
   $.fn.alert = Plugin
   $.fn.alert.Constructor = Alert
 

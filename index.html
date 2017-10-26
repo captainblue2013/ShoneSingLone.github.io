@@ -18,14 +18,18 @@
     <link href="./public/stylesheets/main.css" rel="stylesheet" media="screen" id="themeCss">
     <link href="./public/favicon.ico" rel="shortcut icon" type="image/png" />
     <style>
-        .navbar-header{
+        .navbar-header {
             background-image: url(views/material/mdl-template-portfolio/images/header-bg.jpg);
         }
     </style>
     <script>
-    $(function() {
-        shell.initModule($("body"));
-    });
+        $(function () {
+            shell.initModule($("body"));
+            var $btn = $('<a>', { "class": "btn btn-primary",
+                    "text":"main.html","href":"./index-main.html" });
+                debugger;
+            $btn.appendTo($('body'));
+        });
     </script>
 </head>
 

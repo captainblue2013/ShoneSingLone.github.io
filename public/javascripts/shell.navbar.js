@@ -98,16 +98,20 @@ shell.navbar = (function ($) {
         stateMap.$container = $container;
         var $nav_top_bar = $(configMap.html_nav_top_bar);
         var $nav_stamp = $(configMap.html_nav_stamp);
+        $container.append($nav_top_bar)
         var navbarOuterHeight = $nav_top_bar.outerHeight();
         var cssStyle = {
-            height: navbarOuterHeight+"px",
+            height: navbarOuterHeight + "px",
             marginBottom: "1em"
         };
         $nav_stamp.css(cssStyle);
-        $container.append($nav_top_bar).append($nav_stamp);
+        $container.append($nav_stamp);
         shell.getDataFromAPI(dealImag, 3);
     };
     // End PUBLIC method /initModule/
-    return { initModule: initModule };
+    return {
+        initModule: initModule,
+        dealImag: dealImag
+    };
     //------------------- END PUBLIC METHODS ---------------------
 }(jQuery));

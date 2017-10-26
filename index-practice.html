@@ -37,18 +37,33 @@
     <script>
         $(function () {
 
-            $('#btnmyModal').on("click.drawer", (function ($drawer) {
-                return function () {
+            (function () {
+                var $btn = $('#btnmyModal'),
+                    $drawer = $('#drawer');
+                var drawerIn, drawerOut, drawerToggle;
+
+                drawerIn = function () {
+                    $btn.hide()
+                    $drawer.animateCss("bounceInLeft", function () {
+                        $btn.show().one("click.drawerOut", drawerOut);
+                    }).show();
+                };
+                drawerOut = function () {
+                    $btn.hide()
+                    $drawer.animateCss("bounceOutLeft", function () {
+                        $drawer.hide();
+                        $btn.show().one("click.drawerIn", drawerIn)
+                    });
+                };
+                drawerInit = function () {
                     if ($drawer.css("display") === "none") {
-                        $drawer.animateCss("bounceInLeft").show();
+                        $btn.one("click.drawerIn", drawerIn);
                     } else {
-                        // $drawer.show().animateCss("bounceInDown");
-                        $drawer.animateCss("bounceOutLeft", function () {
-                            $drawer.hide();
-                        });
+                        $btn.one("click.drawerOut", drawerOut);
                     }
                 };
-            })($('#drawer')));
+                drawerInit();
+            })();
 
         })
     </script>
@@ -62,7 +77,7 @@
         <span class="icon-bar"></span> 
         <span class="icon-bar"></span> 
     </button>
-    
+
     <div id="drawer" class="panel panel-default">
         <div class="panel-heading">面板header</div>
         <div class="panel-body">

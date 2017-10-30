@@ -22,3 +22,10 @@ jQuery.fn.extend({
 });
 ```
 - 调整nav的水平居中，引申出布局的几个问题：居中。
+
+# drawer
+取自bs-nav
+modal
+dropdown
+媒体查询
+节流和去抖

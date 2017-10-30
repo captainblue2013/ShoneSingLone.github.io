@@ -1,28 +1,35 @@
 /*
-Error: Undefined mixin 'box-sizing'.
-        on line 12 of .\_scaffolding.scss, in `box-sizing'
-        from line 12 of .\_scaffolding.scss
+Error: Undefined variable: "$panel-bg".
+        on line 14 of .\nav_drawer.scss
 
-7: //
-8: // Heads up! This reset may cause conflicts with some third-party widgets.
-9: // For recommendations on resolving such conflicts, see
-10: // http://getbootstrap.com/getting-started/#third-box-sizing
-11: * {
-12:   @include box-sizing(border-box);
-13: }
-14: *:before,
-15: *:after {
-16:   @include box-sizing(border-box);
-17: }
+9:   display: none;
+10:   top: 0;
+11:   left: 0;
+12:   bottom: 0;
+13:   width: 300px;
+14:   background-color: $panel-bg;
+15:   border: 1px solid transparent;
+16:   border-radius: $panel-border-radius;
+17:   z-index: 1999;
+18:   @include box-shadow(1px 0 15px rgba(0, 0, 0, 0.5));
+19: }
 
 Backtrace:
-.\_scaffolding.scss:12:in `box-sizing'
-.\_scaffolding.scss:12
-D:/Programs/ruby/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:352:in `block in visit_mixin'
-D:/Programs/ruby/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/stack.rb:98:in `block in with_mixin'
+.\nav_drawer.scss:14
+D:/Programs/ruby/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/script/tree/variable.rb:49:in `_perform'
+D:/Programs/ruby/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/script/tree/node.rb:50:in `perform'
+D:/Programs/ruby/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:402:in `visit_prop'
+D:/Programs/ruby/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:36:in `visit'
+D:/Programs/ruby/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
+D:/Programs/ruby/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/stack.rb:79:in `block in with_base'
 D:/Programs/ruby/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/stack.rb:135:in `with_frame'
-D:/Programs/ruby/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/stack.rb:98:in `with_mixin'
-D:/Programs/ruby/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:350:in `visit_mixin'
+D:/Programs/ruby/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/stack.rb:79:in `with_base'
+D:/Programs/ruby/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:162:in `visit'
+D:/Programs/ruby/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:444:in `block (2 levels) in visit_rule'
+D:/Programs/ruby/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:444:in `map'
+D:/Programs/ruby/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:444:in `block in visit_rule'
+D:/Programs/ruby/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:183:in `with_environment'
+D:/Programs/ruby/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:442:in `visit_rule'
 D:/Programs/ruby/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/base.rb:36:in `visit'
 D:/Programs/ruby/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
 D:/Programs/ruby/lib/ruby/gems/2.4.0/gems/sass-3.5.1/lib/sass/stack.rb:79:in `block in with_base'
@@ -66,4 +73,4 @@ D:/Programs/ruby/bin/sass:22:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined mixin 'box-sizing'.\A         on line 12 of .\_scaffolding.scss, in `box-sizing'\A         from line 12 of .\_scaffolding.scss\A \A 7: //\A 8: // Heads up! This reset may cause conflicts with some third-party widgets.\A 9: // For recommendations on resolving such conflicts, see\A 10: // http://getbootstrap.com/getting-started/#third-box-sizing\A 11: * {\A 12:   @include box-sizing(border-box);\A 13: }\A 14: *:before,\A 15: *:after {\A 16:   @include box-sizing(border-box);\A 17: }"; }
+  content: "Error: Undefined variable: \"$panel-bg\".\A         on line 14 of .\nav_drawer.scss\A \A 9:   display: none;\A 10:   top: 0;\A 11:   left: 0;\A 12:   bottom: 0;\A 13:   width: 300px;\A 14:   background-color: $panel-bg;\A 15:   border: 1px solid transparent;\A 16:   border-radius: $panel-border-radius;\A 17:   z-index: 1999;\A 18:   @include box-shadow(1px 0 15px rgba(0, 0, 0, 0.5));\A 19: }"; }

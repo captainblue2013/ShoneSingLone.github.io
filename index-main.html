@@ -18,59 +18,53 @@
     <link href="./public/stylesheets/main.css" rel="stylesheet" media="screen" id="themeCss">
     <link href="./public/favicon.ico" rel="shortcut icon" type="image/png" />
     <style>
-        .navbar-header {
-            background-image: url(views/material/mdl-template-portfolio/images/header-bg.jpg);
-        }
+
     </style>
     <style>
         #btnmyModal {
             position: relative;
             z-index: 2000;
         }
-
-        #drawer {
-            position: fixed;
-            display: none;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            width: 300px;
-            z-index: 1999;
-        }
+        
     </style>
 
     <script>
+        (function JS_MediaQuery() {
+            $(window).one("resize", function () {
+                if (window.matchMedia("(min-width: 400px)").matches) {
+                    console.log("(min-width: 400px)")
+                }
+                setTimeout(JS_MediaQuery, 500);
+            })
+        })();
+
+
         $(function () {
             shell.getDataFromAPI(shell.navbar.dealImag, 3);
-
-
-
             (function () {
                 var $btn = $('#toggle-darwer'),
-                    $drawer = $('#drawer');
-                var drawerIn, drawerOut, drawerToggle;
+                    $drawer = $('#drawer .nav');
 
+                var drawerIn, drawerOut, drawerToggle;
                 drawerIn = function () {
-                    $btn.hide()
+                    // $btn.hide()
                     $drawer.animateCss("fadeInLeft", function () {
-                        $btn.show().one("click.drawerOut", drawerOut);
+                        $btn.one("click.drawerOut", drawerOut);
                     }).show();
                 };
                 drawerOut = function () {
-                    $btn.hide()
+                    // $btn.hide()
                     $drawer.animateCss("fadeOutLeft", function () {
                         $drawer.hide();
-                        $btn.show().one("click.drawerIn", drawerIn)
+                        $btn.one("click.drawerIn", drawerIn)
                     });
                 };
-                drawerInit = function () {
-                    if ($drawer.css("display") === "none") {
-                        $btn.one("click.drawerIn", drawerIn);
-                    } else {
-                        $btn.one("click.drawerOut", drawerOut);
-                    }
-                };
-                drawerInit();
+
+                if ($drawer.css("display") === "none") {
+                    $btn.one("click.drawerIn", drawerIn);
+                } else {
+                    $btn.one("click.drawerOut", drawerOut);
+                }
             })();
 
 
@@ -80,57 +74,208 @@
 
 <body>
 
-    <nav id="nav-top-bar" class="navbar navbar-default navbar-fixed-top">
+    <header id="nav-top-bar" class="navbar navbar-default">
         <div class="container">
-            <div class="navbar-header">
-                <button id="toggle-darwer" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-                    aria-controls="navbar">
-                           <span class="sr-only">Toggle navigation</span>
-                           <span class="icon-bar"></span>
-                           <span class="icon-bar"></span>
-                           <span class="icon-bar"></span>
-                       </button>
-                <a class="navbar-brand" href="#">ShoneSingLone's MicroSite</a>
+            <div class="row">
+                <div class="navbar-header">
+                    <button id="toggle-darwer" type="button" class="navbar-toggle">
+                                       <span class="sr-only">Toggle navigation</span>
+                                       <span class="icon-bar"></span>
+                                       <span class="icon-bar"></span>
+                                       <span class="icon-bar"></span>
+                                   </button>
+                    <a class="navbar-brand" href="#">ShoneSingLone's MicroSite</a>
+                </div>
             </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav"> </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#home">Home</a></li>
-                    <li><a target="_blank" href="https://github.com/ShoneSingLone">Github</a></li>
-                    <li><a href="mailto:SingLone@foxmail.com">Email me!</a></li>
-                    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li class="dropdown-header">Nav header</li>
-                            <li><a href="#">Separated link</a></li>
-                            <li><a href="#">One more separated link</a></li>
-                        </ul>
-                    </li>
+            <nav id="drawer">
+                <div class="nav nav-pills nav-stacked">
+                    <div><a href="#portfolio">Portfolio</a></div>
+                    <div><a href="#blog">Blog</a></div>
+                    <div><a target="_blank" href="https://github.com/ShoneSingLone">Github</a></div>
+                    <div><a href="mailto:SingLone@foxmail.com">Email me!</a></li></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- <nav id="nav-top-bar" class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Brand</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">active</a></li>
+                    <li><a href="#">Link</a></li>
+                    <li class="disabled"><a href="#">disabled</a></li>
+                    <li><a href="#">Link</a></li>
+                </ul>
+            </nav>
+        </div>
+    </nav> -->
+
+    <!-- <div id="nav-stamp">
+    </div> -->
+
+    <!-- <button id="toggle-darwer" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="true"
+        aria-controls="navbar"> 
+        <span class="sr-only">Toggle navigation</span> 
+        <span class="icon-bar"></span> 
+        <span class="icon-bar"></span> 
+        <span class="icon-bar"></span> 
+    </button> -->
+
+
+    <main class="mdl-layout__content">
+        <div class="mdl-grid portfolio-max-width">
+            <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                <div class="mdl-card__media">
+                    <img class="article-image" src=" images/example-work01.jpg" border="0" alt="">
+                </div>
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text">Blog template</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                    Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur
+                    ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="portfolio-example01.html">Read more</a>
+                </div>
+            </div>
+            <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                <div class="mdl-card__media">
+                    <img class="article-image" src=" images/example-work07.jpg" border="0" alt="">
+                </div>
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text">Sunt nulla</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                    Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur
+                    ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="portfolio-example01.html">Read more</a>
+                </div>
+            </div>
+            <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                <div class="mdl-card__media">
+                    <img class="article-image" src=" images/example-work02.jpg" border="0" alt="">
+                </div>
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text">Android.com website</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                    Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur
+                    ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="portfolio-example01.html">Read more</a>
+                </div>
+            </div>
+            <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                <div class="mdl-card__media">
+                    <img class="article-image" src=" images/example-work03.jpg" border="0" alt="">
+                </div>
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text">Dashboard template</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                    Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur
+                    ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="portfolio-example01.html">Read more</a>
+                </div>
+            </div>
+            <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                <div class="mdl-card__media">
+                    <img class="article-image" src=" images/example-work04.jpg" border="0" alt="">
+                </div>
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text">Text-heavy website</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                    Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur
+                    ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="portfolio-example01.html">Read more</a>
+                </div>
+            </div>
+            <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                <div class="mdl-card__media">
+                    <img class="article-image" src=" images/example-work08.jpg" border="0" alt="">
+                </div>
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text">Ex officia laborum</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                    Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur
+                    ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="portfolio-example01.html">Read more</a>
+                </div>
+            </div>
+            <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                <div class="mdl-card__media">
+                    <img class="article-image" src=" images/example-work05.jpg" border="0" alt="">
+                </div>
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text">Stand-alone article</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                    Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur
+                    ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="portfolio-example01.html">Read more</a>
+                </div>
+            </div>
+            <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                <div class="mdl-card__media">
+                    <img class="article-image" src=" images/example-work06.jpg" border="0" alt="">
+                </div>
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text">MDL website</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                    Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur
+                    ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="portfolio-example01.html">Read more</a>
+                </div>
+            </div>
+            <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                <div class="mdl-card__media">
+                    <img class="article-image" src=" images/example-work09.jpg" border="0" alt="">
+                </div>
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text">Consequat ut quis</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                    Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur
+                    ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="portfolio-example01.html">Read more</a>
+                </div>
+            </div>
+        </div>
+        <footer class="mdl-mini-footer">
+            <div class="mdl-mini-footer__left-section">
+                <div class="mdl-logo">Simple portfolio website</div>
+            </div>
+            <div class="mdl-mini-footer__right-section">
+                <ul class="mdl-mini-footer__link-list">
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Privacy & Terms</a></li>
                 </ul>
             </div>
-        </div>
-    </nav>
-    <div id="nav-stamp">
-    </div>
-    <button id="toggle-darwer" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="true" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-
-
-    <div id="drawer" class="panel panel-default">
-        <div class="panel-heading">面板header</div>
-        <div class="panel-body">
-            这里是面板内容
-        </div>
-        <div class="panel-footer">面板footer</div>
-    </div>
-
+        </footer>
+    </main>
 
 </body>
 

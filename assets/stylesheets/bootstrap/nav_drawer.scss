@@ -12,6 +12,7 @@
     .nav {
         position: fixed;
         display: none;
+        padding: $panel-body-padding;
         top: 0;
         left: 0;
         bottom: 0;
@@ -23,19 +24,6 @@
 
         @include box-shadow(1px 0 15px rgba(0, 0, 0, 0.5));
     }
-
-    @media (min-width: $screen-sm-min) {
-        .nav {
-            position: relative;
-            display: block;
-
-            @include make-row;
-        }
-    }
-
-    @media (min-width: $screen-md-min) {}
-
-    @media (min-width: $screen-lg-min) {}
 
     // Stacked pills
     .nav-stacked {
@@ -53,9 +41,19 @@
     // -------------------------
     .nav-pills {
         > div {
+            text-align: left;
+            text-decoration-style: solid;
+
             // Links rendered as pills
             > a {
                 border-radius: $nav-pills-border-radius;
+                font-size: medium;
+
+                &:hover,
+                &:focus {
+                    font-weight: bold;
+                    text-decoration: none;
+                }
             }
 
             // Active state
@@ -63,18 +61,40 @@
                 &,
                 &:hover,
                 &:focus {
+                    font-weight: solid;
+                    text-decoration: none;
                     color: $nav-pills-active-link-hover-color;
                     background-color: $nav-pills-active-link-hover-bg;
                 }
             }
 
             @media (min-width: $screen-sm-min) {
-                float: left;
-
-                + div {
-                    margin-left: 2px;
-                }
+                text-align: center;
             }
         }
     }
+
+    @media (min-width: $screen-sm-min) {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+
+        .nav {
+            position: static;
+            display: block;
+            width: 100%;
+            background-color: rgba(256, 256, 256, 0.2);
+
+            @media (min-width: $screen-sm-min) {
+                @include make-grid(sm);
+            }
+
+            // @include make-row;
+       
+        }
+    }
+
+    @media (min-width: $screen-md-min) {}
+
+    @media (min-width: $screen-lg-min) {}
 }

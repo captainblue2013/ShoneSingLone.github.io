@@ -25,40 +25,47 @@
             position: relative;
             z-index: 2000;
         }
-        
+        /* .col-sm-3{
+            width: 20%;
+            float: left;
+        } */
     </style>
 
     <script>
-        (function JS_MediaQuery() {
-            $(window).one("resize", function () {
-                if (window.matchMedia("(min-width: 400px)").matches) {
-                    console.log("(min-width: 400px)")
-                }
-                setTimeout(JS_MediaQuery, 500);
-            })
-        })();
-
-
         $(function () {
             shell.getDataFromAPI(shell.navbar.dealImag, 3);
             (function () {
                 var $btn = $('#toggle-darwer'),
                     $drawer = $('#drawer .nav');
 
-                var drawerIn, drawerOut, drawerToggle;
+                var drawerInit, drawerIn, drawerOut, drawerToggle;
                 drawerIn = function () {
-                    // $btn.hide()
                     $drawer.animateCss("fadeInLeft", function () {
                         $btn.one("click.drawerOut", drawerOut);
                     }).show();
                 };
                 drawerOut = function () {
-                    // $btn.hide()
-                    $drawer.animateCss("fadeOutLeft", function () {
-                        $drawer.hide();
-                        $btn.one("click.drawerIn", drawerIn)
-                    });
+                    $drawer.animateCss("fadeOutLeft", drawerInit);
                 };
+                drawerInit = function () {
+                    $drawer.hide();
+                    $btn.one("click.drawerIn", drawerIn);
+                };
+
+                (function JS_MediaQuery() {
+                    $(window).one("resize", function (e) {
+                        if (!window.matchMedia("(min-width: 768px)").matches) {
+                            $btn.off("click.drawerIn").off("click.drawerOut");
+                            console.log("resize:" + e);
+                            drawerInit();
+                        } else {
+                            if ($drawer.css("display") === "none") {
+                                $drawer.css("display", "block");
+                            }
+                        }
+                        setTimeout(JS_MediaQuery, 1);
+                    })
+                })();
 
                 if ($drawer.css("display") === "none") {
                     $btn.one("click.drawerIn", drawerIn);
@@ -87,44 +94,17 @@
                     <a class="navbar-brand" href="#">ShoneSingLone's MicroSite</a>
                 </div>
             </div>
-            <nav id="drawer">
-                <div class="nav nav-pills nav-stacked">
-                    <div><a href="#portfolio">Portfolio</a></div>
-                    <div><a href="#blog">Blog</a></div>
-                    <div><a target="_blank" href="https://github.com/ShoneSingLone">Github</a></div>
-                    <div><a href="mailto:SingLone@foxmail.com">Email me!</a></li></div>
-                </div>
-            </nav>
         </div>
+        <nav id="drawer">
+            <div class="nav nav-pills nav-stacked">
+                <div class="col-sm-3"><a href="#portfolio">Portfolio</a></div>
+                <div class="col-sm-3"><a href="#blog">Blog</a></div>
+                <div class="col-sm-3"><a target="_blank" href="https://github.com/ShoneSingLone">GitHub</a></div>
+                <div class="col-sm-3"><a href="mailto:SingLone@foxmail.com">Email me!</a></li>
+                </div>
+            </div>
+        </nav>
     </header>
-
-    <!-- <nav id="nav-top-bar" class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <nav class="navbar navbar-default" role="navigation">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#">Brand</a>
-                </div>
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">active</a></li>
-                    <li><a href="#">Link</a></li>
-                    <li class="disabled"><a href="#">disabled</a></li>
-                    <li><a href="#">Link</a></li>
-                </ul>
-            </nav>
-        </div>
-    </nav> -->
-
-    <!-- <div id="nav-stamp">
-    </div> -->
-
-    <!-- <button id="toggle-darwer" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="true"
-        aria-controls="navbar"> 
-        <span class="sr-only">Toggle navigation</span> 
-        <span class="icon-bar"></span> 
-        <span class="icon-bar"></span> 
-        <span class="icon-bar"></span> 
-    </button> -->
-
 
     <main class="mdl-layout__content">
         <div class="mdl-grid portfolio-max-width">

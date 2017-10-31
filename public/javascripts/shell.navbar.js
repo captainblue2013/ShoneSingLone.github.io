@@ -63,8 +63,8 @@ shell.navbar = (function ($) {
                 class: "img-circle",
                 src: jsonData.avatar_url,
                 alt: "avatar_url",
-                width: 40 + "px",
-                height: 40 + "px",
+                width: 150 + "px",
+                height: 150 + "px",
                 display: "inline-block",
                 "data-animate-url": "https://daneden.github.io/animate.css/"
             });

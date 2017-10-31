@@ -3,6 +3,7 @@
 - GitHub ajax get需要HTTPS。
 - 手机浏览器对自签证书的限制。
 - 添加一下小动画[animate.css](https://daneden.github.io/animate.css/),给jQuery做了扩展：添加了一个回调函数；
+
 ```js
 // Just-add-water CSS animations
 // 
@@ -29,3 +30,5 @@ modal
 dropdown
 媒体查询
 节流和去抖
+字体的加载
+jQuery 动画

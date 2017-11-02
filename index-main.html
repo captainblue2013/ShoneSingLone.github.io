@@ -96,19 +96,29 @@
 
             (function () {
                 var $btn = $('#toggle-darwer'),
-                    $drawer = $('#drawer .nav');
+                    $drawer = $('#drawer .nav'),
+                    $drawerBackdrop = $('<div class="drawer-backdrop"></div>');
 
-                var drawerInit, drawerIn, drawerOut, drawerToggle;
+                var drawerInit, drawerIn, drawerOut, drawerToggle, drawerBackdropToggle;
+
+                drawerBackdropToggle = function () {
+                    $('body').append($drawerBackdrop)
+
+                    //         p = $("p").detach();
+
+                }
                 drawerIn = function () {
                     $drawer.animateCss("fadeInLeft", function () {
-                        $btn.one("click.drawerOut", drawerOut);
+                        $drawerBackdrop.one("click.drawerOut", drawerOut);
                     }).show();
+                    $drawerBackdrop.appendTo('body');
                 };
                 drawerOut = function () {
                     $drawer.animateCss("fadeOutLeft", drawerInit);
                 };
                 drawerInit = function () {
                     $drawer.hide();
+                    $drawerBackdrop.remove();
                     $btn.one("click.drawerIn", drawerIn);
                 };
 
@@ -138,28 +148,7 @@
 
     <main class="mdl-layout__content">
 
-        <div class="modal show">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" datadismiss="
-modal" aria-hidden="true">×</button>
-                        <h4 class="modal-title">Modal标题</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p>这里是弹窗里的具体内容………</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" datadismiss="
-modal">
-关闭</button>
-                        <button type="button" class="btn btn-primary">保存
-</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
+
         <div class="mdl-grid portfolio-max-width">
             <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
                 <div class="mdl-card__media">

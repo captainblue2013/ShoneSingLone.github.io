@@ -3892,3 +3892,18 @@ tbody.collapse.in {
         margin-left: 91.66667%; }
       #drawer .nav .col-sm-offset-12 {
         margin-left: 100%; } }
+
+.drawer-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: rgba(2, 23, 2, 0.4); }
+  .drawer-backdrop.fade {
+    opacity: 0;
+    filter: alpha(opacity=0); }
+  .drawer-backdrop.in {
+    opacity: 0.5;
+    filter: alpha(opacity=50); }

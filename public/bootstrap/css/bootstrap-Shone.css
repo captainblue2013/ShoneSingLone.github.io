@@ -3733,6 +3733,8 @@ tbody.collapse.in {
 #nav-top-bar {
   background-image: url(../../../views/material/mdl-template-portfolio/images/header-bg.jpg);
   box-shadow: 0 1px 15px rgba(1, 0, 0, 0.5); }
+  #nav-top-bar .navbar-header {
+    float: unset; }
 
 #drawer {
   background-color: rgba(0, 0, 0, 0.1);

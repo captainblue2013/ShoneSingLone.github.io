@@ -21,13 +21,18 @@
 
     </style>
     <style>
-        .nav-title {
-            margin: 0 auto;
+        #myavatar {
             text-align: center;
         }
 
-        .portfolio-title {
-            font-size: 32px;
+        #wrap-toggle-darwer {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        #portfolio-title {
+            font-size: 24px;
             color: #0b3307;
         }
     </style>
@@ -38,21 +43,39 @@
 <body>
     <header id="nav-top-bar" class="navbar navbar-default">
         <div class="container">
-            <div class="row">
-                <div class="navbar-header">
-                    <button id="toggle-darwer" type="button" class="navbar-toggle">
-                                       <span class="sr-only">Toggle navigation</span>
-                                       <span class="icon-bar"></span>
-                                       <span class="icon-bar"></span>
-                                       <span class="icon-bar"></span>
-                                   </button>
-
-                    <div class="nav-title">
-                        <div class="portfolio-logo"></div>
-                        <span class="portfolio-title">ShoneSingLone's MicroSite</span>
-                    </div>
-                </div>
+            <div id="wrap-toggle-darwer">
+                <button id="toggle-darwer" type="button" class="navbar-toggle">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                </button>
             </div>
+
+            <div id="myavatar">
+                <div><span id="portfolio-title">ShoneSingLone's MicroSite</span></div>
+            </div>
+
+            <script>
+                dealImag = function (jsonData) {
+                    if (jsonData.avatar_url) {
+                        var $img = $("<img/>", {
+                            id: "avatar_url",
+                            class: "img-circle",
+                            src: jsonData.avatar_url,
+                            alt: "avatar_url",
+                            width: 150 + "px",
+                            height: 150 + "px",
+                            display: "none",
+                            "data-animate-url": "https://daneden.github.io/animate.css/"
+                        });
+                        $img.hide();
+                        $("#myavatar").prepend($img);
+                        $img.show(3000);
+                        $("#portfolio-title").animate({ "font-size": "14px" }, 3000);
+                    }
+                }
+            </script>
         </div>
         <nav id="drawer">
             <div class="container">
@@ -68,7 +91,9 @@
 
     <script>
         $(function () {
-            shell.getDataFromAPI(shell.navbar.dealImag, 3);
+            shell.getDataFromAPI(dealImag, 3);
+
+
             (function () {
                 var $btn = $('#toggle-darwer'),
                     $drawer = $('#drawer .nav');
@@ -112,6 +137,29 @@
     </script>
 
     <main class="mdl-layout__content">
+
+        <div class="modal show">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" datadismiss="
+modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title">Modal标题</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>这里是弹窗里的具体内容………</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" datadismiss="
+modal">
+关闭</button>
+                        <button type="button" class="btn btn-primary">保存
+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <div class="mdl-grid portfolio-max-width">
             <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
                 <div class="mdl-card__media">

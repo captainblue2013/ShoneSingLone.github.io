@@ -73,10 +73,11 @@
                             display: "none",
                             "data-animate-url": "https://daneden.github.io/animate.css/"
                         });
+                        var transTime = 2000;
                         $img.hide();
                         $("#myavatar").prepend($img);
-                        $img.show(3000);
-                        $("#portfolio-title").animate({ "font-size": "14px" }, 3000);
+                        $img.show(transTime);
+                        $("#portfolio-title").animate({ "font-size": "14px" }, transTime);
                     }
                 }
             </script>
@@ -129,7 +130,7 @@
                     $(window).one("resize", function (e) {
                         if (!window.matchMedia("(min-width: 768px)").matches) {
                             $btn.off("click.drawerIn").off("click.drawerOut");
-                            console.log("resize:" + e);
+                            $('#currentsize').html("outerHeight: "+window.outerHeight+"\nouterWidth: "+window.outerWidth);
                             drawerInit();
                         } else {
                             if ($drawer.css("display") === "none") {
@@ -158,7 +159,7 @@
                     <img class="article-image" src="" border="0" alt="">
                 </div>
                 <div class="mdl-card__title">
-                    <h2 class="mdl-card__title-text">Blog template</h2>
+                    <h2 class="mdl-card__title-text">current size <span id="currentsize"></span></h2>
                 </div>
                 <div class="mdl-card__supporting-text">
                     Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur

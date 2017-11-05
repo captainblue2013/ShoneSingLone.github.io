@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "",
-    "css":"gulp css"
+    "css": "gulp css"
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,8 @@
   "homepage": "https://github.com/ShoneSingLone/ShoneSingLone.github.io#readme",
   "devDependencies": {
     "gulp": "^3.9.1",
-    "gulp-sass": "^3.1.0"
-  }
+    "gulp-sass": "^3.1.0",
+    "browser-sync": "^2.18.13"
+  },
+  "dependencies": {}
 }

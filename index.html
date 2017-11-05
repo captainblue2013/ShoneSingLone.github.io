@@ -18,22 +18,385 @@
     <link href="./public/stylesheets/main.css" rel="stylesheet" media="screen" id="themeCss">
     <link href="./public/favicon.ico" rel="shortcut icon" type="image/png" />
     <style>
-        .navbar-header {
-            background-image: url(views/material/mdl-template-portfolio/images/header-bg.jpg);
+
+    </style>
+    <style>
+        #myavatar {
+            text-align: center;
+        }
+
+        #wrap-toggle-darwer {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        #portfolio-title {
+            font-size: 24px;
+            color: #0b3307;
         }
     </style>
-    <script>
-        $(function () {
-            shell.initModule($("body"));
-            var $btn = $('<a>', { "class": "btn btn-primary",
-                    "text":"main.html","href":"./index-main.html" });
-                debugger;
-            $btn.appendTo($('body'));
-        });
-    </script>
+
+
 </head>
 
 <body>
+    <header id="nav-top-bar" class="navbar navbar-default">
+        <div class="container">
+            <div id="wrap-toggle-darwer">
+                <button id="toggle-darwer" type="button" class="navbar-toggle">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <div id="myavatar">
+                <div><span id="portfolio-title">ShoneSingLone's MicroSite</span></div>
+            </div>
+
+            <script>
+                dealImag = function (jsonData) {
+                    if (jsonData.avatar_url) {
+                        var $img = $("<img/>", {
+                            id: "avatar_url",
+                            class: "img-circle",
+                            src: jsonData.avatar_url,
+                            alt: "avatar",
+                            width: 150 + "px",
+                            height: 150 + "px",
+                            display: "none",
+                            "data-animate-url": "https://daneden.github.io/animate.css/"
+                        });
+                        var transTime = 2000;
+                        $img.hide();
+                        $("#myavatar").prepend($img);
+                        $img.show(transTime);
+                        $("#portfolio-title").animate({ "font-size": "14px" }, transTime);
+                    }
+                }
+            </script>
+        </div>
+        <nav id="drawer">
+            <div class="container">
+                <div class="nav nav-pills">
+                    <div class="col-sm-3"><a href="#portfolio">Portfolio</a></div>
+                    <div class="col-sm-3 active"><a href="#blog">Blog</a></div>
+                    <div class="col-sm-3"><a target="_blank" href="https://github.com/ShoneSingLone">GitHub</a></div>
+                    <div class="col-sm-3"><a href="mailto:SingLone@foxmail.com">SingLone@foxmail.com</a> </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <script>
+        $(function () {
+            shell.getDataFromAPI(dealImag, 3);
+
+
+            (function () {
+                var $body = $("html"),
+                    $main = $("main"),
+                    $btn = $('#toggle-darwer'),
+                    $drawer = $('#drawer .nav'),
+                    $drawerBackdrop = $('<div class="drawer-backdrop"></div>');
+
+
+                var drawerInit, drawerIn, drawerOut, drawerToggle;
+
+
+                drawerIn = function () {
+                    $body.css({ "overflow": "hidden" });
+                    $main.css({
+                        "height": $main.outerWidth() + "px",
+                        "overflow": "hidden"
+                    });
+                    $drawer.animateCss("fadeInLeft", function () {
+                        $drawerBackdrop.one("click.drawerOut", drawerOut);
+                    }).show();
+                    $drawerBackdrop.appendTo('body');
+                };
+                drawerOut = function () {
+                    $drawer.animateCss("fadeOutLeft", drawerInit);
+                };
+                drawerInit = function () {
+                    $drawer.hide();
+                    $drawerBackdrop.remove();
+                    $body.css({ "overflow": "unset" });
+                    $main.css({
+                        "height": "unset",
+                        "overflow": "unset"
+                    });
+                    $btn.one("click.drawerIn", drawerIn);
+                };
+
+                (function JS_MediaQuery() {
+                    // var currentOuterWidth = window.outerWidth;
+                    $(window).one("resize", function (e) {
+                        if (!window.matchMedia("(min-width: 768px)").matches) {
+                            $btn.off("click.drawerIn").off("click.drawerOut");
+                            $('#currentsize').html("outerHeight: " + window.outerHeight + "\nouterWidth: " + window.outerWidth);
+                            drawerInit();
+                            // if ((currentOuterWidth - window.outerWidth) != 0) {
+                            //     currentOuterWidth = window.outerWidth;
+                            // }
+                        } else {
+                            if ($drawer.css("display") === "none") {
+                                $drawer.css("display", "block");
+                            }
+                        }
+                        setTimeout(JS_MediaQuery, 1);
+                    })
+                })();
+
+                if ($drawer.css("display") === "none") {
+                    $btn.one("click.drawerIn", drawerIn);
+                } else {
+                    $btn.one("click.drawerOut", drawerOut);
+                }
+            })();
+        });
+    </script>
+
+    <main class="mdl-layout__content">
+
+
+        <div class="mdl-grid portfolio-max-width">
+            <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                <div class="mdl-card__media">
+                    <img class="article-image" src="" border="0" alt="">
+                </div>
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text">Blog template</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                    Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur
+                    ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="portfolio-example01.html">Read more</a>
+                </div>
+            </div>
+        </div>
+        <div class="mdl-grid portfolio-max-width">
+            <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                <div class="mdl-card__media">
+                    <img class="article-image" src="" border="0" alt="">
+                </div>
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text">Blog template</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                    Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur
+                    ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="portfolio-example01.html">Read more</a>
+                </div>
+            </div>
+        </div>
+        <div class="mdl-grid portfolio-max-width">
+            <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                <div class="mdl-card__media">
+                    <img class="article-image" src="" border="0" alt="">
+                </div>
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text">Blog template</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                    Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur
+                    ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="portfolio-example01.html">Read more</a>
+                </div>
+            </div>
+        </div>
+        <div class="mdl-grid portfolio-max-width">
+            <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                <div class="mdl-card__media">
+                    <img class="article-image" src="" border="0" alt="">
+                </div>
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text">Blog template</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                    Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur
+                    ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="portfolio-example01.html">Read more</a>
+                </div>
+            </div>
+        </div>
+        <div class="mdl-grid portfolio-max-width">
+            <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                <div class="mdl-card__media">
+                    <img class="article-image" src="" border="0" alt="">
+                </div>
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text">Blog template</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                    Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur
+                    ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="portfolio-example01.html">Read more</a>
+                </div>
+            </div>
+        </div>
+        <div class="mdl-grid portfolio-max-width">
+            <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                <div class="mdl-card__media">
+                    <img class="article-image" src="" border="0" alt="">
+                </div>
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text">Blog template</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                    Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur
+                    ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="portfolio-example01.html">Read more</a>
+                </div>
+            </div>
+        </div>
+        <div class="mdl-grid portfolio-max-width">
+            <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                <div class="mdl-card__media">
+                    <img class="article-image" src="" border="0" alt="">
+                </div>
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text">Blog template</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                    Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur
+                    ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="portfolio-example01.html">Read more</a>
+                </div>
+            </div>
+        </div>
+        <div class="mdl-grid portfolio-max-width">
+            <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                <div class="mdl-card__media">
+                    <img class="article-image" src="" border="0" alt="">
+                </div>
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text">Blog template</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                    Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur
+                    ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="portfolio-example01.html">Read more</a>
+                </div>
+            </div>
+        </div>
+        <div class="mdl-grid portfolio-max-width">
+            <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                <div class="mdl-card__media">
+                    <img class="article-image" src="" border="0" alt="">
+                </div>
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text">Blog template</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                    Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur
+                    ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="portfolio-example01.html">Read more</a>
+                </div>
+            </div>
+        </div>
+        <div class="mdl-grid portfolio-max-width">
+            <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                <div class="mdl-card__media">
+                    <img class="article-image" src="" border="0" alt="">
+                </div>
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text">Blog template</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                    Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur
+                    ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="portfolio-example01.html">Read more</a>
+                </div>
+            </div>
+        </div>
+        <div class="mdl-grid portfolio-max-width">
+            <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                <div class="mdl-card__media">
+                    <img class="article-image" src="" border="0" alt="">
+                </div>
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text">Blog template</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                    Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur
+                    ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="portfolio-example01.html">Read more</a>
+                </div>
+            </div>
+        </div>
+        <div class="mdl-grid portfolio-max-width">
+            <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                <div class="mdl-card__media">
+                    <img class="article-image" src="" border="0" alt="">
+                </div>
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text">Blog template</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                    Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur
+                    ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="portfolio-example01.html">Read more</a>
+                </div>
+            </div>
+        </div>
+        <div class="mdl-grid portfolio-max-width">
+            <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+                <div class="mdl-card__media">
+                    <img class="article-image" src="" border="0" alt="">
+                </div>
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text">Blog template</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                    Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur
+                    ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="portfolio-example01.html">Read more</a>
+                </div>
+            </div>
+        </div>
+
+        <footer class="mdl-mini-footer">
+            <div class="mdl-mini-footer__left-section">
+                <div class="mdl-logo">Simple portfolio website</div>
+            </div>
+            <div class="mdl-mini-footer__right-section">
+                <ul class="mdl-mini-footer__link-list">
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Privacy & Terms</a></li>
+                </ul>
+            </div>
+        </footer>
+    </main>
+
 </body>
 
 </html>

@@ -32,3 +32,6 @@ dropdown
 节流和去抖
 字体的加载
 jQuery 动画
+pointerevent
+
+这里遇到一个小问题：当drawer出现后，晃动鼠标中键会使得屏幕向下滑动，这时需要`overflow: hidden;`是超出的元素不可见。

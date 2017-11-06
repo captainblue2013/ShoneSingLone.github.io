@@ -157,26 +157,23 @@
                     $btn.one("click.drawerIn", drawerIn);
                 };
 
-                (function JS_MediaQuery() {
-                    $(window).one("resize", function (e) {
-                        if (!window.matchMedia("(min-width: 768px)").matches) {
+                $(window).on("resize.toogleDrawer", function (e) {
+                    $('.currentsize').html("outerHeight: " + window.outerHeight + "\nouterWidth: " + window.outerWidth);
+                    if (!window.matchMedia("(min-width: 768px)").matches) {
+                        if ($drawer.css("display") === "none") {
                             $btn.off("click.drawerIn").off("click.drawerOut");
-                            $('.currentsize').html("outerHeight: " + window.outerHeight + "\nouterWidth: " + window.outerWidth);
-                            drawerInit();
+                            $btn.one("click.drawerIn", drawerIn);
                         } else {
-                            if ($drawer.css("display") === "none") {
-                                $drawer.css("display", "block");
-                            }
+                            $drawerBackdrop.one("click.drawerOut", drawerOut);
                         }
-                        setTimeout(JS_MediaQuery, 1);
-                    })
-                })();
+                    } else {
+                        if ($drawer.css("display") === "none") {
+                            $drawerBackdrop.remove();
+                            $drawer.css("display", "block");
+                        }
+                    }
+                }).trigger("resize.toogleDrawer");
 
-                if ($drawer.css("display") === "none") {
-                    $btn.one("click.drawerIn", drawerIn);
-                } else {
-                    $btn.one("click.drawerOut", drawerOut);
-                }
             })();
         });
     </script>

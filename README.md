@@ -34,4 +34,15 @@ dropdown
 jQuery 动画
 pointerevent
 
-这里遇到一个小问题：当drawer出现后，晃动鼠标中键会使得屏幕向下滑动，这时需要`overflow: hidden;`是超出的元素不可见。
+这里遇到一个小问题：当drawer出现后，晃动鼠标中键会使得屏幕向下滑动，这时需要`overflow: hidden;`使超出的元素不可见。
+还要在研习一下Google给的demo，先暂时不修了。（挖坑）
+```css
+        .drawer-is-show {
+			overflow: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+```

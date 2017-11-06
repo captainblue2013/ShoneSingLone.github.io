@@ -59,13 +59,13 @@ shell.navbar = (function ($) {
         if (jsonData.avatar_url) {
 
             var $img = $("<img/>", {
-                id: "avatar_url",
-                class: "img-circle",
-                src: jsonData.avatar_url,
-                alt: "avatar_url",
-                width: 150 + "px",
-                height: 150 + "px",
-                display: "inline-block",
+                id                : "avatar_url",
+                class             : "img-circle",
+                src               : jsonData.avatar_url,
+                alt               : "avatar_url",
+                width             : 150 + "px",
+                height            : 150 + "px",
+                display           : "inline-block",
                 "data-animate-url": "https://daneden.github.io/animate.css/"
             });
             $img.attr("src", jsonData.avatar_url).animateCss("bounceInDown");
@@ -95,13 +95,13 @@ shell.navbar = (function ($) {
     // Begin Public method /initModule/
     initModule = function ($container) {
         // load HTML and map jQuery collections
-        stateMap.$container = $container;
-        var $nav_top_bar = $(configMap.html_nav_top_bar);
-        var $nav_stamp = $(configMap.html_nav_stamp);
+            stateMap.$container = $container;
+        var $nav_top_bar        = $(configMap.html_nav_top_bar);
+        var $nav_stamp          = $(configMap.html_nav_stamp);
         $container.append($nav_top_bar)
         var navbarOuterHeight = $nav_top_bar.outerHeight();
-        var cssStyle = {
-            height: navbarOuterHeight + "px",
+        var cssStyle          = {
+            height      : navbarOuterHeight + "px",
             marginBottom: "1em"
         };
         $nav_stamp.css(cssStyle);
@@ -111,7 +111,7 @@ shell.navbar = (function ($) {
     // End PUBLIC method /initModule/
     return {
         initModule: initModule,
-        dealImag: dealImag
+        dealImag  : dealImag
     };
     //------------------- END PUBLIC METHODS ---------------------
 }(jQuery));

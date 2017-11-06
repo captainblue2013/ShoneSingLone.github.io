@@ -56,6 +56,8 @@ gulp.task('serve', [], () => {
         // reloadOnRestart: true,
         // browser: "google chrome"
     });
+    gulp.watch('./assets/stylesheets/**/*', ['css']);
+    gulp.watch('./public/**/*', ['', bs.reload]);
     gulp.watch('./*.html', ['', bs.reload]);
 });
 

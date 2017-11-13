@@ -117,10 +117,30 @@ npm根据package.json里的描述来完成包的管理。
 这样更新就只需要动package.json里的版本号，是不是很棒(๑•̀ㅂ•́)و✧？但是一旦增加引用或者删除引用还要去html文件里修改，仍然很麻烦，能不能再自动化把这点也处理了，省点力？能，进化。
 ![](https://cdn-images-1.medium.com/max/1000/1*GeEETvRqyG4o7SZdbU2Guw.png)
 
+---
+（这里的坑感觉已经不想填了）
+
+---
+
 ## Using a JavaScript module bundler (webpack)
 使用模块打包器
 JavaScript最开始就没打算搞大新闻,所以也就真的没有设计一般程序设计语言的导包的特性。一般引入js文件就算导包了，全局变量就可以随便调用内里的变量，函数了。
+由入口index.js查找所有的依赖，拼接到bundle.js，只需要在html中引入这一个。
 
+## Transpiling code for new language features (babel)
+转译器，可以使用新的语言特性来提高开发效率，同时又可以在未支持的平台有效运行。
+
+## Using a task runner (npm scripts)
+重复的工作可以自动完成，当文件改动后，执行一系列脚本。
+
+
+## 结论
+- 包管理
+- 模块打包
+  - 转译
+  - 自动化构建
+
+现代的开发方式，让开发者能专注于功能的实现。webpack进化到现在（2017年）似乎已经不仅仅是一个打包工具了，更是提供了一套完整的前端开发解决方案。
 
 
 

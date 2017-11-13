@@ -4038,6 +4038,9 @@ tbody.collapse.in {
   #nav-top-bar .navbar-header {
     float: unset; }
 
+#main-content::after {
+  content: " "; }
+
 #main-content .panel {
   box-shadow: 5px 5px 15px rgba(1, 0, 0, 0.5); }
 

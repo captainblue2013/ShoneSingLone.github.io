@@ -8,11 +8,24 @@ Weex 在 WebKit 与原生上实现了一个抽象层；
 ---
 
 # CSS
+[divcss学习网站](http://www.divcss5.com/)
+
 border的样式很重要
 if `border：none;` 浏览器不会渲染border; 只有宽度，没有样式，也不会渲染, 所以一定要有样式才有效。 
 
 ## 单位
 [vm rem em](https://zhuanlan.zhihu.com/p/30413803?group_id=906220704115974144)
+
+## 高度
+[如何让 height:100%; 起作用](http://www.webhek.com/post/css-100-percent-height.html)
+[如何让 height:100%; 起作用](http://www.divcss5.com/rumen/r613.shtml)
+高度跟父元素有关，所以如果要使height起作用，需要
+```html
+<html style="height: 100%;">
+  <body style="height: 100%;">
+    <div style="height: 100%;">
+```
+这在MaterialDesign的Demo当中，使用的是两个div使窗口划分为两个部分。
 
 ## 盒子模型（box）
 每个元素
@@ -69,7 +82,8 @@ var      | 定义变                             |
 
 - 转换：float\display\position
 
-## 你以为position:fixed只是相对于窗口？呵呵哒
+## 你以为position:fixed只是相对于窗口？呵呵哒————CSS3的transform
+[相对于父元素的FIXED定位的实现](http://www.cnblogs.com/biyesheng/p/6386176.html)
 
 ## 浮动
 
@@ -108,6 +122,13 @@ var      | 定义变                             |
 
 
 Inline-block和浮动布局的区别？
+
+## 布局
+### 瀑布流
+[瀑布流布局的实现步步升级（原生JS）](http://www.dengzhr.com/js/405)
+[Web前端实现瀑布流的几种方法](http://www.jianshu.com/p/d4ca937c6f96?from=jiantop.com)
+[Web前端实现瀑布流的几js实现瀑布流的三种方式比较，js瀑布三种方式种方法](http://www.jianshu.com/p/d4ca937c6f96?from=jiantop.com)
+[纯js实现瀑布流布局及ajax动态新增数据  ](https://www.teakki.com/p/5901f3cab819c55a2789c289)
 
 ## @font-face
 glyphicons 矢量图
@@ -235,11 +256,16 @@ for of针对这些做了极大的优化
 - 更适合遍历数组
 
 ## 对象
+### 对象的创建
+- 字面量:不会调用Object构造函数
+- new
+- Object.create()：涉及原型
+
 Delete 属性
 原型对象、类和继承
 原型是一个实例对象。
 对象
-JavaScript密码花园
+JavaScript秘密花园
 
 hasOwnProperty判断自有属性
 
@@ -292,9 +318,14 @@ IFE
 
 #### prototype 和__proto__的区别是什么？
 > Mozilla’s implementation of JavaScript has (since the early days of Netscape) exposed the prototype attribute through the specially named __proto__ property, and you can use this property to directly query or set the prototype of any object. Using __proto__ Core JavaScript is not portable: it has not been (and probably never will be) implemented by IE or Opera, although it is currently supported by Safari and Chrome. Versions of Firefox that implement ECMAScript 5 still support __proto__, but restrict its ability to change the prototype of nonextensible objects.
-简单说就是不建议直接使用object的__proto__来修改constructor function的prototype。
 
-constructor function有prototype，使用new 关键字返回的实例对象有__proto__
+constructor function有prototype，使用new 关键字返回的实例对象有__proto__：
+```js
+//(错误Code表示)
+object[__proto__] = new Constructor[prototype]
+```
+指向的是同一个对象，**但是**不建议直接使用object的__proto__来修改constructor function的prototype。
+
 ```js
         // 有一堆原材料就是自有变量
         var Calculator = function (decimalDigits, tax) {
@@ -787,7 +818,7 @@ app.delete('/user', function (req, res) {
 
 ### npm scripts
 
-简单来说，若你手里有一个锤子，你当然希望其他的都是钉子。能用npm scripts解决的事情为什么要用Gulp？长得好看？！
+简单来说，若你手里有一个锤子，你当然希望其他的都是钉子。能用npm scripts解决的事情为什么要用Gulp？
 
 >[npm scripts 使用指南](http://www.ruanyifeng.com/blog/2016/10/npm_scripts.html) package.json文件中的`script`:
 [how-to-use-npm-as-a-build-tool](http://bubkoo.com/2016/03/18/how-to-use-npm-as-a-build-tool/)
@@ -805,7 +836,28 @@ app.delete('/user', function (req, res) {
 [gulp-and-babel](http://macr.ae/article/gulp-and-babel.html)
 
 ### Webpack
+#### What？
+[官网](https://doc.webpack-china.org/concepts/)
+>webpack 是一个现代 JavaScript 应用程序的模块打包器(module bundler)。
+
+#### Why？
+总的来说就是为了工程化。
+我对npm script、Gulp和webpack的理解：JavaScript jQuery 和framework。npm script其实是最基本的，后两者的工作都能做，但是没有后两者方便。但是正如JavaScript版本的不断演进，特性不断丰富，Gulp优秀的地方不断被原生内化，没有以前那么大的优势。而webpack给出的是一套针对现代前端应用完整的解决方案，体现的是约定优于配置：你不用这套方式当然是可以的，但是既然大家都用这个，可以有效降低沟通成本。
+
+#### How？
+四个核心概念
+- 入口(entry)
+- 输出(output)
+- loader
+- 插件(plugins)
+
+#### install
+```
+npm install webpack –g
+```
 [Loading-CSS](https://fakefish.github.io/react-webpack-cookbook/Loading-CSS.html)
+#### Webpack Hot Module Replacement
+[Webpack HMR 原理解析](https://zhuanlan.zhihu.com/p/30669007?group_id=911546876953591808)
 
 ## I/O 的同步与异步
 [fs.readFile](https://nodejs.org/dist/latest-v8.x/docs/api/fs.html#fs_fs_readfile_path_options_callback)
@@ -849,7 +901,8 @@ app.delete('/user', function (req, res) {
 
 
 # Vue
-3.3
+
+
 
 
 # Data visualization
@@ -862,3 +915,16 @@ app.delete('/user', function (req, res) {
 ## MicroSite是什么？
 	是我的个人小站。准备做一些可以当作时间胶囊的东西。同时也算是可以记录自己这一些成长的过程吧。
 整体的结构
+
+## 路由
+[History_API](https://developer.mozilla.org/zh-CN/docs/Web/API/History_API)
+[Why History_API not Hash](https://segmentfault.com/q/1010000010340823)
+[History_API](https://developer.mozilla.org/zh-CN/docs/Web/API/History_API)
+
+
+
+# 开发工具
+## 软件工程
+### JS程序流程可视化
+[js2flowchart 一个根据JavaScript代码生成漂亮SVG流程图的工具](https://www.ctolib.com/topics-126117.html)
+[demo](https://bogdan-lyashenko.github.io/js-code-to-svg-flowchart/docs/live-editor/index.html)

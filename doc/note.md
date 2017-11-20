@@ -6,6 +6,13 @@ Weex 在 WebKit 与原生上实现了一个抽象层；
 3.	推荐前端入门跨平台 App 开发先学 Cordova，最简单、正规，社区最大
 
 ---
+# HTML
+
+## Web_Components
+[Web_Components](https://developer.mozilla.org/zh-CN/docs/Web/Web_Components)
+
+## SVG
+[SVG](https://aotu.io/notes/2015/11/20/svg-I-know/)
 
 # CSS
 [divcss学习网站](http://www.divcss5.com/)
@@ -124,6 +131,11 @@ var      | 定义变                             |
 Inline-block和浮动布局的区别？
 
 ## 布局
+### flex布局
+[深入理解 flex 布局以及计算](https://www.w3cplus.com/css3/flexbox-layout-and-calculation.html)
+[Flex 布局教程](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)
+[Flex 布局教程 demo](http://static.vgee.cn/static/index.html)
+
 ### 瀑布流
 [瀑布流布局的实现步步升级（原生JS）](http://www.dengzhr.com/js/405)
 [Web前端实现瀑布流的几种方法](http://www.jianshu.com/p/d4ca937c6f96?from=jiantop.com)
@@ -632,7 +644,10 @@ B和C如何及解决跨域的问题
 jQuery给出的快鱼解决方案
 jsonp是什么？
 show me the code 
+
 ## CORS跨域资源共享
+[Access_control_CORS](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS)
+
 ## Window
 Location和Navigation
 window对象和document的location对象引用的都是Location对象
@@ -671,6 +686,24 @@ document.URL是文档首次载入后保存的静态字符串不会随着hash变�
 有些特殊的，比如在JavaScript中是保留字`for——htmlFor`；`class——className`
 
 # [jQuery](#jquery)
+## 
+[jQuery 源码系列（九）回溯机制](https://segmentfault.com/a/1190000008468456)
+
+## 字符实体转码的方法
+[Javascript：字符的编码转换和实体转换](https://segmentfault.com/q/1010000000146420)
+[html 实体](http://www.w3school.com.cn/html/html_entities.asp)
+
+
+```js
+    //Html编码获取Html转义实体  
+    function htmlEncode(value) {
+        return $('<pre/>').text(value).html();
+    }
+    //Html解码获取Html实体  
+    function htmlDecode(value) {
+        return $('<pre/>').html(value).text();
+    } 
+```
 
 ## [插件](#jquery-plugin)
 
@@ -690,7 +723,7 @@ document.URL是文档首次载入后保存的静态字符串不会随着hash变�
 ```
 
 委托代理的原理是：事件注册在jQuery()对象上，当触发事件时，再通过selector处理。
-涉及享元模式：只注册到一个对象上，提高了效率和页面性能，解决的动态添加元素导致不能触发的bug。
+涉及**享元模式**：只注册到一个对象上，提高了效率和页面性能，解决的动态添加元素导致不能触发的bug。
 
 ### .trigger()
 
@@ -738,8 +771,19 @@ Unshift=》|《=Push
 # Git
 Git工作流是很重要的多人协作方式。主要是应用场景。
 
+## 基本操作
+[Git-Commands](https://aotu.io/notes/2015/11/17/Git-Commands/)
+## GitHub
+
 ## Webhook
+[github-webhook](https://developer.github.com/webhooks/)
+
+[gitlab-webhook](https://docs.gitlab.com/ee/user/project/integrations/webhooks.html)
+
+[使用Github的webhooks进行网站自动化部署](https://aotu.io/notes/2016/01/07/auto-deploy-website-by-webhooks-of-github/index.html)
 (挖坑)
+
+当使用Git工具完成Push操作后会触发一个事件，这个事件会传播到目标服务器，目标服务器会运行脚本完成部署相关的一些列操作（git pull）
 
 ## licence
 
@@ -788,6 +832,11 @@ MixIn混入[多重继承](https://www.liaoxuefeng.com/wiki/0014316089557264a6b34
 
 
 ## npm
+### 服务器
+[Node.js静态文件服务器实战](http://www.infoq.com/cn/news/2011/11/tyq-nodejs-static-file-server)
+[node.js 一个简单的页面输出](http://www.cnblogs.com/rubylouvre/archive/2011/11/20/2255083.html)
+
+
 ### Express
 - [Express上手](https://mp.weixin.qq.com/s/Q2AF4t-GMzwErxXp_WDtLw)
 - 安装
@@ -818,7 +867,7 @@ app.delete('/user', function (req, res) {
 
 ### npm scripts
 
-简单来说，若你手里有一个锤子，你当然希望其他的都是钉子。能用npm scripts解决的事情为什么要用Gulp？
+简单来说，npm script学习了Gulp的优点。
 
 >[npm scripts 使用指南](http://www.ruanyifeng.com/blog/2016/10/npm_scripts.html) package.json文件中的`script`:
 [how-to-use-npm-as-a-build-tool](http://bubkoo.com/2016/03/18/how-to-use-npm-as-a-build-tool/)
@@ -826,6 +875,7 @@ app.delete('/user', function (req, res) {
 [Node.js 命令行程序开发教程](http://www.ruanyifeng.com/blog/2015/05/command-line-with-node.html)
 [npm scripts 用法详解](https://segmentfault.com/a/1190000007684156)
 [npm scripts](https://www.zybuluo.com/yangfch3/note/249328)
+[使用Node.js创建命令行脚本工具](https://aotu.io/notes/2015/12/23/building-command-line-tools-with-node-js/)
 `npm run <自定义命令>`
 
 ### Gulp
@@ -842,7 +892,7 @@ app.delete('/user', function (req, res) {
 
 #### Why？
 总的来说就是为了工程化。
-我对npm script、Gulp和webpack的理解：JavaScript jQuery 和framework。npm script其实是最基本的，后两者的工作都能做，但是没有后两者方便。但是正如JavaScript版本的不断演进，特性不断丰富，Gulp优秀的地方不断被原生内化，没有以前那么大的优势。而webpack给出的是一套针对现代前端应用完整的解决方案，体现的是约定优于配置：你不用这套方式当然是可以的，但是既然大家都用这个，可以有效降低沟通成本。
+我对npm script、Gulp和webpack的理解：JavaScript jQuery 和framework。npm script是最基本的，后两者的工作都能做，但是没有后两者方便。但是正如JavaScript版本的不断演进，特性不断丰富，Gulp优秀的地方不断被原生内化，没有以前那么大的优势。而webpack给出的是一套针对现代前端应用完整的解决方案，体现的是约定优于配置：你不用这套方式当然是可以的，但是既然大家都用这个，就可以有效降低沟通成本，提高生产效率。
 
 #### How？
 四个核心概念
@@ -901,6 +951,33 @@ npm install webpack –g
 
 
 # Vue
+#### 踩过的坑
+- router
+    1. children 使用的是数组 []
+    2. children 在parent里要有`<router-view>`
+```js
+const router = new VueRouter({
+    routes: [
+    {
+      path: '/news',
+      name: 'news',
+      component: News,
+      children: [
+        {
+          path: ':id',
+          name: 'newsitem',
+          component: Newsitem,
+        }
+      ]
+    }
+  ]
+});
+```
+
+### 服务器
+- static.js
+[Node.js静态文件服务器实战](http://www.infoq.com/cn/news/2011/11/tyq-nodejs-static-file-server)
+[node.js 一个简单的页面输出](http://www.cnblogs.com/rubylouvre/archive/2011/11/20/2255083.html)
 
 
 

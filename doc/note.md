@@ -6,10 +6,16 @@ Weex 在 WebKit 与原生上实现了一个抽象层；
 3.	推荐前端入门跨平台 App 开发先学 Cordova，最简单、正规，社区最大
 
 ---
-# HTML
+# HTMLhnyhyyyyyyy
 
 ## Web_Components
 [Web_Components](https://developer.mozilla.org/zh-CN/docs/Web/Web_Components)
+[从HTML Components的衰落看Web Components的危机](https://github.com/xufei/blog/issues/3)
+
+## canvs
+[将图片转换base64格式，data:image/png;base64是什么？](http://blog.csdn.net/webxiaoma/article/details/70053444)
+
+[Css中路径data:image/png;base64的用法详解](http://www.aimks.com/css-path-data-image-png-usage-base64.html)
 
 ## SVG
 [SVG](https://aotu.io/notes/2015/11/20/svg-I-know/)
@@ -586,6 +592,62 @@ bind() 最简单的用法是创建一个函数，使这个函数不论怎么调�
 
 1.	Promise是什么？有什么作用？适用于哪些场景？如何使用？原理是什么？
 
+
+## 客户端存储技术
+cookie和session的区别
+提醒用户打开cookies的方式
+
+### cookies
+### Web Storage
+- sessionStorage
+- localStorage 
+
+getItem、setItem、removeItem、clear
+
+
+### indexedDB
+1. 检测浏览器是否支持
+1. 创建DB
+    1. 创建objectStore理解为=>table
+    1. 创建objectStore 主键和索引
+1. 事务
+1. 游标
+    1. 游标范围
+---
+- isOK(){return ("indexedDB" in window);}
+- open (name,version)
+    - upgradeneeded\onsuccess\onerro
+- e.target.result
+    - thisDB.objectStoreNames.contains()
+    - thisDB.createObjectStore()
+        - {"keyPath": ..., "autoIncrement": ...}
+        - objectStore.createIndex(name,field,option{"unique":true})
+- transcation = db.transcation([name],"readwrite\readonly")
+    - objectStroe = transcation.objectStore(name)
+    - objectStroe add get put delete openCursor index
+        - cursor
+        ```js
+        cursor.onsuccess = function(e) {
+        var res = e.target.result;
+        if(res) {
+        res.continue();
+        }
+        transaction.oncomplete = function() {
+            ...
+        }
+        ```
+        - range = [IDBKeyRange](https://www.w3.org/TR/IndexedDB/#range-construct) bound upperBound lowerBound ...
+        - index
+        ```
+        range = IDBkeyRange.upperBound("7");
+        cursor = objectStroe.index("age").cursor(range);
+        ```
+- index
+- cursor
+- range
+
+### WebSQL
+
 ## Web浏览器中的JavaScript
 
 同一个页面的JavaScript代码引用同一个windows对象，所以是共享的。
@@ -625,6 +687,7 @@ function loadasyni(url){
 }
 ```
 
+
 ## 事件
 [preventDefault](https://developer.mozilla.org/zh-CN/docs/Web/API/Event/preventDefault)
 如果事件可取消，则取消该事件，而不停止事件的进一步传播。
@@ -638,6 +701,14 @@ function loadasyni(url){
 ## BookmarkLet
 [BookmarkLet](https://gitee.com/Tech_Query/iBookmarkLet) 有空可以来研究一下
 
+## iframe
+[js如何判断是否在iframe中及防止网页被别站用 iframe嵌套 (Load denied by X-Frame-Options)](http://justcoding.iteye.com/blog/2049127)
+```js
+      if (self != top) {
+        alert('在iframe中');
+      }
+```
+[JQuery操作iframe父页面与子页面的元素与方法](http://www.cnblogs.com/imteach/p/3798375.html)
 # 跨域的问题
 XHR的使用
 B和C如何及解决跨域的问题
@@ -685,7 +756,9 @@ document.URL是文档首次载入后保存的静态字符串不会随着hash变�
 属性
 有些特殊的，比如在JavaScript中是保留字`for——htmlFor`；`class——className`
 
-# [jQuery](#jquery)
+# jQuery
+[jquery.com](http://jquery.com/download/)
+
 ## 
 [jQuery 源码系列（九）回溯机制](https://segmentfault.com/a/1190000008468456)
 
@@ -782,6 +855,7 @@ Git工作流是很重要的多人协作方式。主要是应用场景。
 
 [使用Github的webhooks进行网站自动化部署](https://aotu.io/notes/2016/01/07/auto-deploy-website-by-webhooks-of-github/index.html)
 (挖坑)
+[leancloud/node-js-getting-started自动部署](https://github.com/leancloud/node-js-getting-started)
 
 当使用Git工具完成Push操作后会触发一个事件，这个事件会传播到目标服务器，目标服务器会运行脚本完成部署相关的一些列操作（git pull）
 
@@ -832,6 +906,16 @@ MixIn混入[多重继承](https://www.liaoxuefeng.com/wiki/0014316089557264a6b34
 
 
 ## npm
+
+[tree-cli:生成目录树](https://www.npmjs.com/package/tree-cli)
+在windows下与CMDtree冲突，就将tree.cmd rename=>ntree.cmd
+所以命令就是`ntree`
+```
+tree -l 2 --ignore 'node_modules/, .git/, .gitignore' -o tree.txt
+//-d: list directories only.
+//-l: level max display depth of the directory tree.
+//--ignore: ignores directory or file you specify - accepts arrays as comma-delimited strings: 'node_modules/, .git/, .gitignore'
+```
 ### 服务器
 [Node.js静态文件服务器实战](http://www.infoq.com/cn/news/2011/11/tyq-nodejs-static-file-server)
 [node.js 一个简单的页面输出](http://www.cnblogs.com/rubylouvre/archive/2011/11/20/2255083.html)
@@ -949,6 +1033,9 @@ npm install webpack –g
 ## 使用原生方法实现拖拽
 
 
+# Axios
+[Axios](https://www.kancloud.cn/yunye/axios/234845)
+[Axios实践](http://www.jianshu.com/p/df464b26ae58)
 
 # Vue
 #### 踩过的坑
@@ -980,6 +1067,8 @@ const router = new VueRouter({
 [node.js 一个简单的页面输出](http://www.cnblogs.com/rubylouvre/archive/2011/11/20/2255083.html)
 
 
+# LeanCloud
+[错误码详解](https://tab.leancloud.cn/docs/error_code.html#)
 
 
 # Data visualization
@@ -991,7 +1080,8 @@ const router = new VueRouter({
 # MicroSite
 ## MicroSite是什么？
 	是我的个人小站。准备做一些可以当作时间胶囊的东西。同时也算是可以记录自己这一些成长的过程吧。
-整体的结构
+    
+[前端js保存页面为图片下载到本地的坑](http://caibaojian.com/h5-download.html#t11)整体的结构
 
 ## 路由
 [History_API](https://developer.mozilla.org/zh-CN/docs/Web/API/History_API)

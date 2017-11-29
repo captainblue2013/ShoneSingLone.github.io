@@ -6,7 +6,9 @@ Weex 在 WebKit 与原生上实现了一个抽象层；
 3.	推荐前端入门跨平台 App 开发先学 Cordova，最简单、正规，社区最大
 
 ---
-# HTMLhnyhyyyyyyy
+> [HTML+CSS基础课程](https://www.imooc.com/learn/9)
+
+# HTML
 
 ## Web_Components
 [Web_Components](https://developer.mozilla.org/zh-CN/docs/Web/Web_Components)
@@ -36,6 +38,24 @@ if `border：none;` 浏览器不会渲染border; 只有宽度，没有样式，�
 ```
 这在MaterialDesign的Demo当中，使用的是两个div使窗口划分为两个部分，各自按一定比例占满整个窗口。
 
+
+
+## 文字排版
+“文字”有什么？
+- font-family:"微软雅黑";
+- font-size:20px;
+- color:green;//前景色
+- font-weight:blod;
+- font-style:italic;
+- text-decrotion:none;||text-decoration:line-through;//装饰文本《HTML5于CSS3基础教程》一般用作锚去除下划线或者价格删除线。
+- block:text-indent:2em;//行缩进
+- block:line-height:2em;//行高
+- letter-spacing:50px;||word-spacing//字母间距||单词间距
+- text-align:center;||
+- vertical-align:center;
+
+
+
 ## 盒子模型（box）
 
 HTML每个元素都是大大小小的盒子。
@@ -48,23 +68,28 @@ HTML每个元素都是大大小小的盒子。
 
 > [说说行内元素和块级元素](http://www.jianshu.com/p/d69878549d92)
 
-### block
-1. 一个块级元素独占一行；
-1. 元素的高度、宽度、行高以及顶和底边距都可设置；
-1. **撑**：元素宽度在不设置的情况下，是它本身父容器的100%（和父元素的宽度一致），除非设定一个宽度。
-
 ### inline
 1. 和其他元素都在一行上；
 1. 元素的高度、宽度及顶部和底部边距不可设置；
 1. **包裹**里面的文字或图片，尽量收缩：元素的宽度就是它包含的文字或图片的宽度，不可改变。
 
+### block
+1. 一个块级元素独占一行；
+1. 元素的高度、宽度、行高以及顶和底边距都可设置；
+1. **撑**：元素宽度在不设置的情况下，是它本身父容器的100%（和父元素的宽度一致），除非设定一个宽度。
+
+#### 宽度和高度
+css内定义的宽（width）和高（height），指的是填充以里的内容范围。 因此一个元素实际宽度（盒子的宽度）=左边界+左边框+左填充+内容宽度+右填充+右边框+右边界。
+![boxwidthandheight](./media/boxwidthandheight.jpg)
+
+[深入理解父元素与子元素的width关系](http://www.cnblogs.com/zhuzhenwei918/p/6389567.html)
+
 ### inline-block
+
+`absolute`和`float`可是元素隐性变为 `inline-block`
 1. 和其他元素都在一行上；
 1. 元素的高度、宽度、行高以及顶和底边距都可设置。
 
-### 宽度和高度
-css内定义的宽（width）和高（height），指的是填充以里的内容范围。 因此一个元素实际宽度（盒子的宽度）=左边界+左边框+左填充+内容宽度+右填充+右边框+右边界。
-![boxwidthandheight](.\media\boxwidthandheight.jpg)
 
 
 值	|描述
@@ -77,8 +102,9 @@ inherit|规定应从父元素继承 box-sizing 属性的值。
 [如何让 height:100%; 起作用](http://www.webhek.com/post/css-100-percent-height.html)
 [如何让 height:100%; 起作用](http://www.divcss5.com/rumen/r613.shtml)
 高度跟父元素有关，所以如果要使height起作用，需要
-行内元素 | 语义                               | | 块级元素   | 语义
----      | --                                 | | ---        | ---
+
+行内元素（伪） | 语义| |块级元素| 语义
+---|---|---|---|---
 a        | 锚                                 | | address    | 地址
 abbr     | 缩写                               | | blockquote | 块引用
 acronym  | 首字                               | | center     | 居中对齐块
@@ -92,7 +118,7 @@ dfn      | 定义字段                           | | h2         | 副标题
 em       | 强调                               | | h3         | 3级标题
 font     | 字体设定（不推荐）                 | | h4         | 4级标题
 i        | 斜体                               | | h5         | 5级标题
-~~img~~     | 图片                               | | h6         | 6级标题
+~~img~~      | 图片                               | | h6         | 6级标题
 ~~input~~    | 输入框                             | | hr         | 水平分隔线
 kbd      | 定义键盘文本                       | | isindex    | input prompt
 label    | 表格标签                           | | menu       | 菜单列表
@@ -111,20 +137,83 @@ tt       | 电传文本                           |
 u        | 下划线                             |
 var      | 定义变                             |
 
-
 - 转换：float\display\position
 
+### 居中
+1. 水平居中
+    1. 行内元素：通过给父元素设置 text-align:center
+    1. 块状元素：
+        1. 定宽：满足定宽和块状两个条件的元素是可以通过设置“左右margin”值为“auto”来实现居中的。
+        1. 不定宽：
+            1. 加入 table 标签：table标签的长度自适应性---即不定义其长度也不默认父元素body的长度（table其长度根据其内文本长度决定），因此可以看做一个定宽度块元素，然后再利用定宽度块状居中的margin的方法，使其水平居中。
+            1. 设置 `display: inline` 方法：使block元素变为inline，类似行内元素的方法
+            1. 设置 position:relative 和 left:50%：利用 相对定位 的方式，将元素向左偏移 50% ，即达到居中的目的。
+            ```html
+            <!DOCTYPE HTML>
+            <html>
+            <head>
+            <meta charset="utf-8">
+            <title>不定宽块状元素水平居中</title>
+            <style>
+            .container{
+                float:left;
+                position:relative;
+                left:50%
+            }
+            .container ul{
+                list-style:none;
+                margin:0;
+                padding:0;
+                position:relative;
+                left:-50%;
+            }
+            .container li{float:left;display:inline;margin-right:8px;}
+            .wrap-center{
+                background:#ccc;
+            }
+            </style>
+            </head>
+
+            <body>
+            <div class="container">
+                <ul>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                </ul>
+            </div>
+
+            <!--下面是代码任务区-->
+            <div class="wrap">
+                <div class="wrap-center">我们来学习一下这种方法。</div>
+            </div>
+            </body>
+            </html>
+            ```
+            ![](./media/FreshPaint-1-2017.11.29-05.21.39.png)
+1. 垂直居中
+    1. 父元素高度确定
+        1. 单行文本:通过设置height 和 line-height 高度一致来实现的。
+        1. 多行文本或图片：
+            1. 使用插入 table  (包括tbody、tr、td)标签，同时设置 vertical-align：middle。
+            1. 在 chrome、firefox 及 IE8 以上的浏览器下可以设置块级元素的 display 为 table-cell（设置为表格单元显示），激活 vertical-align 属性，但注意 IE6、7 并不支持这个样式, 兼容性比较差。相当于内置了方法1.
 
 
-## 你以为position:fixed只是相对于窗口？呵呵哒————CSS3的transform
-[相对于父元素的FIXED定位的实现](http://www.cnblogs.com/biyesheng/p/6386176.html)
+### 布局模型
+ 
+元素有三种布局模型：
+1. 流动模型（Flow）/ 标准文档流
+1. 浮动模型 (Float)
+1. 层模型（Layer）
 
-## 浮动
+#### 流动模型（Flow）/ 标准文档流
 
-标准文档流和浮动流
-在标准文档流中Inline元素和Block元素是两个基本元素。
-从上到下，从左到右，浮动使之脱离标准文档流。
-浮动用来设置文字环绕，也可以用来布局；**bootstrap栅栏系统**
+1. 块状元素都会在所处的包含块内自上而下按顺序垂直延伸分布
+1. 内联元素都会在所处的包含元素内从左到右水平分布显示。
+
+#### 浮动模型 (Float)
+浮动使之脱离标准文档流。效果类似inline-block且无元素间间距。
+浮动用来设置文字环绕，也可以用来布局，**bootstrap栅栏系统**是利用浮动设计的。
 
 - [清除浮动](http://nicolasgallagher.com/micro-clearfix-hack/)
 - fix float所产生的塌陷
@@ -157,21 +246,97 @@ var      | 定义变                             |
 
 Inline-block和浮动布局的区别？
 
+#### 层模型
 
-## 文字排版
-“文字”有什么？
-- font-family:"微软雅黑";
-- font-size:20px;
-- color:green;//前景色
-- font-weight:blod;
-- font-style:italic;
-- text-decrotion:none;||text-decoration:line-through;//装饰文本《HTML5于CSS3基础教程》一般用作锚去除下划线或者价格删除线。
-- block:text-indent:2em;//行缩进
-- block:line-height:2em;//行高
-- letter-spacing:50px;||word-spacing//字母间距||单词间距
-- text-align:center;||
+1. 绝对定位(position: absolute)
+    - 将元素从文档流中拖出来，然后使用left、right、top、bottom属性相对于其最接近的一个具有定位属性的父包含块进行绝对定位。如果不存在这样的包含块，则相对于body元素，即相对于浏览器窗口。
+1. 相对定位(position: relative)
+    - 通过left、right、top、bottom属性确定元素在正常文档流中的偏移位置。
+1. 固定定位(position: fixed)：位置效果使用`background-attachment:fixed`
+    - position:fixed;并不只是相对于窗口定位：CSS3的transform会影响定位；
+     [相对于父元素的FIXED定位的实现](http://www.cnblogs.com/biyesheng/p/6386176.html)
+     [相对于父元素的FIXED定位的实现:transform](https://code.w3ctech.com/detail/1305)
+    - ```css
+        <!DOCTYPE html>
+        <html lang="en">
 
-## 布局
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <title>Document</title>
+            <style>
+                * {
+                    margin: 0;
+                    padding: 0;
+                }
+
+                html {
+                    height: 100%;
+                }
+
+                body {
+                    background: #ccc;
+                    height: 100%;
+                    transform: translateZ(0);
+                }
+
+                .absolute {
+                    /* transform: translateZ(0); */
+                    height: 600px;
+                    width: 650px;
+                    background: #d36d6d;
+                    overflow: auto;
+                    position: relative;
+                    left: 200px;
+                    top: 100px;
+                }
+
+                .fixed {
+                    background-color: rgba(248, 1, 1, 0.856);
+                    width: 100%;
+                    position: fixed;
+                    /*不要设置top,left,bottom,right*/
+                }
+
+                .content {
+                    /*为了撑起absolute的高度*/
+                    background-color: aqua;
+                    /* float: left; */
+                    height: 1800px;
+                    width: 300px;
+                }
+
+                .content>p {
+                    background-color: rgba(16, 49, 233, 0.198);
+                    height: 100px;
+                }
+
+                img {
+                    width: 40%;
+                    /* height: 15px; */
+                }
+            </style>
+
+
+
+        </head>
+
+        <body> body
+            <div class="absolute"> absolute
+                <div class="content">
+                    <p>content :height 100px;</p>
+                    <div class="fixed">fixed</div>
+                </div>
+            </div>
+
+        </body>
+
+        </html>
+         ```
+
+
+## 布局模板
 ### flex布局
 [深入理解 flex 布局以及计算](https://www.w3cplus.com/css3/flexbox-layout-and-calculation.html)
 [Flex 布局教程](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)

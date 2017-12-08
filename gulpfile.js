@@ -47,7 +47,7 @@ gulp.task('css', function () {
 
 var bs = require('browser-sync').create();
 
-gulp.task('serve', [], () => {
+gulp.task('server', [], () => {
     bs.init({
         server: {
             baseDir: "./",

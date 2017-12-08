@@ -80,15 +80,17 @@
         <div class="container">
             <div id="wrap-toggle-darwer">
                 <button id="toggle-darwer" type="button" class="navbar-toggle">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                         <span class="icon-bar"></span> 
-                         <span class="icon-bar"></span>
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
             </div>
 
             <div id="myavatar">
-                <div><span id="portfolio-title">ShoneSingLone's MicroSite</span></div>
+                <div>
+                    <span id="portfolio-title">ShoneSingLone's MicroSite</span>
+                </div>
             </div>
 
             <script>
@@ -106,8 +108,12 @@
 
                         var transTime = 2000;
                         $("#myavatar").prepend($img.hide());
-                        $img.css({ "margin": "10px auto" }).show(transTime);
-                        $("#portfolio-title").animate({ "font-size": "14px" }, transTime);
+                        $img.css({
+                            "margin": "10px auto"
+                        }).show(transTime);
+                        $("#portfolio-title").animate({
+                            "font-size": "14px"
+                        }, transTime);
                     }
                 }
             </script>
@@ -115,10 +121,18 @@
         <nav id="drawer">
             <div class="container">
                 <div class="nav nav-pills">
-                    <div class="col-sm-3"><a href="#portfolio">Portfolio</a></div>
-                    <div class="col-sm-3 active"><a href="#blog">Blog</a></div>
-                    <div class="col-sm-3"><a target="_blank" href="https://github.com/ShoneSingLone">GitHub</a></div>
-                    <div class="col-sm-3"><a href="mailto:SingLone@foxmail.com">SingLone@foxmail.com</a> </div>
+                    <div class="col-sm-3">
+                        <a href="#portfolio">Portfolio</a>
+                    </div>
+                    <div class="col-sm-3 active">
+                        <a href="#blog">Blog</a>
+                    </div>
+                    <div class="col-sm-3">
+                        <a target="_blank" href="https://github.com/ShoneSingLone">GitHub</a>
+                    </div>
+                    <div class="col-sm-3">
+                        <a href="mailto:SingLone@foxmail.com">SingLone@foxmail.com</a>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -158,7 +172,8 @@
                 };
 
                 $(window).on("resize.toogleDrawer", function (e) {
-                    $('.currentsize').html("outerHeight: " + window.outerHeight + "\nouterWidth: " + window.outerWidth);
+                    $('.currentsize').html("outerHeight: " + window.outerHeight + "\nouterWidth: " +
+                        window.outerWidth);
                     if (!window.matchMedia("(min-width: 768px)").matches) {
                         if ($drawer.css("display") === "none") {
                             $btn.off("click.drawerIn").off("click.drawerOut");
@@ -181,6 +196,25 @@
     <main id="main-content">
         <div class="container">
             <!-- container start -->
+            <div class="row">
+                <!-- row start -->
+                <div class="col-sm-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h2 class="" class="mdl-card__title-text">wii-chat</h2>
+                        </div>
+                        <div class="panel-body">
+                            <div class="mdl-card__supporting-text">learn WebSocket：a online multi-user chatroom based on socket.io</div>
+                        </div>
+                        <div class="panel-footer">
+                            <a class="btn btn-default" href="./chat.html" role="button">wii-chat»</a>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- row end -->
+            </div>
+
             <div id="main-coontainer-row" class="row">
                 <!-- row start -->
                 <div class="col-sm-4">
@@ -205,7 +239,9 @@
                     </div>
                     <div class="col-sm-6">
                         <ul class="link-list right-section">
-                            <li><a href="#">Nothing</a></li>
+                            <li>
+                                <a href="#">Nothing</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -215,7 +251,8 @@
     <script>
         function getContentCardHtmlStr(headStr, contentsStr) {
             headStr = headStr || "Blog template";
-            contentsStr = contentsStr || 'Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.';
+            contentsStr = contentsStr ||
+                'Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.';
             return '' +
                 '                    <div class="panel panel-default">' +
                 '                        <div class="panel-heading">' +
@@ -239,7 +276,7 @@
             var randomPanelNum = Math.ceil(Math.random() * 100);
             for (var index = 0; index < randomPanelNum; index++) {
                 var htmlString = getContentCardHtmlStr(index + "Blog template")
-                htmlString = getContentCardHtmlStr(htmlString.slice(Math.ceil(Math.random() * 100), Math.ceil(Math.random() * 100) + 100));
+                // htmlString = getContentCardHtmlStr(htmlString.slice(Math.ceil(Math.random() * 100), Math.ceil(Math.random() * 100) + 100));
 
                 var $htmlString = $(htmlString);
                 console.lo

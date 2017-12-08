@@ -46,3 +46,40 @@ pointerevent
             bottom: 0;
         }
 ```
+
+
+```js
+    axios({
+        method: 'post',
+        url: dataBaseUrl,
+        headers: {
+            "X-LC-Id": "***",
+            "X-LC-Key": "***",
+            "Content-Type": "application/json"
+        },
+        data: data4post("remoteHost4socket", "***")
+    }).then(function (response) {
+        console.dir(response);
+    }).catch(function (error) {
+        console.dir(error);
+	});
+	function data4post(dataName, dataContents) {
+		return JSON.stringify({
+			"data_name": dataName,
+			"data_contents": {
+				0: dataContents
+			}
+		});
+	}
+	axios.get("https://p82pkf9h.api.lncld.net/1.1/classes/json/" + jsonDataId.seller,
+        requestOption
+    ).then(function (response) {
+        if (200 === response.status) {
+            thisCompoent.seller = response.data.data_contents[0];
+            console.log(thisCompoent.seller);
+        }
+    }).catch(function (error) {
+        console.log(error);
+    });
+
+```

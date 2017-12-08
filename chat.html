@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="http://momentjs.cn/downloads/moment.min.js"></script>
+    <script src="./public/javascripts/jquery-3.2.1.js"></script>
+    <script src="./public/javascripts/chat/client.js"></script>
+    <link rel="stylesheet" href="./public/stylesheets/client.css">
+    <title>wii-chat</title>
+</head>
+
+<body>
+    <div class="login-wrap">
+        <div class="login-con">
+            <h3> 用户登录</h3>
+            <input type="text" placeholder="请输入昵称" id="loginName">
+            <button class="login-btn">登录</button>
+        </div>
+    </div>
+    <div class="chat-wrap hide">
+        <h1> 多人聊天室</h1>
+        <div class="chat-con clearfix"></div>
+        <div class="bottom">
+            <input type="text" id="sendtxt">
+            <button class="sendBtn">发送</button>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,25 +1,27 @@
 
 $(function () {
-    let remoteHost4socket,
-        axiosOption = {
-            method: 'get',
-            url: "https://p82pkf9h.api.lncld.net/1.1/classes/json/5a2aabb0a22b9d00625d9e2b",
-            headers: {
-                "X-LC-Id": "p82PkF9h8rjUrNEwyioydpp4-gzGzoHsz",
-                "X-LC-Key": "y24Ms9w7tq0zswLMdehwK2km",
-                "Content-Type": "application/json"
-            }
-        };
-    axios(axiosOption)
-        .then(function (response) {
-            if (200 === response.status) {
-                remoteHost4socket = response.data.data_contents[0];
-                init(remoteHost4socket);
-            }
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
+    // let remoteHost4socket,
+    //     axiosOption = {
+    //         method: 'get',
+    //         url: "https://p82pkf9h.api.lncld.net/1.1/classes/json/5a2aabb0a22b9d00625d9e2b",
+    //         headers: {
+    //             "X-LC-Id": "p82PkF9h8rjUrNEwyioydpp4-gzGzoHsz",
+    //             "X-LC-Key": "y24Ms9w7tq0zswLMdehwK2km",
+    //             "Content-Type": "application/json"
+    //         }
+    //     };
+    // axios(axiosOption)
+    //     .then(function (response) {
+    //         if (200 === response.status) {
+    //             remoteHost4socket = response.data.data_contents[0];
+    //             // init(remoteHost4socket);
+    //         }
+    //     })
+    //     .catch(function (error) {
+    //         console.log(error);
+    //     });
+    remoteHost4socket = "http://localhost:3000/";
+    init(remoteHost4socket);
 })
 
 function init(remoteHost4socket) {
@@ -33,7 +35,7 @@ function init(remoteHost4socket) {
     $('.login-btn').click(function () {
         myName = $.trim($('#loginName').val());
         if (myName) { /*向服务端发送登录事件*/
-            console.log(myName);
+            console.log("loginName: " + myName);
             AppSocket.emit('login', { username: myName });
         } else {
             alert('请输入昵称');
@@ -42,7 +44,7 @@ function init(remoteHost4socket) {
     })
 
     /*登录成功*/
-    AppSocket.on('loginSuccess', function (data) {
+    makeSocketEvent('loginSuccess', function (data) {
         console.log("loginSuccess");
         if (data.username === myName) {
             checkin(data);
@@ -52,25 +54,29 @@ function init(remoteHost4socket) {
     })
 
     /*登录失败*/
-    AppSocket.on('loginFail', function () {
-        console.log("loginFail");
+    makeSocketEvent('loginFail', function () {
         alert('昵称重复');
     })
     /*新人加入提示*/
-    AppSocket.on('add', function (data) {
-        console.log("新人加入提示");
+    makeSocketEvent('add', function (data) {
         var html = '<p>系统消息:' + data.username + '已加入群聊</p>';
         $('.chat-con').append(html);
     })
 
     /*退出群聊提示*/
-    AppSocket.on('leave', function (name) {
-        console.log("退出群聊提示");
+    makeSocketEvent('leave', function (name) {
         if (name != null) {
             var html = '<p>FBI warning:' + name + '已退出群聊</p>';
             $('.chat-con').append(html);
         }
     })
+
+    function makeSocketEvent(eventName, callBack) {
+        AppSocket.on(eventName, function (data) {
+            console.log("CLIENT " + eventName + " \n ");
+            callBack(data);
+        });
+    }
 
     /*隐藏登录界面 显示聊天界面*/
     function checkin(data) {
@@ -90,7 +96,7 @@ function init(remoteHost4socket) {
     })
 
     /*接收消息*/
-    AppSocket.on('receiveMessage', function (data) {
+    makeSocketEvent('receiveMessage', function (data) {
         showMessage(data);
     })
 

@@ -1,30 +1,14 @@
 
 $(function () {
-    // let remoteHost4socket,
-    //     axiosOption = {
-    //         method: 'get',
-    //         url: "https://p82pkf9h.api.lncld.net/1.1/classes/json/5a2aabb0a22b9d00625d9e2b",
-    //         headers: {
-    //             "X-LC-Id": "p82PkF9h8rjUrNEwyioydpp4-gzGzoHsz",
-    //             "X-LC-Key": "y24Ms9w7tq0zswLMdehwK2km",
-    //             "Content-Type": "application/json"
-    //         }
-    //     };
-    // axios(axiosOption)
-    //     .then(function (response) {
-    //         if (200 === response.status) {
-    //             remoteHost4socket = response.data.data_contents[0];
-    //             // init(remoteHost4socket);
-    //         }
-    //     })
-    //     .catch(function (error) {
-    //         console.log(error);
-    //     });
-    remoteHost4socket = "http://localhost:3000/";
+    remoteHost4socket = "https://shonesinglone.leanapp.cn/";
+    // remoteHost4socket = "http://localhost:3000/";
     init(remoteHost4socket);
+
 })
 
 function init(remoteHost4socket) {
+    var $listGroup = $('#list-group');
+
     /*建立socket连接，使用websocket协议，端口号是服务器端监听端口号*/
     var AppSocket = io(remoteHost4socket);
     window.AppSocket = AppSocket;
@@ -47,9 +31,10 @@ function init(remoteHost4socket) {
     makeSocketEvent('loginSuccess', function (data) {
         console.log("loginSuccess");
         if (data.username === myName) {
-            checkin(data);
+            checkView(data);
         } else {
-            alert('用户名不匹配，请重试');
+            // alert('用户名不匹配，请重试');
+            // checkView();
         }
     })
 
@@ -59,15 +44,13 @@ function init(remoteHost4socket) {
     })
     /*新人加入提示*/
     makeSocketEvent('add', function (data) {
-        var html = '<p>系统消息:' + data.username + '已加入群聊</p>';
-        $('.chat-con').append(html);
+        $listGroup.append('<div class="alert alert-success" role="alert"><p>系统消息:' + data.username + '已加入群聊</p></div>');
     })
 
     /*退出群聊提示*/
     makeSocketEvent('leave', function (name) {
         if (name != null) {
-            var html = '<p>FBI warning:' + name + '已退出群聊</p>';
-            $('.chat-con').append(html);
+            $listGroup.append('<div class="alert alert-warning" role="alert"><p>FBI warning:' + name + '已退出群聊</p></div>');
         }
     })
 
@@ -79,9 +62,15 @@ function init(remoteHost4socket) {
     }
 
     /*隐藏登录界面 显示聊天界面*/
-    function checkin(data) {
-        $('.login-wrap').hide('slow');
-        $('.chat-wrap').show('slow');
+    function checkView(data) {
+        if (data) {
+            $('.login-wrap').hide('slow');
+            $('.chat-wrap').show('slow');
+        } else {
+            $('.chat-wrap').hide('slow');
+            $('.login-wrap').show('slow');
+            $listGroup.html('');
+        }
     }
 
     /*发送消息*/
@@ -110,21 +99,37 @@ function init(remoteHost4socket) {
     }
     /*显示消息*/
     function showMessage(data) {
-        var html;
+        debugger;
+        var html = getListItem(data, myName);
+        $listGroup.append(html);
+    }
+
+    function getListItem(data, myName) {
         if (data.username === myName) {
-            html = '<div class="chat-item item-right clearfix"><span class="img fr"></span><span class="message fr">' + data.message + '</span></div>'
+            return '<li class="list-group-item">' +
+                '    <div class="content-item">' +
+                '        <div>' +
+                '            <div style="float: right;">' +
+                '                <span>' + data.username + '</span>' +
+                '                <img src="./public/images/user/avatar.png" alt="" class="chat-avatar">' +
+                '            </div>' +
+                '            <div style="clear:both; ">' + data.message + '</div>' +
+                '        </div>' +
+                '    </div>' +
+                '</li>';
         } else {
-            html =
-                '<div class="chat-item item-left clearfix rela"><span class="abs myName">' +
-                data.username +
-                '</span>' +
-                '<span class="img fl"></span>' +
-                '<span class="fl message">' +
-                data.message +
-                '</span>' +
-                '</div>';
+            return '<li class="list-group-item">' +
+                '    <div class="content-item">' +
+                '        <div>' +
+                '            <div style="float: left;">' +
+                '                <img src="./public/images/user/avatar.png" alt="" class="chat-avatar">' +
+                '                <span>' + data.username + '</span>' +
+                '            </div>' +
+                '            <div style="clear:both; ">' + data.message + '</div>' +
+                '        </div>' +
+                '    </div>' +
+                '</li>';
         }
-        $('.chat-con').append(html);
     }
 }
 

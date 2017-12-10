@@ -23,8 +23,7 @@
         }
 
         .chat-avatar {
-            float: right;
-            width: 10%;
+            width: 4em;
         }
 
         #chat-panel {
@@ -50,7 +49,7 @@
 
         #chat-panel-body {
             height: 100%;
-            background-color: rgb(205, 255, 205);
+            /* background-color: rgb(205, 255, 205); */
         }
     </style>
     <title>wii-chat</title>
@@ -58,7 +57,7 @@
 
 <body>
     <div class="container">
-        <div class="row login-wrap hidden">
+        <div class="row login-wrap ">
             <div class="col-md-4"></div>
             <div class="col-md-4">
                 <div class="form-signin">
@@ -76,14 +75,27 @@
             </div>
         </div>
 
-        <div class="row chat-wrap">
+        <div class="row chat-wrap hidden">
             <div id="chat-panel" class="panel  panel-primary">
                 <div class="panel-heading">
                     <h2 class="" class="mdl-card__title-text">multi-user chatroom</h2>
                 </div>
                 <div id="chat-panel-body" class="panel-body">
                     <ul id="list-group" class="list-group">
-                        <li class="list-group-item">
+                        <!-- <li class="list-group-item">
+                            <div class="content-item">
+                                <div>
+                                    <div class="me">
+                                        <span>username</span>
+                                        <img src="./public/images/user/avatar.png" alt="" class="chat-avatar">
+                                    </div>
+                                    <div style="clear:both; ">
+                                        原版国内镜像 w3schools.com 是最受欢迎的前端技术教程网站，但是国内用户一直不能访问，并且国内的中文翻译版本十分陈旧。因此做了个镜像，希望英文好的同学直接去看原版教程吧！ gulp.js - 基于流的自动化构
+                                    </div>
+                                </div>
+                            </div>
+                        </li> -->
+                        <!-- <li class="list-group-item">
                             <div class="content-item">
                                 <img src="./public/images/user/avatar.png" alt="" class="chat-avatar">
                                 <span class="">原版国内镜像 w3schools.com 是最受欢迎的前端技术教程网站，但是国内用户一直不能访问，并且国内的中文翻译版本十分陈旧。因此做了个镜像，希望英文好的同学直接去看原版教程吧！
@@ -148,11 +160,7 @@
                                     优站精选 Bootstrap 网站实例 Bootstrap 优站精选频道收集了众多基于 Bootstrap 构建、设计精美的、有创意的网站。 rollup.js 是新一代的
                                     JavaScript 模块打包工具。</span>
                             </div>
-                        </li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        </li> -->
                     </ul>
                 </div>
                 <div id="chat-panel-footer" class="panel-footer">

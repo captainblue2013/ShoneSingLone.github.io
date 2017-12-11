@@ -14,7 +14,7 @@ function init(remoteHost4socket) {
     window.AppSocket = AppSocket;
     /*定义用户名*/
     var myName = null;
-    $('#loginName').val(moment().format('MMMM Do YYYY, h:mm:ss a'));
+    $('#loginName').val("xxl");
     /*登录*/
     $('.login-btn').click(function () {
         myName = $.trim($('#loginName').val());
@@ -44,13 +44,13 @@ function init(remoteHost4socket) {
     })
     /*新人加入提示*/
     makeSocketEvent('add', function (data) {
-        $listGroup.append('<div class="alert alert-success" role="alert"><p>系统消息:' + data.username + '已加入群聊</p></div>');
+        $listGroup.prepend('<div class="alert alert-success" role="alert"><p>系统消息:' + data.username + '已加入群聊</p></div>');
     })
 
     /*退出群聊提示*/
     makeSocketEvent('leave', function (name) {
         if (name != null) {
-            $listGroup.append('<div class="alert alert-warning" role="alert"><p>FBI warning:' + name + '已退出群聊</p></div>');
+            $listGroup.prepend('<div class="alert alert-warning" role="alert"><p>FBI warning:' + name + '已退出群聊</p></div>');
         }
     })
 
@@ -99,17 +99,17 @@ function init(remoteHost4socket) {
     }
     /*显示消息*/
     function showMessage(data) {
-        debugger;
         var html = getListItem(data, myName);
-        $listGroup.append(html);
+        $listGroup.prepend(html);
     }
 
     function getListItem(data, myName) {
         if (data.username === myName) {
-            return '<li class="list-group-item">' +
+            return '<li class="list-group-item alert alert-info">' +
                 '    <div class="content-item">' +
                 '        <div>' +
                 '            <div style="float: right;">' +
+                '                <span>' + (moment().format('MMMM Do YYYY, h:mm:ss a')) + '</span>' +
                 '                <span>' + data.username + '</span>' +
                 '                <img src="./public/images/user/avatar.png" alt="" class="chat-avatar">' +
                 '            </div>' +
@@ -124,6 +124,7 @@ function init(remoteHost4socket) {
                 '            <div style="float: left;">' +
                 '                <img src="./public/images/user/avatar.png" alt="" class="chat-avatar">' +
                 '                <span>' + data.username + '</span>' +
+                '                <span>' + (moment().format('MMMM Do YYYY, h:mm:ss a')) + '</span>' +
                 '            </div>' +
                 '            <div style="clear:both; ">' + data.message + '</div>' +
                 '        </div>' +

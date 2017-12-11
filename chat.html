@@ -25,22 +25,28 @@
         .chat-avatar {
             width: 4em;
         }
-
-        #chat-panel {
+        /*   #chat-panel {
             position: fixed;
             top: 5%;
             bottom: 5%;
             left: 15%;
             right: 15%;
             overflow: auto;
-        }
+        } */
 
         #chat-panel-footer {
             position: fixed;
             bottom: 0;
-            left: 15%;
-            right: 15%;
+            /* left: 15%; */
+            /* right: 15%; */
         }
+
+        @media (min-width: 768px) {
+            #chat-panel-footer {
+                position: unset;
+            }
+        }
+
 
         .content-item {
             /* height: 40px; */
@@ -48,7 +54,7 @@
         }
 
         #chat-panel-body {
-            height: 100%;
+            /* height: 100%; */
             /* background-color: rgb(205, 255, 205); */
         }
     </style>
@@ -75,14 +81,18 @@
             </div>
         </div>
 
+
         <div class="row chat-wrap hidden">
-            <div id="chat-panel" class="panel  panel-primary">
-                <div class="panel-heading">
-                    <h2 class="" class="mdl-card__title-text">multi-user chatroom</h2>
-                </div>
-                <div id="chat-panel-body" class="panel-body">
-                    <ul id="list-group" class="list-group">
-                        <!-- <li class="list-group-item">
+            <div class="col-sm-2">
+            </div>
+            <div class="col-sm-5">
+                <div id="chat-panel" class="panel  panel-primary">
+                    <div class="panel-heading">
+                        <h2 class="" class="mdl-card__title-text">multi-user chatroom</h2>
+                    </div>
+                    <div id="chat-panel-body" class="panel-body">
+                        <ul id="list-group" class="list-group">
+                            <!-- <li class="list-group-item">
                             <div class="content-item">
                                 <div>
                                     <div class="me">
@@ -95,7 +105,7 @@
                                 </div>
                             </div>
                         </li> -->
-                        <!-- <li class="list-group-item">
+                            <!-- <li class="list-group-item">
                             <div class="content-item">
                                 <img src="./public/images/user/avatar.png" alt="" class="chat-avatar">
                                 <span class="">原版国内镜像 w3schools.com 是最受欢迎的前端技术教程网站，但是国内用户一直不能访问，并且国内的中文翻译版本十分陈旧。因此做了个镜像，希望英文好的同学直接去看原版教程吧！
@@ -161,8 +171,11 @@
                                     JavaScript 模块打包工具。</span>
                             </div>
                         </li> -->
-                    </ul>
+                        </ul>
+                    </div>
                 </div>
+            </div>
+            <div class="col-sm-5">
                 <div id="chat-panel-footer" class="panel-footer">
                     <div class="input-group">
                         <input type="text" id="sendtxt" class="form-control" placeholder="content...">

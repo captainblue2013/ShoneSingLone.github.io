@@ -1,14 +1,11 @@
 
 $(function () {
-    remoteHost4socket = "https://shonesinglone.leanapp.cn/";
-    // remoteHost4socket = "http://localhost:3000/";
+    remoteHost4socket = (location.host) ? "https://shonesinglone.leanapp.cn/" : "http://localhost:3000/";
     init(remoteHost4socket);
-
 })
 
 function init(remoteHost4socket) {
     var $listGroup = $('#list-group');
-
     /*建立socket连接，使用websocket协议，端口号是服务器端监听端口号*/
     var AppSocket = io(remoteHost4socket);
     window.AppSocket = AppSocket;

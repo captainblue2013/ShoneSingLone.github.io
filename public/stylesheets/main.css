@@ -1,15 +1,20 @@
 /* index */
-#index-content{
+
+#index-content {
     padding-left: 2em;
 }
-#index-content>*{
+
+#index-content>* {
     color: #fff;
     text-shadow: 2px 2px 1px #000;
 }
-.index-text-shadow{
+
+.index-text-shadow {
     color: #fff;
     text-shadow: 2px 2px 1px #000;
 }
+
+
 /* error */
 
 #error-info {
@@ -23,4 +28,57 @@
 
 #error-stamp {
     height: 170px;
+}
+
+
+/* */
+
+#myavatar {
+    text-align: center;
+}
+
+#wrap-toggle-darwer {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#portfolio-title {
+    font-size: 18px;
+    color: #0b3307;
+}
+
+.drawer-is-show {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.left-section {
+    color: rgb(255, 255, 255);
+    display: block;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    height: 36px;
+    line-height: 36px;
+    margin-bottom: 16px;
+    width: 147.859px
+}
+
+.right-section {
+    /* text-align: right; */
+    list-style: none;
+    color: rgb(255, 255, 255);
+    display: block;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    height: 52px;
+    line-height: 20px;
+    order: 1;
+    width: 161.922px
 }

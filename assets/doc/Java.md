@@ -1,0 +1,1 @@
+[design-patterns-promise](http://www.infoq.com/cn/articles/design-patterns-promise)

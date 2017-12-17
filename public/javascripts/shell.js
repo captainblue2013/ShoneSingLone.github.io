@@ -80,7 +80,6 @@ var shell = (function ($) {
         for (var index = 0; index < randomPanelNum; index++) {
             var htmlString = getContentCardHtmlStr(index + "Blog template")
             // htmlString = getContentCardHtmlStr(htmlString.slice(Math.ceil(Math.random() * 100), Math.ceil(Math.random() * 100) + 100));
-
             var $htmlString = $(htmlString);
             console.lo
             var colIndex = index % 3;

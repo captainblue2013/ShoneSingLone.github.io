@@ -40,9 +40,11 @@ var shell = (function ($) {
             }).show();
             $drawerBackdrop.appendTo('body');
         };
+        
         drawerOut = function () {
             $drawer.animateCss("fadeOutLeft", drawerInit);
         };
+
         drawerInit = function () {
             $drawer.hide();
             $drawerBackdrop.remove();

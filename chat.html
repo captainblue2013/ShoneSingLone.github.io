@@ -58,15 +58,56 @@
             /* background-color: rgb(205, 255, 205); */
         }
     </style>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=asap');
+
+        body {
+            background: linear-gradient(130deg, #11B2B2, #084359);
+            opacity: .9;
+        }
+
+
+        #form-signin {
+            margin: 20% auto;
+            padding: 15px;
+            border-radius: 7px;
+            opacity: 0.9;
+            background: linear-gradient(310deg, rgba(255, 0, 0, .1), #303030);
+            box-shadow: 0 12px 20px 0 rgba(0, 0, 0, 0.2), 0 20px 28px 0 rgba(0, 0, 0, 0.1);
+            color: white;
+            animation-name: show;
+            animation-duration: 2s;
+            animation-delay: .5s;
+        }
+
+        @keyframes show {
+            from {
+                opacity: 0;
+                left: -10px;
+            }
+            to {
+                opacity: .9;
+                left: 0px;
+            }
+        }
+
+        a:hover {
+            box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2), 0 5px 7px 0 rgba(0, 0, 0, 0.1);
+            text-shadow: 2px 2px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(300deg, rgba(155, 155, 155, .3), #303030);
+            transform: translateY(5px);
+        } 
+    </style>
     <title>wii-chat</title>
 </head>
 
 <body>
     <div class="container">
         <div class="row login-wrap ">
-            <div class="col-md-4"></div>
             <div class="col-md-4">
-                <div class="form-signin">
+            </div>
+            <div class="col-md-4">
+                <div id="form-signin" class="form-signin">
                     <h2 class="form-signin-heading">Please sign in</h2>
                     <label for="inputName">Login Name</label>
                     <input id="loginName" type="text" id="inputName" class="form-control" placeholder="login name" required="" autofocus="">
@@ -77,6 +118,7 @@
                     </div>
 
                     <button class="btn btn-lg btn-primary btn-block login-btn" type="submit">Sign in</button>
+
                 </div>
             </div>
         </div>

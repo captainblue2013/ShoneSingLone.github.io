@@ -1,6 +1,6 @@
 
 $(function () {
-    remoteHost4socket = (location.host) ? "https://shonesinglone.leanapp.cn/" : "http://localhost:3000/";
+    var remoteHost4socket = (location.host) ? "https://shonesinglone.leanapp.cn/" : "http://localhost:3000/";
     init(remoteHost4socket);
 })
 

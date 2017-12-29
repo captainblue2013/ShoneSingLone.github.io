@@ -31,8 +31,6 @@ requirejs.config({
 
 //下面开始加载执行
 require(['shell'], function (shell) {
-    shell;
-    alert(shell)
     shell.initModule();
     shell.getDataFromAPI(3);
 });

@@ -17,14 +17,6 @@ requirejs.config({
     //exports值，表明这个模块外部调用时的名称
     //下面代码里面包含了如何加载库和插件
     shim: {
-        'shell': {
-            deps: ['jquery'],
-            exports: 'shell'
-        },
-        'shellNavbar': {
-            deps: ['jquery'],
-            exports: 'shellNavbar'
-        },
         'bootstrap': {
             deps: ['jquery'],
             exports: 'bootstrap'
@@ -39,6 +31,8 @@ requirejs.config({
 
 //下面开始加载执行
 require(['shell'], function (shell) {
+    shell;
+    alert(shell)
     shell.initModule();
     shell.getDataFromAPI(3);
 });

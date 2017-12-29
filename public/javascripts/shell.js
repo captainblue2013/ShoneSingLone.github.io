@@ -4,7 +4,7 @@
  * require jQuery.js
  */
 
-var shell = (function ($) {
+define(["jquery"], function ($) {
 
     const NODE_TYPE = {
         type_1: "ELEMENT_NODE",
@@ -19,7 +19,6 @@ var shell = (function ($) {
     let initModule, getDataFromAPI;
 
     initModule = function ($container) {
-
         // shell.navbar.initModule($container);
         // shell.container.initModule($container);
 
@@ -40,7 +39,7 @@ var shell = (function ($) {
             }).show();
             $drawerBackdrop.appendTo('body');
         };
-        
+
         drawerOut = function () {
             $drawer.animateCss("fadeOutLeft", drawerInit);
         };
@@ -163,4 +162,4 @@ var shell = (function ($) {
         getNodeTypeName: getNodeTypeName,
         getDataFromAPI: getDataFromAPI
     };
-}(jQuery));
+})

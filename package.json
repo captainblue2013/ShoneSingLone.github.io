@@ -1,29 +1,29 @@
 {
-  "name"       : "protfolio",
-  "version"    : "1.0.0",
+  "name": "protfolio",
+  "version": "1.0.0",
   "description": "ShoneSingLone's micro site.",
-  "main"       : "app.js",
-  "scripts"    : {
+  "main": "app.js",
+  "scripts": {
     "start": "",
-    "css"  : "gulp css",
-    "server":"gulp server"
+    "css": "gulp css",
+    "server": "gulp server"
   },
   "repository": {
     "type": "git",
-    "url" : "https://github.com/ShoneSingLone/ShoneSingLone.github.io.git"
+    "url": "https://github.com/ShoneSingLone/ShoneSingLone.github.io.git"
   },
   "keywords": [
     "protfolio"
   ],
-  "author" : "ShoneSingLone",
+  "author": "ShoneSingLone",
   "license": "MIT",
-  "bugs"   : {
+  "bugs": {
     "url": "https://github.com/ShoneSingLone/ShoneSingLone.github.io/issues"
   },
-  "homepage"       : "https://github.com/ShoneSingLone/ShoneSingLone.github.io#readme",
+  "homepage": "https://github.com/ShoneSingLone/ShoneSingLone.github.io#readme",
   "devDependencies": {
-    "gulp"        : "^3.9.1",
-    "gulp-sass"   : "^3.1.0",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0",
     "browser-sync": "^2.18.13"
   },
   "dependencies": {}

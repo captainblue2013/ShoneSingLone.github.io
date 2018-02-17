@@ -5,15 +5,15 @@ import App from './App';
 import router from './router';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
-import jquery from 'jquery';
-// import BootstrapVue from 'bootstrap-vue'
+import jQuery from 'jquery';
+import 'bootstrap/dist/js/bootstrap.js';
+import 'bootstrap/dist/css/bootstrap.css';
+
 // import store from './store';
 
-
+window.jQuery = jQuery;
 Vue.config.productionTip = false;
 Vue.use(VueAxios, axios);
-// Vue.use(BootstrapVue);
-window.$ = jquery;
 
 
 Vue.config.productionTip = false

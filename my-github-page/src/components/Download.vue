@@ -1,68 +1,60 @@
 <template>
-  <div class="hello row">
-    <form class="col-xs-6">
-      <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email"> </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"> </div>
-      <div class="form-group">
-        <label for="exampleInputFile">File input</label>
-        <input type="file" id="file" required @change="whenChangeShowImage($event)">
-        <!-- <p class="help-block">Example block-level help text here.</p> -->
+  <div class="row">
+    <div class="col-md-12">
+      <h2>文件列表</h2>
+      <div class="table-responsive">
+        <table class="table table-striped" v-if="rowList">
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>name</th>
+              <th>path</th>
+            </tr>
+          </thead>
+          <tbody >
+            <tr v-for="(row,index) in rowList">
+              <td>{{index}}</td>
+              <td>{{row.fileName}}</td>
+              <td><button class="btn" @click="download(row)">下载</button></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox"> Check me out </label>
-      </div>
-      <button type="" class="btn btn-primary" @click="upload">Submit</button>
-    </form>
-    <div class="col-xs-6" v-if="imgSrc">
-        <img :src="imgSrc" :alt="msg">
     </div>
   </div>
 </template>
 
 
 <script>
+import Progress from "@/components/Bootstrap/Progress";
+let isLocal = ~location.href.indexOf("localhost");
+const reqURLCurrent = isLocal
+  ? "http://localhost:3000"
+  : "https://shonesinglone.leanapp.cn";
+
 export default {
-  name: "HelloWorld",
+  name: "Download",
+
   data: function data() {
     return {
-      msg: "上传下载文件",
-      imgSrc: ""
+      rowList: ""
     };
   },
-  methods: {
-    whenChangeShowImage(event) {
-      let files = event.target.files;
-      let reader = new FileReader();
-      if (files && files[0]) {
-        reader.addEventListener("load", ev => {
-          this.imgSrc = ev.target.result;
-        });
-        reader.readAsDataURL(files[0]);
-      }else{
-        this.imgSrc = "";
+  computed: {},
+  beforeCreate() {
+    let reqURL = reqURLCurrent + "/ajax/list/img";
+    this.$http.get(reqURL).then(res => {
+      if (res.data.status) {
+        this.rowList = res.data.imgList;
       }
-    },
-    upload() {
-      // let form = $("#upload-form");
-      let config = {
-        headers: { "Content-Type": "multipart/form-data" }
-      }; //添加请求头
-      // form = new FormData(form);
-      let formData = new FormData();
-      formData.append("file", jQuery("#file")[0].files[0]);
-      console.dir(formData);
-      let isLocal = ~location.href.indexOf("localhost");
-      let reqURL =
-        (isLocal
-          ? "http://localhost:3000"
-          : "https://shonesinglone.leanapp.cn") + "/ajax/upload";
-      this.$http.post(reqURL, formData, config).then(res => {
+    });
+  },
+  methods: {
+    download(row) {
+      let reqURL = reqURLCurrent + "/ajax/canidownload";
+      this.$http.post(reqURL, { data: { row } }).then(res => {
         if (res.data.status) {
+          debugger;
           this.msg = res.data.msg;
         }
       });
@@ -72,13 +64,16 @@ export default {
     imgURL() {
       return this.imgSrc;
     }
+  },
+  components: {
+    Progress
   }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-img{
+img {
   width: 150px;
 }
 </style>

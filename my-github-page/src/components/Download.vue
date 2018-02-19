@@ -3,19 +3,22 @@
     <div class="col-md-12">
       <h2>文件列表</h2>
       <div class="table-responsive">
-        <table class="table table-striped" v-if="rowList">
+        <table class="table table-striped" v-if="imgList">
           <thead>
             <tr>
               <th>No.</th>
               <th>name</th>
-              <th>path</th>
+              <th>option</th>
             </tr>
           </thead>
           <tbody >
-            <tr v-for="(row,index) in rowList">
+            <tr v-for="(rowImg,index) in imgList">
               <td>{{index}}</td>
-              <td>{{row.fileName}}</td>
-              <td><button class="btn" @click="download(row)">下载</button></td>
+              <td>{{rowImg.name}}</td>
+              <td>
+                <a class="btn btn-primary" :href="download(rowImg)">下载</a>
+                <button class="btn" @click="rmfile(rowImg,index)">删除</button>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -32,32 +35,58 @@ const reqURLCurrent = isLocal
   ? "http://localhost:3000"
   : "https://shonesinglone.leanapp.cn";
 
+let refreshList = function() {
+  let reqURL = reqURLCurrent + "/ajax/list/img";
+  this.$http.get(reqURL).then(res => {
+    if (res.data.status) {
+      this.imgList = res.data.imgList;
+    }
+  });
+};
+
 export default {
   name: "Download",
-
   data: function data() {
     return {
-      rowList: ""
+      imgList: ""
     };
   },
   computed: {},
   beforeCreate() {
-    let reqURL = reqURLCurrent + "/ajax/list/img";
-    this.$http.get(reqURL).then(res => {
-      if (res.data.status) {
-        this.rowList = res.data.imgList;
-      }
-    });
+    refreshList.call(this);
   },
   methods: {
-    download(row) {
-      let reqURL = reqURLCurrent + "/ajax/canidownload";
-      this.$http.post(reqURL, { data: { row } }).then(res => {
-        if (res.data.status) {
-          debugger;
-          this.msg = res.data.msg;
-        }
-      });
+    download(img) {
+      let reqURL = reqURLCurrent + "/ajax/download?";
+      let searchParams = new URLSearchParams();
+      searchParams.append("id", img.id);
+      searchParams.append("name", img.name);
+      return reqURL + searchParams.toString();
+      // this.$http.get(reqURL, { data: { row } }).then(res => {
+      //   if (res.data.status) {
+      //     debugger;
+      //     this.msg = res.data.msg;
+      //   }
+      // });
+    },
+    rmfile(img, index) {
+      let reqURL = reqURLCurrent + "/ajax/delete?";
+      let searchParams = new URLSearchParams();
+      searchParams.append("id", img.id);
+      searchParams.append("name", img.name);
+
+      this.$http
+        .delete(reqURL + searchParams.toString())
+        .then(res => {
+          if (res.data.status) {
+            refreshList.call(this);
+          } else {
+            console.log("err", res.data.err);
+          }
+        })
+        .catch(err => {
+          console.log("err", err);
+        });
     }
   },
   computed: {

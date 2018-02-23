@@ -7,6 +7,7 @@
           <thead>
             <tr>
               <th>No.</th>
+              <th>img</th>
               <th>name</th>
               <th>option</th>
             </tr>
@@ -14,6 +15,7 @@
           <tbody >
             <tr v-for="(rowImg,index) in imgList">
               <td>{{index}}</td>
+              <td><img :src="download(rowImg)" alt="rowImg.name"></td>
               <td>{{rowImg.name}}</td>
               <td>
                 <a class="btn btn-primary" :href="download(rowImg)">下载</a>

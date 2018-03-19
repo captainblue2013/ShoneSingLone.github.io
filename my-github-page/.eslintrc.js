@@ -24,12 +24,14 @@ module.exports = {
     //没有【;】你写什么JavaScript呀？回去写你的Python啊！
     "semi": ["error", "always"],
     // 缩进还是要的
-    "indent": ["error", "2"],
+    "indent": ["error", 2],
     "space-before-function-paren": ["error", {
       "anonymous": "always",
       "named": "always",
       "asyncArrow": "always"
     }],
+    //https://eslint.org/docs/4.0.0/rules/quotes
+    quotes: ["error", false],
     // allow async-await
     'generator-star-spacing': 'off',
     // allow debugger during development

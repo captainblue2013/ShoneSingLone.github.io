@@ -65,9 +65,6 @@ export default {
   .navbar-header {
     float: unset;
   }
-  background: linear-gradient(cyan, transparent),
-    linear-gradient(225deg, magenta, transparent),
-    linear-gradient(45deg, yellow, transparent);
 }
 .navbar-toggle:focus {
   outline: 0;

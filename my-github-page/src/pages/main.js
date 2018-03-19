@@ -8,7 +8,8 @@ import App from '../App';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
 
-import '@/common/scss/main_scss.js';
+import '@bsc/bootstrap-Shone.scss';
+
 import VueJQ from '@/common/js/plugin/vue-jquery.js';
 import jQuery from 'jquery';
 
@@ -18,7 +19,6 @@ Vue.config.productionTip = true;
 
 Vue.use(VueAxios, axios);
 Vue.use(VueJQ, jQuery);
-
 
 /* eslint-disable no-new */
 window.VueApp = new Vue({

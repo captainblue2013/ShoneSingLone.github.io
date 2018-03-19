@@ -3,6 +3,7 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir)
@@ -23,7 +24,7 @@ module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
     app: './src/pages/main.js',
-    ele: './src/pages/main.js'
+    // ele: './src/pages/main.js'
   },
   output: {
     path: config.build.assetsRoot,
@@ -37,8 +38,7 @@ module.exports = {
       'vue$': 'vue/dist/vue.esm.js',
       '@c': resolve('src/components/'),
       '@': resolve('src'),
-      '@bsc': path.resolve(__dirname, '../', 'node_modules/bootstrap/scss'),
-      '@bsj': path.resolve(__dirname, '../', 'node_modules/bootstrap/js/src')
+      '@bsc': resolve('src/common/scss/bootstrap')
     }
   },
   module: {
@@ -91,5 +91,41 @@ module.exports = {
     net: 'empty',
     tls: 'empty',
     child_process: 'empty'
-  }
+  },
+  plugins: [
+    // https://github.com/jantimon/favicons-webpack-plugin
+    new FaviconsWebpackPlugin({
+      // Your source logo
+      logo: './src/assets/favicon.ico',
+      // The prefix for all image files (might be a folder or a name)
+      prefix: 'icons-[hash]/',
+      // Emit all stats of the generated icons
+      emitStats: false,
+      // The name of the json containing all favicon information
+      statsFilename: 'iconstats-[hash].json',
+      // Generate a cache file with control hashes and
+      // don't rebuild the favicons until those hashes change
+      persistentCache: true,
+      // Inject the html into the html-webpack-plugin
+      inject: true,
+      // favicon background color (see https://github.com/haydenbleasel/favicons#usage)
+      background: '#fff',
+      // favicon app title (see https://github.com/haydenbleasel/favicons#usage)
+      title: 'Webpack App',
+
+      // which icons should be generated (see https://github.com/haydenbleasel/favicons#usage)
+      icons: {
+        android: true,
+        appleIcon: true,
+        appleStartup: true,
+        coast: false,
+        favicons: true,
+        firefox: true,
+        opengraph: false,
+        twitter: false,
+        yandex: false,
+        windows: false
+      }
+    })
+  ]
 }

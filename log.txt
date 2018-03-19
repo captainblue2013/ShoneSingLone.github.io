@@ -1,0 +1,111 @@
+496f82e HEAD@{0}: reset: moving to 496f82e
+4f387a2 HEAD@{1}: reset: moving to HEAD~30
+5e1b98d HEAD@{2}: reset: moving to HEAD^
+1caed93 HEAD@{3}: reset: moving to HEAD
+1caed93 HEAD@{4}: reset: moving to 1caed93
+496f82e HEAD@{5}: commit: 【update】home page
+fe262ec HEAD@{6}: commit: []fix my home page
+00b09b8 HEAD@{7}: commit: 【update】
+3ea3044 HEAD@{8}: commit: 【add】upload show img
+0280481 HEAD@{9}: commit: 【update】img->base64
+830af20 HEAD@{10}: commit: 【update】img base64
+013ab5f HEAD@{11}: commit: 【update】test upload and download
+6844341 HEAD@{12}: commit: 【update】download get method
+10899a7 HEAD@{13}: commit: 【add】upload
+86a0826 HEAD@{14}: commit: 【update】
+f700279 HEAD@{15}: reset: moving to HEAD
+f700279 HEAD@{16}: reset: moving to HEAD
+f700279 HEAD@{17}: commit: 【add】Vue project
+44134c3 HEAD@{18}: commit: 【update】move img
+d859f25 HEAD@{19}: commit: 【add】phone img
+adeb590 HEAD@{20}: commit: 【add】phone img
+89971fb HEAD@{21}: commit: 【update】
+023fb9a HEAD@{22}: commit: 【update】
+53f591c HEAD@{23}: commit: 【update】ele
+c8d12a4 HEAD@{24}: commit: 【update】
+e41e77b HEAD@{25}: commit: 【update】
+52644dc HEAD@{26}: commit: 【update】
+be3f906 HEAD@{27}: commit: 【update】
+824eda3 HEAD@{28}: commit: 【update】
+3d64a9b HEAD@{29}: commit: 【update】sticky footer
+d489cc4 HEAD@{30}: commit: 【add】ele
+e5ace3c HEAD@{31}: commit: 【update】content
+454d4f1 HEAD@{32}: commit: 【update】
+5ccbac3 HEAD@{33}: commit: 【update】
+5b9d127 HEAD@{34}: commit: 【update】change to AMD Module
+3414e2a HEAD@{35}: commit: 【update】reset
+eeb0b91 HEAD@{36}: commit: 【updata】background
+ac13f9d HEAD@{37}: commit: 【update】
+2022a1b HEAD@{38}: commit: 【update】修改
+3df9efc HEAD@{39}: commit: 【add】说明CleanCloud的休眠策略对wii-chat的影响
+9b065a9 HEAD@{40}: commit: 【update】requirejs success
+e5c9b44 HEAD@{41}: commit: 【add】require未成功
+6bd50ac HEAD@{42}: commit: 【update】
+1caed93 HEAD@{43}: reset: moving to 1caed930c6580a5455cb4f86ae0f49edc6d272d1
+eaa8aa2 HEAD@{44}: commit: 【update}
+1caed93 HEAD@{45}: commit: 【update】修改Chat样式
+5e1b98d HEAD@{46}: reset: moving to 5e1b98d0bbc51baa553b34c03c070c9780ef2a3a
+d41c450 HEAD@{47}: commit: 【update】
+5e1b98d HEAD@{48}: commit: 【update】
+8d8e4ac HEAD@{49}: commit: 【update】暂存
+25c1b8f HEAD@{50}: commit: 【update】
+f9ae730 HEAD@{51}: commit: 【add】chat client
+6abcc9b HEAD@{52}: commit: 【update】布局模型 布局模板
+d7882d3 HEAD@{53}: commit: 【update】inline-block
+2eeaa08 HEAD@{54}: commit: 【add】note
+e54417f HEAD@{55}: commit: 【add】note record
+1653e98 HEAD@{56}: commit: 【update】讲讲现代JavaScript开发工具都是些啥
+5f58d8a HEAD@{57}: commit: 【add】Modern JavaScript Explained For Dinosaurs
+b7a019c HEAD@{58}: commit: 【update】不完美解决Android Chrome URL栏滑动引起的变形问题
+8a109a8 HEAD@{59}: commit: 【update】瀑布流布局
+9a159f4 HEAD@{60}: commit: 【update】
+832302f HEAD@{61}: commit: 【update】test Android Chrome
+c01aa54 HEAD@{62}: commit: 【update】解决滑动导致drawer消失
+d2e134a HEAD@{63}: commit: 【add】backdrop
+bac17fa HEAD@{64}: commit: 【update】修改logo
+12dcb83 HEAD@{65}: commit: 【update】animate
+894f866 HEAD@{66}: pull --no-rebase --progress origin: Fast-forward
+56687e6 HEAD@{67}: checkout: moving from dev to master
+6cf0133 HEAD@{68}: commit: 【update】
+d035b6a HEAD@{69}: checkout: moving from master to dev
+56687e6 HEAD@{70}: checkout: moving from dev to master
+d035b6a HEAD@{71}: commit: 【update】drawer
+a4ec149 HEAD@{72}: commit: 【update】change drawer
+56687e6 HEAD@{73}: checkout: moving from master to dev
+56687e6 HEAD@{74}: commit: 【update】drawer
+f552768 HEAD@{75}: commit: 【add】媒体查询
+597a878 HEAD@{76}: commit: 【add】homelink
+2e072eb HEAD@{77}: commit: 【add】gulp
+fd8d6b3 HEAD@{78}: commit: 【update】避免出现竞争条件
+b6bdc25 HEAD@{79}: commit: 【add】drawer
+8eef923 HEAD@{80}: commit: 【add】portfolio based on mdl-template-portfolio
+2ba756a HEAD@{81}: commit: 【update】div 内 content不换行，出现overflow：visible的情况，
+a5b3214 HEAD@{82}: reset: moving to a5b3214a8f1e9fc0ea6a3c2e5838a555069bd105
+82dfa17 HEAD@{83}: commit: 【update】布局自动换换，出现overflow：visible的情况
+a5b3214 HEAD@{84}: commit: 【update】note
+2e72ee5 HEAD@{85}: commit: 【add】doc
+57d0674 HEAD@{86}: commit: 【update】动画说明
+4f387a2 HEAD@{87}: commit: 【add】收集this和闭包的资料
+2bfcf68 HEAD@{88}: commit: 【add】note
+912c39d HEAD@{89}: commit: 【update】note
+46d30f0 HEAD@{90}: commit: 【update】note
+639d4b8 HEAD@{91}: commit: 【delete】plan
+d3f4a76 HEAD@{92}: commit: 【add】note
+180b208 HEAD@{93}: commit: 【update】animate
+f7a2957 HEAD@{94}: commit: 【update】change animate
+b21f92f HEAD@{95}: commit: 【add】add markdown.js
+d41c429 HEAD@{96}: commit: 【update】local animate.css
+50412c1 HEAD@{97}: pull --no-rebase --progress origin: Merge made by the 'recursive' strategy.
+5423044 HEAD@{98}: commit: 【update】
+c654f3a HEAD@{99}: commit: 【delete】准备建HomePage
+3d62cd9 HEAD@{100}: commit: 【add】animate bounceOutUp bounceOutDown
+d26ab7c HEAD@{101}: commit: 【update】jQuery._data()获取事件
+852a8a9 HEAD@{102}: commit: 【update】animate.css
+7f95e63 HEAD@{103}: commit: 【update】
+5658a5d HEAD@{104}: commit: 【update】
+2882456 HEAD@{105}: commit: 【update】
+266609e HEAD@{106}: commit: 【update】
+86c5636 HEAD@{107}: commit: 【update】
+e7c3276 HEAD@{108}: commit: 【update】cors test
+b0301fe HEAD@{109}: commit: 【update】change
+f3907d0 HEAD@{110}: clone: from https://github.com/ShoneSingLone/ShoneSingLone.github.io.git

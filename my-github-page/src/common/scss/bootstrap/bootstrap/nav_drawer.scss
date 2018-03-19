@@ -1,0 +1,130 @@
+$box-shadow: 0 1px 15px rgba(1, 0, 0, 0.5);
+
+#nav-top-bar {
+    background-image: url(../../../assets/images/header-bg.jpg);
+
+    // background-size: cover;
+    box-shadow: $box-shadow;
+
+    .navbar-header {
+        float: unset;
+    }
+}
+
+#main-content {
+    &::after{
+        content: " ";
+    }
+    .panel {
+        box-shadow: 5px 5px 15px rgba(1, 0, 0, 0.5);
+    }
+}
+
+#footer {
+    background-image: url(../../../assets/images/header-bg.jpg);
+    background-size : cover;
+
+    .footer-container {
+        background-color: rgba(2, 23, 2, 0.33);
+        box-shadow      : $box-shadow;
+    }
+
+    .row {
+        margin : 0;
+        padding: 0 15px;
+    }
+}
+
+//
+// 部分样式来自Panels
+// --------------------------------------------------
+
+#drawer {
+    background-color: rgba(0, 0, 0, 0.1);
+
+    @include box-shadow(0 1px 15px rgba(1, 0, 0, 0.5));
+
+    .nav {
+        position        : fixed;
+        display         : none;
+        top             : 0;
+        left            : 0;
+        bottom          : 0;
+        width           : 300px;
+        background-color: $panel-bg;
+        border          : 1px solid transparent;
+        border-radius   : unset;
+        z-index         : 1999;
+
+        @include box-shadow(1px 0 15px rgba(0, 0, 0, 0.5));
+    }
+
+    // Pills
+    // -------------------------
+    .nav-pills {
+        div {
+            float                : none;
+            text-align           : left;
+            text-decoration-style: solid;
+            padding              : $panel-body-padding;
+
+            // Links rendered as pills
+            > a {
+                border-radius  : $nav-pills-border-radius;
+                font-size      : medium;
+                text-decoration: none;
+                color          : #0b3307;
+
+                &:hover,
+                &:focus {
+                    font-weight: bold;
+                }
+            }
+
+            // Active state
+            &.active {
+                font-weight  : bold;
+                border-bottom: medium solid #23471a;
+            }
+
+            @media (min-width: $screen-sm-min) {
+                text-align: center;
+            }
+        }
+    }
+
+    @media (min-width: $screen-sm-min) {
+        .nav {
+            width           : 100%;
+            position        : static;
+            display         : block;
+            border          : unset;
+            background-color: unset;
+
+            @include box-shadow(unset);
+
+            @include make-row;
+            @include make-grid(sm);
+        }
+    }
+}
+
+// Modal background
+.drawer-backdrop {
+    position        : fixed;
+    top             : 0;
+    right           : 0;
+    bottom          : 0;
+    left            : 0;
+    z-index         : $zindex-modal-background;
+    background-color: rgba(2, 23, 2, 0.5);
+
+    // Fade for backdrop
+    &.fade {
+        @include opacity(0);
+    }
+
+    &.in {
+        @include opacity($modal-backdrop-opacity);
+    }
+}

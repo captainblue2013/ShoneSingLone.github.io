@@ -1,42 +1,28 @@
 <template>
-  <div id="app">
-    <bs-navbar :toList="toList"  navbar-title="控制面板"/>
-    <div id="view-wrapper"  class="container">
-      <keep-alive>
-        <router-view /> 
-      </keep-alive>
-    </div>
+  <div id="app" class="container">
+    <navtopbar/>
+    <keep-alive>
+      <router-view />
+    </keep-alive>
   </div>
 </template>
 
 
 
 <script>
-import Navbar from "@/components/Bootstrap/Navbar";
+import navtopbar from "@c/Bootstrap/NavTopBar";
 
 export default {
   name: "App",
   data() {
-    return {
-      toList: [
-        { name: "upload", title: "上传", params: { userId: 123 } },
-        { name: "download", title: "下载", params: { userId: 123 } }
-      ]
-    };
+    return { navigatorList: [] };
   },
   components: {
-    "bs-navbar": Navbar
+    navtopbar
   }
 };
 </script>
 
 <style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-#view-wrapper {
-  transform: translateY(150px);
-}
+
 </style>

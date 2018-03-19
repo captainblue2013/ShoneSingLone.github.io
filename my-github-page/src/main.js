@@ -8,15 +8,11 @@ import VueAxios from 'vue-axios';
 import jQuery from 'jquery';
 import 'bootstrap/dist/js/bootstrap.js';
 import 'bootstrap/dist/css/bootstrap.css';
-
 // import store from './store';
 
 window.jQuery = jQuery;
 Vue.config.productionTip = false;
 Vue.use(VueAxios, axios);
-
-
-Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 window.VueApp = new Vue({

@@ -12,8 +12,8 @@
               <th>option</th>
             </tr>
           </thead>
-          <tbody >
-            <tr v-for="(rowImg,index) in imgList">
+          <tbody>
+            <tr v-for="(rowImg,index) in imgList" :key="rowImg.name">
               <td>{{index}}</td>
               <td><img :src="download(rowImg)" alt="rowImg.name"></td>
               <td>{{rowImg.name}}</td>

@@ -7,7 +7,7 @@
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item" v-for="to in toList" @click="afterLinkTo" >
+      <li class="nav-item" v-for="to in toList" @click="afterLinkTo" :key="to.title">
         <router-link class="nav-link" :to="to" >{{to.title}}</router-link>
       </li>
     </ul>

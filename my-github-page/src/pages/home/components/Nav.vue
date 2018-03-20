@@ -2,12 +2,7 @@
   <header id="nav-top-bar" class="navbar navbar-default">
     <div class="container">
       <div id="wrap-toggle-darwer">
-        <button id="toggle-darwer" type="button" class="navbar-toggle">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
+      <toggle-darwer/>
       </div>
       <div id="myavatar">
         <div>
@@ -37,6 +32,8 @@
 </template>
 
 <script type="text/ecmascript-6">
+import ToggleDarwer from "@cc/ToggleDarwer";
+
 export default {
   props: ["navbarTitle", "width", "toList", "isToggle"],
   data() {
@@ -52,6 +49,9 @@ export default {
       }
       return false;
     }
+  },
+  components:{
+   "toggle-darwer": ToggleDarwer
   }
 };
 </script>

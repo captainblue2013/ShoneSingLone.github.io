@@ -3,7 +3,7 @@ import HomePage from '@cc/HomePage';
 
 export default {
   routes: [{
-    path: '/',
+    path: '*',
     redirect: '/home'
   }, {
     path: '/home',

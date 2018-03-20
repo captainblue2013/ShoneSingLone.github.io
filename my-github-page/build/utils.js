@@ -8,6 +8,7 @@ function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
 
+
 exports.assetsPath = function (_path) {
   const assetsSubDirectory = process.env.NODE_ENV === 'production' ?
     config.build.assetsSubDirectory :
@@ -39,7 +40,6 @@ exports.cssLoaders = function (options) {
   // generate loader string to be used with extract text plugin
   function generateLoaders(loader, loaderOptions) {
     const loaders = options.usePostCSS ? [cssLoader, postcssLoader] : [cssLoader]
-
     if (loader) {
       loaders.push({
         loader: loader + '-loader',
@@ -57,25 +57,25 @@ exports.cssLoaders = function (options) {
         fallback: 'vue-style-loader'
       })
     } else {
-      return ['vue-style-loader'].concat(loaders)
+      return ['vue-style-loader'].concat(loaders);
     }
   }
 
   // https://vue-loader.vuejs.org/en/configurations/extract-css.html
   return {
-    css: generateLoaders(),
+    css: generateLoaders('css', {
+      // alias: {
+      //    '@csb': resolve('src/common/scss/bootstrap')
+      // }
+    }),
     postcss: generateLoaders(),
-    less: generateLoaders('less'),
-    sass: generateLoaders('sass', {
-      indentedSyntax: true
-    }),
-    scss: generateLoaders('sass', {
-      includePaths: [resolve('src/common/scss/bootstrap.scss')],
-      sourceMap: true,
-      resources: [resolve('src/common/scss/bootstrap.scss')]
-    }),
-    stylus: generateLoaders('stylus'),
-    styl: generateLoaders('stylus')
+    // less: generateLoaders('less'),
+    // sass: generateLoaders('sass', {
+    // indentedSyntax: true
+    // }),
+    scss: generateLoaders('sass', {}),
+    // stylus: generateLoaders('stylus'),
+    // styl: generateLoaders('stylus')
   }
 }
 

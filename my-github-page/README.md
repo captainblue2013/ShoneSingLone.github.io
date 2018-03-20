@@ -54,8 +54,17 @@ Vue.use(plugin,jQuery);
 
 ### 响应式设计
 
-一般使用媒体查询（media query），但是这里Vue是数据驱动视图，所以引入Vuex（早晚都要用的）用来管理显示状态mainState。用于管理响应式的视图。
+一般使用媒体查询（media query），但是这里Vue是数据驱动视图，所以引入Vuex（早晚都要用的）用来管理显示状态mainState。用于管理响应式的视图。window resize 当然需要 Debouncing and Throttling。有空再学习一下lodash的debounce。这里参考《高程3》的代码段：
 
-## 详细设计
+```js
+function throttle(method,context){
+  clearTimeout(method.id);
+  method.id = setTimeout(function(){
+    method.call(context);
+  },500);
+}
+```
 
+![布局](./read-me/layout.jpg)
 
+利用《CSS揭秘》提示的flex方式完成stichy-footer。

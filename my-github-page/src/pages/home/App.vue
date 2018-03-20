@@ -1,25 +1,45 @@
 <template>
-  <div id="app" class="container">
-    <navtopbar/>
+  <div id="app">
     <keep-alive>
-      <router-view />
+      <router-view/>
     </keep-alive>
   </div>
 </template>
 
-
-
 <script>
-import navtopbar from "@cc/01header/Nav";
+import { debounce } from "lodash";
 
 export default {
   name: "App",
-  data() {
-    return { navigatorList: [] };
+  beforeCreate: function() {
+    function throttle(method, context) {
+      clearTimeout(method.tId);
+      method.tId = setTimeout(function() {
+        method.call(context);
+      }, 500);
+    }
+    function consoleWindow(e) {
+      console.dir(e);
+      console.log(
+        "outerHeight: ",
+        window.outerHeight,
+        "outerWidth: ",
+        window.outerWidth
+      );
+      // if (window.matchMedia("(max-width: 415px)").matches) {
+      // } else {
+      // }
+    }
+    (function(vue, $) {
+      $(window)
+        .on("resize.mobile", function(e) {
+          throttle(consoleWindow);
+        })
+        .trigger("resize.mobile");
+    })(this, this.jQuery);
   },
-
-  components: {
-    navtopbar
+  data() {
+    return {};
   }
 };
 </script>
@@ -28,13 +48,6 @@ export default {
 html,
 body,
 #app {
-  height: 100%;
-  overflow: hidden;
-  // width: 100%;
-}
-#app {
-  // background: linear-gradient(cyan, transparent),
-  //   linear-gradient(225deg, magenta, transparent),
-  //   linear-gradient(45deg, yellow, transparent);
+  min-height: 100vh;
 }
 </style>

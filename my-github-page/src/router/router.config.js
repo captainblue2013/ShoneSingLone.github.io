@@ -1,4 +1,4 @@
-import HomePage from '@c/HomePage';
+import HomePage from '@cc/HomePage';
 
 
 export default {

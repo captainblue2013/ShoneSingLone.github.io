@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import {
-  template as MT
+  shopcart as MT
 } from '../mutation-types';
 import {
-  template as AT
+  shopcart as AT
 } from '../action-types';
 
 
@@ -25,7 +25,7 @@ const
   },
   mutations = {
     [MT.setAll](state, {
-      template
+      shopcartMT
     }) {}
   };
 

@@ -1,4 +1,4 @@
-import HelloWorld from '@/components/HelloWorld';
+import HelloWorld from '@c/HelloWorld';
 import Upload from '@/components/Upload';
 import Download from '@/components/Download';
 

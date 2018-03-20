@@ -10,7 +10,7 @@
 
 
 <script>
-import navtopbar from "@c/01header/Nav";
+import navtopbar from "@cc/01header/Nav";
 
 export default {
   name: "App",
@@ -33,8 +33,8 @@ body,
   // width: 100%;
 }
 #app {
-  background: linear-gradient(cyan, transparent),
-    linear-gradient(225deg, magenta, transparent),
-    linear-gradient(45deg, yellow, transparent);
+  // background: linear-gradient(cyan, transparent),
+  //   linear-gradient(225deg, magenta, transparent),
+  //   linear-gradient(45deg, yellow, transparent);
 }
 </style>

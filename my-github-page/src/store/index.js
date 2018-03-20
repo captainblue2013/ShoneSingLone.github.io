@@ -1,12 +1,11 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import seller from './modules/seller'
+import mainState from './modules/mainState'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   modules: {
-    seller
+    mainState
   }
 })
-

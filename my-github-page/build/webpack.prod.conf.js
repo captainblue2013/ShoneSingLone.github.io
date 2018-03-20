@@ -67,8 +67,9 @@ const webpackConfig = merge(baseWebpackConfig, {
     // see https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
       filename: config.build.index,
-      template: 'src/pages/main.html',
+      template: 'src/pages/home/index.html',
       inject: true,
+      title: "L's Zone",
       minify: {
         removeComments: true,
         collapseWhitespace: true,

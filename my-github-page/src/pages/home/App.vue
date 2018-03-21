@@ -25,20 +25,8 @@ export default {
         // $screen-md:                  992px !default;
         // $screen-lg:                  1200px !default;
         // window.matchMedia IE9
-        console.log(
-          "before.deviceW,",
-          vue.$store.state.mainState.deviceW,
-          "isMobile",
-          vue.$store.getters["mainState/isMobile"]
-        );
-        vue.$store.commit("mainState/SET_DW", window.innerWidth);
-        console.log(
-          "after.deviceW,",
-          vue.$store.state.mainState.deviceW,
-
-          "vue.$store.getters.isMobile",
-          vue.$store.getters.isMobile /* 优先使用全局的 */
-        );
+        vue.$store.commit("SET_DW", window.innerWidth);
+        // console.log(vue.$store.getters["IS_MOBILE"]);
       }
       $(window)
         .on("resize.mobile", function(e) {
@@ -60,6 +48,7 @@ html,
 body,
 #app {
   min-height: 100vh;
+  // min-width: 375px;
   font-size: 16px;
 }
 </style>

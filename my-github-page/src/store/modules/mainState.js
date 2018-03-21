@@ -1,15 +1,18 @@
 import {
-  SET_DW
+  IS_MOBILE,
+  SET_DW,
+  SET_MODAL_SHOW,
+  SET_MODAL_HIDDEN
 } from '../types';
 
 // initial state
 const
   state = {
-    deviceW: 0 //设备视窗大小
+    deviceW: 0, //设备视窗大小
+    isShowModal: false
   },
   getters = {
-    isMobile: (state) => {
-      console.log('getters in mainState');
+    [IS_MOBILE]: (state) => {
       if (state.deviceW <= 768) {
         return true;
       }
@@ -27,13 +30,22 @@ const
     [SET_DW](state,
       deviceW
     ) {
-      console.log('in mainState');
       state.deviceW = deviceW;
-    }
+    },
+    [SET_MODAL_SHOW](state) {
+      state.isShowModal = true;
+    },
+    [SET_MODAL_HIDDEN](state) {
+      state.isShowModal = false;
+    },
   };
 
+/**
+ * 
+ *  return this.$store.getters["IS_MOBILE"];
+ */
+
 export default {
-  namespaced: true,
   state,
   getters,
   actions,

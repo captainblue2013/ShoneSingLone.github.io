@@ -23,6 +23,7 @@ const createLintingRule = () => ({
 module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
+    'babel-polyfill': 'babel-polyfill',
     home: './src/pages/home/index.js',
     // ele: './src/pages/main.js'
   },
@@ -97,7 +98,7 @@ module.exports = {
     // https://github.com/jantimon/favicons-webpack-plugin
     new FaviconsWebpackPlugin({
       // Your source logo
-      logo: './src/assets/favicon.ico',
+      logo: './src/common/assets/favicon.ico',
       // The prefix for all image files (might be a folder or a name)
       prefix: 'icons-[hash]/',
       // Emit all stats of the generated icons

@@ -73,7 +73,10 @@ exports.cssLoaders = function (options) {
     // sass: generateLoaders('sass', {
     // indentedSyntax: true
     // }),
-    scss: generateLoaders('sass', {}),
+    scss: generateLoaders('sass', {
+      includePaths: [resolve('src/common/scss/bootstrap/common.scss')],
+      resources: [resolve('src/common/scss/bootstrap/common.scss')]
+    }),
     // stylus: generateLoaders('stylus'),
     // styl: generateLoaders('stylus')
   }

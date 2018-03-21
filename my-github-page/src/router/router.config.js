@@ -1,4 +1,4 @@
-import HomePage from '@cc/HomePage';
+import HomePage from '@/pages/home/components/HomePage';
 
 
 export default {

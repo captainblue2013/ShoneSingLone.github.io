@@ -10,9 +10,9 @@
 
 ### webpack管理多个单页应用。
 
-    说来惭愧，还不太熟悉webpack，暂时就不弄了。这个主要是考虑到在Vue全家桶之下，可以在不同的域作多页的细分以及增量开发（后台加一个链接新页面就可以上线）。以后来优化吧。
+说来惭愧，还不太熟悉webpack，暂时就不弄了。这个主要是考虑到在Vue全家桶之下，可以在不同的域作多页的细分以及增量开发（后台加一个链接新页面就可以上线）。 ~~以后来优化吧。~~
 
-## 概要设计
+## 流水记事
 
  目前，主要就portfolio和blog两个大的模块。
  主要考虑的是组件： 同页的组件和跨页的组件。 参考Vue所提及slot的用法。
@@ -57,13 +57,49 @@ Vue.use(plugin,jQuery);
 一般使用媒体查询（media query），但是这里Vue是数据驱动视图，所以引入Vuex（早晚都要用的）用来管理显示状态mainState。用于管理响应式的视图。window resize 当然需要 Debouncing and Throttling。有空再学习一下lodash的debounce。这里参考《高程3》的代码段：
 
 ```js
-function throttle(method,context){
+//据说《高程3》里的throttle应该是debounce
+function debounce(method,context){
   clearTimeout(method.id);
   method.id = setTimeout(function(){
     method.call(context);
   },500);
 }
 ```
+
+我最开始使用jQuery一把梭，
+
+```js
+  beforeCreate: function() {
+    function debounce(method, context) {
+      clearTimeout(method.tId);
+      method.tId = setTimeout(function() {
+        method.call(context);
+      }, 500);
+    }
+    function consoleWindow(e) {
+      console.dir(e);
+      console.log(
+        "outerHeight: ",
+        window.outerHeight,
+        "outerWidth: ",
+        window.outerWidth
+      );
+      // if (window.matchMedia("(max-width: 415px)").matches) {
+      // } else {
+      // }
+    }
+    (function(vue, $) {
+      $(window)
+        .on("resize.mobile", function(e) {
+          debounce(consoleWindow);
+        })
+        .trigger("resize.mobile");
+    })(this, this.jQuery);
+  },
+```
+
+但是在Vue当中好似有更合适的角色来完成这件事：watch。
+~~以后来优化吧。~~
 
 ![布局](./read-me/layout.jpg)
 

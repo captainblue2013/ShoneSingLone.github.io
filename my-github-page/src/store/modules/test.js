@@ -9,7 +9,7 @@ const
   },
   getters = {
     isMobile: (state) => {
-      console.log('getters in mainState');
+      console.log('getters in test');
       if (state.deviceW <= 768) {
         return true;
       }
@@ -27,13 +27,12 @@ const
     [SET_DW](state,
       deviceW
     ) {
-      console.log('in mainState');
+      console.log('in test');
       state.deviceW = deviceW;
     }
   };
 
 export default {
-  namespaced: true,
   state,
   getters,
   actions,

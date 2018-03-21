@@ -9,7 +9,7 @@
       </div>
     </div>
     <nav class="wrapper nav">
-      <nav-drawer/>
+      <nav-drawer-pills :isShowToggle="isShowToggle"/>
       <!-- <nav-pills/> -->
     </nav>
 
@@ -20,7 +20,7 @@
 import ButtonToggleDrawer from "@cc/ButtonToggleDrawer";
 import FigureAvatar from "./FigureAvatar";
 import NavPills from "./NavPills";
-import NavDrawer from "./NavDrawer";
+import NavDrawerPills from "./NavDrawerPills";
 
 export default {
   props: ["navbarTitle", "width", "toList", "isToggle"],
@@ -32,21 +32,18 @@ export default {
   methods: {
     //触发modal
     toggleModal() {
-      let vue = this;
-      let command = vue.$store.state.mainState.isShowModal
-        ? "SET_MODAL_HIDDEN"
-        : "SET_MODAL_SHOW";
-      vue.$store.commit(command);
-      console.log(
-        "vue.$store.state.mainState.isShowModal",
-        vue.$store.state.mainState.isShowModal
+      let store = this.$store;
+      store.commit(
+        store.state.mainState.isShowModal
+          ? "SET_MODAL_HIDDEN"
+          : "SET_MODAL_SHOW"
       );
     }
   },
   components: {
     "button-toggle-drawer": ButtonToggleDrawer,
     "nav-pills": NavPills,
-    "nav-drawer": NavDrawer,
+    "nav-drawer-pills": NavDrawerPills,
     "figure-avatar": FigureAvatar
   },
   computed: {

@@ -50,5 +50,6 @@ body,
   min-height: 100vh;
   // min-width: 375px;
   font-size: 16px;
+  color: #0b1c03;
 }
 </style>

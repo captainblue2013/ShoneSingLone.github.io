@@ -26,8 +26,8 @@ div.toggle.btn {
   color: $color;
   background-color: $background;
   border: unset;
-  padding: 0.4rem;
-  width: 2rem;
+  padding: 0.8rem;
+  width: 4rem;
 
   &:active,
   &.active {
@@ -50,8 +50,8 @@ div.toggle.btn {
 
   .badge {
     display: block;
-    width: 1.2rem;
-    height: 0.2rem;
+    width: 2.4rem;
+    height: 0.4rem;
     background-color: darken($background, 30%);
   }
   .badge + .badge {

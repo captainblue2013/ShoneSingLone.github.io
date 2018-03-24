@@ -8,6 +8,7 @@ $main-color: #1b4209;
 @mixin box-shadow-down {
     box-shadow: 2px 4px 8px 0 rgba(46, 61, 73, 0.2);
     outline: rgb(255, 255, 255);
+    transition: all 0.3s ease;
 }
 
 @mixin transition-fade {

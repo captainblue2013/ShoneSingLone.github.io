@@ -1,5 +1,5 @@
 <template>
-  <div :class="[{'show-toggle':isMobile},'container']">
+  <div :class="[isMobile?'show-toggle':'hidden-toggle','container']">
     <transition name="drawer-fade">
       <ul class="row" v-show="isShowNav">
         <li class="col-sm-3" v-for="(anchor,index) in anchorArray">
@@ -9,14 +9,6 @@
         </li>
       </ul>
     </transition>
-    <!-- <ul class="row" v-show="!isShowDrawer && !isMobile">
-      <li class="col-sm-3" v-for="(anchor,index) in anchorArray">
-        <a :data-index="index" :href="anchor.href" :target="anchor.target" :class="{ active: index=== whichActiveAnchor}" @click="setActiveAnchor(index)">
-          {{anchor.name}}
-        </a>
-      </li>
-    </ul> -->
-
     <transition name="fade">
       <bs-modal v-show="isShowModal" /></bs-modal>
     </transition>
@@ -34,7 +26,7 @@ let anchorArray = [
     href: "https://github.com/ShoneSingLone",
     target: "_blank"
   },
-  { name: "SingLone@foxmail.com", href: "mailto:SingLone@foxmail.com" }
+  { name: "E-mail", href: "mailto:SingLone@foxmail.com" }
 ];
 export default {
   name: "NavDrawer",
@@ -83,8 +75,8 @@ $border-radius: 1rem;
   .row {
     position: absolute;
     top: 0;
-    left: 0;
     right: 40%;
+    left: 0;
     bottom: 0;
     background: linear-gradient(white, transparent),
       linear-gradient(225deg, $main-color, transparent),
@@ -107,11 +99,6 @@ $border-radius: 1rem;
     &:hover {
       @include box-shadow-down();
     }
-
-    // li:before {
-    //   content: " ";
-    //   border-bottom: $border-bottom-height solid transparent;
-    // }
 
     > li {
       position: relative;
@@ -156,6 +143,63 @@ $border-radius: 1rem;
     }
   }
 
+  .drawer-fade-enter-active,
+  .drawer-fade-leave-active {
+    transition: all 1s ease;
+  }
+  .drawer-fade-enter,
+  .drawer-fade-leave-to {
+    // opacity: 0;
+    transform: translate(-150%, -25%);
+  }
+}
+
+.hidden-toggle {
+  &.container {
+    margin: 0;
+    padding: 0;
+    @include box-shadow-up();
+    background: linear-gradient(-45deg, white, transparent);
+  }
+  .row {
+    width: 100%;
+    padding: 0;
+    position: relative;
+    border-radius: 0.3rem 0.3rem;
+    // padding: 0.1rem;
+    margin: 0;
+
+    > li {
+      position: relative;
+      display: block;
+      outline-offset: 3px solid black;
+      > a {
+        text-align: center;
+        font-weight: 600;
+        position: relative;
+        border-radius: 1px;
+        display: block;
+        padding: $nav-link-padding;
+        color: $main-color;
+        text-decoration: none;
+        // border-radius: $border-radius $border-radius;
+        border-bottom: 0.2rem solid transparent;
+
+        &:hover,
+        &:active {
+          // background-color: linear-gradient(-45deg, #, transparent);
+          border-bottom: 0.2rem solid #9bbaa5;
+          @include box-shadow-up();
+        }
+        &.active {
+          color: whitesmoke;
+          text-shadow: 0.1rem 0.1rem 0.1rem $main-color;
+          background-color: #9bbaa5;
+          @include box-shadow-up();
+        }
+      }
+    }
+  }
   .drawer-fade-enter-active,
   .drawer-fade-leave-active {
     transition: all 1s ease;

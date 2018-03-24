@@ -4,17 +4,14 @@
       <div class="wrapper toggle-drawer right" v-if="isMobile" @click="toggleModal">
         <button-toggle-drawer />
       </div>
-      <div class="avatar wrapper">
+      <div class="wrapper avatar">
         <figure-avatar/>
       </div>
     </div>
     <nav class="wrapper nav">
-      <transition name="fade">
-        <nav-drawer-pills :isMobile="isMobile " />
-      </transition>
+      <nav-drawer-pills :isMobile="isMobile " />
       <!-- <nav-pills/> -->
     </nav>
-
   </header>
 </template>
 
@@ -81,6 +78,11 @@ export default {
     &.avatar {
       display: flex;
       flex-flow: row nowrap;
+    }
+    &.nav {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
     }
   }
   @include transition-fade();

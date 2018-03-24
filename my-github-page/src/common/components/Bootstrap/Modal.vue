@@ -32,7 +32,8 @@ export default {
   bottom: 0;
   left: 0;
   z-index: $zindex-modal-background;
-  background: linear-gradient(-45deg, rgb(4, 8, 1), transparent);
+  background: linear-gradient(-45deg, whitesmoke, transparent 300%);
+  // background: linear-gradient(-45deg, rgb(4, 8, 1), transparent);
   // opacity: 0.5;
 }
 </style>

@@ -1,0 +1,28 @@
+$main-color: #1b4209;
+
+@mixin box-shadow-up {
+    box-shadow: 8px 10px 20px 0 rgba(46, 61, 73, 0.15);
+    transition: all 0.3s ease;
+}
+
+@mixin box-shadow-down {
+    box-shadow: 2px 4px 8px 0 rgba(46, 61, 73, 0.2);
+    outline: rgb(255, 255, 255);
+}
+
+@mixin transition-fade {
+    .fade-enter-active,
+    .fade-leave-active {
+        transition: all 0.3s;
+    }
+
+    .fade-enter,
+    .fade-leave-to {
+        opacity: 0;
+    }
+
+    .fade-leave,
+    .fade-enter-to {
+        opacity: 1;
+    }
+}

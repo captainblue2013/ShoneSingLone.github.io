@@ -11,8 +11,8 @@ import VueAxios from 'vue-axios';
 
 import '@csb/bootstrap-Shone.scss';
 
-import VueJQ from '@/common/js/plugin/vue-jquery.js';
 import jQuery from 'jquery';
+import VueJQ from '@/common/js/plugin/vue-jquery.js';
 
 
 Vue.config.productionTip = true;
@@ -21,7 +21,30 @@ Vue.use(VueAxios, axios);
 Vue.use(VueJQ, jQuery);
 
 /* eslint-disable no-new */
-window.VueApp = new Vue({
+
+(function (vue, $ = vue.jQuery) {
+  function debounce(method, delay) {
+    clearTimeout(method.tId);
+    method.tId = setTimeout(function () {
+      method.call(this);
+    }, delay);
+  }
+
+  function consoleWindow() {
+    // $screen-xs:                  480px !default;
+    // $screen-sm:                  768px !default;
+    // $screen-md:                  992px !default;
+    // $screen-lg:                  1200px !default;
+    // window.matchMedia IE9
+    vue.$store.commit("SET_DW", window.innerWidth);
+    // console.log(vue.$store.getters["IS_MOBILE"]);
+  }
+  $(window)
+    .on("resize.mobile", function (e) {
+      debounce(consoleWindow, 300);
+    })
+    .trigger("resize.mobile");
+})(new Vue({
   el: '#app',
   router,
   store,
@@ -29,4 +52,4 @@ window.VueApp = new Vue({
     App
   },
   template: '<App/>'
-});
+}));

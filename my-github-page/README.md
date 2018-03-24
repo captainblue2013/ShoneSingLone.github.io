@@ -103,4 +103,5 @@ function debounce(method,context){
 
 ![布局](./read-me/layout.jpg)
 
-利用《CSS揭秘》提示的flex方式完成stichy-footer。
+- 利用《CSS揭秘》提示的flex方式完成stichy-footer。
+- 利用Vue响应式的特点完成Nav active样式的切换。以数组机构组织导航数据，比较当前active的序号是否匹配而决定是否添加`.active`样式。因click事件改变当前activeAnchor。

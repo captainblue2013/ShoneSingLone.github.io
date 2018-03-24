@@ -1,7 +1,7 @@
 <template>
   <header class="nav-top-bar">
     <div class="container">
-      <div class="wrapper toggle-drawer right" v-if="isShowToggle" @click="toggleModal">
+      <div class="wrapper toggle-drawer right" v-if="isMobile" @click="toggleModal">
         <button-toggle-drawer />
       </div>
       <div class="avatar wrapper">
@@ -9,7 +9,9 @@
       </div>
     </div>
     <nav class="wrapper nav">
-      <nav-drawer-pills :isShowToggle="isShowToggle"/>
+      <transition name="fade">
+        <nav-drawer-pills :isMobile="isMobile " />
+      </transition>
       <!-- <nav-pills/> -->
     </nav>
 
@@ -48,7 +50,7 @@ export default {
   },
   computed: {
     //根据视窗宽度决定是否显示ToggleButton
-    isShowToggle() {
+    isMobile() {
       return this.$store.getters["IS_MOBILE"];
     }
   }
@@ -58,10 +60,16 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+@import "../../../common/scss/my_variables";
+
 .nav-top-bar {
   background: url(../../../common/assets/images/header-bg.jpg) top left/ cover
     no-repeat;
-  box-shadow: 0 1px 15px rgba(1, 0, 0, 0.5);
+  // box-shadow: 0 1px 15px rgba(1, 0, 0, 0.5);
+  @include box-shadow-up();
+  // &:hover {
+  //   @include box-shadow-down();
+  // }
   .wrapper {
     &.toggle-drawer {
       position: absolute;
@@ -75,5 +83,6 @@ export default {
       flex-flow: row nowrap;
     }
   }
+  @include transition-fade();
 }
 </style>

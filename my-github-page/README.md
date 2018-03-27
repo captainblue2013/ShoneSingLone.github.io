@@ -18,6 +18,8 @@
  主要考虑的是组件： 同页的组件和跨页的组件。 参考Vue所提及slot的用法。
  我觉得我还是需要jQuery的（没什么根据），所以需要掌握Vue的插件的用法[插件](https://cn.vuejs.org/v2/guide/plugins.html?#%E4%BD%BF%E7%94%A8%E6%8F%92%E4%BB%B6)
 
+这段代码就是给Vue原型链添加jQuery属性，可以在实例中引用。
+
 ```js
 export default function plugin(Vue, jQuery) {
 

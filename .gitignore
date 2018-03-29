@@ -2,6 +2,5 @@
 Thumbs.db
 *.log
 .deploy*/
-public/bootstrap 2.3
-themes/material-flow/
 node_modules
+.vscode

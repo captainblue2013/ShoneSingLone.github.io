@@ -30,6 +30,20 @@ Vue.use(VueJQ, jQuery);
     }, delay);
   }
 
+ /*  function bar() {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve("bar");
+      }, 3000);
+    });
+  }
+  async function foo() {
+    var s = await bar();
+    alert(s);
+  }
+
+  foo(); */
+
   function consoleWindow() {
     // $screen-xs:                  480px !default;
     // $screen-sm:                  768px !default;

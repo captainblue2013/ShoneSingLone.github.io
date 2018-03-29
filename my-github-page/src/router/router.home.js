@@ -1,5 +1,5 @@
 import HelloWorld from '@c/HelloWorld';
-import Upload from '@/components/Upload';
+import follow from '@/components/Upload';
 import Download from '@/components/Download';
 
 
@@ -12,9 +12,9 @@ export default {
     name: 'home',
     component: HelloWorld
   }, {
-    path: '/upload',
-    name: 'upload',
-    component: Upload
+    path: '/follow',
+    name: 'follow',
+    component: follow
   }, {
     path: '/download',
     name: 'download',

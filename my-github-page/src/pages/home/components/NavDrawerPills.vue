@@ -17,7 +17,6 @@
 
 <script type="text/ecmascript-6">
 import BSModal from "@cc/bootstrap/Modal";
-
 let anchorArray = [
   { name: "Portfolio", href: "#portfolio" },
   { name: "Blog", href: "#blog" },
@@ -169,10 +168,10 @@ $border-radius: 1rem;
     // padding: 0.1rem;
     margin: 0;
 
-    > li {
+    > [class^="col-"] {
       position: relative;
       display: block;
-      outline-offset: 3px solid black;
+
       > a {
         text-align: center;
         font-weight: 600;
@@ -182,15 +181,29 @@ $border-radius: 1rem;
         padding: $nav-link-padding;
         color: $main-color;
         text-decoration: none;
-        // border-radius: $border-radius $border-radius;
-        border-bottom: 0.2rem solid transparent;
+
+        &:after {
+          content: "";
+          display: block;
+          position: absolute;
+          bottom: 0;
+          width: 0;
+          left: 50%;
+          transition: 0.2s all linear;
+        }
 
         &:hover,
+        &.active,
         &:active {
-          // background-color: linear-gradient(-45deg, #, transparent);
-          border-bottom: 0.2rem solid #9bbaa5;
-          @include box-shadow-up();
+          &:after {
+            border-bottom: 0.3rem solid #9bbaa5;
+            width: 100%;
+            left: 0;
+            @include box-shadow-up();
+          }
+          transition: 0.2s all linear;
         }
+
         &.active {
           color: whitesmoke;
           text-shadow: 0.1rem 0.1rem 0.1rem $main-color;

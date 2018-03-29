@@ -1,4 +1,5 @@
 import HomePage from '@/pages/home/components/HomePage';
+import follow from '@/pages/other/follow';
 
 
 export default {
@@ -10,9 +11,9 @@ export default {
     name: 'home',
     component: HomePage
   }, {
-    path: '/upload',
-    name: 'upload',
-    component: HomePage
+    path: '/follow',
+    name: 'follow',
+    component: follow
   }, {
     path: '/download',
     name: 'download',

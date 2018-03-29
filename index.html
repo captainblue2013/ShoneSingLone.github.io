@@ -1,138 +1,57 @@
 <!DOCTYPE html>
-<html lang="zh-cmn-Hans">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>ShoneSingLone's MicroSite</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <!-- js -->
-    <script data-main="./public/javascripts/requirejs/main" src="./public/javascripts/require.js"></script>
-    <!-- css -->
-    <link href="./public/bootstrap/css/bootstrap-Shone.css" rel="stylesheet" media="screen">
-    <link href="./public/stylesheets/animate.min.css" rel="stylesheet" media="screen" id="themeCss">
-    <link href="./public/stylesheets/main.css" rel="stylesheet" media="screen" id="themeCss">
-    <link href="./public/favicon.ico" rel="shortcut icon" type="image/png" />
+    <meta charset=utf-8>
+    <meta name=viewport content="width=device-width,initial-scale=1">
+    <title>ShoneSingLone'zone</title>
+    <link rel=apple-touch-icon sizes=57x57 href=/public/icons-73812d4298ff13a58a8fee138e81e81d/apple-touch-icon-57x57.png>
+    <link rel=apple-touch-icon sizes=60x60 href=/public/icons-73812d4298ff13a58a8fee138e81e81d/apple-touch-icon-60x60.png>
+    <link rel=apple-touch-icon sizes=72x72 href=/public/icons-73812d4298ff13a58a8fee138e81e81d/apple-touch-icon-72x72.png>
+    <link rel=apple-touch-icon sizes=76x76 href=/public/icons-73812d4298ff13a58a8fee138e81e81d/apple-touch-icon-76x76.png>
+    <link rel=apple-touch-icon sizes=114x114 href=/public/icons-73812d4298ff13a58a8fee138e81e81d/apple-touch-icon-114x114.png>
+    <link rel=apple-touch-icon sizes=120x120 href=/public/icons-73812d4298ff13a58a8fee138e81e81d/apple-touch-icon-120x120.png>
+    <link rel=apple-touch-icon sizes=144x144 href=/public/icons-73812d4298ff13a58a8fee138e81e81d/apple-touch-icon-144x144.png>
+    <link rel=apple-touch-icon sizes=152x152 href=/public/icons-73812d4298ff13a58a8fee138e81e81d/apple-touch-icon-152x152.png>
+    <link rel=apple-touch-icon sizes=180x180 href=/public/icons-73812d4298ff13a58a8fee138e81e81d/apple-touch-icon-180x180.png>
+    <meta name=apple-mobile-web-app-capable content=yes>
+    <meta name=apple-mobile-web-app-status-bar-style content=black-translucent>
+    <meta name=apple-mobile-web-app-title content="Webpack App">
+    <link rel=icon type=image/png sizes=32x32 href=/public/icons-73812d4298ff13a58a8fee138e81e81d/favicon-32x32.png>
+    <link rel=icon type=image/png sizes=16x16 href=/public/icons-73812d4298ff13a58a8fee138e81e81d/favicon-16x16.png>
+    <link rel="shortcut icon" href=/public/icons-73812d4298ff13a58a8fee138e81e81d/favicon.ico>
+    <meta name=mobile-web-app-capable content=yes>
+    <meta name=theme-color content=#fff>
+    <meta name=application-name content="Webpack App">
+    <link rel=apple-touch-startup-image media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)"
+        href=/public/icons-73812d4298ff13a58a8fee138e81e81d/apple-touch-startup-image-320x460.png>
+    <link rel=apple-touch-startup-image media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)"
+        href=/public/icons-73812d4298ff13a58a8fee138e81e81d/apple-touch-startup-image-640x920.png>
+    <link rel=apple-touch-startup-image media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)"
+        href=/public/icons-73812d4298ff13a58a8fee138e81e81d/apple-touch-startup-image-640x1096.png>
+    <link rel=apple-touch-startup-image media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)"
+        href=/public/icons-73812d4298ff13a58a8fee138e81e81d/apple-touch-startup-image-750x1294.png>
+    <link rel=apple-touch-startup-image media="(device-width: 414px) and (device-height: 736px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3)"
+        href=/public/icons-73812d4298ff13a58a8fee138e81e81d/apple-touch-startup-image-1182x2208.png>
+    <link rel=apple-touch-startup-image media="(device-width: 414px) and (device-height: 736px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3)"
+        href=/public/icons-73812d4298ff13a58a8fee138e81e81d/apple-touch-startup-image-1242x2148.png>
+    <link rel=apple-touch-startup-image media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)"
+        href=/public/icons-73812d4298ff13a58a8fee138e81e81d/apple-touch-startup-image-748x1024.png>
+    <link rel=apple-touch-startup-image media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)"
+        href=/public/icons-73812d4298ff13a58a8fee138e81e81d/apple-touch-startup-image-768x1004.png>
+    <link rel=apple-touch-startup-image media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)"
+        href=/public/icons-73812d4298ff13a58a8fee138e81e81d/apple-touch-startup-image-1496x2048.png>
+    <link rel=apple-touch-startup-image media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)"
+        href=/public/icons-73812d4298ff13a58a8fee138e81e81d/apple-touch-startup-image-1536x2008.png>
+    <link href=/public/static/css/home.e6c0a854d69821fa4b4b3f3f9748c8f1.css rel=stylesheet>
 </head>
 
 <body>
-    <div class="top-wrapper">
-        <header id="nav-top-bar" class="navbar navbar-default">
-            <div class="container">
-                <div id="wrap-toggle-darwer">
-                    <button id="toggle-darwer" type="button" class="navbar-toggle">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
-                <div id="myavatar">
-                    <div>
-                        <span id="portfolio-title">ShoneSingLone's MicroSite</span>
-                    </div>
-                </div>
-            </div>
-            <nav id="drawer">
-                <div class="container">
-                    <div class="nav nav-pills">
-                        <div class="col-sm-3 active">
-                            <a href="#portfolio">Portfolio</a>
-                        </div>
-                        <div class="col-sm-3">
-                            <a href="#blog">Blog</a>
-                        </div>
-                        <div class="col-sm-3">
-                            <a target="_blank" href="https://github.com/ShoneSingLone">GitHub</a>
-                        </div>
-                        <div class="col-sm-3">
-                            <a href="mailto:SingLone@foxmail.com">SingLone@foxmail.com</a>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-        </header>
-        <main id="main-content">
-            <div class="container">
-                <!-- container start -->
-                <div class="row">
-                    <!-- row start -->
-                    <div class="col-sm-8">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h2 class="" class="mdl-card__title-text">WII-chat</h2>
-                            </div>
-                            <div class="panel-body">
-                                <div class="mdl-card__supporting-text">learn WebSocket：a online multi-user chatroom based on socket.io
-                                    <p>感谢
-                                        <a href="https://leancloud.cn/">LeanCloud</a>提供的
-                                        <em>体验实例</em>，可以部署Node 服务端应用，而且提供HTTPS。
-                                        <em> 尽管有
-                                            <a href="https://leancloud.cn/docs/leanengine_plan.html#hash633315134">休眠策略</a>，
-                                            <a href="https://leancloud.cn/docs/leanengine_plan.html#%E4%BC%91%E7%9C%A0%E7%AD%96%E7%95%A5">每天 6 小时的强制休眠时间</a>
-                                        </em>
-                                        有概率用不了( ･´ω`･ )
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="panel-footer">
-                                <a class="btn btn-default" target="_blank" href="./chat.html" role="button">wii-chat»</a>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h2 class="" class="mdl-card__title-text">elem-app</h2>
-                            </div>
-                            <div class="panel-body">
-                                <div class="mdl-card__supporting-text">Vue.js高仿饿了么外卖App 1.0到2.0版本完美升级
-                                    <a target="_blank" href="http://coding.imooc.com/class/74.html">mooc</a>
-                                </div>
-                            </div>
-                            <div class="panel-footer">
-                                <a class="btn btn-default" target="_blank" href="./dist/index.html" role="button">elem-app»</a>
-                                </a>
-                                <!-- <a class="btn btn-default" target="_blank" href="https://shonesinglone.github.io/mindmap/project/VuePractice/elem-app/dist/#/goods" role="button">elem-app»</a> </a> -->
-                            </div>
-                        </div>
-                    </div>
-                    <!-- row end -->
-                </div>
-
-                <div id="main-coontainer-row" class="row">
-                    <!-- row start -->
-                    <div class="col-sm-4">
-                        <div id="main-container-row-col1"></div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div id="main-container-row-col2"></div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div id="main-container-row-col3"></div>
-                    </div>
-                    <!-- row end -->
-                </div>
-                <!-- container end -->
-            </div>
-        </main>
-    </div>
-    <footer id="footer">
-        <div class="footer-container">
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="logo left-section">My microSite</div>
-                </div>
-                <div class="col-sm-6">
-                    <ul class="link-list right-section">
-                        <li>
-                            <a href="#">Nothing</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <div id=app></div>
+    <script type=text/javascript src=/public/static/js/manifest.7703d0d044098cfca15d.js></script>
+    <script type=text/javascript src=/public/static/js/vendor.b633e2c0f20f78516ddc.js></script>
+    <script type=text/javascript src=/public/static/js/home.7cd746f565a049991908.js></script>
+    <script type=text/javascript src=/public/static/js/babel-polyfill.937ccc66b9246f10de33.js></script>
 </body>
 
 </html>

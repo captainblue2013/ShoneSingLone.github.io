@@ -3,8 +3,8 @@
     <transition name="drawer-fade">
       <ul class="row" v-show="isShowNav">
         <li class="col-sm-3" v-for="(anchor,index) in anchorArray">
-          <a :data-index="index" :href="anchor.href" :target="anchor.target" :class="{ active: index=== whichActiveAnchor}" @click="setActiveAnchor(index)">
-            {{anchor.name}}
+          <a :data-index="index" :href="anchor.href" :target="anchor.target" :class="{ active: index=== whichActiveAnchor}" @click="setActiveAnchor(index,anchor)">
+            {{anchor.title}}
           </a>
         </li>
       </ul>
@@ -18,14 +18,14 @@
 <script type="text/ecmascript-6">
 import BSModal from "@cc/bootstrap/Modal";
 let anchorArray = [
-  { name: "Portfolio", href: "#portfolio" },
-  { name: "Blog", href: "#blog" },
+  { title: "Portfolio", name: "home.portfolio" /* href: "#portfolio" */ },
+  { title: "Blog", name: "home.blog"/* , href: "#blog" */ },
   {
-    name: "GitHub",
+    title: "GitHub",
     href: "https://github.com/ShoneSingLone",
     target: "_blank"
   },
-  { name: "E-mail", href: "mailto:SingLone@foxmail.com" }
+  { title: "E-mail", href: "mailto:SingLone@foxmail.com" }
 ];
 export default {
   name: "NavDrawer",
@@ -46,8 +46,9 @@ export default {
     "bs-modal": BSModal
   },
   methods: {
-    setActiveAnchor(index) {
+    setActiveAnchor(index, anchor) {
       this.whichActiveAnchor = index;
+      this.$router.push({ name: anchor.name, query: { userId: 123 } });
     }
   },
   computed: {
@@ -111,7 +112,6 @@ $border-radius: 1rem;
         color: $main-color;
         text-decoration: none;
         border-radius: $border-radius $border-radius;
-
         &:hover,
         &:active,
         &.active {
@@ -173,6 +173,9 @@ $border-radius: 1rem;
       display: block;
 
       > a {
+        &:hover {
+          cursor: pointer;
+        }
         text-align: center;
         font-weight: 600;
         position: relative;

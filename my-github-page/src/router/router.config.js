@@ -2,7 +2,7 @@ import routeHome from './router.home'
 
 let routeDefult = {
   path: '*',
-  redirect: '/blog'
+  redirect: '/home'
 };
 export default {
   routes: [

@@ -31,7 +31,7 @@
 
 
 <script>
-import Progress from "@/components/Bootstrap/Progress";
+import Progress from "@cc/Bootstrap/Progress";
 let isLocal = ~location.href.indexOf("localhost");
 const reqURLCurrent = isLocal
   ? "http://localhost:3000"
@@ -103,7 +103,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped lang='scss'>
 img {
   width: 150px;
 }

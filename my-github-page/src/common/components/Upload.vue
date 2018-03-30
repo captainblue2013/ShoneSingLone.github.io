@@ -1,37 +1,35 @@
 <template>
-<div>
+  <div>
     <div class="hello row">
-    <form class="col-xs-6">
-      <!-- <div class="form-group">
+      <form class="col-xs-6">
+        <!-- <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
         <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email"> </div>
       <div class="form-group">
         <label for="exampleInputPassword1">Password</label>
         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"> </div> -->
-      <div class="form-group">
-        <label for="exampleInputFile">File input</label>
-        <input type="file" id="file" required @change="whenChangeShowImage($event)">
-        <!-- <p class="help-block">Example block-level help text here.</p> -->
-      </div>
-      <!-- <div class="checkbox">
+        <div class="form-group">
+          <label for="exampleInputFile">File input</label>
+          <input type="file" id="file" required @change="whenChangeShowImage($event)">
+          <!-- <p class="help-block">Example block-level help text here.</p> -->
+        </div>
+        <!-- <div class="checkbox">
         <label>
           <input type="checkbox"> Check me out </label>
       </div> -->
-      <button type="" class="btn btn-primary" @click="upload">Submit</button>
-    </form>
-    <div class="col-xs-6" v-if="imgSrc">
+        <button type="" class="btn btn-primary" @click="upload">Submit</button>
+      </form>
+      <div class="col-xs-6" v-if="imgSrc">
         <img :src="imgSrc" :alt="msg">
-
-        <Progress :width="progressWidth"></Progress>
+        <upload-progress :width="progressWidth"></upload-progress>
+      </div>
     </div>
   </div>
-</div>
 </template>
 
 
 <script>
-import Progress from "@/components/Bootstrap/Progress";
-import Progress2 from "@/components/Bootstrap/progress-test";
+import Progress from "@cc/Bootstrap/Progress";
 
 export default {
   name: "HelloWorld",
@@ -71,7 +69,7 @@ export default {
       }; //添加请求头
       // form = new FormData(form);
       let formData = new FormData();
-      formData.append("file", jQuery("#file")[0].files[0]);
+      formData.append("file", self.$jq("#file")[0].files[0]);
       console.dir(formData);
       let isLocal = ~location.href.indexOf("localhost");
       let reqURL =
@@ -85,11 +83,9 @@ export default {
       });
     },
     download() {
-      // let form = $("#upload-form");
       let config = {
         headers: { "Content-Type": "multipart/form-data" }
       }; //添加请求头
-      // form = new FormData(form);
       let formData = new FormData();
       formData.append("file", jQuery("#file")[0].files[0]);
       console.dir(formData);
@@ -113,14 +109,13 @@ export default {
     }
   },
   components: {
-    Progress,
-    Progress2
+    "upload-progress": Progress
   }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped lang='scss'>
 img {
   width: 150px;
 }

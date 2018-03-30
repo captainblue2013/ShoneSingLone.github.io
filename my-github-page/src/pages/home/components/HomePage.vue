@@ -2,6 +2,8 @@
   <layout-normal>
     <nav-top-bar slot="header" />
     <main slot="main" id="main-content" class="container">
+          <router-view></router-view>
+
       <!-- container start -->
       <div class="row">
         <template v-for="portfolio in portfolioArray">

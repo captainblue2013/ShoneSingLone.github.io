@@ -1,22 +1,15 @@
-import HomePage from '@/pages/home/components/HomePage';
-import follow from '@/pages/other/follow';
+import routeHome from './router.home'
 
-
-export default {
-  routes: [{
-    path: '*',
-    redirect: '/home'
-  }, {
-    path: '/home',
-    name: 'home',
-    component: HomePage
-  }, {
-    path: '/follow',
-    name: 'follow',
-    component: follow
-  }, {
-    path: '/download',
-    name: 'download',
-    component: HomePage
-  }]
+let routeDefult = {
+  path: '*',
+  redirect: '/blog'
 };
+export default {
+  routes: [
+    routeDefult,
+    routeHome
+  ]
+};
+
+
+// [, { path: '/follow', name: 'follow', component: follow }, { path: '/download', name: 'download', component: HomePage }]

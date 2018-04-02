@@ -2,7 +2,7 @@ import routeHome from './router.home'
 
 let routeDefult = {
   path: '*',
-  redirect: '/home'
+  redirect: '/home/portfolio'
 };
 export default {
   routes: [

@@ -84,4 +84,7 @@ li {
 a {
   color: #42b983;
 }
+main {
+  overflow: auto;
+}
 </style>

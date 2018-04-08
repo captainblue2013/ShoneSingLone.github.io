@@ -19,6 +19,10 @@ export default {
 
 <style lang="scss">
 @import "../../common/scss/my_variables";
+html,
+body {
+  overflow: hidden;
+}
 
 html,
 body,

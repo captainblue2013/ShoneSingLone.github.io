@@ -85,6 +85,7 @@ $border-bottom-height: 0.4rem;
 $border-radius: 1rem;
 
 .panel {
+  background-color: #f9fdfc;
   @include box-shadow-down();
   &:hover {
     @include box-shadow-up();

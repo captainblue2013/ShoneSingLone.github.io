@@ -1,7 +1,7 @@
 <template>
   <div>
-    <template v-for="portfolio in portfolioArray">
-      <panel-card :portfolio="portfolio" />
+    <template v-for="blog in blogArray">
+      <panel-card :card="blog" />
     </template>
   </div>
 </template>
@@ -12,106 +12,45 @@ import PanelCard from "./PanelCard";
 export default {
   name: "Blog",
   data() {
-    return {
-      portfolioArray: [
-        {
-          heading: { content: "WII-chat", url: "" },
-          body: {
-            content:
-              'learn WebSocket：a online multi-user chatroom based on socket.io <p>感谢 <a href="https://leancloud.cn/">LeanCloud</a>提供的 <em>体验实例</em>，可以部署Node 服务端应用，而且提供HTTPS。 <em> 尽管有 <a href="https://leancloud.cn/docs/leanengine_plan.html#hash633315134">休眠策略</a>， <a href="https://leancloud.cn/docs/leanengine_plan.html#%E4%BC%91%E7%9C%A0%E7%AD%96%E7%95%A5">每天 6 小时的强制休眠时间</a> </em> 有概率用不了( ･´ω`･ ) </p>'
-          },
-          footer: {
-            content:
-              '<a class="btn btn-default" target="_blank" href="./chat.html" role="button">wii-chat»</a> </a>'
-          }
-        },
-        {
-          heading: { content: "WII-chat", url: "" },
-          body: {
-            content:
-              'learn WebSocket：a online multi-user chatroom based on socket.io <p>感谢 <a href="https://leancloud.cn/">LeanCloud</a>提供的 <em>体验实例</em>，可以部署Node 服务端应用，而且提供HTTPS。 <em> 尽管有 <a href="https://leancloud.cn/docs/leanengine_plan.html#hash633315134">休眠策略</a>， <a href="https://leancloud.cn/docs/leanengine_plan.html#%E4%BC%91%E7%9C%A0%E7%AD%96%E7%95%A5">每天 6 小时的强制休眠时间</a> </em> 有概率用不了( ･´ω`･ ) </p>'
-          },
-          footer: {
-            content:
-              '<a class="btn btn-default" target="_blank" href="./chat.html" role="button">wii-chat»</a> </a>'
-          }
-        },
-        {
-          heading: { content: "WII-chat", url: "" },
-          body: {
-            content:
-              'learn WebSocket：a online multi-user chatroom based on socket.io <p>感谢 <a href="https://leancloud.cn/">LeanCloud</a>提供的 <em>体验实例</em>，可以部署Node 服务端应用，而且提供HTTPS。 <em> 尽管有 <a href="https://leancloud.cn/docs/leanengine_plan.html#hash633315134">休眠策略</a>， <a href="https://leancloud.cn/docs/leanengine_plan.html#%E4%BC%91%E7%9C%A0%E7%AD%96%E7%95%A5">每天 6 小时的强制休眠时间</a> </em> 有概率用不了( ･´ω`･ ) </p>'
-          },
-          footer: {
-            content:
-              '<a class="btn btn-default" target="_blank" href="./chat.html" role="button">wii-chat»</a> </a>'
-          }
-        },
-        {
-          heading: { content: "WII-chat", url: "" },
-          body: {
-            content:
-              'learn WebSocket：a online multi-user chatroom based on socket.io <p>感谢 <a href="https://leancloud.cn/">LeanCloud</a>提供的 <em>体验实例</em>，可以部署Node 服务端应用，而且提供HTTPS。 <em> 尽管有 <a href="https://leancloud.cn/docs/leanengine_plan.html#hash633315134">休眠策略</a>， <a href="https://leancloud.cn/docs/leanengine_plan.html#%E4%BC%91%E7%9C%A0%E7%AD%96%E7%95%A5">每天 6 小时的强制休眠时间</a> </em> 有概率用不了( ･´ω`･ ) </p>'
-          },
-          footer: {
-            content:
-              '<a class="btn btn-default" target="_blank" href="./chat.html" role="button">wii-chat»</a> </a>'
-          }
-        },
-        {
-          heading: { content: "WII-chat", url: "" },
-          body: {
-            content:
-              'learn WebSocket：a online multi-user chatroom based on socket.io <p>感谢 <a href="https://leancloud.cn/">LeanCloud</a>提供的 <em>体验实例</em>，可以部署Node 服务端应用，而且提供HTTPS。 <em> 尽管有 <a href="https://leancloud.cn/docs/leanengine_plan.html#hash633315134">休眠策略</a>， <a href="https://leancloud.cn/docs/leanengine_plan.html#%E4%BC%91%E7%9C%A0%E7%AD%96%E7%95%A5">每天 6 小时的强制休眠时间</a> </em> 有概率用不了( ･´ω`･ ) </p>'
-          },
-          footer: {
-            content:
-              '<a class="btn btn-default" target="_blank" href="./chat.html" role="button">wii-chat»</a> </a>'
-          }
-        },
-        {
-          heading: { content: "WII-chat", url: "" },
-          body: {
-            content:
-              'learn WebSocket：a online multi-user chatroom based on socket.io <p>感谢 <a href="https://leancloud.cn/">LeanCloud</a>提供的 <em>体验实例</em>，可以部署Node 服务端应用，而且提供HTTPS。 <em> 尽管有 <a href="https://leancloud.cn/docs/leanengine_plan.html#hash633315134">休眠策略</a>， <a href="https://leancloud.cn/docs/leanengine_plan.html#%E4%BC%91%E7%9C%A0%E7%AD%96%E7%95%A5">每天 6 小时的强制休眠时间</a> </em> 有概率用不了( ･´ω`･ ) </p>'
-          },
-          footer: {
-            content:
-              '<a class="btn btn-default" target="_blank" href="./chat.html" role="button">wii-chat»</a> </a>'
-          }
-        },
-        {
-          heading: { content: "WII-chat", url: "" },
-          body: {
-            content:
-              'learn WebSocket：a online multi-user chatroom based on socket.io <p>感谢 <a href="https://leancloud.cn/">LeanCloud</a>提供的 <em>体验实例</em>，可以部署Node 服务端应用，而且提供HTTPS。 <em> 尽管有 <a href="https://leancloud.cn/docs/leanengine_plan.html#hash633315134">休眠策略</a>， <a href="https://leancloud.cn/docs/leanengine_plan.html#%E4%BC%91%E7%9C%A0%E7%AD%96%E7%95%A5">每天 6 小时的强制休眠时间</a> </em> 有概率用不了( ･´ω`･ ) </p>'
-          },
-          footer: {
-            content:
-              '<a class="btn btn-default" target="_blank" href="./chat.html" role="button">wii-chat»</a> </a>'
-          }
-        },
-        {
-          heading: { content: "WII-chat", url: "" },
-          body: {
-            content:
-              'learn WebSocket：a online multi-user chatroom based on socket.io <p>感谢 <a href="https://leancloud.cn/">LeanCloud</a>提供的 <em>体验实例</em>，可以部署Node 服务端应用，而且提供HTTPS。 <em> 尽管有 <a href="https://leancloud.cn/docs/leanengine_plan.html#hash633315134">休眠策略</a>， <a href="https://leancloud.cn/docs/leanengine_plan.html#%E4%BC%91%E7%9C%A0%E7%AD%96%E7%95%A5">每天 6 小时的强制休眠时间</a> </em> 有概率用不了( ･´ω`･ ) </p>'
-          },
-          footer: {
-            content:
-              '<a class="btn btn-default" target="_blank" href="./chat.html" role="button">wii-chat»</a> </a>'
-          }
-        }
-      ]
-    };
+    return {};
   },
   computed: {
     panelTitle() {
       return this.$route.query.userId;
+    },
+    blogArray() {
+      return this.$store.getters["GET_BLOG_LIST"];
     }
   },
   components: {
     "panel-card": PanelCard
+  },
+  mounted() {},
+  methods: {},
+  beforeRouteEnter(to, from, next) {
+    next(vue => {
+      let dispatchAction = {
+        "home.blog": function(vue) {
+          vue.$store.dispatch("GET_BLOG_LIST");
+        }
+      };
+      dispatchAction[to.name](vue);
+    });
+    // 在渲染该组件的对应路由被 confirm 前调用
+    // 不！能！获取组件实例 `this`
+    // 因为当守卫执行前，组件实例还没被创建
+  },
+  beforeRouteUpdate(to, from, next) {
+    next();
+    // 在当前路由改变，但是该组件被复用时调用
+    // 举例来说，对于一个带有动态参数的路径 /foo/:id，在 /foo/1 和 /foo/2 之间跳转的时候，
+    // 由于会渲染同样的 Foo 组件，因此组件实例会被复用。而这个钩子就会在这个情况下被调用。
+    // 可以访问组件实例 `this`
+  },
+  beforeRouteLeave(to, from, next) {
+    next();
+    // 导航离开该组件的对应路由时调用
+    // 可以访问组件实例 `this`
   }
 };
 </script>

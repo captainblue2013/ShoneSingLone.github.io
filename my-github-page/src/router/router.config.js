@@ -4,6 +4,7 @@ let routeDefult = {
   path: '*',
   redirect: '/home/portfolio'
 };
+
 export default {
   routes: [
     routeDefult,

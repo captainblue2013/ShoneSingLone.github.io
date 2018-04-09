@@ -1,7 +1,7 @@
 <template>
   <div>
     <template v-for="portfolio in portfolioArray">
-      <panel-card :portfolio="portfolio" />
+      <panel-card :card="portfolio" />
     </template>
   </div>
 </template>

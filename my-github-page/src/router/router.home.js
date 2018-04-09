@@ -4,6 +4,7 @@ import Blog from '@/pages/home/components/Blog';
 import Upload from '@cc/Upload';
 import Download from '@cc/Download';
 
+
 // import follow from '@/pages/other/follow';
 
 export default {
@@ -13,11 +14,11 @@ export default {
   children: [{
     path: 'portfolio',
     name: 'home.portfolio',
-    component: Portfolio
+    component: Portfolio,
   }, {
     path: 'blog',
     name: 'home.blog',
-    component: Blog
+    component: Blog,
   }]
 };
 

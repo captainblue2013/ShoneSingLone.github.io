@@ -2,7 +2,7 @@
   <div class="col-md-3 col-sm-4">
     <div class="panel">
       <div class="panel-heading">
-        <h2 class="heading-text">{{hContent}}</h2>
+        <h2 class="heading-text" ref="heading"></h2>
       </div>
       <div class="panel-body">
         <div class="body-text" ref="body">
@@ -20,7 +20,7 @@
 export default {
   name: "PanelCard",
   props: {
-    portfolio: {
+    card: {
       type: Object,
       required: true,
       default: {}
@@ -36,9 +36,12 @@ export default {
   },
   mounted: function() {
     this.$nextTick(function() {
-      (($, vue) => {
-        $(vue.$refs["body"]).html(vue.portfolio.body.content);
-        $(vue.$refs["footer"]).html(vue.portfolio.footer.content);
+      (($, panel) => {
+        if (panel.card.heading && panel.card.body && panel.card.footer) {
+          $(panel.$refs["heading"]).html(panel.card.heading.content);
+          $(panel.$refs["body"]).html(panel.card.body.content);
+          $(panel.$refs["footer"]).html(panel.card.footer.content);
+        }
       })(this.jQuery, this);
     });
   },
@@ -50,7 +53,6 @@ export default {
   methods: {
     getHTML(htmlString) {
       let html = this.jQuery(htmlString);
-      console.log(html);
       return html;
     }
     /* 
@@ -60,9 +62,9 @@ export default {
    */
   },
   computed: {
-    hContent() {
-      return this.portfolio.heading.content;
-    }
+    // hContent() {
+    //   return this.card.heading.content;
+    // }
     /* 
     isShowNav() {
       if (!this.isMobile) return true;
@@ -97,7 +99,7 @@ $border-radius: 1rem;
   .heading-text {
     width: 100%;
     height: 10rem;
-    background: url("./assets/panel.jpg") 10% 45% / 100% no-repeat;
+    background: url("./assets/panel.jpg") 10% 25% / 100% no-repeat;
     border-radius: $border-radius;
   }
   .btn {

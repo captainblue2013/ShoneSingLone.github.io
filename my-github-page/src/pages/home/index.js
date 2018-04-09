@@ -20,6 +20,7 @@ Vue.config.productionTip = true;
 Vue.use(VueAxios, axios);
 Vue.use(VueJQ, jQuery);
 
+
 /* eslint-disable no-new */
 
 (function (vue, $ = vue.jQuery) {

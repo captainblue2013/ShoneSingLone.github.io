@@ -19,7 +19,7 @@
 import BSModal from "@cc/bootstrap/Modal";
 let anchorArray = [
   { title: "Portfolio", name: "home.portfolio" /* href: "#portfolio" */ },
-  { title: "Blog", name: "home.blog"/* , href: "#blog" */ },
+  { title: "Blog", name: "home.blog" /* , href: "#blog" */ },
   {
     title: "GitHub",
     href: "https://github.com/ShoneSingLone",

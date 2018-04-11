@@ -1,4 +1,6 @@
-import routeHome from './router.home'
+import routeHome from './router.home';
+import routeBlog from './router.blog';
+import routeTest from './router.test';
 
 let routeDefult = {
   path: '*',
@@ -8,7 +10,9 @@ let routeDefult = {
 export default {
   routes: [
     routeDefult,
-    routeHome
+    routeHome,
+    routeBlog,
+    routeTest
   ]
 };
 

@@ -1,13 +1,13 @@
 <template>
   <div>
-    <template v-for="blog in blogArray">
-      <panel-card :card="blog" />
+    <template v-for="article in blogArray">
+      <panel-card :article="article" />
     </template>
   </div>
 </template>
 
 <script>
-import PanelCard from "./PanelCard";
+import PanelBlogCard from "./PanelBlogCard";
 
 export default {
   name: "Blog",
@@ -23,11 +23,15 @@ export default {
     }
   },
   components: {
-    "panel-card": PanelCard
+    "panel-card": PanelBlogCard
   },
   mounted() {},
   methods: {},
   beforeRouteEnter(to, from, next) {
+    // import(/* webpackChunkName: "show" */ './show').then((show) => {
+    //   show('Webpack');
+    // })
+
     next(vue => {
       let dispatchAction = {
         "home.blog": function(vue) {
@@ -36,6 +40,7 @@ export default {
       };
       dispatchAction[to.name](vue);
     });
+
     // 在渲染该组件的对应路由被 confirm 前调用
     // 不！能！获取组件实例 `this`
     // 因为当守卫执行前，组件实例还没被创建

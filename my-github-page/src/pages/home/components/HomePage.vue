@@ -1,8 +1,8 @@
 <template>
   <layout-normal>
     <nav-top-bar slot="header" />
-    <main slot="main" id="main-content" class="container">
-      <div class="row">
+    <main slot="main" id="main-content">
+      <div class="container">
         <router-view></router-view>
       </div>
       <!--  
@@ -29,9 +29,7 @@
       <!-- row end -->
 
       <!-- container end -->
-    </main>
-    <footer id="footer" slot="footer">
-      <div class="footer-container">
+      <footer id="footer" slot="footer" class="footer-container">
         <div class="row">
           <div class="col-sm-6">
             <div class="logo left-section">My microSite</div>
@@ -44,8 +42,8 @@
             </ul>
           </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </main>
   </layout-normal>
 </template>
 
@@ -85,6 +83,9 @@ a {
   color: #42b983;
 }
 main {
-  overflow: auto;
+  overflow: visible;
+  // overflow-x: hidden;
+  // width: 100%;
+  // max-height: 100vh;
 }
 </style>

@@ -27,7 +27,7 @@ body {
 html,
 body,
 #app {
-  min-height: 100vh;
+  height: 100vh;
   // min-width: 375px;
   font-size: 16px;
   color: $main-color;

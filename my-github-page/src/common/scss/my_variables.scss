@@ -1,4 +1,5 @@
 $main-color: #1b4209;
+$border-radius: 1rem;
 
 @mixin box-shadow-up {
     box-shadow: 8px 10px 20px 0 rgba(46, 61, 73, 0.15);
@@ -26,4 +27,18 @@ $main-color: #1b4209;
     .fade-enter-to {
         opacity: 1;
     }
+}
+
+@mixin panel-base {
+    background-color: #f9fdfc;
+
+    @include box-shadow-down;
+
+    &:hover {
+        @include box-shadow-up;
+    }
+
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    border-radius: $border-radius;
 }

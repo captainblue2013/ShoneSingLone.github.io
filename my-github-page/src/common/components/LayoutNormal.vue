@@ -20,16 +20,17 @@ export default {
   display: flex;
   flex-flow: column nowrap;
   overflow: hidden;
+  max-height: 100vh;
   main {
     order: 20;
     flex: 1;
+    margin: auto 0;
   }
   header {
     order: 10;
   }
   footer {
     order: 30;
-    margin: auto 0;
   }
 }
 </style>

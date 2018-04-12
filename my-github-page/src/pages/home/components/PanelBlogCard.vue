@@ -1,29 +1,28 @@
 <template>
-  <div class="col-sm-12">
-    <div class="panel">
-      <div class="heading">
-        <h2 class="title" ref="heading" @click="toDetail(article.id)">
-          <span>{{article.title}}</span>
-        </h2>
-      </div>
-      <div class="panel-body">
-        <div class="body-text" ref="body">
-          <p> {{article.introduction}}
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="panel">
+        <div class="heading">
+          <h2 class="title" ref="heading" @click="toDetail(article.id)">
+            <span>{{article.title}}</span>
+          </h2>
+        </div>
+        <div class="body">
+          <p class="introduction" ref="body">
+            <span> {{article.introduction.trim()}}
+            </span>
           </p>
         </div>
-      </div>
-      <div class="panel-footer" ref="footer">
-        <div class="minilogo"></div>
-        <div>
-          <strong>创建时间</strong>
-          <span class="time">{{createdDate}}</span>
+        <div class="panel-footer" ref="footer">
+          <div class="minilogo"></div>
+          <div>
+            <strong>创建时间</strong>
+            <span class="time">{{createdDate}}</span>
+          </div>
         </div>
       </div>
-
     </div>
-
   </div>
-
 </template>
 
 <script type="text/ecmascript-6">
@@ -111,17 +110,11 @@ export default {
 @import "../../../common/scss/my_variables";
 
 $border-bottom-height: 0.4rem;
-$border-radius: 1rem;
 
 .panel {
-  background-color: #f9fdfc;
-  @include box-shadow-down();
-  &:hover {
-    @include box-shadow-up();
-  }
-  margin: 0.5rem 0;
-  padding: 0.5rem;
-  border-radius: $border-radius;
+  @include panel-base();
+  word-wrap: break-word;
+
   .heading {
     background: url("./assets/panel.jpg") 10% 25% / 100% no-repeat;
     .title {
@@ -136,6 +129,7 @@ $border-radius: 1rem;
       span {
         position: absolute;
         bottom: 1rem;
+        right:1rem;
         left: 1rem;
       }
     }

@@ -1,14 +1,16 @@
 <template>
-  <div class="col-md-3 col-sm-4">
-    <div class="panel">
-      <div class="panel-heading">
-        <h2 class="heading-text" ref="heading"></h2>
-      </div>
-      <div class="panel-body">
-        <div class="body-text" ref="body">
+  <div class="row">
+    <div class="col-md-3 col-sm-4">
+      <div class="panel">
+        <div class="panel-heading">
+          <h2 class="heading-text" ref="heading"></h2>
         </div>
-      </div>
-      <div class="panel-footer" ref="footer">
+        <div class="panel-body">
+          <div class="body-text" ref="body">
+          </div>
+        </div>
+        <div class="panel-footer" ref="footer">
+        </div>
       </div>
     </div>
   </div>

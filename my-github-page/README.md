@@ -107,3 +107,9 @@ function debounce(method,context){
 
 - 利用《CSS揭秘》提示的flex方式完成stichy-footer。
 - 利用Vue响应式的特点完成Nav active样式的切换。以数组机构组织导航数据，比较当前active的序号是否匹配而决定是否添加`.active`样式。因click事件改变当前activeAnchor。
+
+## ~~以后来优化吧。~~
+
+- 前端的路由跳转后会重新渲染，可以细分那些模块是不需要这样处理。
+- 2018年4月12日13:59:51为何同样的模块，App.vue container经过路由之后宽度就不是100%了？目前是添加了width:100%在style中......应该是媒体查询，不应该用widt：100%；(还是 container 和row的嵌套关系，最开始是将row放在父元素，改为子元素自己决定，父元素作为容器是最好的)
+

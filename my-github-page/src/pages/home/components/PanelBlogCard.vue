@@ -112,7 +112,7 @@ export default {
 $border-bottom-height: 0.4rem;
 
 .panel {
-  @include panel-base();
+  @include shadow-base();
   word-wrap: break-word;
 
   .heading {

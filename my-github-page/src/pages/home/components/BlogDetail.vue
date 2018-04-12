@@ -1,11 +1,13 @@
 <template>
   <div class="blog-detail ">
     <!--  -->
-    <main class="content container">
+    <main class="container content">
       <!--  -->
-      <div class=" row">
+      <div class="row back-blog">
         <div class="col-md-12">
-          <a class=" back glyphicon glyphicon-menu-left" href="index.html" title="go back" role="button"> </a>
+          <div class="wrapper">
+            <i class=" btn glyphicon glyphicon-menu-left" href="index.html" title="go back"> </i>
+          </div>
         </div>
       </div>
       <!--  -->
@@ -13,29 +15,27 @@
       <div class="row posts">
         <div class="col-md-8">
           <div class="title">
-            <h3>On the road again</h3>
+            <h3 class="text">On the road again</h3>
           </div>
           <div class="meta">
             <div class="minilogo">
-              <div>
-                <strong>The Newist</strong>
-                <span>2 days ago</span>
-              </div>
+              <strong>The Newist</strong>
+              <span>2 days ago</span>
             </div>
 
             <div class="section-spacer">
-              <div class="meta__favorites">
+              <div class="favorites">
                 425
-                <i class="material-icons" role="presentation">favorite</i>
-                <span class="visuallyhidden">favorites</span>
+                <i class="glyphicon glyphicon-heart"></i>
+                <span class="hidden">favorites</span>
               </div>
-              <div>
-                <i class="material-icons" role="presentation">bookmark</i>
-                <span class="visuallyhidden">bookmark</span>
+              <div class="bookmark">
+                <i class="glyphicon glyphicon-bookmark"></i>
+                <span class="hidden">bookmark</span>
               </div>
-              <div>
-                <i class="material-icons" role="presentation">share</i>
-                <span class="visuallyhidden">share</span>
+              <div class="share">
+                <i class="glyphicon glyphicon-share"></i>
+                <span class="hidden">share</span>
               </div>
             </div>
 
@@ -212,126 +212,39 @@
         </div>
 
       </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="comments">
-            <form>
-              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <textarea rows=1 class="mdl-textfield__input" id="comment"></textarea>
-                <label for="comment" class="mdl-textfield__label">Join the discussion</label>
-              </div>
-              <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-                <i class="material-icons" role="presentation">check</i>
-                <span class="visuallyhidden">add comment</span>
-              </button>
-            </form>
-            <div class="comment mdl-color-text--grey-700">
-              <header class="comment__header">
-                <img src="images/co1.jpg" class="comment__avatar">
-                <div class="comment__author">
-                  <strong>James Splayd</strong>
-                  <span>2 days ago</span>
-                </div>
-              </header>
-              <div class="comment__text">
-                In in culpa nulla elit esse. Ex cillum enim aliquip sit sit ullamco ex eiusmod fugiat. Cupidatat ad minim officia mollit laborum magna dolor tempor cupidatat mollit. Est velit sit ad aliqua ullamco laborum excepteur dolore proident incididunt in labore elit.
-              </div>
-              <nav class="comment__actions">
-                <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-                  <i class="material-icons" role="presentation">thumb_up</i>
-                  <span class="visuallyhidden">like comment</span>
-                </button>
-                <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-                  <i class="material-icons" role="presentation">thumb_down</i>
-                  <span class="visuallyhidden">dislike comment</span>
-                </button>
-                <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-                  <i class="material-icons" role="presentation">share</i>
-                  <span class="visuallyhidden">share comment</span>
-                </button>
-              </nav>
-              <div class="comment__answers">
-                <div class="comment">
-                  <header class="comment__header">
-                    <img src="images/co2.jpg" class="comment__avatar">
-                    <div class="comment__author">
-                      <strong>John Dufry</strong>
-                      <span>2 days ago</span>
-                    </div>
-                  </header>
-                  <div class="comment__text">
-                    Yep, agree!
-                  </div>
-                  <nav class="comment__actions">
-                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-                      <i class="material-icons" role="presentation">thumb_up</i>
-                      <span class="visuallyhidden">like comment</span>
-                    </button>
-                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-                      <i class="material-icons" role="presentation">thumb_down</i>
-                      <span class="visuallyhidden">dislike comment</span>
-                    </button>
-                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-                      <i class="material-icons" role="presentation">share</i>
-                      <span class="visuallyhidden">share comment</span>
-                    </button>
-                  </nav>
-                </div>
-              </div>
-            </div>
-          </div>
 
-        </div>
-      </div>
-      <!-- nav new or older -->
-      <div class="row">
+      <!-- nav newer or older -->
+      <div class="row nav-back-forward">
         <nav class="col-md-12">
-          <a href="index.html" class="glyphicon glyphicon-arrow-left">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-              <i class="material-icons">arrow_back</i>
-            </button>
-            Newer
-          </a>
-          <div class="section-spacer"></div>
-          <a href="index.html" class="demo-nav__button">
-            Older
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-              <i class="material-icons">arrow_forward</i>
-            </button>
-          </a>
+          <ul class="wrapper">
+            <li class="newer">
+              <i class="glyphicon glyphicon-arrow-left"></i>
+              Newer
+            </li>
+            <li class="older">
+              Older
+              <i class="glyphicon glyphicon-arrow-right"></i>
+            </li>
+          </ul>
         </nav>
-
       </div>
 
-      <!--       <footer class="row mdl-mini-footer">
-        <div class="mdl-mini-footer--left-section">
-          <button class="mdl-mini-footer--social-btn social-btn social-btn__twitter">
-            <span class="visuallyhidden">Twitter</span>
-          </button>
-          <button class="mdl-mini-footer--social-btn social-btn social-btn__blogger">
-            <span class="visuallyhidden">Facebook</span>
-          </button>
-          <button class="mdl-mini-footer--social-btn social-btn social-btn__gplus">
-            <span class="visuallyhidden">Google Plus</span>
-          </button>
+      <!-- comment begin -->
+      <div class="row comments">
+        <div class="col-md-12">
+          <comment-chat></comment-chat>
         </div>
-        <div class="mdl-mini-footer--right-section">
-          <button class="mdl-mini-footer--social-btn social-btn__share">
-            <i class="material-icons" role="presentation">share</i>
-            <span class="visuallyhidden">share</span>
-          </button>
-        </div>
-      </footer>
- -->
+      </div>
+      <!-- comment end -->
+
     </main>
     <!--  -->
-    <div class="mdl-layout__obfuscator"></div>
   </div>
 
 </template>
 
 <script>
-import PanelBlogCard from "./PanelBlogCard";
+import PanelComments from "./PanelComments";
 
 export default {
   name: "Blog",
@@ -347,7 +260,7 @@ export default {
     }
   },
   components: {
-    "panel-card": PanelBlogCard
+    "comment-chat": PanelComments
   },
   mounted() {},
   methods: {},
@@ -391,7 +304,7 @@ export default {
 
 .blog-detail {
   background-attachment: fixed;
-  background-image: url(http://localhost:5000/templates/blog/images/bg_2048.jpg);
+  background-image: url(../../../common/assets/images/header-bg.jpg);
   background-size: cover;
 
   height: 100%;
@@ -400,32 +313,94 @@ export default {
     padding-top: 1rem;
     // background: linear-gradient(white 20%, transparent 40%, white);
 
-    .back {
-      position: relative;
-      // top: 16px;
-      left: 1rem;
-      text-decoration: none;
-      font-size: 2rem;
-      color: white;
-      z-index: 9999;
-      @include box-shadow-down;
-
-      &:hover {
-        @include box-shadow-up;
+    .back-blog {
+      .wrapper {
+        @include shadow-base();
+        color: $main-color;
+        border-radius: 50%;
+        width: 4rem;
+        height: 4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        i {
+          font-size: 2rem;
+          font-weight: 600;
+        }
       }
     }
     .posts {
-      @include panel-base();
+      @include shadow-base(false);
       .title {
-        color: black;
+        @include shadow-base(false);
+
+        position: relative;
+        background-image: url(http://localhost:5000/templates/blog/images/bg_2048.jpg);
+        color: whitesmoke;
         font-size: 2rem;
         line-height: 3rem;
+        height: 10rem;
+        .text {
+          position: absolute;
+          bottom: 1rem;
+          left: 1rem;
+          right: 1rem;
+        }
       }
       .meta {
         display: flex;
         flex-flow: row nowrap;
         justify-content: space-between;
-        margin-bottom: 1rem;
+        margin-bottom: 0.2rem;
+        padding: 0.5rem 0.2rem;
+        align-items: center;
+
+        .minilogo {
+          display: flex;
+          flex-flow: column nowrap;
+        }
+        .section-spacer {
+          display: flex;
+          flex-flow: row nowrap;
+          .favorites {
+            padding: 0 0.2rem;
+          }
+          .bookmark {
+            padding: 0 0.2rem;
+          }
+          .share {
+            padding: 0 0.2rem;
+          }
+        }
+      }
+
+      .post-widget {
+        @include shadow-base();
+      }
+    }
+    .nav-back-forward {
+      .wrapper {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        // @include shadow-base();
+        padding: 1rem 0;
+
+        .newer,
+        .older {
+          margin: 0;
+          padding: 1rem;
+          list-style: none;
+
+          color: $main-color;
+          text-decoration: none;
+          @include shadow-base();
+
+          i {
+            background-color: white;
+            color: $main-color;
+          }
+        }
       }
     }
   }

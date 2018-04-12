@@ -83,7 +83,8 @@ a {
   color: #42b983;
 }
 main {
-  overflow: visible;
+  overflow-y: auto;
+  overflow-x:hidden;
   // overflow-x: hidden;
   // width: 100%;
   // max-height: 100vh;

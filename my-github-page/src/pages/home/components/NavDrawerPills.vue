@@ -96,10 +96,10 @@ $border-radius: 1rem;
 
     overflow: hidden;
 
-    &:hover {
+/*     &:hover {
       @include box-shadow-down();
     }
-
+ */
     > li {
       position: relative;
       display: block;

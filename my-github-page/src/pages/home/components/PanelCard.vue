@@ -90,10 +90,8 @@ $border-radius: 1rem;
 
 .panel {
   background-color: #f9fdfc;
-  @include box-shadow-down();
-  &:hover {
-    @include box-shadow-up();
-  }
+  @include shadow-base();
+  @include click-base();
   margin: 0.5rem 0;
   padding: 0.5rem;
   border-radius: $border-radius;

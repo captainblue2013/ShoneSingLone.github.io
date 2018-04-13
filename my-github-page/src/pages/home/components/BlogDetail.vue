@@ -6,7 +6,7 @@
       <div class="row back-blog">
         <div class="col-md-12">
           <div class="wrapper">
-            <i class="glyphicon glyphicon-menu-left" href="index.html" title="go back"> </i>
+            <i class="glyphicon glyphicon-menu-left"> </i>
           </div>
         </div>
       </div>
@@ -168,7 +168,6 @@ export default {
   methods: {},
   beforeRouteEnter(to, from, next) {
     next(vue => {
-      debugger;
       if (to.params && to.params.id) {
         vue.blogDetail = to.params;
       } else {
@@ -177,7 +176,6 @@ export default {
         if (!article) {
           vue.$store.dispatch("GET_BLOG_DETAIL", id).then(blogInfo => {
             if (blogInfo) {
-              debugger;
               vue.blogDetail = blogInfo;
             }
           });
@@ -223,6 +221,8 @@ export default {
     .back-blog {
       .wrapper {
         @include shadow-base();
+        @include click-base();
+
         color: $main-color;
         border-radius: 50%;
         width: 4rem;
@@ -238,12 +238,12 @@ export default {
       }
     }
     .posts {
-      @include shadow-base(false);
+      @include shadow-base(true,false);
       .title {
-        @include shadow-base(false);
-
+        @include shadow-base(true,false);
+        border-radius: 1rem 1rem 0 0;
         position: relative;
-        background-image: url(http://localhost:5000/templates/blog/images/bg_2048.jpg);
+        background: url(./assets/blog-title2.jpg) left bottom /100% no-repeat;
         color: whitesmoke;
         font-size: 2rem;
         line-height: 3rem;
@@ -270,6 +270,7 @@ export default {
         .section-spacer {
           display: flex;
           flex-flow: row nowrap;
+          font-size: 1.4rem;
           .favorites {
             padding: 0 0.2rem;
           }
@@ -284,6 +285,7 @@ export default {
 
       .post-widget {
         @include shadow-base();
+        @include click-base();
       }
     }
     .nav-back-forward {
@@ -291,7 +293,6 @@ export default {
         display: flex;
         flex-flow: row nowrap;
         justify-content: space-between;
-        // @include shadow-base();
         padding: 1rem 0;
 
         .newer,
@@ -303,6 +304,7 @@ export default {
           color: $main-color;
           text-decoration: none;
           @include shadow-base();
+          @include click-base();
 
           i {
             background-color: white;

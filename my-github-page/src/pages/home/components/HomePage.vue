@@ -29,17 +29,19 @@
       <!-- row end -->
 
       <!-- container end -->
-      <footer id="footer" slot="footer" class="footer-container">
-        <div class="row">
-          <div class="col-sm-6">
-            <div class="logo left-section">My microSite</div>
-          </div>
-          <div class="col-sm-6">
-            <ul class="link-list right-section">
-              <li>
-                <a href="#">Nothing</a>
-              </li>
-            </ul>
+      <footer id="footer" slot="footer" class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="logo left-section">My microSite</div>
+            </div>
+            <div class="col-sm-6">
+              <ul class="link-list right-section">
+                <li>
+                  <a href="#">Nothing</a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </footer>
@@ -84,9 +86,16 @@ a {
 }
 main {
   overflow-y: auto;
-  overflow-x:hidden;
+  overflow-x: hidden;
+  display: flex;
+  flex-flow: column nowrap;
   // overflow-x: hidden;
   // width: 100%;
   // max-height: 100vh;
+  .container {
+    flex-grow: 1;
+  }
+  footer {
+  }
 }
 </style>

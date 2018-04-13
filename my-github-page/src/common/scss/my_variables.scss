@@ -1,16 +1,26 @@
 $main-color: #1b4209;
 $background-color: #f9fdfc;
+$background-fantasy: linear-gradient(cyan, transparent), linear-gradient(225deg, magenta, transparent), linear-gradient(45deg, yellow, transparent);
 
 $border-radius: 1rem;
 
 @mixin box-shadow-up {
-    box-shadow: 8px 10px 20px 0 rgba(46, 61, 73, 0.15);
+    box-shadow: 0.75rem 0.75rem 1.25rem 0.1rem rgba(46, 61, 73, 0.2);
     transition: all 0.3s ease;
 }
 
 @mixin box-shadow-down {
-    box-shadow: 2px 4px 8px 2px rgba(46, 61, 73, 0.2);
+    box-shadow: 0rem 0rem 0rem 0.02rem rgba(46, 61, 73, 1);
     transition: all 0.3s ease;
+}
+
+@mixin click-base {
+    cursor: pointer;
+
+    &:active {
+        box-shadow: inset 0rem 0rem 0rem 0.02rem rgba(46, 61, 73, 1);
+        transform: scale(0.999);
+    }
 }
 
 @mixin transition-fade {
@@ -30,16 +40,17 @@ $border-radius: 1rem;
     }
 }
 
-@mixin shadow-base($up: ture, $down: ture, $reverse: false, $margin: true, $padding: true, $radius: true) {
+/* 一般是down，可以按的才是up，reverse相反 */
+@mixin shadow-base($reverse: false, $up: ture, $down: ture, $margin: true, $padding: true, $radius: true) {
     background-color: $background-color;
 
-    @if not $reverse {
+    @if $reverse {
         @if $down {
             @include box-shadow-down;
         }
 
-        &:hover {
-            @if $up {
+        @if $up {
+            &:hover {
                 @include box-shadow-up;
             }
         }
@@ -49,8 +60,8 @@ $border-radius: 1rem;
             @include box-shadow-up;
         }
 
-        &:hover {
-            @if $down {
+        @if $down {
+            &:hover {
                 @include box-shadow-down;
             }
         }
@@ -64,7 +75,7 @@ $border-radius: 1rem;
         padding: 0.5rem;
     }
 
-    @if $border-radius {
+    @if $radius {
         border-radius: $border-radius;
     }
 }

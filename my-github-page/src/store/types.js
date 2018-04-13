@@ -21,3 +21,5 @@ export const SET_MODAL_HIDDEN = "SET_MODAL_HIDDEN";
 //blog
 // 切换的时候触发， watchgetter值， 如果有更新， 则替换
 export const GET_BLOG_LIST = "GET_BLOG_LIST";
+export const GET_BLOG_DETAIL = "GET_BLOG_DETAIL";
+export const SET_BLOG_DETAIL = "SET_BLOG_DETAIL";

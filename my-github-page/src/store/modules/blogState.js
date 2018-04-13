@@ -1,8 +1,10 @@
 import {
   GET_BLOG_LIST,
+  GET_BLOG_DETAIL,
+  SET_BLOG_DETAIL,
   HOST_NAME
 } from '../types';
-import Vue from 'vue';
+import vue from 'vue';
 
 
 function BlogCard(blogRecord) {
@@ -39,7 +41,8 @@ function BlogCard(blogRecord) {
 // initial state
 const
   state = {
-    blogArray: []
+    blogArray: [],
+    articleList: {}
   },
   getters = {
     [GET_BLOG_LIST]: (state) => {
@@ -52,13 +55,17 @@ const
         return blogArray;
       }
       return state.blogArray
+    },
+    [GET_BLOG_DETAIL]: (state) => (id) => {
+      return state.articleList[id];
     }
+
   },
   actions = {
     [GET_BLOG_LIST]({
       commit
     }) {
-      Vue.axios
+      vue.axios
         .get(HOST_NAME + "ajax/blog")
         .then(response => {
           if (200 === response.status) {
@@ -68,11 +75,38 @@ const
         .catch(error => {
           console.log(error);
         });
-    }
+    },
+    [GET_BLOG_DETAIL]({
+      commit
+    }, id) {
+      return new Promise((resolve, reject) => {
+        vue.axios
+          .post(window.remotHost + "p/blog", {
+            id
+          })
+          .then(response => {
+            if (200 === response.status) {
+              let blogInfo = response.data;
+              blogInfo.id = id;
+              resolve(blogInfo);
+            }
+          })
+          .catch(error => {
+            console.log(error);
+            reject(error);
+          });
+
+
+
+      });
+    },
   },
   mutations = {
     [GET_BLOG_LIST](state, blogArray) {
       state.blogArray = blogArray;
+    },
+    [SET_BLOG_DETAIL](state, articleInfo) {
+      state.articleList[articleInfo.id] = articleInfo;
     }
   };
 

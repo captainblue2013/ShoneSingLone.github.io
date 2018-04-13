@@ -19,6 +19,10 @@ Vue.config.productionTip = true;
 
 Vue.use(VueAxios, axios);
 Vue.use(VueJQ, jQuery);
+window.$ = jQuery;
+window.remotHost = ~window.location.hostname.indexOf("localhost") ?
+  "http://localhost:3000/" :
+  "https://shonesinglone.leanapp.cn/";
 
 
 /* eslint-disable no-new */

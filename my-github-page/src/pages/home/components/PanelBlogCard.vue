@@ -38,17 +38,17 @@ export default {
         date: Date.now(),
         id: "",
         introduction: "",
-        md: "md",
         title: "title"
       }
     }
   },
   data() {
+    /*用作对详细信息的缓存，如果*/
     return {
-      /* 
-      anchorArray,
-      whichActiveAnchor: 0
-     */
+      detail: {
+        available: false,
+        articleInfo: {}
+      }
     };
   },
   mounted: function() {
@@ -71,17 +71,23 @@ export default {
   },
   methods: {
     toDetail(id) {
-      this.$router.push({ name: "blog.detail", query: { id } });
-    },
-    getHTML(htmlString) {
-      let html = this.jQuery(htmlString);
-      return html;
+      let article = this.$store.getters["GET_BLOG_DETAIL"](id);
+      if (!article) {
+        this.$store.dispatch("GET_BLOG_DETAIL", id).then(blogInfo => {
+          this.$router.push({
+            name: "blog.detail",
+            query: { id },
+            params: blogInfo
+          });
+        });
+      }
     }
-    /* 
-    setActiveAnchor(index) {
-      this.whichActiveAnchor = index;
+  },
+  watch: {
+    detail: function(newInfo, oldInfo) {
+      if (newInfo.available) {
+      }
     }
-   */
   },
   computed: {
     createdDate() {
@@ -129,7 +135,7 @@ $border-bottom-height: 0.4rem;
       span {
         position: absolute;
         bottom: 1rem;
-        right:1rem;
+        right: 1rem;
         left: 1rem;
       }
     }

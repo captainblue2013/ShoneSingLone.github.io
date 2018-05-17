@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <div class="col-sm-12">
+    <div class="col-xs-12">
       <div class="panel">
         <div class="heading">
           <h2 class="title" ref="heading" @click="toDetail(article.id)">
@@ -8,9 +8,8 @@
           </h2>
         </div>
         <div class="body">
-          <p class="introduction" ref="body">
-            <span> {{article.introduction.trim()}}
-            </span>
+          <p class="introduction" ref="body" v-html="article.introduction">
+            
           </p>
         </div>
         <div class="panel-footer" ref="footer">
@@ -129,7 +128,7 @@ $border-bottom-height: 0.4rem;
       text-shadow: 0.5rem 0.5rem 1rem $main-color;
 
       cursor: pointer;
-      width: 100%;
+      // width: 100%;
       height: 10rem;
       border-radius: $border-radius;
       span {

@@ -21,7 +21,7 @@ export default {
 @import "../../common/scss/my_variables";
 html,
 body {
-  overflow: hidden;
+  // overflow: auto;
 }
 
 html,
@@ -32,4 +32,5 @@ body,
   font-size: 16px;
   color: $main-color;
 }
+
 </style>

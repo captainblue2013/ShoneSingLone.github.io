@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <template v-for="portfolio in portfolioArray">
       <panel-card :card="portfolio" />
     </template>
@@ -24,7 +24,8 @@ export default {
             content:
               '<a class="btn btn-default" target="_blank" href="./chat.html" role="button">wii-chat»</a> </a>'
           }
-        }]
+        }
+      ]
     };
   },
   components: {
@@ -35,5 +36,4 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang='scss'>
-
 </style>

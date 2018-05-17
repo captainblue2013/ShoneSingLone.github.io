@@ -4,7 +4,7 @@
       <div class="wrapper toggle-drawer right" v-if="isMobile" @click="toggleModal">
         <button-toggle-drawer />
       </div>
-      <div class="wrapper avatar">
+      <div class="wrapper avatar" @click="toggleLogin">
         <figure-avatar/>
       </div>
     </div>
@@ -12,11 +12,18 @@
       <nav-drawer-pills :isMobile="isMobile " />
       <!-- <nav-pills/> -->
     </nav>
+    <transition name="fade">
+      <div v-show="isShow.loginPanel" @click="toggleLogin">
+        <bs-modal /></bs-modal>
+      </div>
+    </transition>
+
   </header>
 </template>
 
 <script type="text/ecmascript-6">
 import ButtonToggleDrawer from "@cc/ButtonToggleDrawer";
+import BSModal from "@cc/bootstrap/Modal";
 import FigureAvatar from "./FigureAvatar";
 import NavPills from "./NavPills";
 import NavDrawerPills from "./NavDrawerPills";
@@ -25,7 +32,10 @@ export default {
   props: ["navbarTitle", "width", "toList", "isToggle"],
   data() {
     return {
-      brand: this.navbarTitle || "Control panel"
+      brand: this.navbarTitle || "Control panel",
+      isShow: {
+        loginPanel: false
+      }
     };
   },
   methods: {
@@ -37,13 +47,18 @@ export default {
           ? "SET_MODAL_HIDDEN"
           : "SET_MODAL_SHOW"
       );
+    },
+    toggleLogin() {
+      console.log("this.isShow.loginPanel", this.isShow.loginPanel);
+      this.isShow.loginPanel = !this.isShow.loginPanel;
     }
   },
   components: {
     "button-toggle-drawer": ButtonToggleDrawer,
     "nav-pills": NavPills,
     "nav-drawer-pills": NavDrawerPills,
-    "figure-avatar": FigureAvatar
+    "figure-avatar": FigureAvatar,
+    "bs-modal": BSModal
   },
   computed: {
     //根据视窗宽度决定是否显示ToggleButton
@@ -85,6 +100,17 @@ export default {
       justify-content: center;
     }
   }
+}
+.login {
   @include transition-fade();
+
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  background: rgba(7, 17, 27, 0.8);
 }
 </style>

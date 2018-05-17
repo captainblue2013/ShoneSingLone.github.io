@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <template v-for="article in blogArray">
       <panel-card :article="article" />
     </template>
@@ -62,5 +62,4 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang='scss'>
-
 </style>

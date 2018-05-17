@@ -19,7 +19,7 @@ export default {
   min-height: 100vh;
   display: flex;
   flex-flow: column nowrap;
-  overflow: hidden;
+  overflow: auto;
   max-height: 100vh;
   main {
     order: 20;

@@ -10,7 +10,9 @@
       </ul>
     </transition>
     <transition name="fade">
-      <bs-modal v-show="isShowModal" /></bs-modal>
+      <div v-show="isShowModal" @click="toggleModal">
+        <bs-modal /></bs-modal>
+      </div>
     </transition>
   </div>
 </template>
@@ -49,6 +51,15 @@ export default {
     setActiveAnchor(index, anchor) {
       this.whichActiveAnchor = index;
       this.$router.push({ name: anchor.name, query: { userId: 123 } });
+    },
+    toggleModal() {
+      let vue = this;
+      console.log("toggleModal", this.$store.state.mainState.isShowModal);
+      let command = vue.$store.state.mainState.isShowModal
+        ? "SET_MODAL_HIDDEN"
+        : "SET_MODAL_SHOW";
+      vue.$store.commit(command);
+      console.log("isShowModal", this.isShowModal);
     }
   },
   computed: {
@@ -70,7 +81,10 @@ export default {
 
 $border-bottom-height: 0.4rem;
 $border-radius: 1rem;
-
+button {
+  position: fixed;
+  z-index: 9999999;
+}
 .show-toggle {
   .row {
     position: absolute;
@@ -96,7 +110,7 @@ $border-radius: 1rem;
 
     overflow: hidden;
 
-/*     &:hover {
+    /*     &:hover {
       @include box-shadow-down();
     }
  */

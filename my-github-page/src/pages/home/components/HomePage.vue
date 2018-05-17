@@ -2,9 +2,7 @@
   <layout-normal>
     <nav-top-bar slot="header" />
     <main slot="main" id="main-content">
-      <div class="container">
-        <router-view></router-view>
-      </div>
+      <router-view></router-view>
       <!--  
         <div class="col-sm-4">
                     <div class="panel panel-default">
@@ -85,17 +83,13 @@ a {
   color: #42b983;
 }
 main {
-  overflow-y: auto;
-  overflow-x: hidden;
   display: flex;
   flex-flow: column nowrap;
-  // overflow-x: hidden;
-  // width: 100%;
-  // max-height: 100vh;
   .container {
     flex-grow: 1;
   }
   footer {
+    background-color: #42b983;
   }
 }
 </style>

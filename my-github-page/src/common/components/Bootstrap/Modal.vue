@@ -1,23 +1,9 @@
 <template>
-  <div class="modal" @click="toggleModal" />
+  <div class="modal" />
 </template>
 
 <script type="text/ecmascript-6">
-export default {
-  data() {
-    return { show: true };
-  },
-  methods: {
-    toggleModal() {
-      let vue = this;
-      let command = vue.$store.state.mainState.isShowModal
-        ? "SET_MODAL_HIDDEN"
-        : "SET_MODAL_SHOW";
-      vue.$store.commit(command);
-    }
-  },
-  computed: {}
-};
+export default {};
 </script>
 
 

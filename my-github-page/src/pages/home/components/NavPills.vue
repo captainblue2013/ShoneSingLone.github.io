@@ -19,7 +19,6 @@
 
 <script type="text/ecmascript-6">
 import ButtonToggleDrawer from "@cc/ButtonToggleDrawer";
-import FigureAvatar from "./FigureAvatar";
 
 export default {
   props: ["navbarTitle", "width", "toList", "isToggle"],
@@ -38,8 +37,7 @@ export default {
     }
   },
   components: {
-    "button-toggle-drawer": ButtonToggleDrawer,
-    "figure-avatar": FigureAvatar
+    "button-toggle-drawer": ButtonToggleDrawer
   },
   computed: {
     isShowToggle() {

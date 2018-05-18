@@ -1,46 +1,45 @@
 <template>
-  <div>
-    <transition name="fade">
-      <div class="detail" v-if="isShowDetail">
-        <div class="detail-wrapper clearfix">
-          <div class="detail-main">
-            <h1 class="name">{{seller.name}}</h1>
-            <div class="star-wrapper">
-              <star :size="48" :score="seller.score"></star>
-            </div>
-            <div class="title">
-              <div class="line"></div>
-              <div class="text">优惠信息</div>
-              <div class="line"></div>
-            </div>
-            <ul v-show="seller.supports" class="supports">
-              <li class="support-item" v-for="(item, index) in seller.supports">
-                <supports :support="item"></supports>
-                <span class="text">{{item.description}}</span>
-              </li>
-            </ul>
-            <div class="title">
-              <div class="line"></div>
-              <div class="text">商家公告</div>
-              <div class="line"></div>
-            </div>
-            <div class="bulletin">
-              <p class="content">{{seller.bulletin}}</p>
-            </div>
-          </div>
-        </div>
-        <div class="detail-close" @click="toggleDetail">
-          <i class="icon-close"></i>
-        </div>
-      </div>
-    </transition>
+  <div class="login wrapper">
+    <div method="post">
+      <input type="text" name="" v-model="user.name">
+      <input type="password" name="" v-model="user.pwd">
+      <button type="submit" v-on:click="login($event)">Login</button>
+    </div>
+
   </div>
 </template>
 
 <script type="text/ecmascript-6">
 // import BSModal from "@cc/bootstrap/Modal";
 
-export default {};
+export default {
+  data() {
+    return {
+      user: { name: "", pwd: "" },
+      erroeTip: false
+    };
+  },
+  methods: {
+    login($event) {
+      let vue = this;
+      vue.axios
+        .post(window.remotHost + "p/api", {
+          user: this.user
+        })
+        .then(response => {
+          debugger;
+          if (200 === response.status) {
+            let info = response.data;
+            console.log("info.sucess", info.sucess);
+            $emit("login", $event);
+          }
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
+  }
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -51,4 +50,17 @@ export default {};
 $border-bottom-height: 0.4rem;
 $border-radius: 1rem;
 
+.login {
+  .wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: $zindex-modal-background + 1;
+    background: linear-gradient(-45deg, whitesmoke, transparent 300%);
+    // background: linear-gradient(-45deg, rgb(4, 8, 1), transparent);
+    // opacity: 0.5;
+  }
+}
 </style>

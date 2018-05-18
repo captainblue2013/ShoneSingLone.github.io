@@ -4,7 +4,7 @@
       <div class="wrapper toggle-drawer right" v-if="isMobile" @click="toggleModal">
         <button-toggle-drawer />
       </div>
-      <div class="wrapper avatar" @click="toggleLogin">
+      <div class="wrapper avatar" @click="toggleLoginModal">
         <figure-avatar/>
       </div>
     </div>
@@ -13,8 +13,8 @@
       <!-- <nav-pills/> -->
     </nav>
     <transition name="fade">
-      <div v-show="isShow.loginPanel" @click="toggleLogin">
-        <bs-modal /></bs-modal>
+      <div v-show="isShow.loginPanel">
+        <panel-login v-on:login="toggleLoginModal" />
       </div>
     </transition>
 
@@ -27,6 +27,7 @@ import BSModal from "@cc/bootstrap/Modal";
 import FigureAvatar from "./FigureAvatar";
 import NavPills from "./NavPills";
 import NavDrawerPills from "./NavDrawerPills";
+import PanelLogin from "./PanelLogin";
 
 export default {
   props: ["navbarTitle", "width", "toList", "isToggle"],
@@ -48,8 +49,12 @@ export default {
           : "SET_MODAL_SHOW"
       );
     },
-    toggleLogin() {
+    toggleLoginModal() {
       console.log("this.isShow.loginPanel", this.isShow.loginPanel);
+      this.isShow.loginPanel = !this.isShow.loginPanel;
+    },
+    othertest(e) {
+      console.log("$e", e);
       this.isShow.loginPanel = !this.isShow.loginPanel;
     }
   },
@@ -58,6 +63,7 @@ export default {
     "nav-pills": NavPills,
     "nav-drawer-pills": NavDrawerPills,
     "figure-avatar": FigureAvatar,
+    "panel-login": PanelLogin,
     "bs-modal": BSModal
   },
   computed: {

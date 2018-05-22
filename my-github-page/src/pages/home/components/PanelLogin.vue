@@ -24,6 +24,7 @@ export default {
       let vue = this;
       vue.axios
         .post(window.remotHost + "p/api", {
+          type:"login",
           user: this.user
         })
         .then(response => {

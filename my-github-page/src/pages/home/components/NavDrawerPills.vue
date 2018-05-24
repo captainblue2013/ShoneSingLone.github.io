@@ -214,7 +214,9 @@ button {
         &:active {
           &:after {
             border-bottom: 0.3rem solid #9bbaa5;
+            // outline: 0.3rem solid #9bbaa5;
             width: 100%;
+            // height: 0;
             left: 0;
             @include box-shadow-up();
           }

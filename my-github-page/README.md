@@ -116,3 +116,4 @@ function debounce(method,context){
 ## 关于博文的来源
 
 1. 最开始是打算在location完成博文的处理，最终形成直接可读取的json文件。但是不仅繁琐，而且太依赖本地的构建，并不灵活。所以目前正试图利用Github的API直接读取字符串，在浏览器端进行分析处理。
+    1. https://api.github.com/repos/ShoneSingLone/GitBook/contents/

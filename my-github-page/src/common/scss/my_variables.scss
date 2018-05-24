@@ -1,82 +1,92 @@
 @import "./bootstrap/common";
+
 $main-color: #1b4209;
 $background-color: #f9fdfc;
-$background-fantasy: linear-gradient(cyan, transparent),
-linear-gradient(225deg, magenta, transparent),
-linear-gradient(45deg, yellow, transparent);
+$background-fantasy: linear-gradient(cyan, transparent), linear-gradient(225deg, magenta, transparent), linear-gradient(45deg, yellow, transparent);
+
 $border-radius: 1rem;
+
 @mixin box-shadow-up {
-  box-shadow: 0.75rem 0.75rem 1.25rem 0.1rem rgba(46, 61, 73, 0.2);
-  transition: all 0.3s ease;
+    box-shadow: 0.75rem 0.75rem 1.25rem 0.1rem rgba(46, 61, 73, 0.2);
+    transition: all 0.3s ease;
 }
 
 @mixin box-shadow-down {
-  box-shadow: 0rem 0rem 0rem 0.02rem rgba(46_, 61, 73, 1);
-  transition: all 0.3s ease;
+    box-shadow: 0rem 0rem 0rem 0.02rem rgba(46_, 61, 73, 1);
+    transition: all 0.3s ease;
 }
 
 @mixin click-base {
-  cursor: pointer;
-  &:active {
-    box-shadow: inset 0rem 0rem 0rem 0.02rem rgba(46, 61, 73, 1);
-    transform: scale(0.999);
-  }
+    cursor: pointer;
+
+    &:active {
+        box-shadow: inset 0rem 0rem 0rem 0.02rem rgba(46, 61, 73, 1);
+        transform: scale(0.999);
+    }
 }
 
 @mixin transition-fade {
-  .fade-enter-active,
-  .fade-leave-active {
-    transition: all 0.3s;
-  }
-  .fade-enter,
-  .fade-leave-to {
-    opacity: 0;
-  }
-  .fade-leave,
-  .fade-enter-to {
-    opacity: 1;
-  }
+    .fade-enter-active,
+    .fade-leave-active {
+        transition: all 0.3s;
+    }
+
+    .fade-enter,
+    .fade-leave-to {
+        opacity: 0;
+    }
+
+    .fade-leave,
+    .fade-enter-to {
+        opacity: 1;
+    }
 }
 
 /* 一般是down，可以按的才是up，reverse相反 */
 
 @mixin shadow-base($reverse: false, $up: ture, $down: ture, $margin: true, $padding: true, $radius: true) {
-  background-color: $background-color;
-  @if $reverse {
-    @if $down {
-      @include box-shadow-down;
+    background-color: $background-color;
+
+    @if $reverse {
+        @if $down {
+            @include box-shadow-down;
+        }
+
+        @if $up {
+            &:hover {
+                @include box-shadow-up;
+            }
+        }
     }
-    @if $up {
-      &:hover {
-        @include box-shadow-up;
-      }
+    @else {
+        @if $up {
+            @include box-shadow-up;
+        }
+
+        @if $down {
+            &:hover {
+                @include box-shadow-down;
+            }
+        }
     }
-  }
-  @else {
-    @if $up {
-      @include box-shadow-up;
+
+    @if $margin {
+        margin: 0.5rem 0;
     }
-    @if $down {
-      &:hover {
-        @include box-shadow-down;
-      }
+
+    @if $padding {
+        padding: 0.5rem;
     }
-  }
-  @if $margin {
-    margin: 0.5rem 0;
-  }
-  @if $padding {
-    padding: 0.5rem;
-  }
-  @if $radius {
-    border-radius: $border-radius;
-  }
+
+    @if $radius {
+        border-radius: $border-radius;
+    }
 }
 
 /* 解决移动端模式下panel溢出的问题 */
 
 @media (max-width: $screen-sm-min) {
-  .container {
-    width: 100%;
-  }
+    .container {
+        width: 100%;
+    }
 }

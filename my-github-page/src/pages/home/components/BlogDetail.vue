@@ -5,7 +5,7 @@
       <!--  -->
       <div class="row back-blog">
         <div class="col-md-12">
-          <div class="wrapper">
+          <div class="wrapper" @click="setActiveAnchor">
             <i class="glyphicon glyphicon-menu-left"> </i>
           </div>
         </div>
@@ -165,7 +165,11 @@ export default {
     this.blogDetail = this.$store.getters["GET_BLOG_DETAIL"](id);
    */
   },
-  methods: {},
+  methods: {
+    setActiveAnchor() {
+      this.$router.push({ name: "home.blog", query: { userId: 123 } });
+    }
+  },
   beforeRouteEnter(to, from, next) {
     next(vue => {
       if (to.params && to.params.id) {
@@ -238,12 +242,12 @@ export default {
       }
     }
     .posts {
-      @include shadow-base(true,false);
+      @include shadow-base(true, false);
       .title {
-        @include shadow-base(true,false);
+        @include shadow-base(true, false);
         border-radius: 1rem 1rem 0 0;
         position: relative;
-        background: url(./assets/blog-title2.jpg) left bottom /100% no-repeat;
+        background: url(./assets/blog-title2.jpg) left bottom / 100% no-repeat;
         color: whitesmoke;
         font-size: 2rem;
         line-height: 3rem;

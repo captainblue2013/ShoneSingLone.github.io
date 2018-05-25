@@ -1,5 +1,6 @@
 import routeHome from './router.home';
 import routeBlog from './router.blog';
+import routeTool from './router.tool';
 import routeTest from './router.test';
 
 let routeDefult = {
@@ -12,6 +13,7 @@ export default {
     routeDefult,
     routeHome,
     routeBlog,
+    routeTool,
     routeTest
   ]
 };

@@ -9,7 +9,7 @@
           <div class="body-text" ref="body">
           </div>
         </div>
-        <div class="panel-footer" ref="footer">
+        <div class="panel-footer" v-html="card.footer.content" @click="readMore(card.footer.)">
         </div>
       </div>
     </div>

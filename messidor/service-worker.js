@@ -17,10 +17,10 @@ const workboxSW = new WorkboxSW({
 workboxSW.precache([
   {
     "url": "/messidor/index.html",
-    "revision": "b8ffac303fd34c039cb08c8161e94e90"
+    "revision": "fc4884bd5e162c2367ad29ba85c1b476"
   },
   {
-    "url": "/messidor/static/css/index.b2850153.css"
+    "url": "/messidor/static/css/index.17eea96a.css"
   },
   {
     "url": "/messidor/static/fonts/MaterialIcons-Regular.012cf6a1.woff"
@@ -72,7 +72,7 @@ workboxSW.precache([
     "url": "/messidor/static/js/0.77ba67d1.js"
   },
   {
-    "url": "/messidor/static/js/1.fbf4c2aa.js"
+    "url": "/messidor/static/js/1.85511dba.js"
   },
   {
     "url": "/messidor/static/js/2.87544355.js"
@@ -81,16 +81,16 @@ workboxSW.precache([
     "url": "/messidor/static/js/3.0933f9de.js"
   },
   {
-    "url": "/messidor/static/js/index.423ae0b8.js"
+    "url": "/messidor/static/js/index.79fd9727.js"
   },
   {
-    "url": "/messidor/static/js/manifest.59b7f75c.js"
+    "url": "/messidor/static/js/manifest.857f6195.js"
   },
   {
-    "url": "/messidor/static/js/vendor.17ba7afe.js"
+    "url": "/messidor/static/js/vendor.ec57180c.js"
   },
   {
-    "url": "/messidor/static/js/vue.448d43b6.js"
+    "url": "/messidor/static/js/vue.adc8f9ae.js"
   },
   {
     "url": "/messidor/static/js/workbox-sw.prod.v2.1.3.js",

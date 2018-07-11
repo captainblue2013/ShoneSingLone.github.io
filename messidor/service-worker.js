@@ -17,10 +17,10 @@ const workboxSW = new WorkboxSW({
 workboxSW.precache([
   {
     "url": "/messidor/index.html",
-    "revision": "fc4884bd5e162c2367ad29ba85c1b476"
+    "revision": "ae89806caac271643a2e5de2676f374a"
   },
   {
-    "url": "/messidor/static/css/index.17eea96a.css"
+    "url": "/messidor/static/css/index.748cbb9f.css"
   },
   {
     "url": "/messidor/static/fonts/MaterialIcons-Regular.012cf6a1.woff"
@@ -30,43 +30,43 @@ workboxSW.precache([
   },
   {
     "url": "/messidor/static/img/icons/android-chrome-144x144.png",
-    "revision": "5fe3aebf485bcbea49f010cae2ffcc73"
+    "revision": "d7fd197e2405ea06205d6a4de05dd971"
   },
   {
     "url": "/messidor/static/img/icons/android-chrome-192x192.png",
-    "revision": "b8a42c4a3b00c4f75bc636f2923eaeca"
+    "revision": "177600e52eb49209b028b86fec896ce8"
   },
   {
     "url": "/messidor/static/img/icons/android-chrome-512x512.png",
-    "revision": "efbe0aa485b3aeaceb8ead9191f0c4c0"
+    "revision": "25810de46aaca1f6dafce61812131ad5"
   },
   {
     "url": "/messidor/static/img/icons/apple-touch-icon-120x120.png",
-    "revision": "b451e38c6ee4b03781b1019c518e7894"
+    "revision": "676edac47e6f1c1193a9e47160b05bb0"
   },
   {
     "url": "/messidor/static/img/icons/apple-touch-icon-152x152.png",
-    "revision": "83409fb3fe88cb94d7d3df5fe97569c9"
+    "revision": "fdb0fe887564abf2eea05d5d20d7777b"
   },
   {
     "url": "/messidor/static/img/icons/apple-touch-icon-180x180.png",
-    "revision": "0ff69c8fca81469c28f589d5fad0616e"
+    "revision": "3a67273ea320e06b31611a137af407c5"
   },
   {
     "url": "/messidor/static/img/icons/apple-touch-icon-60x60.png",
-    "revision": "4dc6fdc67611efce36a3c500cbe1c0ec"
+    "revision": "34b78f2da366321840351720f12d86db"
   },
   {
     "url": "/messidor/static/img/icons/apple-touch-icon-76x76.png",
-    "revision": "588079df8f1b8fde3b3cd691ee65bf06"
+    "revision": "0921def29e222306286d270749ba2977"
   },
   {
     "url": "/messidor/static/img/icons/favicon-16x16.png",
-    "revision": "3742528143340e36915adf388d64060f"
+    "revision": "bae066397ab82c385d3bf24b344e1e9d"
   },
   {
     "url": "/messidor/static/img/icons/favicon-32x32.png",
-    "revision": "047f3021e153c19951f86dd209904243"
+    "revision": "94725970641c2b2d160f5d1e526ba544"
   },
   {
     "url": "/messidor/static/js/0.77ba67d1.js"
@@ -81,7 +81,7 @@ workboxSW.precache([
     "url": "/messidor/static/js/3.0933f9de.js"
   },
   {
-    "url": "/messidor/static/js/index.79fd9727.js"
+    "url": "/messidor/static/js/index.e44848fe.js"
   },
   {
     "url": "/messidor/static/js/manifest.857f6195.js"

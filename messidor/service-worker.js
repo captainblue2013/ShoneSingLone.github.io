@@ -17,7 +17,7 @@ const workboxSW = new WorkboxSW({
 workboxSW.precache([
   {
     "url": "/messidor/index.html",
-    "revision": "fe4fbc55206c048f25ee3afd470c2138"
+    "revision": "b8ffac303fd34c039cb08c8161e94e90"
   },
   {
     "url": "/messidor/static/css/index.b2850153.css"
@@ -81,7 +81,7 @@ workboxSW.precache([
     "url": "/messidor/static/js/3.0933f9de.js"
   },
   {
-    "url": "/messidor/static/js/index.8d42fa1b.js"
+    "url": "/messidor/static/js/index.423ae0b8.js"
   },
   {
     "url": "/messidor/static/js/manifest.59b7f75c.js"

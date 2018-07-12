@@ -3,13 +3,13 @@
     <div class="col-md-3 col-sm-4">
       <div class="panel">
         <div class="panel-heading">
-          <h2 class="heading-text" ref="heading"></h2>
+          <h2 class="heading-text" v-html="card.heading.content"></h2>
         </div>
         <div class="panel-body">
-          <div class="body-text" ref="body">
+          <div class="body-text" v-html="card.body.content">
           </div>
         </div>
-        <div class="panel-footer" v-html="card.footer.content" @click="readMore(card.footer.)">
+        <div class="panel-footer" v-html="card.footer.content" @click="readMore(card.footer)">
         </div>
       </div>
     </div>
@@ -36,32 +36,16 @@ export default {
      */
     };
   },
-  mounted: function() {
-    this.$nextTick(function() {
-      (($, panel) => {
-        if (panel.card.heading && panel.card.body && panel.card.footer) {
-          $(panel.$refs["heading"]).html(panel.card.heading.content);
-          $(panel.$refs["body"]).html(panel.card.body.content);
-          $(panel.$refs["footer"]).html(panel.card.footer.content);
-        }
-      })(this.jQuery, this);
-    });
-  },
+  mounted: function() {},
   components: {
     /* 
     // "bs-modal": BSModal
    */
   },
   methods: {
-    getHTML(htmlString) {
-      let html = this.jQuery(htmlString);
-      return html;
+    readMore(route) {
+      window.open(route.href);
     }
-    /* 
-    setActiveAnchor(index) {
-      this.whichActiveAnchor = index;
-    }
-   */
   },
   computed: {
     // hContent() {

@@ -18,8 +18,8 @@ export default {
           heading: { content: "News", url: "" },
           body: { content: "FCC weekly issue => 周刊" },
           footer: {
-            content:
-              '<a class="btn btn-default" target=" href="/messidor" role="button">wii-chat»</a> </a>'
+            href: "/messidor",
+            content: '<a class="btn btn-default" role="button">News » </a>'
           }
         }
       ]

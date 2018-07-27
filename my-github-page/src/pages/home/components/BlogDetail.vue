@@ -15,7 +15,7 @@
       <div class="row posts">
         <div class="col-md-8">
           <div class="title">
-            <h3 class="text">{{blogDetail.title}}</h3>
+            <h3 class="text">{{blogDetailCurrent.title}}</h3>
           </div>
           <div class="meta">
             <div class="minilogo">
@@ -38,9 +38,8 @@
                 <span class="hidden">share</span>
               </div>
             </div>
-
           </div>
-          <article class="" v-html="blogDetail.fileContentHTML">
+          <article class="" v-html="blogDetailCurrent.contentHtml">
           </article>
         </div>
         <div class="col-md-4">
@@ -132,66 +131,41 @@
 
 <script>
 import PanelComments from "./PanelComments";
+import { repositoryContents } from "@c/js/remote.config";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "Blog",
   data() {
-    return { blogDetail: {} };
+    return { msg: "BlogDetail" };
   },
-  computed: {},
+  computed: { ...mapGetters(["blogDetailCurrent"]) },
   components: {
     "comment-chat": PanelComments
   },
   created() {
-    /* 
-    let id = this.$route.query.id;
-    console.log(this.$store.state.blogState.articleList);
-    this.blogDetail = this.$store.getters["GET_BLOG_DETAIL"](id);
-
-    if (!this.blogDetail) {
-      let id = this.$route.query.id;
-      console.log(this.$store.state.blogState.articleList);
-      this.$store.dispatch("GET_BLOG_DETAIL", id);
-      this.blogDetail = this.$store.getters["GET_BLOG_DETAIL"](id);
-    }
-
-    console.log(this.blogDetail);
-   */
+    console.log("BlogDetail created");
   },
   mounted() {
-    /* 
-    let id = this.$route.query.id;
-    console.log(this.$store.state.blogState.articleList);
-    this.blogDetail = this.$store.getters["GET_BLOG_DETAIL"](id);
-   */
+    console.log("BlogDetail mounted");
   },
   methods: {
+    ...mapActions(["getBlogDetailCurrent"]),
     setActiveAnchor() {
       this.$router.push({ name: "home.blog", query: { userId: 123 } });
     }
   },
   beforeRouteEnter(to, from, next) {
-    next(vue => {
-      if (to.params && to.params.id) {
-        vue.blogDetail = to.params;
-      } else {
-        let id = to.query.id;
-        let article = vue.$store.getters["GET_BLOG_DETAIL"](id);
-        if (!article) {
-          vue.$store.dispatch("GET_BLOG_DETAIL", id).then(blogInfo => {
-            if (blogInfo) {
-              vue.blogDetail = blogInfo;
-            }
-          });
-        }
-      }
+    console.log("BlogDetail beforeRouteEnter");
+    next(vm => {
+      vm.getBlogDetailCurrent(to.query.path);
     });
-
     // 在渲染该组件的对应路由被 confirm 前调用
     // 不！能！获取组件实例 `this`
     // 因为当守卫执行前，组件实例还没被创建
   },
   beforeRouteUpdate(to, from, next) {
+    console.log("BlogDetail beforeRouteUpdate");
     next();
     // 在当前路由改变，但是该组件被复用时调用
     // 举例来说，对于一个带有动态参数的路径 /foo/:id，在 /foo/1 和 /foo/2 之间跳转的时候，
@@ -199,6 +173,7 @@ export default {
     // 可以访问组件实例 `this`
   },
   beforeRouteLeave(to, from, next) {
+    console.log("BlogDetail beforeRouteLeave");
     next();
     // 导航离开该组件的对应路由时调用
     // 可以访问组件实例 `this`

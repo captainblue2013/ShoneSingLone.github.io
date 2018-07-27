@@ -26,20 +26,24 @@ export default {
   },
   mounted() {
     console.log("Blog mounted", this.data);
+    console.log("Blog.vue mounted");
     this.getBlogList();
   },
   activated() {
+    console.log("Blog.vue activated");
     // window.blogVue = this;
     // debugger;
     // console.log(this.data);
   },
   beforeRouteEnter(to, from, next) {
+    console.log("Blog.vue beforeRouteEnter");
     next(vue => {});
     // 在渲染该组件的对应路由被 confirm 前调用
     // 不！能！获取组件实例 `this`
     // 因为当守卫执行前，组件实例还没被创建
   },
   beforeRouteUpdate(to, from, next) {
+    console.log("Blog.vue beforeRouteUpdate");
     next();
     debugger;
     // 在当前路由改变，但是该组件被复用时调用
@@ -48,6 +52,7 @@ export default {
     // 可以访问组件实例 `this`
   },
   beforeRouteLeave(to, from, next) {
+    console.log("Blog.vue beforeRouteLeave");
     next();
     // 导航离开该组件的对应路由时调用
     // 可以访问组件实例 `this`

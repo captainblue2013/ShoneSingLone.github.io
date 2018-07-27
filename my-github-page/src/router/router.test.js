@@ -22,4 +22,5 @@ export default {
   }]
 };
 
+
 // { routes: [{ path: '/', redirect: '/home' }, { path: '/home', name: 'home', component: HelloWorld, children: [{ path: 'upload', name: 'upload', component: Upload }, { path: 'download', name: 'download', component: Download }] }, { path: '/follow', name: 'follow', component: follow }, { path: '/download', name: 'download', component: Download }] };

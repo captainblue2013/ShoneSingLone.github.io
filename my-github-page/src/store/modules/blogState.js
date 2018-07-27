@@ -11,17 +11,20 @@ import {
 import {
   toHtml
 } from '@c/js/4markdown';
+import {
+  repositoryContents
+} from '@c/js/remote.config';
+
 import jquery from 'jquery';
 
-const repositoryContents = (path = "") => {
-  return `https://api.github.com/repos/ShoneSingLone/GitBook/contents` + path + `?access_token=399234264a04c4f3765841b3e11f236c698393e8`;
-}
+// 讲道理就是没有设计好，应该是blogList带有desc，进入到detail的时候只需要带有必要的唯一标识符如sha、id；这里写成处理同样的数据两遍是错误的
 
-// initial state
+// initial s tate
 const
   state = {
     blogList: {},
-    blogDetail: {}
+    blogDetail: {},
+    blogDetailCurrent: {}
   },
   getters = {
     blogList(state) {
@@ -29,6 +32,9 @@ const
     },
     blogDetail(state) {
       return state.blogDetail;
+    },
+    blogDetailCurrent(state) {
+      return state.blogDetailCurrent;
     },
   },
   actions = {
@@ -81,6 +87,23 @@ const
       } catch (error) {
         console.log(error);
       }
+    },
+    async getBlogDetailCurrent({
+      commit
+    }, path) {
+      try {
+        let res = await vue.axios(repositoryContents(`/` + path), {
+          method: 'get'
+        });
+        if (res.status === 200) {
+          let blogDetail = res.data;
+          commit("setBlogDetailCurrent", {
+            blogDetail
+          });
+        }
+      } catch (error) {
+        console.log(error);
+      }
     }
   },
   mutations = {
@@ -93,13 +116,23 @@ const
       blogDetail
     }) {
       let mdContent = DECODE(blogDetail.content);
-      state.blogList[blogDetail.sha].mdCoentent = mdContent;
-      let htmlContent = toHtml(mdContent);
-      let $html = jquery(htmlContent);
+      let contentHtml = toHtml(mdContent);
+      let $html = jquery(contentHtml);
       let htmlText = $html.text();
       let desc = htmlText.length > 120 ? htmlText.substring(0, 120) + "..." : htmlText;
       state.blogList[blogDetail.sha].desc = desc;
       console.log("state.blogList[blogDetail.sha].detail", state.blogList[blogDetail.sha]);
+    },
+    setBlogDetailCurrent(state, {
+      blogDetail
+    }) {
+      let mdContent = DECODE(blogDetail.content);
+      let contentHtml = toHtml(mdContent);
+      state.blogDetailCurrent = {
+        title: blogDetail.name,
+        contentHtml
+      }
+      console.log("state.blogDetailCurrent", state.blogDetailCurrent);
     }
   };
 

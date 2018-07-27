@@ -50,7 +50,7 @@ export default {
   methods: {
     setActiveAnchor(index, anchor) {
       this.whichActiveAnchor = index;
-      this.$router.push({ name: anchor.name, query: { userId: 123 } });
+      this.$router.push({ name: anchor.name });
     },
     toggleModal() {
       let vue = this;

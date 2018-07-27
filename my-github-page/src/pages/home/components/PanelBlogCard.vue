@@ -3,14 +3,13 @@
     <div class="col-xs-12">
       <div class="panel">
         <div class="heading">
-          <h2 class="title" ref="heading" @click="toDetail(blog.path)">
+          <h2 class="title" ref="heading" @click="readMore(blog.path)">
             <span>{{blog.name}}</span>
           </h2>
         </div>
         <div class="body">
-          {{blog}}
+          {{blog.desc}}
           <!-- <p class="introduction" ref="body" v-html="blog.introduction"> -->
-
           </p>
         </div>
         <div class="panel-footer" ref="footer">
@@ -48,17 +47,12 @@ export default {
   components: {},
   methods: {
     ...mapActions(["getBlogDetail"]),
-    toDetail(id) {
-      let article = this.$store.getters["GET_BLOG_DETAIL"](id);
-      if (!article) {
-        this.$store.dispatch("GET_BLOG_DETAIL", id).then(blogInfo => {
-          this.$router.push({
-            name: "blog.detail",
-            query: { id },
-            params: blogInfo
-          });
-        });
-      }
+    readMore(path) {
+      this.$router.push({
+        name: "blog.detail",
+        query: { path },
+        params: this.blog
+      });
     }
   },
   watch: {

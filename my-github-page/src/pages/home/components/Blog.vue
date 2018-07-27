@@ -1,13 +1,14 @@
 <template>
   <div class="container">
-    <template v-for="article in blogArray">
-      <panel-card :article="article" />
+    <template v-for="blog in blogList">
+      <panel-card :blog="blog" />
     </template>
   </div>
 </template>
 
 <script>
 import PanelBlogCard from "./PanelBlogCard";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "Blog",
@@ -15,32 +16,25 @@ export default {
     return {};
   },
   computed: {
-    panelTitle() {
-      return this.$route.query.userId;
-    },
-    blogArray() {
-      return this.$store.getters["GET_BLOG_LIST"];
-    }
+    ...mapGetters(["blogList"])
+  },
+  methods: {
+    ...mapActions(["getBlogList"])
   },
   components: {
     "panel-card": PanelBlogCard
   },
-  mounted() {},
-  methods: {},
+  mounted() {
+    console.log("Blog mounted", this.data);
+    this.getBlogList();
+  },
+  activated() {
+    // window.blogVue = this;
+    // debugger;
+    // console.log(this.data);
+  },
   beforeRouteEnter(to, from, next) {
-    // import(/* webpackChunkName: "show" */ './show').then((show) => {
-    //   show('Webpack');
-    // })
-
-    next(vue => {
-      let dispatchAction = {
-        "home.blog": function(vue) {
-          vue.$store.dispatch("GET_BLOG_LIST");
-        }
-      };
-      dispatchAction[to.name](vue);
-    });
-
+    next(vue => {});
     // 在渲染该组件的对应路由被 confirm 前调用
     // 不！能！获取组件实例 `this`
     // 因为当守卫执行前，组件实例还没被创建
@@ -62,4 +56,5 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang='scss'> </style>
+<style scoped lang='scss'>
+</style>

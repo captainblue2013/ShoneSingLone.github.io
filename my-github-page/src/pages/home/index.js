@@ -24,7 +24,6 @@ window.remotHost = ~window.location.hostname.indexOf("localhost") ?
   "http://localhost:3000/" :
   "https://shonesinglone.leanapp.cn/";
 
-
 /* eslint-disable no-new */
 
 (function (vue, $ = vue.jQuery) {

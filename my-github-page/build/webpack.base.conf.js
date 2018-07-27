@@ -24,7 +24,7 @@ module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
     'babel-polyfill': 'babel-polyfill',
-    home: './src/pages/home/index.js',
+    main: './src/pages/home/index.js',
     // ele: './src/pages/main.js'
   },
   output: {

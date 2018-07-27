@@ -3,20 +3,21 @@
     <div class="col-xs-12">
       <div class="panel">
         <div class="heading">
-          <h2 class="title" ref="heading" @click="toDetail(article.id)">
-            <span>{{article.title}}</span>
+          <h2 class="title" ref="heading" @click="toDetail(blog.path)">
+            <span>{{blog.name}}</span>
           </h2>
         </div>
         <div class="body">
-          <p class="introduction" ref="body" v-html="article.introduction">
-            
+          {{blog}}
+          <!-- <p class="introduction" ref="body" v-html="blog.introduction"> -->
+
           </p>
         </div>
         <div class="panel-footer" ref="footer">
           <div class="minilogo"></div>
           <div>
             <strong>创建时间</strong>
-            <span class="time">{{createdDate}}</span>
+            <!-- <span class="time">{{createdDate}}</span> -->
           </div>
         </div>
       </div>
@@ -27,20 +28,11 @@
 <script type="text/ecmascript-6">
 // import BSModal from "@cc/bootstrap/Modal";
 
+import { mapGetters, mapActions } from "vuex";
+
 export default {
   name: "PanelCard",
-  props: {
-    article: {
-      type: Object,
-      required: true,
-      default: {
-        date: Date.now(),
-        id: "",
-        introduction: "",
-        title: "title"
-      }
-    }
-  },
+  props: ["blog"],
   data() {
     /*用作对详细信息的缓存，如果*/
     return {
@@ -51,24 +43,11 @@ export default {
     };
   },
   mounted: function() {
-    this.$nextTick(function() {
-      /* 
-      (($, panel) => {
-        if (panel.card.heading && panel.card.body && panel.card.footer) {
-          $(panel.$refs["heading"]).html(panel.card.heading.content);
-          $(panel.$refs["body"]).html(panel.card.body.content);
-          $(panel.$refs["footer"]).html(panel.card.footer.content);
-        }
-      })(this.jQuery, this);
-     */
-    });
+    this.$nextTick(function() {});
   },
-  components: {
-    /* 
-    // "bs-modal": BSModal
-   */
-  },
+  components: {},
   methods: {
+    ...mapActions(["getBlogDetail"]),
     toDetail(id) {
       let article = this.$store.getters["GET_BLOG_DETAIL"](id);
       if (!article) {
@@ -93,18 +72,11 @@ export default {
       var articleDate = new Date(this.article.date);
       return articleDate.toLocaleString("zh");
     }
-    // hContent() {
-    //   return this.card.heading.content;
-    // }
-    /* 
-    isShowNav() {
-      if (!this.isMobile) return true;
-      return this.$store.state.mainState.isShowModal;
-    },
-    isShowModal() {
-      return this.$store.state.mainState.isShowModal && this.isMobile;
-    }
-   */
+  },
+  beforeCreate() {},
+  created() {
+    this.getBlogDetail(this.blog);
+    // console.log("this && this.blog", this && this.blog);
   }
 };
 </script>

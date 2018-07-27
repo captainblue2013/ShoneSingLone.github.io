@@ -14,9 +14,8 @@ export default {
     routeHome,
     routeBlog,
     routeTool,
-    routeTest
+    // routeTest
   ]
 };
-
 
 // [, { path: '/follow', name: 'follow', component: follow }, { path: '/download', name: 'download', component: HomePage }]

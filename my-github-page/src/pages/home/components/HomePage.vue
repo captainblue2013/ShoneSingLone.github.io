@@ -2,7 +2,9 @@
   <layout-normal>
     <nav-top-bar slot="header" />
     <main slot="main" id="main-content">
-      <router-view></router-view>
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
       <!--  
         <div class="col-sm-4">
                     <div class="panel panel-default">

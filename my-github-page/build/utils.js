@@ -1,7 +1,8 @@
 'use strict'
-const path = require('path')
-const config = require('../config')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const path = require('path');
+const config = require('../config');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+// const ExtractTextPlugin = require('C:/Users/abbor/AppData/Local/Microsoft/TypeScript/2.9/node_modules/@types/extract-text-webpack-plugin')
 const packageConfig = require('../package.json')
 
 function resolve(dir) {
@@ -26,7 +27,7 @@ exports.cssLoaders = function (options) {
     loader: 'css-loader',
     options: {
       sourceMap: options.sourceMap,
-      plugins: () => [require('autoprefixer')]
+      plugins: () => [require('C:/Users/abbor/AppData/Local/Microsoft/TypeScript/2.9/node_modules/@types/autoprefixer')]
     }
   }
 

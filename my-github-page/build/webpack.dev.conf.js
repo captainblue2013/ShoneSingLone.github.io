@@ -61,7 +61,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       filename: 'index.html',
       template: 'src/pages/home/index.html',
       inject: true,
-      title: "My Home Page"
+      title: "ShoneSingLone'zone"
     }),
     // copy custom static assets
     new CopyWebpackPlugin([{

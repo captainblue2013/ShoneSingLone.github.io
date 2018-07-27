@@ -32,5 +32,4 @@ body,
   font-size: 16px;
   color: $main-color;
 }
-
 </style>

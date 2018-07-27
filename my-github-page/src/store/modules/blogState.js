@@ -18,7 +18,7 @@ import {
 import jquery from 'jquery';
 
 // 讲道理就是没有设计好，应该是blogList带有desc，进入到detail的时候只需要带有必要的唯一标识符如sha、id；这里写成处理同样的数据两遍是错误的
-
+console.log("repositoryContents", repositoryContents());
 // initial s tate
 const
   state = {
@@ -42,7 +42,8 @@ const
       commit
     }, params) {
       try {
-        let res = await vue.axios(repositoryContents(), {
+        let url = repositoryContents();
+        let res = await vue.axios(url, {
           method: 'get'
         });
         if (res.status === 200) {
@@ -68,14 +69,17 @@ const
             params
           });
         }
-      } catch (e) {}
+      } catch (error) {
+        console.log(error);
+      }
     },
     async getBlogDetail({
       commit
     }, params) {
       let path = params.path;
+      let url = repositoryContents(`/` + path);
       try {
-        let res = await vue.axios(repositoryContents(`/` + path), {
+        let res = await vue.axios(url, {
           method: 'get'
         });
         if (res.status === 200) {

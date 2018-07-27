@@ -25,7 +25,6 @@ window.remotHost = ~window.location.hostname.indexOf("localhost") ?
   "https://shonesinglone.leanapp.cn/";
 
 /* eslint-disable no-new */
-
 (function (vue, $ = vue.jQuery) {
   function debounce(method, delay) {
     clearTimeout(method.tId);

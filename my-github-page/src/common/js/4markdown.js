@@ -38,7 +38,8 @@ renderer.image = function (href, title, text) {
   if (this.options.baseUrl && !originIndependentUrl.test(href)) {
     href = resolveUrl(this.options.baseUrl, href);
   }
-  var out = '<img src="' + `https: //raw.githubusercontent.com/ShoneSingLone/GitBook/master/` + href + '" alt="' + text + '"';
+  var out = '<img src="' + `https://raw.githubusercontent.com/ShoneSingLone/GitBook/master/` + href + '" alt="' + text + '"';
+  console.log(out);
   if (title) {
     out += ' title="' + title + '"';
   }

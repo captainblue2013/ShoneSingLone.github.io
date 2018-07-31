@@ -39,7 +39,7 @@
               </div>
             </div>
           </div>
-          <article class="" v-html="blogDetailCurrent.contentHtml">
+          <article id="blog-html-content" class="" v-html="blogDetailCurrent.contentHtml">
           </article>
         </div>
         <div class="col-md-4">
@@ -48,47 +48,47 @@
               <h4>TOC</h4>
               <ol class="post-toc">
                 <li class="post-toc-item post-toc-level-2 active">
-                  <a class="post-toc-link" href="http://www.lovebxm.com/2017/08/27/css-box/#W3C-%E6%A0%87%E5%87%86%E7%9B%92%E6%A8%A1%E5%9E%8B-amp-IE-%E6%80%AA%E5%BC%82%E7%9B%92%E6%A8%A1%E5%9E%8B">
+                  <a class="post-toc-link" href="#">
                     <span class="post-toc-number">1.</span>
-                    <span class="post-toc-text">W3C 标准盒模型 &amp; IE 怪异盒模型</span>
+                    <span class="post-toc-text">stamp</span>
                   </a>
                 </li>
                 <li class="post-toc-item post-toc-level-2">
-                  <a class="post-toc-link" href="http://www.lovebxm.com/2017/08/27/css-box/#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-box-sizing">
+                  <a class="post-toc-link" href="#">
                     <span class="post-toc-number">2.</span>
-                    <span class="post-toc-text">解决方案 box-sizing</span>
+                    <span class="post-toc-text">stamp</span>
                   </a>
                 </li>
                 <li class="post-toc-item post-toc-level-2">
-                  <a class="post-toc-link" href="http://www.lovebxm.com/2017/08/27/css-box/#JS-%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%E7%9B%92%E6%A8%A1%E5%9E%8B%E5%AF%B9%E5%BA%94%E7%9A%84%E5%AE%BD%E5%92%8C%E9%AB%98">
+                  <a class="post-toc-link" href="#">
                     <span class="post-toc-number">3.</span>
-                    <span class="post-toc-text">JS 如何获取盒模型对应的宽和高</span>
+                    <span class="post-toc-text">stamp</span>
                   </a>
                 </li>
                 <li class="post-toc-item post-toc-level-2">
-                  <a class="post-toc-link" href="http://www.lovebxm.com/2017/08/27/css-box/#BFC">
+                  <a class="post-toc-link" href="#">
                     <span class="post-toc-number">4.</span>
-                    <span class="post-toc-text">BFC</span>
+                    <span class="post-toc-text">stamp</span>
                   </a>
                   <ol class="post-toc-child post-toc-shrink">
                     <li class="post-toc-item post-toc-level-3">
-                      <a class="post-toc-link" href="http://www.lovebxm.com/2017/08/27/css-box/#BFC-%E5%8E%9F%E7%90%86">
+                      <a class="post-toc-link" href="#">
                         <span class="post-toc-number">4.1.</span>
-                        <span class="post-toc-text">BFC 原理</span>
+                        <span class="post-toc-text">stamp</span>
                       </a>
                     </li>
                   </ol>
                 </li>
                 <li class="post-toc-item post-toc-level-2">
-                  <a class="post-toc-link" href="http://www.lovebxm.com/2017/08/27/css-box/#%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA-BFC">
+                  <a class="post-toc-link" href="#">
                     <span class="post-toc-number">5.</span>
-                    <span class="post-toc-text">如何创建 BFC</span>
+                    <span class="post-toc-text">stamp</span>
                   </a>
                   <ol class="post-toc-child post-toc-shrink">
                     <li class="post-toc-item post-toc-level-3">
-                      <a class="post-toc-link" href="http://www.lovebxm.com/2017/08/27/css-box/#BFC-%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF">
+                      <a class="post-toc-link" href="#">
                         <span class="post-toc-number">5.1.</span>
-                        <span class="post-toc-text">BFC 使用场景</span>
+                        <span class="post-toc-text">stamp</span>
                       </a>
                     </li>
                   </ol>
@@ -181,6 +181,8 @@ export default {
 };
 </script>
 
+
+
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang='scss'>
 @import "../../../common/scss/bootstrap/common";
@@ -261,7 +263,6 @@ export default {
           }
         }
       }
-
       .post-widget {
         @include shadow-base();
         @include click-base();
@@ -292,6 +293,14 @@ export default {
         }
       }
     }
+  }
+}
+</style>
+
+<style lang='scss'>
+#blog-html-content {
+  img {
+    width: 100%;
   }
 }
 </style>

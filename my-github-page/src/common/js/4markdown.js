@@ -9,6 +9,7 @@ renderer.heading = function (text, level, raw) {
     text +
     '</h' + level + '>\n';
 }
+
 renderer.link = function (href, title, text) {
   if (this.options.sanitize) {
     try {
@@ -33,6 +34,17 @@ renderer.link = function (href, title, text) {
   return out;
 };
 
+renderer.image = function (href, title, text) {
+  if (this.options.baseUrl && !originIndependentUrl.test(href)) {
+    href = resolveUrl(this.options.baseUrl, href);
+  }
+  var out = '<img src="' + `https: //raw.githubusercontent.com/ShoneSingLone/GitBook/master/` + href + '" alt="' + text + '"';
+  if (title) {
+    out += ' title="' + title + '"';
+  }
+  out += this.options.xhtml ? '/>' : '>';
+  return out;
+};
 
 Marked.setOptions({
   renderer,

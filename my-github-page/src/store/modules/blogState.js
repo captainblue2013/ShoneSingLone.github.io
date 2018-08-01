@@ -18,7 +18,6 @@ import {
 import jquery from 'jquery';
 
 // 讲道理就是没有设计好，应该是blogList带有desc，进入到detail的时候只需要带有必要的唯一标识符如sha、id；这里写成处理同样的数据两遍是错误的
-console.log("repositoryContents", repositoryContents());
 // initial s tate
 const
   state = {
@@ -63,7 +62,6 @@ const
             enumerable: false,
             configurable: true
           });
-          console.log("blogs", blogs);
           commit("setBlogList", {
             blogs,
             params
@@ -124,8 +122,8 @@ const
       let $html = jquery(contentHtml);
       let htmlText = $html.text();
       let desc = htmlText.length > 120 ? htmlText.substring(0, 120) + "..." : htmlText;
-      state.blogList[blogDetail.sha].desc = desc;
-      console.log("state.blogList[blogDetail.sha].detail", state.blogList[blogDetail.sha]);
+      blogDetail.desc = desc;
+      state.blogList[blogDetail.sha] = blogDetail;
     },
     setBlogDetailCurrent(state, {
       blogDetail
@@ -136,7 +134,6 @@ const
         title: blogDetail.name,
         contentHtml
       }
-      console.log("state.blogDetailCurrent", state.blogDetailCurrent);
     }
   };
 

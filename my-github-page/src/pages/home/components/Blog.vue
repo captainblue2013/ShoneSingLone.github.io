@@ -19,7 +19,10 @@ export default {
     ...mapGetters(["blogList"])
   },
   methods: {
-    ...mapActions(["getBlogList"])
+    ...mapActions(["getBlogList"]),
+    showBlog(blog) {
+      console.log(blog);
+    }
   },
   components: {
     "panel-card": PanelBlogCard

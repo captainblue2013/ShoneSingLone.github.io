@@ -39,7 +39,6 @@ renderer.image = function (href, title, text) {
     href = resolveUrl(this.options.baseUrl, href);
   }
   var out = '<img src="' + `https://raw.githubusercontent.com/ShoneSingLone/GitBook/master/` + href + '" alt="' + text + '"';
-  console.log(out);
   if (title) {
     out += ' title="' + title + '"';
   }

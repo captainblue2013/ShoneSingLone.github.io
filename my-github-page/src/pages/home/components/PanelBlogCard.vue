@@ -2,15 +2,13 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="panel">
-        <div class="heading">
-          <h2 class="title" ref="heading" @click="readMore(blog.path)">
+        <div class="heading" @click="readMore(blog.path)">
+          <h2 class="title" ref="heading">
             <span>{{blog.name}}</span>
           </h2>
         </div>
         <div class="body">
-          {{blog.desc}}
-          <!-- <p class="introduction" ref="body" v-html="blog.introduction"> -->
-          </p>
+          <p class="desc">{{blog.desc}}</p>
         </div>
         <div class="panel-footer" ref="footer">
           <div class="minilogo"></div>
@@ -103,6 +101,11 @@ $border-bottom-height: 0.4rem;
         right: 1rem;
         left: 1rem;
       }
+    }
+  }
+  .body {
+    .desc {
+      text-indent: 2rem;
     }
   }
   .btn {

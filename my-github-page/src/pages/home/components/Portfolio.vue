@@ -21,6 +21,14 @@ export default {
             href: "/messidor",
             content: '<a class="btn btn-default" role="button">News » </a>'
           }
+        },
+        {
+          heading: { content: "Shop", url: "" },
+          body: { content: "practice transition animate" },
+          footer: {
+            href: "/shop",
+            content: '<a class="btn btn-default" role="button">News » </a>'
+          }
         }
       ]
     };

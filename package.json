@@ -19,8 +19,8 @@
   },
   "homepage": "https://github.com/ShoneSingLone/ShoneSingLone.github.io#readme",
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "browser-sync": "^2.18.13"
+    "browser-sync": "^2.24.6",
+    "gulp": "^3.9.1"
   },
   "dependencies": {},
   "engines": {

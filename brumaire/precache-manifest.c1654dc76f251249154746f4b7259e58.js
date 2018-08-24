@@ -12,8 +12,8 @@ self.__precacheManifest = [
     "url": "/brumaire/fonts/glyphicons-halflings-regular.448c34a5.woff2"
   },
   {
-    "revision": "264bb5121d866aa80af6",
-    "url": "/brumaire/js/app.a60d50cb.js"
+    "revision": "262c333f8e1d06cf27ab",
+    "url": "/brumaire/js/app.c247b295.js"
   },
   {
     "revision": "48d68c4cd4f95fc4fc71",
@@ -24,8 +24,8 @@ self.__precacheManifest = [
     "url": "/brumaire/js/home.4ab62fcc.js"
   },
   {
-    "revision": "1ce0ed13a7b8a5161c3b",
-    "url": "/brumaire/js/login.ffcd5d59.js"
+    "revision": "196bdf2abb0aabaff8bf",
+    "url": "/brumaire/js/login.4c2bfb1a.js"
   },
   {
     "revision": "89889688147bd7575d6327160d64e760",
@@ -36,7 +36,7 @@ self.__precacheManifest = [
     "url": "/brumaire/js/about.4a852f78.js"
   },
   {
-    "revision": "2d94d9a513d9bc696fe2db036353dec8",
+    "revision": "42d132c6e1d10e5f66d79bbd57c5c671",
     "url": "/brumaire/index.html"
   },
   {
@@ -60,15 +60,15 @@ self.__precacheManifest = [
     "url": "/brumaire/fonts/glyphicons-halflings-regular.e18bbf61.ttf"
   },
   {
-    "revision": "1ce0ed13a7b8a5161c3b",
-    "url": "/brumaire/css/login.a98adbb8.css"
+    "revision": "196bdf2abb0aabaff8bf",
+    "url": "/brumaire/css/login.6d50d9a9.css"
   },
   {
     "revision": "9542fa48b77ecc1d770e",
     "url": "/brumaire/css/home.011ef45e.css"
   },
   {
-    "revision": "264bb5121d866aa80af6",
+    "revision": "262c333f8e1d06cf27ab",
     "url": "/brumaire/css/app.048c5eb5.css"
   }
 ];

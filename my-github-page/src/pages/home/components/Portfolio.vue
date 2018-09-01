@@ -27,7 +27,15 @@ export default {
           body: { content: "practice transition animate" },
           footer: {
             href: "/shop",
-            content: '<a class="btn btn-default" role="button">News » </a>'
+            content: '<a class="btn btn-default" role="button">shop » </a>'
+          }
+        },
+        {
+          heading: { content: "Brumaier", url: "" },
+          body: { content: "let us chat free" },
+          footer: {
+            href: "/Brumaier",
+            content: '<a class="btn btn-default" role="button">Brumaier » </a>'
           }
         }
       ]

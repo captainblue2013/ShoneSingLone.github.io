@@ -1,19 +1,27 @@
 self.__precacheManifest = [
   {
-    "revision": "da92e361937124b73bf8",
-    "url": "/brumaire/css/chunk-vendors.bb9c5b82.css"
+    "revision": "5f96e97c12eefa578759",
+    "url": "/brumaire/js/checkout.c36c08da.js"
   },
   {
     "revision": "b6216d61c03e6ce0c9aea6ca7808f7ca",
     "url": "/brumaire/robots.txt"
   },
   {
-    "revision": "da92e361937124b73bf8",
-    "url": "/brumaire/js/chunk-vendors.82adeb49.js"
+    "revision": "2bdffb772bcd01fcef0f",
+    "url": "/brumaire/css/chunk-vendors.bb9c5b82.css"
   },
   {
-    "revision": "62aac75af2de4eb625f9",
-    "url": "/brumaire/css/c-card.1f5f03df.css"
+    "revision": "432bef96b69a03f6d2b8",
+    "url": "/brumaire/css/c-bubble.8990fadc.css"
+  },
+  {
+    "revision": "f70581da450695598636",
+    "url": "/brumaire/css/c-card.ec626d85.css"
+  },
+  {
+    "revision": "f70581da450695598636",
+    "url": "/brumaire/js/c-card.99ebc8e1.js"
   },
   {
     "revision": "f1600da87e20184e8eb6",
@@ -24,12 +32,12 @@ self.__precacheManifest = [
     "url": "/brumaire/js/c-components.1acc28be.js"
   },
   {
-    "revision": "c1f779f11e96fc10bb90",
+    "revision": "61f80f2a6b2a80c49a40",
     "url": "/brumaire/css/c-modals.758c1978.css"
   },
   {
-    "revision": "c1f779f11e96fc10bb90",
-    "url": "/brumaire/js/c-modals.7f63521c.js"
+    "revision": "61f80f2a6b2a80c49a40",
+    "url": "/brumaire/js/c-modals.dca682f4.js"
   },
   {
     "revision": "0f00b4fa89bdf3354ac7",
@@ -48,20 +56,20 @@ self.__precacheManifest = [
     "url": "/brumaire/js/c-scroll.63852cde.js"
   },
   {
-    "revision": "fd40acfc95e3eb6d789d",
-    "url": "/brumaire/css/checkout.56a6926c.css"
+    "revision": "5f96e97c12eefa578759",
+    "url": "/brumaire/css/checkout.a51d9477.css"
   },
   {
-    "revision": "fd40acfc95e3eb6d789d",
-    "url": "/brumaire/js/checkout.c36c08da.js"
+    "revision": "4b81bcf3d41a444737f0",
+    "url": "/brumaire/js/app.70148877.js"
   },
   {
-    "revision": "6205c3db468b27a07630",
-    "url": "/brumaire/js/app.0b259d28.js"
+    "revision": "432bef96b69a03f6d2b8",
+    "url": "/brumaire/js/c-bubble.7b4f5c76.js"
   },
   {
-    "revision": "62aac75af2de4eb625f9",
-    "url": "/brumaire/js/c-card.17e2fcf6.js"
+    "revision": "2bdffb772bcd01fcef0f",
+    "url": "/brumaire/js/chunk-vendors.64819aa1.js"
   },
   {
     "revision": "d8f2410882272267b14a",
@@ -72,12 +80,12 @@ self.__precacheManifest = [
     "url": "/brumaire/js/error.d38a20fa.js"
   },
   {
-    "revision": "6f2d721a4f26871a80f4",
-    "url": "/brumaire/css/home.4073dd4d.css"
+    "revision": "4e3a1a8f67ff9583c7ab",
+    "url": "/brumaire/css/home.e6efe264.css"
   },
   {
-    "revision": "6f2d721a4f26871a80f4",
-    "url": "/brumaire/js/home.196430c7.js"
+    "revision": "4e3a1a8f67ff9583c7ab",
+    "url": "/brumaire/js/home.4a761fa8.js"
   },
   {
     "revision": "8a5b6ae1cb47782ad1daf17ad95394d6",
@@ -108,11 +116,11 @@ self.__precacheManifest = [
     "url": "/brumaire/fonts/glyphicons-halflings-regular.f4769f9b.eot"
   },
   {
-    "revision": "71ba5d6dd9774209b0ad3fc24528af97",
+    "revision": "faa39e65bc242faf134ec30c525afa6f",
     "url": "/brumaire/index.html"
   },
   {
-    "revision": "6205c3db468b27a07630",
-    "url": "/brumaire/css/app.259a7182.css"
+    "revision": "4b81bcf3d41a444737f0",
+    "url": "/brumaire/css/app.f9b6ff9a.css"
   }
 ];

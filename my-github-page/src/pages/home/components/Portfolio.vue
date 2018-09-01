@@ -31,11 +31,11 @@ export default {
           }
         },
         {
-          heading: { content: "Brumaier", url: "" },
+          heading: { content: "Brumaire", url: "" },
           body: { content: "let us chat free" },
           footer: {
-            href: "/Brumaier",
-            content: '<a class="btn btn-default" role="button">Brumaier » </a>'
+            href: "/brumaire",
+            content: '<a class="btn btn-default" role="button">Brumaire » </a>'
           }
         }
       ]

@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.4.1/workbox-sw.js");
 
 importScripts(
-  "/brumaire/precache-manifest.75558953178e6ea4d0ce4d19f496059d.js"
+  "/brumaire/precache-manifest.e3aad199ff9c05839894dd8c1a1e7332.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "Brumaire"});

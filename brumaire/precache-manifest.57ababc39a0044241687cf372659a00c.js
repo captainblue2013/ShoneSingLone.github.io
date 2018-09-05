@@ -80,8 +80,8 @@ self.__precacheManifest = [
     "url": "/brumaire/js/c-progress.0991a9a8.js"
   },
   {
-    "revision": "0dfefa61a45cbb6fa130",
-    "url": "/brumaire/js/app.d818f219.js"
+    "revision": "b237b869f5ea109b86ac",
+    "url": "/brumaire/js/app.68bd91e1.js"
   },
   {
     "revision": "a8791e81e8078d72ccec",
@@ -156,11 +156,11 @@ self.__precacheManifest = [
     "url": "/brumaire/fonts/glyphicons-halflings-regular.f4769f9b.eot"
   },
   {
-    "revision": "ce91d7252fe94b28d800fd9a6ef23a24",
+    "revision": "6b67f95f8779ca95c6409268e2bc9f79",
     "url": "/brumaire/index.html"
   },
   {
-    "revision": "0dfefa61a45cbb6fa130",
+    "revision": "b237b869f5ea109b86ac",
     "url": "/brumaire/css/app.6af57e04.css"
   }
 ];

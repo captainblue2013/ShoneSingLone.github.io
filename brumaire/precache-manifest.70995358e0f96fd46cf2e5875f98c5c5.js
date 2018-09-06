@@ -72,8 +72,8 @@ self.__precacheManifest = [
     "url": "/brumaire/css/checkout.e0d9363b.css"
   },
   {
-    "revision": "f42a88e0389a6a03f695",
-    "url": "/brumaire/js/app.a7f82627.js"
+    "revision": "6cfdb2ef043bdf935c13",
+    "url": "/brumaire/js/app.12192738.js"
   },
   {
     "revision": "057446fe29d49a0bbbf1",
@@ -140,11 +140,11 @@ self.__precacheManifest = [
     "url": "/brumaire/fonts/glyphicons-halflings-regular.f4769f9b.eot"
   },
   {
-    "revision": "1a8066d99cb61335293738ad4d420e26",
+    "revision": "f5af7854b817ca3e0e70d65f19f2e3bd",
     "url": "/brumaire/index.html"
   },
   {
-    "revision": "f42a88e0389a6a03f695",
+    "revision": "6cfdb2ef043bdf935c13",
     "url": "/brumaire/css/app.40005e80.css"
   }
 ];

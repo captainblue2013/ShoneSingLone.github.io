@@ -1,8 +1,10 @@
 <template>
   <div class="container">
-    <template v-for="portfolio in portfolioArray">
-      <panel-card :card="portfolio" />
-    </template>
+    <div class="row">
+      <template v-for="portfolio in portfolioArray">
+        <panel-card :card="portfolio" />
+      </template>
+    </div>
   </div>
 </template>
 

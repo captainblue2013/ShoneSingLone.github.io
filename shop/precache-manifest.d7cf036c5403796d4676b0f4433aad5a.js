@@ -64,12 +64,12 @@ self.__precacheManifest = [
     "url": "/shop/js/Carousel.df416e1d.js"
   },
   {
-    "revision": "18670bfc9a76fa4eaf80",
+    "revision": "025fc29f2e4ad0fbbced",
     "url": "/shop/css/app.011c2e5b.css"
   },
   {
-    "revision": "18670bfc9a76fa4eaf80",
-    "url": "/shop/js/app.1ac34ccc.js"
+    "revision": "025fc29f2e4ad0fbbced",
+    "url": "/shop/js/app.11e4006d.js"
   },
   {
     "revision": "f5f44f95b4b328500b5e",
@@ -108,7 +108,7 @@ self.__precacheManifest = [
     "url": "/shop/js/xxr.Buy.2c4677ab.js"
   },
   {
-    "revision": "df691d61d410f8c753ad33a87917b374",
+    "revision": "c722e6aa78fc268196ead4c453c7fb67",
     "url": "/shop/index.html"
   },
   {

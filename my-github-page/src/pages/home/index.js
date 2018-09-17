@@ -19,6 +19,7 @@ Vue.config.productionTip = true;
 
 Vue.use(VueAxios, axios);
 Vue.use(VueJQ, jQuery);
+
 window.$ = jQuery;
 window.remotHost = ~window.location.hostname.indexOf("localhost") ?
   "http://localhost:3000/" :
@@ -26,6 +27,7 @@ window.remotHost = ~window.location.hostname.indexOf("localhost") ?
 
 /* eslint-disable no-new */
 (function (vue, $ = vue.jQuery) {
+
   function debounce(method, delay) {
     clearTimeout(method.tId);
     method.tId = setTimeout(function () {
@@ -33,28 +35,9 @@ window.remotHost = ~window.location.hostname.indexOf("localhost") ?
     }, delay);
   }
 
-  /*  function bar() {
-     return new Promise((resolve, reject) => {
-       setTimeout(() => {
-         resolve("bar");
-       }, 3000);
-     });
-   }
-   async function foo() {
-     var s = await bar();
-     alert(s);
-   }
-
-   foo(); */
 
   function consoleWindow() {
-    // $screen-xs:                  480px !default;
-    // $screen-sm:                  768px !default;
-    // $screen-md:                  992px !default;
-    // $screen-lg:                  1200px !default;
-    // window.matchMedia IE9
     vue.$store.commit("SET_DW", window.innerWidth);
-    // console.log(vue.$store.getters["IS_MOBILE"]);
   }
   $(window)
     .on("resize.mobile", function (e) {

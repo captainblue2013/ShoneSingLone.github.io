@@ -51,7 +51,7 @@ export default {
     },
     toggleLoginModal() {
       console.log("this.isShow.loginPanel", this.isShow.loginPanel);
-      this.isShow.loginPanel = !this.isShow.loginPanel;
+      //  this.isShow.loginPanel = !this.isShow.loginPanel;
     },
     othertest(e) {
       console.log("$e", e);

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>OAuth</title>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <div v-loading.fullscreen.lock="fullscreenLoading"></div>
+    </div>
+</body>
+<!-- import Vue before Element -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
+<script>
+    let url = (location.port ? 'http://192.168.137.1:3000' : 'https://shonesinglone.leanapp.cn') + '/n/wiichat';
+    code = new URLSearchParams(location.search).get("code");
+    new Vue({
+        el: '#app',
+        mounted() {
+            axios({
+                    method: "post",
+                    url,
+                    data: {
+                        code,
+                        endpoint: "login",
+                        action: "exchangeCodeToToken"
+                    },
+                    onUploadProgress: function (progressEvent) {
+                        console.log("onUploadProgress", progressEvent);
+                        console.time("progress");
+                        // Do whatever you want with the native progress event
+                    },
+                    onDownloadProgress: function (progressEvent) {
+                        console.log("onDownloadProgress", progressEvent);
+                        console.timeEnd("progress");
+                        // Do whatever you want with the native progress event
+                    },
+                    params: {}
+                })
+                .then(res => {
+                    console.log("res", res);
+                    console.log("res.data", res.data);
+                    console.log("res.data.success", res.data.isSuccess);
+                    if (res.data.isSuccess) {
+                        let {
+                            data
+                        } = res.data;
+                        console.log(data);
+                        let {
+                            token,
+                            name,
+                            avatar
+                        } = data;
+
+                        localStorage.setItem("OAuth.token", token);
+                        localStorage.setItem("OAuth.name", name);
+                        localStorage.setItem("OAuth.avatar", avatar);
+                        return window.close();
+                    } else {
+                        let {
+                            error
+                        } = res.data; //自定义，这个规范可以再商讨
+                        throw new Error(error);
+                    }
+                })
+                .catch(error => {
+                    alert("error", error.message);
+                    return window.close();
+                });
+
+        },
+        data: function () {
+            return {
+                visible: true,
+                fullscreenLoading: true
+            }
+        },
+        methods: {
+            openFullScreen() {
+                this.fullscreenLoading = true;
+                setTimeout(() => {
+                    this.fullscreenLoading = false;
+                }, 2000);
+            },
+        }
+    })
+</script>
+
+</html>

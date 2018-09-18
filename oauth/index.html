@@ -53,23 +53,24 @@
                     console.log("res.data", res.data);
                     console.log("res.data.success", res.data.isSuccess);
                     if (res.data.isSuccess) {
+
                         let {
                             data
                         } = res.data;
-                        console.log(data);
+
                         let {
                             token,
                             name,
                             avatar
                         } = data;
-                        let USER_INFO = "userInfo";
-                        let [USER_INFO] = {
+
+                        let userInfo = {
                             token,
                             name,
                             avatar
                         }
-                        
-                        localStorage.setItem(USER_INFO, JSON.stringify([USER_INFO]));
+
+                        localStorage.setItem("userInfo", JSON.stringify(userInfo));
 
                         return window.close();
                     } else {

@@ -62,10 +62,15 @@
                             name,
                             avatar
                         } = data;
+                        let USER_INFO = "userInfo";
+                        let [USER_INFO] = {
+                            token,
+                            name,
+                            avatar
+                        }
+                        
+                        localStorage.setItem(USER_INFO, JSON.stringify([USER_INFO]));
 
-                        localStorage.setItem("OAuth.token", token);
-                        localStorage.setItem("OAuth.name", name);
-                        localStorage.setItem("OAuth.avatar", avatar);
                         return window.close();
                     } else {
                         let {

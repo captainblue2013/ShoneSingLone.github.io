@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["mobile-trolley"],{"16cf":function(l,e,o){"use strict";o.r(e);var n,t,u=o("2877"),i={},p=Object(u["a"])(i,n,t,!1,null,null,null);p.options.__file="Trolley.vue",e["default"]=p.exports}}]);
+//# sourceMappingURL=mobile-trolley.4f4df23a.js.map

@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["mobile-category"],{"0438":function(e,o,n){"use strict";n.r(o);var l,t,u=n("2877"),a={},i=Object(u["a"])(a,l,t,!1,null,null,null);i.options.__file="Category.vue",o["default"]=i.exports}}]);
+//# sourceMappingURL=mobile-category.480a55fa.js.map

@@ -36,7 +36,7 @@ export default {
           heading: { content: "Brumaire", url: "" },
           body: { content: "let us chat free" },
           footer: {
-            href: "/brumaire",
+            href: "https://shonesinglone.github.io/brumaire/#/login",
             content: '<a class="btn btn-default" role="button">Brumaire » </a>'
           }
         }

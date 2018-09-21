@@ -1,6 +1,6 @@
 self.__precacheManifest = [
   {
-    "revision": "63a0b3023aee0b72746b",
+    "revision": "598efa0c2d6cb1cda579",
     "url": "/brumaire/css/checkout.37853d22.css"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = [
     "url": "/brumaire/robots.txt"
   },
   {
-    "revision": "63a0b3023aee0b72746b",
-    "url": "/brumaire/js/checkout.5469970e.js"
+    "revision": "598efa0c2d6cb1cda579",
+    "url": "/brumaire/js/checkout.289ec1aa.js"
   },
   {
     "revision": "4b3e83de692a201f6c92",
@@ -56,12 +56,12 @@ self.__precacheManifest = [
     "url": "/brumaire/js/c-input.78e11f79.js"
   },
   {
-    "revision": "0be8c3e3399bbb3488ed",
+    "revision": "3f19d40976eb61cbd29c",
     "url": "/brumaire/css/c-modals.1f293ce9.css"
   },
   {
-    "revision": "0be8c3e3399bbb3488ed",
-    "url": "/brumaire/js/c-modals.e84fa00b.js"
+    "revision": "3f19d40976eb61cbd29c",
+    "url": "/brumaire/js/c-modals.4a7dbd98.js"
   },
   {
     "revision": "1543fcc9bec412626265",
@@ -80,20 +80,20 @@ self.__precacheManifest = [
     "url": "/brumaire/js/chat.c8141091.js"
   },
   {
-    "revision": "9c1828254c80f83cef9f",
-    "url": "/brumaire/js/app.90bfacca.js"
+    "revision": "b637a25aca997cab7c4f",
+    "url": "/brumaire/js/app.06091475.js"
   },
   {
     "revision": "4b3e83de692a201f6c92",
     "url": "/brumaire/js/article.d48d0242.js"
   },
   {
-    "revision": "7dbd650ef5a272b41b61",
+    "revision": "dcb967848baed7bc3c21",
     "url": "/brumaire/css/chunk-vendors.7a2693b7.css"
   },
   {
-    "revision": "7dbd650ef5a272b41b61",
-    "url": "/brumaire/js/chunk-vendors.734def73.js"
+    "revision": "dcb967848baed7bc3c21",
+    "url": "/brumaire/js/chunk-vendors.6a1dd979.js"
   },
   {
     "revision": "1822c5bf4bb95a8e87b7",
@@ -152,11 +152,11 @@ self.__precacheManifest = [
     "url": "/brumaire/fonts/glyphicons-halflings-regular.f4769f9b.eot"
   },
   {
-    "revision": "a47fe02604200f3a112deb81874f103c",
+    "revision": "65cee84a87c06d5a3ee700f5f1d85b7c",
     "url": "/brumaire/index.html"
   },
   {
-    "revision": "9c1828254c80f83cef9f",
-    "url": "/brumaire/css/app.38f53b87.css"
+    "revision": "b637a25aca997cab7c4f",
+    "url": "/brumaire/css/app.a5e322c7.css"
   }
 ];

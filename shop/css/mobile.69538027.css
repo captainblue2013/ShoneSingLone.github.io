@@ -1,5 +1,0 @@
-/*!
- Material Components for the Web
- Copyright (c) 2018 Google Inc.
- License: Apache-2.0
-*/#root-mobile{-ms-flex-flow:column nowrap;-webkit-box-direction:normal;-webkit-box-orient:vertical;display:-webkit-box;display:-ms-flexbox;display:flex;flex-flow:column nowrap;font-size:1rem;height:100%;overflow:hidden}#root-mobile>header{height:3rem}#root-mobile>main{-ms-flex:1;-webkit-box-flex:1;flex:1;margin:auto 0}#root-mobile>footer>.nav-bar{-webkit-box-shadow:0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12);box-shadow:0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12);height:3rem}#root-mobile>footer>.nav-bar .nav-item{position:relative}#root-mobile>footer>.nav-bar .nav-item .iconfont{font-size:1rem;font-weight:900}#root-mobile>footer>.nav-bar .nav-item .label{font-size:.8rem;margin-top:.1rem}#root-mobile>footer>.nav-bar .nav-item .label:before{bottom:0;content:" ";left:0;position:absolute;right:0;top:0}

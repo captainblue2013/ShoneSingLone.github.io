@@ -1,34 +1,28 @@
 # my-web-app
 
-## Project setup
-```
-npm install
-```
+借鉴Hexo的分离设计,同时copy一份[主题](https://xaoxuu.com/wiki/material-x/),基于epress 完成后端服务
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## 一些资料
 
-### Compiles and minifies for production
-```
-npm run build
-```
+- [Hexo 搭建博客的原理](https://segmentfault.com/p/1210000010636536/read)
+- [NodeJS - Express 3.0下ejs模板使用 partial展现 片段视图](http://yijiebuyi.com/blog/e503a402ffac43ca1cbaba9d4317b54d.html)
+- [在线yaml_editor](http://www.bejson.com/validators/yaml_editor/)
+- [在线yaml_editor](http://www.bejson.com/validators/yaml_editor/)
 
-### Run your tests
-```
-npm run test
-```
+layout保持原结构不变
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Run your unit tests
-```
-npm run test:unit
+```bash
+├─assets
+├─components
+│  └─layout
+│      ├─_cover
+│      ├─_meta
+│      ├─_partial
+│      ├─_third-party
+│      └─_widget
+└─views
 ```
 
 ### Customize configuration
+
 See [Configuration Reference](https://cli.vuejs.org/config/).

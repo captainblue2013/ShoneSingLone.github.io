@@ -1,6 +1,6 @@
 export default {
     info: {
-        name: 'Material X',
+        name: "ShoneSingLone's zone",
         docs: 'https://xaoxuu.com/wiki/material-x/',
         cdn: {
             css: {
@@ -38,7 +38,7 @@ export default {
     },
     cover: {
         scheme: 'search',
-        title: 'Material X',
+        title: "SSL's zone",
         features: [{
                 name: '博文',
                 icon: 'fas fa-rss',

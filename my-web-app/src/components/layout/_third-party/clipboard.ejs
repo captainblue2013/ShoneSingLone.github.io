@@ -1,14 +1,14 @@
 <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
 <script>
-  let COPY_SUCCESS = "<%- __('post.copy_success') %>";
-  let COPY_FAILURE = "<%- __('post.copy_failure') %>";
+  let COPY_SUCCESS = "{{__('post.copy_success')}}";
+  let COPY_FAILURE = "{{__('post.copy_failure')}}";
   /*页面载入完成后，创建复制按钮*/
   !function (e, t, a) {
     /* code */
     var initCopyCode = function(){
       var copyHtml = '';
-      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
-      copyHtml += '  <i class="fa fa-copy"></i><span><%- __('post.copy_button') %></span>';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet=''>';
+      copyHtml += '  <i class="fa fa-copy"></i><span>{{__('post.copy_button')}}</span>';
       copyHtml += '</button>';
       $(".highlight .code pre").before(copyHtml);
       var clipboard = new ClipboardJS('.btn-copy', {

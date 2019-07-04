@@ -1,5 +1,5 @@
 <% page.comments = false; %>
-<div class='l_main<%- page.sidebar == false ? ' no_sidebar' : '' %>'>
+<div class='l_main{{page.sidebar == false ? ' no_sidebar' : ''}}'>
   <% if (site.posts && site.posts.length > 0) { %>
     <section class="post-list">
       <% if (!page.prev) { %>
@@ -7,7 +7,7 @@
           <% if (post.type && post.type == page.type) { %>
             <% if (post.top) { %>
               <div class='post-wrapper'>
-                <%- partial('_partial/post', {post: post, index: false}) %>
+                {{partial('_partial/post', {post: post, index: false})}}
               </div>
             <% } %>
           <% } %>
@@ -17,7 +17,7 @@
         <% if (post.type && post.type == page.type) { %>
           <% if (!post.top) { %>
             <div class='post-wrapper'>
-              <%- partial('_partial/post', {post: post, index: false}) %>
+              {{partial('_partial/post', {post: post, index: false})}}
             </div>
           <% } %>
         <% } %>
@@ -36,11 +36,11 @@
       });
       %>
       <% if (need_mathjax){ %>
-        <%- partial('mathjax') %>
+        {{partial('mathjax')}}
       <% } %>
 
     <% } %>
   <% } %>
 </div>
-<%- partial('_partial/side') %>
-<%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
+{{partial('_partial/side')}}
+{{partial('_partial/footer', null, {cache: !config.relative_link})}}

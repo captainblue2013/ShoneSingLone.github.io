@@ -9,7 +9,7 @@
           <% let widget_name = item.widget ? item.widget : 'plain'; %>
           <% if (item.enable != false && widget_name == name){ %>
             <% if (supportWidgets.indexOf(widget_name) > -1){ %>
-              <%- partial('../_widget/' + item.widget, {item: item}) %>
+              {{partial('../_widget/' + item.widget, {item: item})}}
             <% } %>
           <% } %>
         <% }) %>
@@ -19,7 +19,7 @@
         <% if (item.enable != false){ %>
           <% let widget_name = item.widget ? item.widget : 'plain'; %>
           <% if (supportWidgets.indexOf(widget_name) > -1){ %>
-            <%- partial('../_widget/' + item.widget, {item: item}) %>
+            {{partial('../_widget/' + item.widget, {item: item})}}
           <% } %>
         <% } %>
       <% }) %>

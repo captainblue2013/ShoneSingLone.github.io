@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<%- partial('_partial/head') %>
+{{partial('_partial/head')}}
 <body>
   <%
   var showCover = false;
@@ -22,15 +22,15 @@
     }
   }
   %>
-  <%- partial('_partial/cover', {showCover: showCover}) %>
-  <div class="l_body<%- showCover ? '' : ' nocover' %>">
+  {{partial('_partial/cover', {showCover: showCover})}}
+  <div class="l_body{{showCover ? '' : ' nocover'}}">
     <div class='body-wrapper'>
-      <%- body %>
+      {{body}}
       <script>setLoadingBarProgress(60);</script>
     </div>
     <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
   </div>
-  <%- partial('_partial/scripts') %>
+  {{partial('_partial/scripts')}}
   <script>setLoadingBarProgress(100);</script>
 </body>
 </html>

@@ -5,8 +5,10 @@ import Home from './views/Home.vue'
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
+  routes: [{
+      path: '*',
+      redirect: '/'
+    }, {
       path: '/',
       name: 'home',
       component: Home
@@ -14,7 +16,7 @@ export default new Router({
     {
       path: '/about',
       name: 'about',
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+      component: () => import( /* webpackChunkName: "about" */ './views/About.vue')
     }
   ]
 })

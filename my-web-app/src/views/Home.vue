@@ -1,15 +1,23 @@
 <template>
-  <div class='home'>
+  <div class="home">
     <c-cover></c-cover>
+    <div :class="showCover?'':' nocover'">
+      <div class="body-wrapper">{{body}}</div>
+      <a class="s-top fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+    </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import theme from "../components/layout/_configs";
+import loadJS from "@/utils/loadJS";
+loadJS([
+  ["jquey", "https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"]
+]);
 
 export default {
-  name: 'home',
+  name: "home",
   components: {
     CCover: () =>
       import(
@@ -34,15 +42,16 @@ export default {
   },
   data() {
     return {
-      page:{},
+      page: {},
       theme,
+      body: "",
       config: { title: "config默认title" },
       showCover: false
     };
   },
   computed: {
     isHome() {
-      return this.$route.name === 'home';
+      return this.$route.name === "home";
     }
   },
   methods: {}

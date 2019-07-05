@@ -4,6 +4,7 @@
       <c-search v-if="APP.theme.cover.scheme === 'search'" />
     </div>
     <c-header />
+    <c-aside />
   </div>
   <c-header v-else />
 </template>
@@ -19,6 +20,10 @@ export default {
     CSearch: () =>
       import(
         /* webpackChunkName: "search" */ "@/components/layout/_cover/CSearch.vue"
+      ),
+    CAside: () =>
+      import(
+        /* webpackChunkName: "aside" */ "@/components/layout/_partial/CAside.vue"
       )
   },
   data() {

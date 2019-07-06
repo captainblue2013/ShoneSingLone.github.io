@@ -1,10 +1,11 @@
 <template>
   <div class="home">
     <c-cover></c-cover>
-    <div :class="showCover?'':' nocover'">
+    <div :class="['l_body',showCover?'':' nocover']">
       <div class="body-wrapper">{{body}}</div>
       <a class="s-top fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
     </div>
+    <c-scripts></c-scripts>
   </div>
 </template>
 
@@ -22,6 +23,10 @@ export default {
     CCover: () =>
       import(
         /* webpackChunkName: "cover" */ "@/components/layout/_partial/CCover.vue"
+      ),
+    CScripts: () =>
+      import(
+        /* webpackChunkName: "cover" */ "@/components/layout/_partial/CScripts.vue"
       )
   },
   provide() {
@@ -44,7 +49,7 @@ export default {
     return {
       page: {},
       theme,
-      body: "",
+      body: "body is other pages info",
       config: { title: "config默认title" },
       showCover: false
     };

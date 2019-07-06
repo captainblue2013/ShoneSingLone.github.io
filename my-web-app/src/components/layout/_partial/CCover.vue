@@ -1,6 +1,6 @@
 <template>
   <div class="cover-wrapper" v-if="APP.showCover">
-    <div :class="['cover', APP.isHome?APP.theme.cover.height:'half']">
+    <div id="cover" :class="['cover', APP.isHome?APP.theme.cover.height:'half']">
       <c-search v-if="APP.theme.cover.scheme === 'search'" />
     </div>
     <c-header />

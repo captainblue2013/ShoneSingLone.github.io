@@ -6,10 +6,15 @@ export default {
             css: {
                 style: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.5/css/style.css'
             },
-            js: {
+            localJS: {
                 app: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.5/js/app.js',
                 search: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.5/js/search.js',
                 volantis: 'https://cdn.jsdelivr.net/gh/xaoxuu/volantis@1.0/js/volantis.min.js'
+            },
+            js: {
+                app: '/js/app.js',
+                search: '/js/search.js',
+                volantis: '/js/volantis.js'
             }
         }
     },

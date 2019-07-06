@@ -1,40 +1,49 @@
 <template>
-  <div class="scripts"></div>
+  <div class="scripts">this is scripts;</div>
 </template>
 <script>
-import loadJS from "@/loadJS";
-let { $, ScrollReveal, Waves, FastClick } = window;
+import loadJS from "@/utils/loadJS";
+import clipboard from "@/components/layout/_third-party/clipboard";
+import theme from "../_configs";
+
+let { $, ScrollReveal, Waves, FastClick, Gitalk } = window;
+let page, config;
 
 export default {
   name: "scripts",
   inject: ["APP"],
-  beforeCreate() {
-    Promise.all([this.initJQuery()]).catch(console.error.bind(console));
+  mounted() {
+    page = this.APP.page;
+    config = this.APP.config;
+    /*  */
+    setTimeout(() => {
+      this.initSearch();
+      this.initInstant();
+      this.initScrollreveal();
+      this.initNodewaves();
+      this.initBusuanzi();
+      this.initFastclick();
+      this.initBackstretch();
+      this.initComments();
+      this.initOthers();
+    }, 1000 * 1);
   },
   data() {
     return {};
   },
   methods: {
-    initJQuery() {
-      return loadJS([
-        [
-          "jquey",
-          "https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"
-        ]
-      ]);
-    },
     initSearch() {
-      if (this.APP.theme.search && this.APP.theme.search.enable) {
-        window.GOOGLE_CUSTOM_SEARCH_API_KEY = this.APP.theme.search.google_api_key;
-        window.GOOGLE_CUSTOM_SEARCH_ENGINE_ID = this.APP.theme.search.google_engine_id;
-        window.ALGOLIA_API_KEY = this.APP.theme.search.algolia_api_key;
-        window.ALGOLIA_APP_ID = this.APP.theme.search.algolia_app_id;
-        window.ALGOLIA_INDEX_NAME = this.APP.theme.search.algolia_index_name;
-        window.AZURE_SERVICE_NAME = this.APP.theme.search.azure_service_name;
-        window.AZURE_INDEX_NAME = this.APP.theme.search.azure_index_name;
-        window.AZURE_QUERY_KEY = this.APP.theme.search.azure_query_key;
-        window.BAIDU_API_ID = this.APP.theme.search.baidu_api_id;
-        window.SEARCH_SERVICE = this.APP.theme.search.service || "hexo";
+      if (theme.search && theme.search.enable) {
+        window.GOOGLE_CUSTOM_SEARCH_API_KEY = theme.search.google_api_key;
+        window.GOOGLE_CUSTOM_SEARCH_ENGINE_ID = theme.search.google_engine_id;
+        window.ALGOLIA_API_KEY = theme.search.algolia_api_key;
+        window.ALGOLIA_APP_ID = theme.search.algolia_app_id;
+        window.ALGOLIA_INDEX_NAME = theme.search.algolia_index_name;
+        window.AZURE_SERVICE_NAME = theme.search.azure_service_name;
+        window.AZURE_INDEX_NAME = theme.search.azure_index_name;
+        window.AZURE_QUERY_KEY = theme.search.azure_query_key;
+        window.BAIDU_API_ID = theme.search.baidu_api_id;
+        window.SEARCH_SERVICE = theme.search.service || "hexo";
         window.ROOT = this.APP.config.root || "/";
         if (!window.ROOT.endsWith("/")) window.ROOT += "/";
       }
@@ -48,7 +57,7 @@ export default {
       ]);
     },
     initScrollreveal() {
-      if (this.APP.theme.scrollreveal === true) {
+      if (theme.scrollreveal === true) {
         $(function() {
           const $reveal = $(".reveal");
           if ($reveal.length === 0) return;
@@ -57,49 +66,8 @@ export default {
         });
       }
     },
-    initBackstretch() {
-      if (
-        this.APP.theme.backstretch &&
-        (this.APP.theme.backstretch.images || this.APP.page.images)
-      ) {
-        var imgs = this.APP.theme.backstretch.images || this.APP.page.images;
-        var posi = null;
-        if (this.APP.theme.backstretch.position == "cover") {
-          posi = ".cover";
-        }
-        if (
-          imgs != undefined &&
-          this.APP.theme.backstretch.position != undefined
-        ) {
-          $(function() {
-            if (posi) {
-              $(posi).backstretch(imgs, {
-                duration: this.APP.theme.backstretch.duration,
-                fade: this.APP.theme.backstretch.fade
-              });
-            } else {
-              $.backstretch(imgs, {
-                duration: this.APP.theme.backstretch.duration,
-                fade: this.APP.theme.backstretch.fade
-              });
-            }
-          });
-        }
-      }
-    },
-    initFastclick() {
-      if (this.APPtheme.fastclick == true) {
-        document.addEventListener(
-          "DOMContentLoaded",
-          function() {
-            FastClick.attach(document.body);
-          },
-          false
-        );
-      }
-    },
     initNodewaves() {
-      if (this.APP.theme.nodewaves == true) {
+      if (theme.nodewaves == true) {
         $(function() {
           Waves.attach(".flat-btn", ["waves-button"]);
           Waves.attach(".float-btn", ["waves-button", "waves-float"]);
@@ -114,9 +82,210 @@ export default {
           Waves.init();
         });
       }
+    },
+    initBusuanzi() {
+      if (theme.busuanzi == true) {
+        console.log("busuanzi是干嘛用的？", theme.busuanzi);
+      }
+    },
+    initFastclick() {
+      if (theme.fastclick == true) {
+        document.addEventListener(
+          "DOMContentLoaded",
+          function() {
+            FastClick.attach(document.body);
+          },
+          false
+        );
+      }
+    },
+    initBackstretch() {
+      window.$ = $ = window.thisjQuery;
+      if (theme.backstretch && (theme.backstretch.images || page.images)) {
+        var imgs = theme.backstretch.images || page.images;
+        var posi = null;
+        if (theme.backstretch.position == "cover") {
+          posi = ".cover";
+        }
+        if (imgs != undefined && theme.backstretch.position != undefined) {
+          if (posi) {
+            $(posi).backstretch(imgs, {
+              duration: theme.backstretch.duration,
+              fade: theme.backstretch.fade
+            });
+          } else {
+            $("#cover").backstretch(
+              [
+                "https://img.vim-cn.com/6d/a0c9e6f9efad8b731cb7376504bd10d79d2053.jpg"
+              ],
+              { duration: "6000", fade: "2500" }
+            );
+            /*  $.backstretch(imgs, {
+                duration: theme.backstretch.duration,
+                fade: theme.backstretch.fade
+              }); */
+          }
+        }
+      }
+    },
+    initComments() {
+      window.enableDisqus = false;
+      window.enableLivere = false;
+      window.enableGitalk = false;
+      window.enableValine = false;
+      var result = [];
+      if (page && page.comments == true) {
+        if (this.APP.config.disqus_shortname) {
+          window.enableDisqus = true;
+
+          var disqus_shortname = this.APP.config.disqus_shortname;
+          if (page.permalink) {
+            window.disqus_url = page.permalink;
+          }
+          result.push(
+            loadJS([
+              [
+                "disqus",
+                "//" + disqus_shortname + ".disqus.com/" + page.comments
+                  ? "embed.js"
+                  : "count.js"
+              ]
+            ])
+          );
+        }
+        if (this.APP.config.livere_uid) {
+          window.enableLivere = true;
+          result.push(
+            loadJS([["livere", "https://cdn-city.livere.com/js/embed.dist.js"]])
+          );
+        }
+        if (this.APP.config.gitalk) {
+          window.enableGitalk = true;
+          let options = {
+            clientID: this.APP.config.gitalk.clientID,
+            clientSecret: this.APP.config.gitalk.clientSecret,
+            repo: this.APP.config.gitalk.repo,
+            owner: this.APP.config.gitalk.owner,
+            admin: this.APP.config.gitalk.admin,
+            distractionFreeMode: false // Facebook-like distraction free mode
+          };
+          options.id =
+            page.gitalk && page.gitalk.id ? page.gitalk.id : location.pathname;
+          var gitalk = new Gitalk(options);
+          gitalk.render("gitalk-container");
+        }
+        if (theme.valine.enable && this.APP.config.leancloud) {
+          window.enableValine = true;
+          loadJS([["av-min", "//cdn1.lncld.net/static/js/3.0.4/av-min.js"]])
+            .then(() => {
+              if (theme.valine.volantis == true) {
+                let src =
+                  theme.info &&
+                  theme.info.cdn &&
+                  theme.info.cdn.js &&
+                  theme.info.cdn.js.volantis
+                    ? theme.info.cdn.js.volantis
+                    : "js/volantis.js";
+                return loadJS([["volantis", src]]);
+              } else {
+                return loadJS([
+                  [
+                    "volantis",
+                    "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-valine@1.3.4/js/valine.min.js"
+                  ]
+                ]);
+              }
+            })
+            .then(() => {
+              var GUEST_INFO = ["nick", "mail", "link"];
+              var guest_info = theme.valine.guest_info
+                .split(",")
+                .filter(function(item) {
+                  return GUEST_INFO.indexOf(item) > -1;
+                });
+              var notify = theme.valine.notify == true;
+              var verify = theme.valine.verify == true;
+              let { Valine } = window;
+              var valine = new Valine();
+              let options = {
+                el: "#valine_container",
+                notify: notify,
+                verify: verify,
+                guest_info: guest_info,
+                appId: config.leancloud.app_id,
+                appKey: config.leancloud.app_key,
+                placeholder:
+                  page.valine && page.valine.placeholder
+                    ? page.valine.placeholder
+                    : theme.valine.placeholder,
+                pageSize: theme.valine.pageSize,
+                avatar: theme.valine.avatar,
+                lang: theme.valine.lang,
+                highlight: theme.valine.highlight
+              };
+
+              if (page.valine && page.valine.path) {
+                options.path = page.valine.path;
+              }
+              valine.init(options);
+            });
+        }
+      }
+    },
+    initOthers() {
+      let searchSrc =
+        theme.info &&
+        theme.info.cdn &&
+        theme.info.cdn.js &&
+        theme.info.cdn.js.search
+          ? theme.info.cdn.js.search
+          : "js/search.js";
+      loadJS([["search", searchSrc]]).then(() => {
+        let mainSrc =
+          theme.info &&
+          theme.info.cdn &&
+          theme.info.cdn.js &&
+          theme.info.cdn.js.app
+            ? theme.info.cdn.js.app
+            : "js/app.js";
+        return loadJS([["main-app", mainSrc]]);
+      });
+
+      if (page.layout == "links") {
+        loadJS([
+          [
+            "echo",
+            "https://cdn.jsdelivr.net/gh/toddmotto/echo@1.7.3/src/echo.js"
+          ]
+        ]).then(() => {
+          let { echo } = window;
+          echo.init({
+            offset: 100,
+            throttle: 250,
+            unload: false,
+            callback: function(element, op) {
+              console.log(element, "has been", op + "ed");
+            }
+          });
+        });
+      }
+      if (config.import && config.import.script) {
+        (config.import.script || []).forEach(function(item) {
+          console.log(item);
+        });
+      }
+    },
+    initClipboard() {
+      loadJS([
+        [
+          "clipboard",
+          "https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"
+        ]
+      ]).then(() => {
+        clipboard();
+      });
     }
-  },
-  mounted() {}
+  }
 };
 </script>
 <style lang="scss">

@@ -52,18 +52,18 @@ export default {
             {
                 name: '项目',
                 icon: 'fas fa-code-branch',
-                url: 'projects/'
+                url: '#/projects'
             },
             {
                 name: '友链',
                 icon: 'fas fa-link',
-                url: 'friends/',
+                url: '#/friends',
                 rel: 'nofollow'
             },
             {
                 name: '关于',
                 icon: 'fas fa-info-circle',
-                url: 'about/',
+                url: '#/about',
                 rel: 'nofollow'
             }
         ]

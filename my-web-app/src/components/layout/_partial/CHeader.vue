@@ -1,5 +1,5 @@
 <template>
-  <header :class="['l_header','show',APP.page.sidebar?' no_sidebar':' '+APP.theme.style]">
+  <header :class="['l_header',APP.page.sidebar?'no_sidebar':APP.theme.style]">
     <div id="loading-bar-wrapper">
       <div id="loading-bar" :class="APP.theme.style"></div>
     </div>

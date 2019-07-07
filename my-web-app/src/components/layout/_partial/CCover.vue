@@ -1,7 +1,7 @@
 <template>
   <div class="cover-wrapper" v-if="APP.showCover">
-    <div id="cover" :class="['cover', APP.isHome?APP.theme.cover.height:'half']">
-      <c-search v-if="APP.theme.cover.scheme === 'search'" />
+    <div id="cover" :class="['cover', APP.isHome?theme.cover.height:'half']">
+      <c-search v-if="theme.cover.scheme === 'search'" />
     </div>
     <c-header />
     <c-aside />
@@ -12,6 +12,7 @@
 export default {
   name: "CCover",
   inject: ["APP"],
+  props: ["theme"],
   components: {
     CHeader: () =>
       import(

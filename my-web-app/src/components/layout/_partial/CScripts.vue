@@ -1,5 +1,5 @@
 <template>
-  <div class="scripts">this is scripts;</div>
+  <div class="scripts"></div>
 </template>
 <script>
 import loadJS from "@/utils/loadJS";

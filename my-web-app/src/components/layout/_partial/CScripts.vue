@@ -100,7 +100,6 @@ export default {
       }
     },
     initBackstretch() {
-      window.$ = $ = window.thisjQuery;
       if (theme.backstretch && (theme.backstretch.images || page.images)) {
         var imgs = theme.backstretch.images || page.images;
         var posi = null;

@@ -16,19 +16,48 @@
 import theme from "./components/layout/_configs";
 import loadJS from "@/utils/loadJS";
 loadJS([
-  ["jquey", "https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"]
+  [
+    "backstretch",
+    "https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"
+  ],
+  ["page", "//instant.page/1.2.2"],
+  ["waves", "https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"],
+  [
+    "fastclick",
+    "https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js"
+  ],
+  ["gitalk", "https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"]
 ]);
 
 // @ is an alias to /src
 export default {
   name: "APP",
   mounted() {
-    (() => import("@/utils/vueEasyLightbox.umd.min.js"))().then(() => {
+    (() => import("@ventose/imgviewer"))().then(() => {
       let { $ } = window;
       $(".l_main").on("click", "img", event => {
         window.VueServer.imgViewer.setImgs(event.target.src).show();
       });
     });
+    // 为给定 ID 的 user 创建请求
+    /*  this.$http
+      .get("https://api.github.com/repos/ShoneSingLone/GitBook/contents")
+      .then(function(response) {
+        console.log(JSON.stringify(response,null,2));
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+    this.$http
+      .get("https://raw.githubusercontent.com/ShoneSingLone/GitBook/master/Canvas.md")
+      .then(function(response) {
+        debugger;
+        console.log(JSON.stringify(response,null,2));
+      })
+      .catch(function(error) {
+        debugger;
+        console.log(error);
+      }); */
   },
   components: {
     CCover: () =>

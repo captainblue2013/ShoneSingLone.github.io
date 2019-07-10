@@ -1,7 +1,21 @@
 <template>
   <div class="search">
     <img v-if="APP.theme.cover.logo" class="logo" src="APP.theme.cover.logo" />
-    <h1 v-else class="title">{{APP.theme.cover.title ? APP.theme.cover.title : APP.config.title}}</h1>
+    <h1 v-else class="title">
+      <svg class="login-brand-svg" width="600" height="80" viewBox="0 0 600 80">
+        <defs>
+          <linearGradient id="linear" x1="0%" y1="0%" x2="1" y2="1">
+            <stop offset="0%" stop-color="#adc8ae" />
+            <stop offset="100%" stop-color="#0f2303" />
+          </linearGradient>
+        </defs>
+        <text font-size="60" x="300" y="1em" style="text-anchor: middle; ">
+          <tspan
+            fill="url(#linear)"
+          >{{APP.theme.cover.title ? APP.theme.cover.title : APP.config.title}}</tspan>
+        </text>
+      </svg>
+    </h1>
     <div v-if="APP.theme.search.enable === true" class="m_search">
       <form name="searchform" class="form u-search-form">
         <input

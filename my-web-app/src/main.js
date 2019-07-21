@@ -6,7 +6,7 @@ import './registerServiceWorker'
 import axios from "@/utils/axios"
 import jquery from "jquery"
 window.Vue = Vue;
-window.$ = jquery;
+window.$ = window.jQuery = jquery;
 Vue.config.productionTip = false
 Vue.prototype.$http = axios;
 

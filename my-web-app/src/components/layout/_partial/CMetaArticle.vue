@@ -55,7 +55,7 @@
       <section class="meta">
         <div class="meta" id="header-meta">
           <h2 class="title">
-            <a :href="article.html_url" target="_blank">{{article.name|filterTitle}}</a>
+            <a :href="article.html_url" target="_blank">{{filterTitle}}</a>
           </h2>
           <div class="new-meta-box">
             <div class="new-meta-item author">
@@ -132,7 +132,8 @@ export default {
   created() {
     this.$http("/articles/detail", {
       params: {
-        path: this.article.path
+        path: this.article.path,
+        name: this.article.name
       }
     })
       .then(res => {
@@ -156,11 +157,14 @@ export default {
       }
     };
   },
-  filters: {
-    filterTitle(title) {
+  computed: {
+    filterTitle() {
+      let title = this.article.name;
       let matches = title.match(/(.*).md$/);
       return matches.length === 2 ? matches[1] : title;
-    },
+    }
+  },
+  filters: {
     dateFormat: _date => dayjs(_date).format("YYYY-MM-DD")
   },
   methods: {},

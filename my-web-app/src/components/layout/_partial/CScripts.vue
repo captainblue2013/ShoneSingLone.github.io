@@ -12,7 +12,7 @@ let page, config;
 let runWaves = () =>
   import(/* webpackChunkName: "Waves" */ "./scripts/waves.min.js");
 let runScrollReveal = () =>
-  import(/* webpackChunkName: "Waves" */ "./scripts/scrollreveal.min.js");
+  import(/* webpackChunkName: "scrollreveal" */ "./scripts/scrollreveal.min.js");
 
 export default {
   name: "scripts",

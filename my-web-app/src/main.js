@@ -9,10 +9,13 @@ window.Vue = Vue;
 window.$ = window.jQuery = jquery;
 Vue.config.productionTip = false
 Vue.prototype.$http = axios;
-
-new Vue({
+console.time('mount')
+let app = new Vue({
     router,
     store,
     render: h => h(App)
   })
-  .$mount('#app')
+  .$mount();
+console.timeEnd('mount');
+let $app = jquery('#app');
+$app.replaceWith(app.$el);

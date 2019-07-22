@@ -6,8 +6,13 @@
     <br />
     <div class="prev-next">
       <div class="prev-next">
-        <p class="current">1 / 4</p>
-        <a class="next" rel="next" href="/page/2/">
+        <a class="prev" @click="getArticleList(-1)" v-show="pageCurrent!==1">
+          <section class="post prev">
+            <i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页&nbsp;
+          </section>
+        </a>
+        <p class="current">{{pageCurrent}}/{{pageTotal}}</p>
+        <a class="next" @click="getArticleList(1)"  v-show="pageCurrent!==pageTotal">
           <section class="post next">
             &nbsp;下一页&nbsp;
             <i class="fas fa-chevron-right" aria-hidden="true"></i>
@@ -27,21 +32,44 @@ export default {
     CMetaArticle
   },
   created() {
-    this.$http("/articles")
-      .then(res => {
-        if (res.isSuccess) {
-          this.articleList = res.data;
-          console.table(this.articleList);
-        }
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    this.getArticleList(1);
   },
   data() {
-    return { articleList: [] };
+    return { articleList: [], articleTotal: 0, pageSize: 6, pageCurrent: 1 };
   },
-  methods: {}
+  computed: {
+    pageTotal() {
+      return Math.ceil(this.articleTotal / this.pageSize);
+    }
+  },
+  methods: {
+    getArticleList(tag) {
+      if (tag === 1 && this.pageCurrent !== this.pageTotal) {
+        this.pageCurrent++;
+      } else if (tag === -1 && this.pageCurrent !== 1) {
+        this.pageCurrent--;
+      } else {
+        return false;
+      }
+
+      this.$http("/articles", {
+        params: {
+          pageSize: this.pageSize,
+          pageCurrent: this.pageCurrent
+        }
+      })
+        .then(res => {
+          if (res.isSuccess) {
+            debugger;
+            this.articleList = res.data;
+            this.articleTotal = res.articleTotal;
+          }
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
+  }
 };
 </script>
 

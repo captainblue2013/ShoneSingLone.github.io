@@ -20,19 +20,29 @@
   </noscript>
   <div id="app"></div>
   <!-- built files will be auto injected -->
-  <script defer src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/1.0.12/push.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
   <script>
-    window.thisjQuery = $;
+    let _window = window;
+    var socket = io.connect('http://localhost:8080');
+    socket.on('pushNotification', function (data) {
+      console.log(data, Push.create("Hello world!", {
+        body: data.msg,
+        icon: '/images/a.png',
+        timeout: 4000,
+        onClick: function () {
+          /* TODO: 如果tab页存在不需要新开 */
+          /* var popup = window.open(window.location.href, 'Popup Window');
+          if ((popup !== null) && !popup.closed) {
+            popup.focus();
+          } */
+          _window.focus();
+          this.close();
+        }
+      }));
+    });
   </script>
-  <script defer src="//instant.page/1.2.2" type="module"
-    integrity="sha384-2xV8M5griQmzyiY3CDqh1dn4z3llDVqZDqzjzcY+jCBCk/a5fXJmuZ/40JJAPeoU"></script>
-  <script async src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
-  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-  <script defer src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
 </body>
 
 </html>

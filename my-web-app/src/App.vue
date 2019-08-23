@@ -15,6 +15,12 @@
 <script>
 import theme from "./components/layout/_configs";
 import loadJS from "@/utils/loadJS";
+/* components */
+import CCover from "@/components/layout/_partial/CCover.vue";
+import CSide from "@/components/layout/_partial/CSide.vue";
+import CFooter from "@/components/layout/_partial/CFooter.vue";
+import CScripts from "@/components/layout/_partial/CScripts.vue";
+
 loadJS([
   ["jquey", "https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"]
 ]);
@@ -30,24 +36,7 @@ export default {
       });
     });
   },
-  components: {
-    CCover: () =>
-      import(
-        /* webpackChunkName: "cover" */ "@/components/layout/_partial/CCover.vue"
-      ),
-    CSide: () =>
-      import(
-        /* webpackChunkName: "side" */ "@/components/layout/_partial/CSide.vue"
-      ),
-    CFooter: () =>
-      import(
-        /* webpackChunkName: "cover" */ "@/components/layout/_partial/CFooter.vue"
-      ),
-    CScripts: () =>
-      import(
-        /* webpackChunkName: "cover" */ "@/components/layout/_partial/CScripts.vue"
-      )
-  },
+  components: { CCover, CSide, CFooter, CScripts },
   provide() {
     let APP = this;
     return {
@@ -81,7 +70,3 @@ export default {
   methods: {}
 };
 </script>
-
-
-<style lang="scss" src="./style.scss">
-</style>

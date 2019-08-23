@@ -25,4 +25,7 @@ layout保持原结构不变
 
 ### Customize configuration
 
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- [Configuration Reference](https://cli.vuejs.org/config/).
+- [一篇文章搞定Github API 调用 (v3）](https://segmentfault.com/a/1190000015144126).
+
+Push.js

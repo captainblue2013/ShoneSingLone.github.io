@@ -8,12 +8,6 @@ import theme from "../_configs";
 
 let { $, ScrollReveal, Waves, FastClick, Gitalk } = window;
 let page, config;
-let runWaves = () =>
-  import(/* webpackChunkName: "Waves" */ "./scripts/waves.min.js");
-let runScrollReveal = () =>
-  import(
-    /* webpackChunkName: "scrollreveal" */ "./scripts/scrollreveal.min.js"
-  );
 // let runSocketIO = () => import( /* webpackChunkName: "SocketIO" */ "./scripts/scrollreveal.min.js" );
 
 export default {

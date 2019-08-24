@@ -1,9 +1,10 @@
 import $ from 'jquery';
+import resolvePath from "./resolvePath";
 
 export default function (JSArray) {
     var componentsPromiseArray = JSArray.map(function (jsObjArray) {
         var jsId = jsObjArray[0];
-        var jsPath = jsObjArray[1];
+        var jsPath = resolvePath(jsObjArray[1]);
         window.JSList = window.JSList || {};
         return new Promise(function (resolve, reject) {
             if (window.JSList[jsId]) {

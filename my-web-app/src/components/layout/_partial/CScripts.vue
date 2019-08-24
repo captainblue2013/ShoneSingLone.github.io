@@ -6,7 +6,8 @@ import loadJS from "@/utils/loadJS";
 import clipboard from "@/components/layout/_third-party/clipboard";
 import theme from "../_configs";
 
-let { $, ScrollReveal, Waves, FastClick, Gitalk } = window;
+let { $, FastClick } = window;
+
 let page, config;
 // let runSocketIO = () => import( /* webpackChunkName: "SocketIO" */ "./scripts/scrollreveal.min.js" );
 
@@ -19,7 +20,6 @@ export default {
     /*  */
     setTimeout(() => {
       this.initSearch();
-      this.initInstant();
       this.initScrollreveal();
       this.initNodewaves();
       this.initBusuanzi();
@@ -49,17 +49,10 @@ export default {
         if (!window.ROOT.endsWith("/")) window.ROOT += "/";
       }
     },
-    initInstant() {
-      return loadJS([
-        [
-          "jquey",
-          "https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"
-        ]
-      ]);
-    },
     initScrollreveal() {
       if (theme.scrollreveal === true) {
-        $(function() {
+        runScrollReveal().then(function() {
+          let { ScrollReveal } = window;
           const $reveal = $(".reveal");
           if ($reveal.length === 0) return;
           const sr = ScrollReveal({ distance: 0 });
@@ -69,7 +62,8 @@ export default {
     },
     initNodewaves() {
       if (theme.nodewaves == true) {
-        $(function() {
+        runWaves().then(function() {
+          let { Waves } = window;
           Waves.attach(".flat-btn", ["waves-button"]);
           Waves.attach(".float-btn", ["waves-button", "waves-float"]);
           Waves.attach(".float-btn-light", [
@@ -99,7 +93,6 @@ export default {
       }
     },
     initBackstretch() {
-      window.$ = $ = window.thisjQuery;
       if (theme.backstretch && (theme.backstretch.images || page.images)) {
         var imgs = theme.backstretch.images || page.images;
         var posi = null;

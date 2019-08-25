@@ -2,12 +2,11 @@
   <div class="scripts"></div>
 </template>
 <script>
-import loadJS from "@/utils/loadJS";
+import loadJS from "@ventose/utils-loadjs";
 import clipboard from "@/components/layout/_third-party/clipboard";
 import theme from "../_configs";
-
-let { $, FastClick } = window;
-
+import $ from "jquery";
+let { FastClick } = window;
 let page, config;
 // let runSocketIO = () => import( /* webpackChunkName: "SocketIO" */ "./scripts/scrollreveal.min.js" );
 
@@ -51,18 +50,20 @@ export default {
     },
     initScrollreveal() {
       if (theme.scrollreveal === true) {
-        runScrollReveal().then(function() {
-          let { ScrollReveal } = window;
-          const $reveal = $(".reveal");
-          if ($reveal.length === 0) return;
-          const sr = ScrollReveal({ distance: 0 });
-          sr.reveal(".reveal");
-        });
+        loadJS([["scrollreveal", "./plugins/scrollreveal.min.js"]]).then(
+          function() {
+            let { ScrollReveal } = window;
+            const $reveal = $(".reveal");
+            if ($reveal.length === 0) return;
+            const sr = ScrollReveal({ distance: 0 });
+            sr.reveal(".reveal");
+          }
+        );
       }
     },
     initNodewaves() {
       if (theme.nodewaves == true) {
-        runWaves().then(function() {
+        loadJS([["waves", "./pulugins/waves.min.js"]]).then(function() {
           let { Waves } = window;
           Waves.attach(".flat-btn", ["waves-button"]);
           Waves.attach(".float-btn", ["waves-button", "waves-float"]);

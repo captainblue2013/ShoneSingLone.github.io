@@ -1,2 +1,2 @@
-import axios from './request'
+import axios from "./request";
 export default axios;

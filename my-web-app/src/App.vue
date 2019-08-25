@@ -14,7 +14,7 @@
 </template>
 <script>
 import theme from "./components/layout/_configs";
-import loadJS from "@/utils/loadJS";
+import loadJS from "@ventose/utils-loadjs";
 /* components */
 import CCover from "@/components/layout/_partial/CCover.vue";
 import CSide from "@/components/layout/_partial/CSide.vue";

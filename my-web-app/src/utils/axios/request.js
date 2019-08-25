@@ -4,9 +4,9 @@ import axios from "axios";
 
 
 const service = axios.create({
-    baseURL: process.env.NODE_ENV==="development"?"":"https://ShoneSingLone.top", // api的base_url
+    baseURL: process.env.NODE_ENV === "development" ? "" : "https://ShoneSingLone.top", // api的base_url
     timeout: 5000 // 请求超时时间
-})
+});
 
 /****** request拦截器==>对请求参数做处理 ******/
 service.interceptors.request.use(config => {
@@ -29,8 +29,8 @@ service.interceptors.request.use(config => {
           type: 'warn',
           text: error
       }); */
-    return Promise.reject(error)
-})
+    return Promise.reject(error);
+});
 
 
 
@@ -53,7 +53,7 @@ service.interceptors.response.use(
             text: text
         });
  */
-        return Promise.reject(error)
+        return Promise.reject(error);
     }
 );
 

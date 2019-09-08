@@ -236,20 +236,20 @@ self.__precacheManifest = [
     "url": "/index.html"
   },
   {
-    "revision": "a2a65d7686b93b8fa27f20861500d461",
-    "url": "/css/fonts/iconfont.css"
+    "revision": "2fad952a20fbbcfd1bf2ebb210dccf7a",
+    "url": "/css/fonts/element-icons.woff"
   },
   {
-    "revision": "5c683592ac6eec6f27651099dc74506f",
-    "url": "/css/fonts/iconfont.woff2"
+    "revision": "a2a65d7686b93b8fa27f20861500d461",
+    "url": "/css/fonts/iconfont.css"
   },
   {
     "revision": "3c3647d89326c635c71749deed02c62a",
     "url": "/css/fonts/iconfont.woff"
   },
   {
-    "revision": "2fad952a20fbbcfd1bf2ebb210dccf7a",
-    "url": "/css/fonts/element-icons.woff"
+    "revision": "5c683592ac6eec6f27651099dc74506f",
+    "url": "/css/fonts/iconfont.woff2"
   },
   {
     "revision": "bca6fb0c6d76c09a979413ed9e4b4f40",
@@ -264,8 +264,8 @@ self.__precacheManifest = [
     "url": "/img/threejs/0.png"
   },
   {
-    "revision": "bf11fa67d6f6224ef3d45e4b7def593e",
-    "url": "/img/threejs/2.png"
+    "revision": "c9364e7764d71a0f1e9cc16a0039a599",
+    "url": "/img/threejs/3.png"
   },
   {
     "revision": "ae80b3ba69e81554e20b3089f3d1780c",
@@ -276,14 +276,6 @@ self.__precacheManifest = [
     "url": "/img/threejs/4.png"
   },
   {
-    "revision": "c9364e7764d71a0f1e9cc16a0039a599",
-    "url": "/img/threejs/3.png"
-  },
-  {
-    "revision": "3f98b7554c4891979807a0e9a6c23283",
-    "url": "/img/threejs/5.png"
-  },
-  {
     "revision": "18dacf7cbfd25ee189f47a8740c34eb7",
     "url": "/img/threejs/chess.png"
   },
@@ -292,16 +284,12 @@ self.__precacheManifest = [
     "url": "/js/stats.min.js"
   },
   {
-    "revision": "735ab4f94fbcd57074377afca324c813",
-    "url": "/robots.txt"
+    "revision": "32c4cbe96334e0a36a9b144e3c191780",
+    "url": "/css/fonts/demo.css"
   },
   {
     "revision": "6f0a76321d30f3c8120915e57f7bd77e",
     "url": "/css/fonts/element-icons.ttf"
-  },
-  {
-    "revision": "32c4cbe96334e0a36a9b144e3c191780",
-    "url": "/css/fonts/demo.css"
   },
   {
     "revision": "3b59e9fbec28a4ffcd66b956598d1400",
@@ -310,6 +298,18 @@ self.__precacheManifest = [
   {
     "revision": "521bdbb30ca34c7f0e51289240c11926",
     "url": "/css/fonts/iconfont.ttf"
+  },
+  {
+    "revision": "bf11fa67d6f6224ef3d45e4b7def593e",
+    "url": "/img/threejs/2.png"
+  },
+  {
+    "revision": "3f98b7554c4891979807a0e9a6c23283",
+    "url": "/img/threejs/5.png"
+  },
+  {
+    "revision": "735ab4f94fbcd57074377afca324c813",
+    "url": "/robots.txt"
   },
   {
     "revision": "665c588f43825d2207a90e1ce6b86542",
@@ -334,10 +334,6 @@ self.__precacheManifest = [
   {
     "revision": "ce03a0e77817436fb024a700d6c5272c",
     "url": "/js/dat.gui.min.js"
-  },
-  {
-    "revision": "029fd46438aa3167ef2901c2206e8709",
-    "url": "/css/download.zip"
   },
   {
     "revision": "e8854a67591f481310d1a49eaeca98f6",
@@ -372,15 +368,11 @@ self.__precacheManifest = [
     "url": "/css/fonts/SourceHanSansCN-Normal.ttf"
   },
   {
-    "revision": "415e506962fdedc7952572ea57cda7b8",
-    "url": "/css/Angular 打造企业级协作平台.zip"
+    "revision": "966cbb577b8f8a03d1280231552ea318",
+    "url": "/css/fonts/source_han_sans_cnNormal_Regular.json"
   },
   {
     "revision": "2c83235f2e5e6b686918dfcae9d66201",
     "url": "/css/fonts/source_han_sans_cnNormal_Regular.js"
-  },
-  {
-    "revision": "966cbb577b8f8a03d1280231552ea318",
-    "url": "/css/fonts/source_han_sans_cnNormal_Regular.json"
   }
 ];

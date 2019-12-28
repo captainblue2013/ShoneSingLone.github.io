@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/webgl4fun/precache-manifest.09545d9e8a31653ea1058bfa5d2a03cb.js"
+  "/webgl4fun/precache-manifest.966ad990032ae0f50fdf58b92a0e9a18.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "webgl"});

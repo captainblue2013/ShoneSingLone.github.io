@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div :is="currentComponent">hehehe</div>
+    </div>
+    <div id="script-group">
+        <script
+            id="script-main"
+            src="static/js/main.js"
+            data-baseurl="/"
+            data-entry="static/module/login/login.js">
+        </script>
+        <link rel="stylesheet/less" type="text/css" href="static/css/styles.less" />
+        <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.10.0-beta/less.min.js"></script>
+    </div>
+</body>
+
+</html>

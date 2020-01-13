@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "ShoneSingLone's micro site.",
   "scripts": {
-    "start": "gulp server"
+    "start": "gulp server",
+    "submodule:update": "git submodule update --remote"
   },
   "repository": {
     "type": "git",

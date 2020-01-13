@@ -1,3 +1,6 @@
 [submodule "var-admin"]
 	path = var-admin
 	url = https://github.com/ShoneSingLone/var-admin
+
+[submodule "var-admin"]
+	url = https://github.com/ShoneSingLone/var-admin
